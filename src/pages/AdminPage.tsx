@@ -7,11 +7,12 @@ import {
   ListChecks,
   MessageSquare,
   Lock,
-} from "lucide-react"; // THÊM `Lock`
+  SlidersHorizontal,
+} from "lucide-react"; // Thêm icon SlidersHorizontal
 import { parseQuizFromExcel } from "../utils/excelParser";
 import { useAppStore } from "../store/quizStore";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion"; // THÊM `AnimatePresence`
+import { motion, AnimatePresence } from "framer-motion";
 
 const AdminPage = () => {
   const { quizList, fetchQuizList, importQuiz, deleteQuiz } = useAppStore(
@@ -98,11 +99,11 @@ const AdminPage = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-100 p-4 sm:p-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+      className="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 sm:p-8 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto">
         <div className="relative mb-8 text-center">
@@ -113,10 +114,15 @@ const AdminPage = () => {
               className="w-12 h-12 cursor-pointer hover:scale-110 transition-transform duration-200"
             />
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800">
-            Bảng Điều Khiển Admin
-          </h1>
-          <p className="text-gray-500">Quản lý và import đề thi trắc nghiệm</p>
+          <div className="flex items-center justify-center gap-3">
+            <SlidersHorizontal className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+            <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
+              Bảng Điều Khiển Admin
+            </h1>
+          </div>
+          <p className="text-gray-500 dark:text-gray-400 mt-2">
+            Quản lý và import đề thi trắc nghiệm
+          </p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 max-w-xl mx-auto">

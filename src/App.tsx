@@ -1,4 +1,4 @@
-import { useEffect } from "react"; // Nhớ import useEffect
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useAppStore } from "./store/quizStore";
 import HomePage from "./pages/HomePage";
@@ -11,18 +11,14 @@ function App() {
   const location = useLocation();
   const theme = useAppStore((state) => state.theme);
 
-  // PHẦN LOGIC QUAN TRỌNG NHẤT NẰM Ở ĐÂY
   useEffect(() => {
-    const root = window.document.documentElement; // Đây là thẻ <html>
-    // Xóa class cũ (nếu có)
+    const root = window.document.documentElement;
     root.classList.remove(theme === "light" ? "dark" : "light");
-    // Thêm class mới
     root.classList.add(theme);
-  }, [theme]); // Chạy lại mỗi khi state `theme` thay đổi
+  }, [theme]);
 
   return (
-    // Bỏ class `theme` ở đây đi, vì ta đã quản lý nó ở thẻ <html> rồi
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
