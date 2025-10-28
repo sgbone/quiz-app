@@ -2,7 +2,10 @@ import { useState, useEffect, useRef } from "react";
 
 export const useQuizTimer = (isRunning: boolean) => {
   const [timeElapsed, setTimeElapsed] = useState(0);
-  const intervalRef = useRef<number | null>(null);
+
+  // SỬA LẠI DÒNG NÀY
+  // Bảo cho TypeScript biết ref này có thể là number (trình duyệt) hoặc NodeJS.Timeout (Node.js)
+  const intervalRef = useRef<number | NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isRunning) {
