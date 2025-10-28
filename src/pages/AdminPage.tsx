@@ -6,11 +6,12 @@ import {
   Trash2,
   ListChecks,
   MessageSquare,
-} from "lucide-react";
+  Lock,
+} from "lucide-react"; // THÊM `Lock`
 import { parseQuizFromExcel } from "../utils/excelParser";
 import { useAppStore } from "../store/quizStore";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion"; // THÊM `AnimatePresence`
 
 const AdminPage = () => {
   const { quizList, fetchQuizList, importQuiz, deleteQuiz } = useAppStore(
@@ -176,30 +177,49 @@ const AdminPage = () => {
                   className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-indigo-500 outline-none transition resize-none"
                 />
               </div>
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="protect"
-                  checked={isProtected}
-                  onChange={(e) => setIsProtected(e.target.checked)}
-                  className="h-4 w-4 rounded"
-                />
-                <label htmlFor="protect" className="text-gray-700">
-                  Yêu cầu mật khẩu
-                </label>
-              </div>
-              {isProtected && (
-                <div className="relative">
-                  <Key className="w-5 h-5 ..." />
+              <div className="bg-gray-50 rounded-lg p-4 border">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="protect-checkbox"
+                    className="text-gray-700 font-medium cursor-pointer"
+                  >
+                    <Lock size={16} className="inline-block mr-2" />
+                    Bảo vệ bằng mật khẩu
+                  </label>
                   <input
-                    type="text"
-                    placeholder="Đặt mật khẩu cho đề"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="..."
+                    type="checkbox"
+                    id="protect-checkbox"
+                    checked={isProtected}
+                    onChange={(e) => setIsProtected(e.target.checked)}
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                   />
                 </div>
-              )}
+                <AnimatePresence>
+                  {isProtected && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{
+                        opacity: 1,
+                        height: "auto",
+                        marginTop: "1rem",
+                      }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="relative">
+                        <Key className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="text"
+                          placeholder="Đặt mật khẩu cho đề..."
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          className="w-full pl-10 pr-4 py-2.5 rounded-md border-2 border-gray-200 focus:border-indigo-500 outline-none transition"
+                        />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
               <button
                 onClick={() => fileInputRef.current?.click()}
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold shadow-lg transition-all"

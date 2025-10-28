@@ -83,7 +83,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
 
     if (data.is_protected && data.password !== password) {
-      alert("Sai mật khẩu!");
+      // alert("Sai mật khẩu!");
       return false; // Báo cho UI biết là đã thất bại
     }
 
