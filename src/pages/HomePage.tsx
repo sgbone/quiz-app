@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../store/quizStore";
 import { QuizInfo } from "../types";
+import { supabase } from "../supabaseClient";
 import { BookCopy, CornerDownRight, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import SnowfallEffect from "../components/SnowfallEffect";
@@ -37,15 +38,35 @@ const HomePage = () => {
   const handlePasswordSubmit = async (password: string): Promise<boolean> => {
     if (!quizToUnlock) return false;
 
-    const success = await fetchQuizById(quizToUnlock.id, password);
-    if (success) {
-      setIsPasswordModalOpen(false);
-      navigate(`/quiz/${quizToUnlock.id}`);
-      return true;
-    }
-    return false;
-  };
+    try {
+      // GỌI EDGE FUNCTION ĐỂ XÁC THỰC
+      const { data, error } = await supabase.functions.invoke(
+        "verify-password",
+        {
+          body: { password },
+        }
+      );
 
+      if (error) throw error;
+
+      if (data.valid) {
+        // Pass đúng, fetch dữ liệu và chuyển trang
+        const success = await fetchQuizById(quizToUnlock.id);
+        if (success) {
+          setIsPasswordModalOpen(false);
+          navigate(`/quiz/${quizToUnlock.id}`);
+          return true;
+        }
+        return false;
+      } else {
+        // Pass sai
+        return false;
+      }
+    } catch (e) {
+      console.error("Error verifying password:", e);
+      return false;
+    }
+  };
   return (
     <>
       <motion.div

@@ -19,6 +19,5 @@ export interface QuizInfo {
   name: string;
   description?: string;
   is_protected?: boolean;
-  password?: string;
   questions: QuizQuestion[];
 }

@@ -1,6 +1,6 @@
 import create from "zustand";
 import { QuizQuestion, QuizInfo } from "../types";
-import { supabase } from "../supabaseClient"; // IMPORT SUPABASE
+import { supabase } from "../supabaseClient";
 
 interface AppState {
   theme: "light" | "dark";
@@ -14,12 +14,11 @@ interface AppState {
   // Actions
   toggleTheme: () => void;
   fetchQuizList: () => Promise<void>;
-  fetchQuizById: (quizId: number, password?: string) => Promise<boolean>;
+  fetchQuizById: (quizId: number) => Promise<boolean>;
   importQuiz: (
     quizName: string,
     description: string,
     isProtected: boolean,
-    password: string,
     questions: QuizQuestion[],
     adminKey: string
   ) => Promise<{ success: boolean; message: string }>;
@@ -69,7 +68,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
   },
 
-  fetchQuizById: async (quizId, password) => {
+  fetchQuizById: async (quizId) => {
     const { data, error } = await supabase
       .from("quizzes")
       .select("*")
@@ -78,13 +77,7 @@ export const useAppStore = create<AppState>((set, get) => ({
 
     if (error || !data) {
       console.error(error);
-      alert("Không thể tải đề thi. Vui lòng thử lại.");
       return false;
-    }
-
-    if (data.is_protected && data.password !== password) {
-      // alert("Sai mật khẩu!");
-      return false; // Báo cho UI biết là đã thất bại
     }
 
     set({
@@ -94,33 +87,26 @@ export const useAppStore = create<AppState>((set, get) => ({
       answers: {},
       showResults: {},
     });
-    return true; // Báo cho UI biết là thành công
+    return true;
   },
 
   importQuiz: async (
     quizName,
     description,
     isProtected,
-    password,
     questions,
     adminKey
   ) => {
+    // Bỏ password
     if (adminKey !== import.meta.env.VITE_ADMIN_KEY) {
       return { success: false, message: "Sai Admin Key!" };
     }
 
-    // Nếu không bảo vệ thì không lưu password
-    const quizPassword = isProtected ? password : null;
-
-    const { error } = await supabase.from("quizzes").insert([
-      {
-        name: quizName,
-        description,
-        is_protected: isProtected,
-        password: quizPassword,
-        questions,
-      },
-    ]);
+    const { error } = await supabase
+      .from("quizzes")
+      .insert([
+        { name: quizName, description, is_protected: isProtected, questions },
+      ]);
 
     if (error) {
       console.error("Error importing quiz:", error);
