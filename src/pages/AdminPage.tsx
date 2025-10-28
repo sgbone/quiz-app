@@ -7,7 +7,6 @@ import {
   ListChecks,
   MessageSquare,
   Lock,
-  Code,
 } from "lucide-react";
 import { parseQuizFromExcel } from "../utils/excelParser";
 import { useAppStore } from "../store/quizStore";
@@ -114,10 +113,8 @@ const AdminPage = () => {
               className="w-12 h-12 cursor-pointer hover:scale-110 transition-transform duration-200"
             />
           </Link>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <Code className="w-8 h-8 text-white" />
-            </div>
+          <div className="flex items-center justify-center gap-4 pt-12">
+            <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg"></div>
             <div className="text-left">
               <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
                 Bảng Điều Khiển Admin
