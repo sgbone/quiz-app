@@ -7,7 +7,6 @@ import {
   ListChecks,
   MessageSquare,
   Lock,
-  SlidersHorizontal,
 } from "lucide-react";
 import { parseQuizFromExcel } from "../utils/excelParser";
 import { useAppStore } from "../store/quizStore";
@@ -115,7 +114,6 @@ const AdminPage = () => {
             />
           </Link>
           <div className="flex flex-col items-center justify-center gap-3">
-            <SlidersHorizontal className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
             <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
               Bảng Điều Khiển Admin
             </h1>
