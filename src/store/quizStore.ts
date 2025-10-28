@@ -4,7 +4,7 @@ import { supabase } from "../supabaseClient"; // IMPORT SUPABASE
 
 interface AppState {
   theme: "light" | "dark";
-  quizList: Omit<QuizInfo, "questions">[];
+  quizList: Omit<QuizInfo, "questions" | "password">[];
   selectedQuiz: QuizInfo | null;
   currentQuestionIndex: number;
   answers: Record<number, string[]>;
@@ -14,10 +14,12 @@ interface AppState {
   // Actions
   toggleTheme: () => void;
   fetchQuizList: () => Promise<void>;
-  fetchQuizById: (quizId: number) => Promise<void>;
+  fetchQuizById: (quizId: number, password?: string) => Promise<boolean>;
   importQuiz: (
     quizName: string,
     description: string,
+    isProtected: boolean,
+    password: string,
     questions: QuizQuestion[],
     adminKey: string
   ) => Promise<{ success: boolean; message: string }>;
@@ -56,8 +58,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   fetchQuizList: async () => {
     const { data, error } = await supabase
       .from("quizzes")
-      .select("id, name, description")
-      .order("created_at", { ascending: false }); // Sắp xếp đề mới nhất lên đầu
+      .select("id, name, description, is_protected")
+      .order("created_at", { ascending: false });
 
     if (error) {
       console.error("Error fetching quiz list:", error);
@@ -67,33 +69,58 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
   },
 
-  fetchQuizById: async (quizId) => {
+  fetchQuizById: async (quizId, password) => {
     const { data, error } = await supabase
       .from("quizzes")
       .select("*")
       .eq("id", quizId)
       .single();
 
-    if (error) {
-      console.error(`Error fetching quiz ${quizId}:`, error);
-    } else if (data) {
-      set({
-        selectedQuiz: data as QuizInfo,
-        isQuizActive: true,
-        currentQuestionIndex: 0,
-        answers: {},
-        showResults: {},
-      });
+    if (error || !data) {
+      console.error(error);
+      alert("Không thể tải đề thi. Vui lòng thử lại.");
+      return false;
     }
+
+    if (data.is_protected && data.password !== password) {
+      alert("Sai mật khẩu!");
+      return false; // Báo cho UI biết là đã thất bại
+    }
+
+    set({
+      selectedQuiz: data as QuizInfo,
+      isQuizActive: true,
+      currentQuestionIndex: 0,
+      answers: {},
+      showResults: {},
+    });
+    return true; // Báo cho UI biết là thành công
   },
 
-  importQuiz: async (quizName, description, questions, adminKey) => {
+  importQuiz: async (
+    quizName,
+    description,
+    isProtected,
+    password,
+    questions,
+    adminKey
+  ) => {
     if (adminKey !== import.meta.env.VITE_ADMIN_KEY) {
       return { success: false, message: "Sai Admin Key!" };
     }
-    const { error } = await supabase
-      .from("quizzes")
-      .insert([{ name: quizName, description, questions }]);
+
+    // Nếu không bảo vệ thì không lưu password
+    const quizPassword = isProtected ? password : null;
+
+    const { error } = await supabase.from("quizzes").insert([
+      {
+        name: quizName,
+        description,
+        is_protected: isProtected,
+        password: quizPassword,
+        questions,
+      },
+    ]);
 
     if (error) {
       console.error("Error importing quiz:", error);

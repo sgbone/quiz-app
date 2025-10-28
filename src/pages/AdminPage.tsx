@@ -31,6 +31,9 @@ const AdminPage = () => {
     message: string;
   }>({ type: "info", message: "Sẵn sàng..." });
 
+  const [isProtected, setIsProtected] = useState(false);
+  const [password, setPassword] = useState("");
+
   useEffect(() => {
     fetchQuizList();
   }, [fetchQuizList]);
@@ -49,6 +52,8 @@ const AdminPage = () => {
       const result = await importQuiz(
         quizName,
         description,
+        isProtected,
+        password,
         questions,
         adminKey
       );
@@ -171,6 +176,30 @@ const AdminPage = () => {
                   className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-indigo-500 outline-none transition resize-none"
                 />
               </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="protect"
+                  checked={isProtected}
+                  onChange={(e) => setIsProtected(e.target.checked)}
+                  className="h-4 w-4 rounded"
+                />
+                <label htmlFor="protect" className="text-gray-700">
+                  Yêu cầu mật khẩu
+                </label>
+              </div>
+              {isProtected && (
+                <div className="relative">
+                  <Key className="w-5 h-5 ..." />
+                  <input
+                    type="text"
+                    placeholder="Đặt mật khẩu cho đề"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="..."
+                  />
+                </div>
+              )}
               <button
                 onClick={() => fileInputRef.current?.click()}
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold shadow-lg transition-all"

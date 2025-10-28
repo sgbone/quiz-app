@@ -1,20 +1,44 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../store/quizStore";
-import { Link } from "react-router-dom";
-import { BookCopy, CornerDownRight } from "lucide-react";
+import { QuizInfo } from "../types";
+import { BookCopy, CornerDownRight, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import SnowfallEffect from "../components/SnowfallEffect";
-import "./HomePage.css"; // IMPORT FILE CSS MỚI
+import "./HomePage.css";
+
+type QuizListItem = Omit<QuizInfo, "questions" | "password">;
 
 const HomePage = () => {
-  const { quizList, fetchQuizList } = useAppStore((state) => ({
+  const navigate = useNavigate();
+  const { quizList, fetchQuizList, fetchQuizById } = useAppStore((state) => ({
     quizList: state.quizList,
     fetchQuizList: state.fetchQuizList,
+    fetchQuizById: state.fetchQuizById,
   }));
 
   useEffect(() => {
     fetchQuizList();
   }, [fetchQuizList]);
+
+  const handleQuizClick = async (quiz: QuizListItem) => {
+    if (quiz.is_protected) {
+      const enteredPassword = window.prompt(
+        "Đề này yêu cầu mật khẩu. Vui lòng nhập:"
+      );
+      if (enteredPassword === null) return;
+
+      const success = await fetchQuizById(quiz.id, enteredPassword);
+      if (success) {
+        navigate(`/quiz/${quiz.id}`);
+      }
+    } else {
+      const success = await fetchQuizById(quiz.id);
+      if (success) {
+        navigate(`/quiz/${quiz.id}`);
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -26,7 +50,6 @@ const HomePage = () => {
     >
       <SnowfallEffect />
 
-      {/* SỬA LẠI LAYOUT CARD CHÍNH CHO CÂN ĐỐI HƠN */}
       <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 max-w-3xl w-full relative z-10 flex flex-col max-h-[85vh]">
         <div className="text-center mb-8 flex-shrink-0">
           <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -41,18 +64,25 @@ const HomePage = () => {
         <div className="space-y-4 overflow-y-auto min-h-0 pr-2">
           {quizList.length > 0 ? (
             quizList.map((quiz) => (
-              // ÁP DỤNG CẤU TRÚC HTML MỚI CHO HIỆU ỨNG VIỀN LED
-              <Link
+              <div
                 key={quiz.id}
-                to={`/quiz/${quiz.id}`}
-                className="quiz-item-wrapper block"
+                onClick={() => handleQuizClick(quiz)}
+                className="quiz-item-wrapper block cursor-pointer"
               >
                 <div className="quiz-item-content p-6">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h2 className="text-xl font-semibold text-gray-800">
-                        {quiz.name}
-                      </h2>
+                      <div className="flex items-center gap-2">
+                        {/* SỬA LẠI ĐÚNG CHỖ NÀY */}
+                        {quiz.is_protected && (
+                          <span title="Đề thi được bảo vệ">
+                            <Lock className="w-4 h-4 text-gray-500" />
+                          </span>
+                        )}
+                        <h2 className="text-xl font-semibold text-gray-800">
+                          {quiz.name}
+                        </h2>
+                      </div>
                       {quiz.description && (
                         <p className="text-sm text-gray-500 mt-1">
                           {quiz.description}
@@ -62,7 +92,7 @@ const HomePage = () => {
                     <CornerDownRight className="w-6 h-6 text-indigo-500 flex-shrink-0 ml-4" />
                   </div>
                 </div>
-              </Link>
+              </div>
             ))
           ) : (
             <p className="text-center text-gray-500 py-8">
