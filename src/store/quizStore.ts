@@ -1,15 +1,18 @@
 import create from "zustand";
 import { QuizQuestion, QuizInfo } from "../types";
+import { supabase } from "../supabaseClient"; // IMPORT SUPABASE
 
 interface AppState {
-  theme: "light" | "dark"; // Thêm state theme
+  theme: "light" | "dark";
   quizList: Omit<QuizInfo, "questions">[];
   selectedQuiz: QuizInfo | null;
   currentQuestionIndex: number;
   answers: Record<number, string[]>;
   showResults: Record<number, boolean>;
   isQuizActive: boolean;
-  toggleTheme: () => void; // Thêm action toggle
+
+  // Actions
+  toggleTheme: () => void;
   fetchQuizList: () => Promise<void>;
   fetchQuizById: (quizId: number) => Promise<void>;
   importQuiz: (
@@ -31,8 +34,7 @@ interface AppState {
   goHome: () => void;
 }
 
-const API_URL = "https://my-json-server.typicode.com/sgbone/quiz-app-db";
-
+// Lấy theme từ localStorage nếu có, nếu không mặc định là 'light'
 const initialTheme =
   (localStorage.getItem("theme") as "light" | "dark") || "light";
 
@@ -47,38 +49,41 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   toggleTheme: () => {
     const newTheme = get().theme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", newTheme); // Lưu theme vào localStorage
+    localStorage.setItem("theme", newTheme);
     set({ theme: newTheme });
   },
 
   fetchQuizList: async () => {
-    try {
-      const response = await fetch(`${API_URL}/quizzes`);
-      const data: QuizInfo[] = await response.json();
-      const quizList = data.map(({ id, name, description }) => ({
-        id,
-        name,
-        description,
-      }));
-      set({ quizList });
-    } catch (error) {
-      console.error("Failed to fetch quiz list:", error);
+    const { data, error } = await supabase
+      .from("quizzes")
+      .select("id, name, description")
+      .order("created_at", { ascending: false }); // Sắp xếp đề mới nhất lên đầu
+
+    if (error) {
+      console.error("Error fetching quiz list:", error);
+      set({ quizList: [] });
+    } else {
+      set({ quizList: data || [] });
     }
   },
 
   fetchQuizById: async (quizId) => {
-    try {
-      const response = await fetch(`${API_URL}/quizzes/${quizId}`);
-      const data: QuizInfo = await response.json();
+    const { data, error } = await supabase
+      .from("quizzes")
+      .select("*")
+      .eq("id", quizId)
+      .single();
+
+    if (error) {
+      console.error(`Error fetching quiz ${quizId}:`, error);
+    } else if (data) {
       set({
-        selectedQuiz: data,
+        selectedQuiz: data as QuizInfo,
         isQuizActive: true,
         currentQuestionIndex: 0,
         answers: {},
         showResults: {},
       });
-    } catch (error) {
-      console.error(`Failed to fetch quiz ${quizId}:`, error);
     }
   },
 
@@ -86,41 +91,37 @@ export const useAppStore = create<AppState>((set, get) => ({
     if (adminKey !== import.meta.env.VITE_ADMIN_KEY) {
       return { success: false, message: "Sai Admin Key!" };
     }
-    try {
-      const newQuiz = { name: quizName, description, questions };
-      const response = await fetch(`${API_URL}/quizzes`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newQuiz),
-      });
-      if (!response.ok) throw new Error("Server responded with an error");
-      await get().fetchQuizList();
-      return { success: true, message: "Import đề thành công!" };
-    } catch (error) {
-      console.error("Failed to import quiz:", error);
+    const { error } = await supabase
+      .from("quizzes")
+      .insert([{ name: quizName, description, questions }]);
+
+    if (error) {
+      console.error("Error importing quiz:", error);
       return { success: false, message: "Có lỗi xảy ra khi import." };
     }
+
+    await get().fetchQuizList();
+    return { success: true, message: "Import đề thành công!" };
   },
 
   deleteQuiz: async (quizId, adminKey) => {
     if (adminKey !== import.meta.env.VITE_ADMIN_KEY) {
       return { success: false, message: "Sai Admin Key!" };
     }
-    try {
-      const response = await fetch(`${API_URL}/quizzes/${quizId}`, {
-        method: "DELETE",
-      });
-      if (!response.ok) throw new Error("Server responded with an error");
+    const { error } = await supabase
+      .from("quizzes")
+      .delete()
+      .match({ id: quizId });
 
-      set((state) => ({
-        quizList: state.quizList.filter((quiz) => quiz.id !== quizId),
-      }));
-
-      return { success: true, message: "Đã xóa đề thành công!" };
-    } catch (error) {
-      console.error("Failed to delete quiz:", error);
+    if (error) {
+      console.error("Error deleting quiz:", error);
       return { success: false, message: "Có lỗi xảy ra khi xóa." };
     }
+
+    set((state) => ({
+      quizList: state.quizList.filter((quiz) => quiz.id !== quizId),
+    }));
+    return { success: true, message: "Đã xóa đề thành công!" };
   },
 
   selectAnswer: (questionId, optionLabel) => {
@@ -143,12 +144,15 @@ export const useAppStore = create<AppState>((set, get) => ({
     })),
 
   goToNextQuestion: () =>
-    set((state) => ({
-      currentQuestionIndex: Math.min(
-        state.selectedQuiz!.questions.length - 1,
-        state.currentQuestionIndex + 1
-      ),
-    })),
+    set((state) => {
+      if (!state.selectedQuiz) return {};
+      return {
+        currentQuestionIndex: Math.min(
+          state.selectedQuiz.questions.length - 1,
+          state.currentQuestionIndex + 1
+        ),
+      };
+    }),
 
   goToPrevQuestion: () =>
     set((state) => ({
