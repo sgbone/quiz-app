@@ -1,0 +1,156 @@
+{
+  "quizzes": [
+    {
+      "name": "Test",
+      "description": "Test nhe",
+      "questions": [
+        {
+          "id": 1,
+          "type": "single",
+          "question": "Thủ đô của Việt Nam là gì?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Hà Nội"
+            },
+            {
+              "label": "B",
+              "text": "TP. Hồ Chí Minh"
+            },
+            {
+              "label": "C",
+              "text": "Đà Nẵng"
+            },
+            {
+              "label": "D",
+              "text": "Huế"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "points": 1,
+          "explanation": "Thủ đô Việt Nam là Hà Nội.",
+          "image_url": ""
+        },
+        {
+          "id": 2,
+          "type": "multiple",
+          "question": "Chọn tất cả các ngôn ngữ lập trình bậc cao:",
+          "options": [
+            {
+              "label": "A",
+              "text": "C"
+            },
+            {
+              "label": "B",
+              "text": "Python"
+            },
+            {
+              "label": "C",
+              "text": "Assembly"
+            },
+            {
+              "label": "D",
+              "text": "JavaScript"
+            }
+          ],
+          "correct": [
+            "A",
+            "B",
+            "D"
+          ],
+          "points": 2,
+          "explanation": "Assembly là ngôn ngữ bậc thấp.",
+          "image_url": ""
+        },
+        {
+          "id": 3,
+          "type": "binary",
+          "question": "SSD nhanh hơn HDD về tốc độ đọc/ghi (Đúng/Sai)?",
+          "options": [
+            {
+              "label": "A",
+              "text": "Đúng"
+            },
+            {
+              "label": "B",
+              "text": "Sai"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "points": 1,
+          "explanation": "SSD có tốc độ đọc/ghi nhanh hơn do không có bộ phận cơ học.",
+          "image_url": ""
+        },
+        {
+          "id": 4,
+          "type": "single",
+          "question": "Trong mạng máy tính, giao thức nào dùng để truyền email?",
+          "options": [
+            {
+              "label": "A",
+              "text": "SMTP"
+            },
+            {
+              "label": "B",
+              "text": "HTTP"
+            },
+            {
+              "label": "C",
+              "text": "FTP"
+            },
+            {
+              "label": "D",
+              "text": "SSH"
+            }
+          ],
+          "correct": [
+            "A"
+          ],
+          "points": 1,
+          "explanation": "SMTP (Simple Mail Transfer Protocol) được dùng để gửi email.",
+          "image_url": ""
+        },
+        {
+          "id": 5,
+          "type": "multiple",
+          "question": "Chọn các số nguyên tố:",
+          "options": [
+            {
+              "label": "A",
+              "text": "2"
+            },
+            {
+              "label": "B",
+              "text": "4"
+            },
+            {
+              "label": "C",
+              "text": "5"
+            },
+            {
+              "label": "D",
+              "text": "9"
+            },
+            {
+              "label": "E",
+              "text": "11"
+            }
+          ],
+          "correct": [
+            "A",
+            "C",
+            "E"
+          ],
+          "points": 3,
+          "explanation": "4 và 9 không phải số nguyên tố.",
+          "image_url": ""
+        }
+      ],
+      "id": 1
+    }
+  ]
+}
