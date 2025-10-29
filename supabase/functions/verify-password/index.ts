@@ -8,6 +8,7 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
+  // Xử lý yêu cầu "thăm dò" (preflight) của trình duyệt
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -16,7 +17,6 @@ serve(async (req) => {
     const { password: userPassword } = await req.json();
     if (!userPassword) throw new Error("Password not provided");
 
-    // Dùng service_role key để có quyền đọc bảng system_config
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!

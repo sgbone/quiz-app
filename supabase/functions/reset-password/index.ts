@@ -8,6 +8,7 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
+  // Xử lý yêu cầu "thăm dò" (preflight) của trình duyệt
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
