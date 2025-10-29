@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Key, X, ArrowRight } from "lucide-react";
+import { Key, X, ArrowRight, Eye, EyeOff } from "lucide-react";
 
 interface PasswordModalProps {
   isOpen: boolean;
@@ -16,6 +16,7 @@ const PasswordModal = ({
   quizName,
 }: PasswordModalProps) => {
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -75,14 +76,25 @@ const PasswordModal = ({
               </p>
             </div>
             <form onSubmit={handleSubmit} className="mt-6">
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Nhập mật khẩu..."
-                autoFocus
-                className="w-full text-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border-2 border-transparent focus:border-indigo-500 focus:ring-0 rounded-lg px-4 py-3 transition"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"} // Thay đổi type
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Nhập mật khẩu..."
+                  autoFocus
+                  className="w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border-2 border-transparent focus:border-indigo-500 focus:ring-0 rounded-lg px-4 py-3 pr-10 transition" // Thêm pr-10
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  title={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
+
               <button
                 type="submit"
                 disabled={isLoading}
