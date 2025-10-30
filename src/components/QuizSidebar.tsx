@@ -91,9 +91,6 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
 
   if (!selectedQuiz) return null;
 
-  const progress =
-    ((currentQuestionIndex + 1) / selectedQuiz.questions.length) * 100;
-
   return (
     <>
       <aside className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-3xl p-6 flex flex-col transition-colors duration-300">
@@ -138,14 +135,29 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
           <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
             <span>Tiến độ</span>
             <span>
-              {currentQuestionIndex + 1}/{selectedQuiz.questions.length}
+              {Object.keys(results).length}/{selectedQuiz.questions.length}
             </span>
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-            <div
-              className="bg-indigo-600 h-2.5 rounded-full"
-              style={{ width: `${progress}%` }}
-            ></div>
+          <div className="flex w-full h-2.5 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
+            {selectedQuiz.questions.map((question, index) => {
+              const hasResult = results[question.id] !== undefined;
+              const isCorrect = results[question.id];
+              let segmentColor = "bg-transparent";
+
+              if (hasResult) {
+                segmentColor = isCorrect ? "bg-green-500" : "bg-red-500";
+              } else if (index === currentQuestionIndex) {
+                segmentColor = "bg-indigo-600 animate-pulse";
+              }
+
+              return (
+                <div
+                  key={question.id}
+                  className={`h-full ${segmentColor} transition-colors duration-500`}
+                  style={{ flex: 1 }}
+                ></div>
+              );
+            })}
           </div>
         </div>
 
@@ -155,7 +167,6 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
           </h3>
           <div className="grid grid-cols-7 gap-2">
             {selectedQuiz.questions.map((question, index) => {
-              // LOGIC MỚI ĐỂ XÁC ĐỊNH MÀU SẮC
               const isCurrent = currentQuestionIndex === index;
               const hasResult = results[question.id] !== undefined;
               const isCorrect = results[question.id];
@@ -165,13 +176,13 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
 
               if (hasResult) {
                 buttonClass = isCorrect
-                  ? "bg-green-500 hover:bg-green-600 text-white" // Màu xanh khi đúng
-                  : "bg-red-500 hover:bg-red-600 text-white"; // Màu đỏ khi sai
+                  ? "bg-green-500 hover:bg-green-600 text-white"
+                  : "bg-red-500 hover:bg-red-600 text-white";
               }
 
               if (isCurrent) {
                 buttonClass =
-                  "bg-indigo-600 text-white shadow-lg ring-2 ring-white/50"; // Màu xanh dương cho câu hiện tại, luôn đè lên các màu khác
+                  "bg-indigo-600 text-white shadow-lg ring-2 ring-white/50";
               }
 
               return (
