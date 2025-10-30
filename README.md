@@ -1,91 +1,127 @@
-# 🚀 Chữa Đề Trắc Nghiệm - DoanhNhanFU 0.10
+<div align="center">
+  <img src="./public/DoanhNhanFPTU.png" alt="App Logo" width="120" />
 
-Một ứng dụng ôn tập trắc nghiệm hiện đại, cho phép người dùng import đề thi từ file Excel, luyện tập với giao diện chuyên nghiệp và quản lý đề thi một cách dễ dàng.
+  <h1 align="center">Chữa Đề | DoanhNhanFU 0.10</h1>
+  
+  <p align="center">
+    Nền tảng ôn tập trắc nghiệm thế hệ mới, được thiết kế để mang lại trải nghiệm luyện đề mượt mà, trực quan và hiệu quả.
+  </p>
+  
+  <p align="center">
+    <a href="https://chuade.vercel.app/"><strong>Truy cập Trang Web »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code]/issues">Báo Lỗi</a>
+    ·
+    <a href="https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code]/issues">Yêu Cầu Tính Năng</a>
+  </p>
 
-## ✨ Tính Năng Nổi Bật
+[![Vercel Status](https://vercel-badge-next.vercel.app/api/app?name=[Tên-project-Vercel])](https://chuade.vercel.app/)
+[![GitHub License](https://img.shields.io/github/license/[Tên-GitHub-của-mày]/[Tên-repo-code]?style=for-the-badge)](./LICENSE)
+[![Discord](https://img.shields.io/discord/YOUR_SERVER_ID?logo=discord&style=for-the-badge)](https://discord.gg/PXdAXnyUDR)
 
-- **📤 Import Đề Từ Excel:** Dễ dàng tạo và quản lý hàng trăm câu hỏi chỉ với một file Excel theo format đơn giản.
-- **📚 Quản Lý Đề Thi:** Giao diện Admin cho phép thêm (kèm mô tả), xem danh sách và xóa các đề thi.
-- **🔐 Bảo Mật Admin:** Trang quản trị được bảo vệ bằng Admin Key lưu trong biến môi trường.
-- **💅 Giao Diện Hiện Đại:**
-  - Thiết kế responsive, tối ưu cho cả desktop và mobile.
-  - Hiệu ứng viền LED RGB "chất chơi" cho danh sách đề.
-  - Hiệu ứng chuyển trang, chuyển câu hỏi mượt mà với Framer Motion.
-  - Hiệu ứng hoa rơi (snowflakes) làm nền thư giãn.
-- **☀️/🌙 Chế Độ Sáng/Tối:** Tự động lưu lựa chọn của người dùng vào trình duyệt.
-- **⌨️ Hỗ Trợ Phím Tắt:** Thao tác nhanh hơn với hệ thống phím tắt tiện lợi (chọn đáp án, chuyển câu, mở bảng phím tắt...).
-- **🗺️ Bản Đồ Câu Hỏi:** Dễ dàng theo dõi tiến độ và nhảy đến bất kỳ câu hỏi nào.
+</div>
 
-## 🛠️ Công Nghệ Sử Dụng
+---
 
-- **Frontend:** [React](https://reactjs.org/) + [Vite](https://vitejs.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **State Management:** [Zustand](https://github.com/pmndrs/zustand)
-- **Animation:** [Framer Motion](https://www.framer.com/motion/)
-- **Routing:** [React Router DOM](https://reactrouter.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Backend (Mock API):** [My JSON Server](https://my-json-server.typicode.com/)
-- **Deployment:** [Vercel](https://vercel.com/)
+### Về Dự Án
 
-## 🚀 Bắt Đầu Nhanh
+`Chữa Đề` không chỉ là một ứng dụng trắc nghiệm thông thường. Nó là một nền tảng được xây dựng với tư duy của người học, tập trung vào trải nghiệm người dùng và hiệu quả ôn tập. Từ việc dễ dàng tạo đề bằng Excel, luyện tập với giao diện "không phiền nhiễu", cho đến các tính năng "thưởng" như pháo hoa, mọi thứ đều được thiết kế để biến việc học trở nên thú vị hơn.
 
-### 1. Điều kiện cần
+![Screenshot Giao Diện Chính](./public/chuade.png)
 
-- [Node.js](https://nodejs.org/) (phiên bản 16.x trở lên)
-- Một tài khoản GitHub
+### ✨ Tính Năng Nổi Bật
 
-### 2. Cài Đặt Phía Backend (Mock API)
+- **⚡ Hiệu Năng Vượt Trội:** Xây dựng trên nền tảng **Vite** + **React**, đảm bảo tốc độ tải trang và phản hồi gần như tức thì.
+- **💅 Giao Diện "Gây Nghiện":**
+  - Thiết kế responsive, tối giản, tập trung hoàn toàn vào nội dung.
+  - Chế độ **Sáng/Tối** mượt mà, tự động lưu lựa chọn người dùng.
+  - Hàng loạt hiệu ứng tinh tế: _hoa rơi_, _nền ma trận_, _viền LED RGB_, _chuyển trang/câu hỏi_,... được xây dựng bằng **Framer Motion** và CSS thuần.
+- **🧠 Trải Nghiệm Luyện Đề Thông Minh:**
+  - Bản đồ câu hỏi trực quan, tô màu theo kết quả **Đúng (Xanh)** / **Sai (Đỏ)**.
+  - Hỗ trợ phím tắt toàn diện, cho phép "cày đề" mà không cần dùng chuột.
+  - **Hiệu ứng pháo hoa** mãn nhãn để "thưởng" cho mỗi câu trả lời đúng và khi hoàn thành bài.
+- **🔐 Quản Trị & Bảo Mật:**
+  - Hệ thống Admin Dashboard để quản lý (Thêm/Xóa) đề thi.
+  - Dễ dàng tạo và import đề từ file **Excel**.
+  - Hệ thống mật khẩu chung, tự động **reset mỗi ngày** và thông báo qua **Discord Webhook** nhờ **Supabase Edge Functions** & **Cron Jobs**.
 
-1.  Tạo một kho chứa (repository) **public** mới trên GitHub (ví dụ: `quiz-app-db`).
-2.  Tạo một file `db.json` trong kho chứa đó với nội dung:
-    ```json
-    {
-      "quizzes": []
-    }
-    ```
-3.  Địa chỉ API của bạn sẽ là `https://my-json-server.typicode.com/[Tên-GitHub]/[Tên-repo]`.
+---
 
-### 3. Cài Đặt Phía Frontend
+### 🚀 Cài Đặt và Chạy Project
 
-1.  Clone kho chứa này về máy:
+Dự án này bao gồm một Frontend (React) và sử dụng Supabase làm Backend.
+
+#### Yêu Cầu
+
+- Node.js (v18.x+)
+- Tài khoản [Supabase](https://supabase.com)
+- Tài khoản [Vercel](https://vercel.com)
+- Một Discord Webhook URL (tùy chọn)
+
+#### Hướng Dẫn
+
+1.  **Clone Kho Chứa:**
+
     ```bash
-    git clone https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code-react].git
+    git clone https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code].git
+    cd [Tên-repo-code]
     ```
-2.  Di chuyển vào thư mục project:
-    ```bash
-    cd [Tên-repo-code-react]
-    ```
-3.  Cài đặt các gói phụ thuộc:
+
+2.  **Cài Đặt Các Gói Phụ Thuộc:**
+
     ```bash
     npm install
     ```
-4.  Tạo file `.env.local` ở thư mục gốc và thêm các biến môi trường:
 
-    ```
-    # Thay bằng địa chỉ API bạn đã tạo ở trên
-    VITE_API_URL=https://my-json-server.typicode.com/[Tên-GitHub]/[Tên-repo-db]
+3.  **Thiết Lập Supabase:**
 
-    # Đặt mật khẩu admin của bạn
-    VITE_ADMIN_KEY= mật-khẩu-siêu-bí-mật
-    ```
+    - Tạo project mới trên Supabase.
+    - Tạo 2 bảng `quizzes` và `system_config` theo cấu trúc đã định nghĩa trong dự án.
+    - Vào `Authentication -> Policies` và thiết lập các policy cho phép `SELECT`, `INSERT`, `DELETE` trên bảng `quizzes`.
+    - Tạo các **Edge Functions** (`reset-password`, `verify-password`) và thiết lập **Cron Job** để reset mật khẩu.
 
-    _Lưu ý: Bạn cần sửa lại `API_URL` trong file `src/store/quizStore.ts` để trỏ đúng vào biến môi trường này._
+4.  **Cấu Hình Biến Môi Trường:**
 
-5.  Chạy project ở chế độ development:
+    - Tạo file `.env.local` ở thư mục gốc.
+    - Điền các thông tin sau:
+
+      ```env
+      # Lấy từ Project Settings > API trong Supabase
+      VITE_SUPABASE_URL="https://your-project-url.supabase.co"
+      VITE_SUPABASE_ANON_KEY="your-anon-public-key"
+
+      # Mật khẩu để truy cập Admin Dashboard
+      VITE_ADMIN_KEY="your-secret-admin-key"
+
+      # Link webhook của kênh Discord
+      DISCORD_WEBHOOK_URL="your-discord-webhook-url"
+      ```
+
+    - Bạn cũng cần set `DISCORD_WEBHOOK_URL` trong **Supabase Secrets** để Edge Function có thể sử dụng.
+
+5.  **Chạy Project:**
     ```bash
     npm run dev
     ```
-    Mở trình duyệt và truy cập `http://localhost:5173`.
 
-## 🚢 Deploy Lên Vercel
+---
 
-Dự án này được tối ưu để deploy trên Vercel một cách dễ dàng:
+### 🛠️ Bộ "Đồ Nghề" Công Nghệ
 
-1.  Push code của bạn lên một kho chứa GitHub.
-2.  Import kho chứa đó vào Vercel.
-3.  Thêm các biến môi trường (`VITE_API_URL`, `VITE_ADMIN_KEY`) trong phần cài đặt của project trên Vercel.
-4.  Bấm **Deploy** và tận hưởng thành quả!
+| Loại           | Công Nghệ                                                                                                                                                                                        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Framework**  | ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) ![Vite](https://img.shields.io/badge/-Vite-646CFF?style=flat-square&logo=vite&logoColor=white) |
+| **Ngôn Ngữ**   | ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)                                                                                 |
+| **Styling**    | ![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)                                                                             |
+| **Backend**    | ![Supabase](https://img.shields.io/badge/-Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)                                                                                       |
+| **Animation**  | ![Framer Motion](https://img.shields.io/badge/-Framer%20Motion-0055FF?style=flat-square&logo=framer&logoColor=white)                                                                             |
+| **Deployment** | ![Vercel](https://img.shields.io/badge/-Vercel-black?style=flat-square&logo=vercel&logoColor=white)                                                                                              |
 
-## ©️ Copyright
+---
 
-Copyright © 2025 Doanh Nhan FU 0.10.
+### ©️ Copyright
+
+Một sản phẩm được xây dựng với niềm đam mê. Copyright © 2025 **Doanh Nhân FU 0.10**.
+
+Dự án này là một hành trình học hỏi và phát triển. Cảm ơn bạn đã ghé thăm!

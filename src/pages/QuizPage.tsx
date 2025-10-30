@@ -6,6 +6,7 @@ import QuestionCard from "../components/QuestionCard";
 import QuizSidebar from "../components/QuizSidebar";
 import HotkeysModal from "../components/HotkeysModal";
 import QuestionNavigation from "../components/QuestionNavigation";
+import ConfettiCannon from "../components/ConfettiCannon";
 import { AnimatePresence } from "framer-motion";
 import SnowfallEffect from "../components/SnowfallEffect";
 
@@ -51,6 +52,7 @@ const QuizPage = () => {
 
   return (
     <div className="p-4 h-full flex justify-center overflow-hidden">
+      <ConfettiCannon />
       <SnowfallEffect />
 
       <div className="max-w-7xl w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6">

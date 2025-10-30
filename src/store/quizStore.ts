@@ -11,6 +11,8 @@ interface AppState {
   showResults: Record<number, boolean>;
   results: Record<number, boolean>;
   isQuizActive: boolean;
+  lastCorrectAnswerId: number | null;
+  isQuizCompleted: boolean;
 
   // Actions
   toggleTheme: () => void;
@@ -34,6 +36,7 @@ interface AppState {
   goToQuestion: (questionIndex: number) => void;
   resetCurrentQuiz: () => void;
   resetCurrentQuestion: () => void;
+  clearConfettiTriggers: () => void;
   goHome: () => void;
 }
 
@@ -50,6 +53,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   showResults: {},
   results: {},
   isQuizActive: false,
+  lastCorrectAnswerId: null,
+  isQuizCompleted: false,
 
   toggleTheme: () => {
     const newTheme = get().theme === "light" ? "dark" : "light";
@@ -165,11 +170,22 @@ export const useAppStore = create<AppState>((set, get) => ({
       userAnswers.every((a) => question.correct.includes(a)) &&
       userAnswers.length > 0;
 
-    set((state) => ({
-      showResults: { ...state.showResults, [questionId]: true },
-      results: { ...state.results, [questionId]: isCorrect }, // LƯU KẾT QUẢ VÀO ĐÂY
-    }));
+    set((state) => {
+      const newResults = { ...state.results, [questionId]: isCorrect };
+      const totalAnswered = Object.keys(newResults).length;
+      const totalQuestions = state.selectedQuiz?.questions.length || 0;
+
+      return {
+        showResults: { ...state.showResults, [questionId]: true },
+        results: newResults,
+        // Bật "công tắc" tương ứng
+        lastCorrectAnswerId: isCorrect ? questionId : null,
+        isQuizCompleted: totalAnswered === totalQuestions,
+      };
+    });
   },
+  clearConfettiTriggers: () =>
+    set({ lastCorrectAnswerId: null, isQuizCompleted: false }),
 
   goToNextQuestion: () =>
     set((state) => {
@@ -231,6 +247,8 @@ export const useAppStore = create<AppState>((set, get) => ({
       answers: {},
       showResults: {},
       results: {},
+      lastCorrectAnswerId: null,
+      isQuizCompleted: false,
     })),
 
   goHome: () => set({ isQuizActive: false, selectedQuiz: null }),
