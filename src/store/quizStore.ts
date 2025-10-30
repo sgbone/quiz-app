@@ -9,6 +9,7 @@ interface AppState {
   currentQuestionIndex: number;
   answers: Record<number, string[]>;
   showResults: Record<number, boolean>;
+  results: Record<number, boolean>;
   isQuizActive: boolean;
 
   // Actions
@@ -33,6 +34,7 @@ interface AppState {
   goToQuestion: (questionIndex: number) => void;
   resetCurrentQuiz: () => void;
   goHome: () => void;
+  resetCurrentQuestion: (questionId: number) => void;
 }
 
 // Lấy theme từ localStorage nếu có, nếu không mặc định là 'light'
@@ -46,6 +48,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   currentQuestionIndex: 0,
   answers: {},
   showResults: {},
+  results: {},
   isQuizActive: false,
 
   toggleTheme: () => {
@@ -151,10 +154,22 @@ export const useAppStore = create<AppState>((set, get) => ({
     set({ answers: { ...answers, [questionId]: newAnswers } });
   },
 
-  checkAnswer: (questionId) =>
+  checkAnswer: (questionId) => {
+    const { selectedQuiz, answers } = get();
+    const question = selectedQuiz?.questions.find((q) => q.id === questionId);
+    if (!question) return;
+
+    const userAnswers = answers[questionId] || [];
+    const isCorrect =
+      userAnswers.length === question.correct.length &&
+      userAnswers.every((a) => question.correct.includes(a)) &&
+      userAnswers.length > 0;
+
     set((state) => ({
       showResults: { ...state.showResults, [questionId]: true },
-    })),
+      results: { ...state.results, [questionId]: isCorrect }, // LƯU KẾT QUẢ VÀO ĐÂY
+    }));
+  },
 
   goToNextQuestion: () =>
     set((state) => {
@@ -183,11 +198,39 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
   },
 
+  resetCurrentQuestion: () => {
+    const { selectedQuiz, currentQuestionIndex } = get();
+    if (!selectedQuiz) return;
+
+    const currentQuestionId = selectedQuiz.questions[currentQuestionIndex].id;
+
+    set((state) => {
+      // Tạo bản sao của các object state để tránh mutate
+      const newAnswers = { ...state.answers };
+      const newShowResults = { ...state.showResults };
+      const newResults = { ...state.results };
+
+      // Xóa thông tin của câu hỏi hiện tại
+      delete newAnswers[currentQuestionId];
+      delete newShowResults[currentQuestionId];
+      delete newResults[currentQuestionId];
+
+      // Cách trả về đúng: Chỉ cập nhật những state đã thay đổi
+      return {
+        ...state, // GIỮ LẠI TẤT CẢ CÁC STATE CŨ KHÁC
+        answers: newAnswers,
+        showResults: newShowResults,
+        results: newResults,
+      };
+    });
+  },
+
   resetCurrentQuiz: () =>
     set(() => ({
       currentQuestionIndex: 0,
       answers: {},
       showResults: {},
+      results: {},
     })),
 
   goHome: () => set({ isQuizActive: false, selectedQuiz: null }),

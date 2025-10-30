@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAppStore } from "../store/quizStore";
 import { QuizInfo } from "../types";
 import { supabase } from "../supabaseClient";
@@ -7,11 +7,11 @@ import { BookCopy, CornerDownRight, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import SnowfallEffect from "../components/SnowfallEffect";
 import PasswordModal from "../components/PasswordModal";
-import "./HomePage.css";
+import "./SelectExamPage.css";
 
 type QuizListItem = Omit<QuizInfo, "questions" | "password">;
 
-const HomePage = () => {
+const SelectExamPage = () => {
   const navigate = useNavigate();
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
   const [quizToUnlock, setQuizToUnlock] = useState<QuizListItem | null>(null);
@@ -39,7 +39,6 @@ const HomePage = () => {
     if (!quizToUnlock) return false;
 
     try {
-      // GỌI EDGE FUNCTION ĐỂ XÁC THỰC
       const { data, error } = await supabase.functions.invoke(
         "verify-password",
         {
@@ -50,7 +49,6 @@ const HomePage = () => {
       if (error) throw error;
 
       if (data.valid) {
-        // Pass đúng, fetch dữ liệu và chuyển trang
         const success = await fetchQuizById(quizToUnlock.id);
         if (success) {
           setIsPasswordModalOpen(false);
@@ -59,7 +57,6 @@ const HomePage = () => {
         }
         return false;
       } else {
-        // Pass sai
         return false;
       }
     } catch (e) {
@@ -104,14 +101,14 @@ const HomePage = () => {
                       <div>
                         <div className="flex items-center gap-2">
                           {quiz.is_protected && (
-                            <Lock className="w-4 h-4 text-gray-500" />
+                            <Lock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                           )}
-                          <h2 className="text-xl font-semibold text-gray-800">
+                          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                             {quiz.name}
-                          </h2>
+                          </h3>
                         </div>
                         {quiz.description && (
-                          <p className="text-sm text-gray-500 mt-1">
+                          <p className="text-sm text-gray-500 dark:text-gray-300 mt-1">
                             {quiz.description}
                           </p>
                         )}
@@ -122,9 +119,16 @@ const HomePage = () => {
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-500 py-8">
-                Chưa có đề nào được import. Hãy vào trang Admin để thêm đề.
-              </p>
+              <div className="text-center text-gray-400 py-8 bg-black/20 rounded-lg">
+                <p>Chưa có đề nào được import.</p>
+                <p className="mt-2">
+                  Hãy vào{" "}
+                  <Link to="/admin" className="text-indigo-400 hover:underline">
+                    trang Admin
+                  </Link>{" "}
+                  để thêm đề.
+                </p>
+              </div>
             )}
           </div>
         </div>
@@ -139,4 +143,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default SelectExamPage;

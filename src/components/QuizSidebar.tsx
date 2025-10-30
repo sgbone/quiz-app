@@ -15,6 +15,7 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
   const {
     selectedQuiz,
     currentQuestionIndex,
+    results,
     answers,
     showResults,
     isQuizActive,
@@ -24,6 +25,7 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
   } = useAppStore((state) => ({
     selectedQuiz: state.selectedQuiz,
     currentQuestionIndex: state.currentQuestionIndex,
+    results: state.results,
     answers: state.answers,
     showResults: state.showResults,
     isQuizActive: state.isQuizActive,
@@ -47,7 +49,7 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
       message: "Bạn có chắc muốn thoát? Mọi tiến trình sẽ bị mất.",
       onConfirm: () => {
         goHome();
-        navigate("/");
+        navigate("/select-exam");
       },
     });
   };
@@ -152,19 +154,36 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
             Bản đồ câu hỏi
           </h3>
           <div className="grid grid-cols-7 gap-2">
-            {selectedQuiz.questions.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToQuestion(index)}
-                className={`w-full aspect-square rounded-lg font-semibold transition-colors duration-300 ${
-                  currentQuestionIndex === index
-                    ? "bg-indigo-600 text-white shadow-lg"
-                    : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
+            {selectedQuiz.questions.map((question, index) => {
+              // LOGIC MỚI ĐỂ XÁC ĐỊNH MÀU SẮC
+              const isCurrent = currentQuestionIndex === index;
+              const hasResult = results[question.id] !== undefined;
+              const isCorrect = results[question.id];
+
+              let buttonClass =
+                "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600";
+
+              if (hasResult) {
+                buttonClass = isCorrect
+                  ? "bg-green-500 hover:bg-green-600 text-white" // Màu xanh khi đúng
+                  : "bg-red-500 hover:bg-red-600 text-white"; // Màu đỏ khi sai
+              }
+
+              if (isCurrent) {
+                buttonClass =
+                  "bg-indigo-600 text-white shadow-lg ring-2 ring-white/50"; // Màu xanh dương cho câu hiện tại, luôn đè lên các màu khác
+              }
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => goToQuestion(index)}
+                  className={`w-full aspect-square rounded-lg font-semibold transition-colors duration-300 ${buttonClass}`}
+                >
+                  {index + 1}
+                </button>
+              );
+            })}
           </div>
         </div>
 

@@ -6,7 +6,7 @@
 
 .quiz-item-wrapper {
   position: relative;
-  padding: 2px; /* Độ dày của viền LED */
+  padding: 3px;
   border-radius: 1.2rem;
   overflow: hidden;
   transition: transform 0.2s ease-in-out;
@@ -24,17 +24,15 @@
   width: 200%;
   height: 200%;
   z-index: 1;
-
-  /* Tạo một "vệt sáng" (comet) thay vì dải màu full */
   background: conic-gradient(
     from var(--angle),
     transparent 0%,
     transparent 40%,
-    /* Đuôi của vệt sáng sẽ mờ */ #00ffff,
-    /* Bắt đầu màu xanh cyan */ #ff00ff,
-    /* Chuyển sang màu hồng ở đỉnh */ #ffff00,
-    /* Chuyển sang màu vàng */ transparent 60%,
-    /* Bắt đầu mờ dần đi */ transparent 100%
+    #00ffff,
+    #ff00ff,
+    #ffff00,
+    transparent 60%,
+    transparent 100%
   );
 
   animation: run-around 4s linear infinite;
@@ -43,11 +41,15 @@
 .quiz-item-content {
   position: relative;
   z-index: 2;
-  background-color: white;
   border-radius: 1rem;
+  transition: background-color 0.3s ease-in-out;
+  background-color: white;
 }
 
-/* Animation mới chỉ thay đổi biến --angle */
+.dark .quiz-item-content {
+  background-color: #111827;
+}
+
 @keyframes run-around {
   to {
     --angle: 360deg;

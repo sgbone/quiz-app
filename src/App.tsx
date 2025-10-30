@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useAppStore } from "./store/quizStore";
-import HomePage from "./pages/HomePage";
+import WelcomePage from "./pages/WelcomePage";
+import SelectExamPage from "./pages/SelectExamPage";
 import QuizPage from "./pages/QuizPage";
 import AdminPage from "./pages/AdminPage";
 import Footer from "./components/Footer";
@@ -22,7 +23,8 @@ function App() {
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<WelcomePage />} />
+            <Route path="/select-exam" element={<SelectExamPage />} />
             <Route path="/quiz/:quizId" element={<QuizPage />} />
             <Route path="/admin" element={<AdminPage />} />
           </Routes>

@@ -5,6 +5,7 @@ import { useQuizHotkeys } from "../hooks/useQuizHotkeys";
 import QuestionCard from "../components/QuestionCard";
 import QuizSidebar from "../components/QuizSidebar";
 import HotkeysModal from "../components/HotkeysModal";
+import QuestionNavigation from "../components/QuestionNavigation";
 import { AnimatePresence } from "framer-motion";
 import SnowfallEffect from "../components/SnowfallEffect";
 
@@ -57,6 +58,7 @@ const QuizPage = () => {
           <AnimatePresence mode="wait">
             <QuestionCard key={currentQuestion.id} question={currentQuestion} />
           </AnimatePresence>
+          <QuestionNavigation />
         </div>
 
         <div className="lg:col-span-1">
