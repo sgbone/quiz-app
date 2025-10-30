@@ -11,14 +11,14 @@
     <a href="https://chuade.vercel.app/"><strong>Truy cập Trang Web »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code]/issues">Báo Lỗi</a>
+    <a href="https://github.com/sgbone/quiz-app/issues">Báo Lỗi</a>
     ·
-    <a href="https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code]/issues">Yêu Cầu Tính Năng</a>
+    <a href="https://github.com/sgbone/quiz-app/issues">Yêu Cầu Tính Năng</a>
   </p>
 
-[![Vercel Status](https://vercel-badge-next.vercel.app/api/app?name=[Tên-project-Vercel])](https://chuade.vercel.app/)
-[![GitHub License](https://img.shields.io/github/license/[Tên-GitHub-của-mày]/[Tên-repo-code]?style=for-the-badge)](./LICENSE)
-[![Discord](https://img.shields.io/discord/YOUR_SERVER_ID?logo=discord&style=for-the-badge)](https://discord.gg/PXdAXnyUDR)
+[![Vercel Status](https://vercel-badge-next.vercel.app/api/app?name=chuade)](https://chuade.vercel.app/)
+[![GitHub License](https://img.shields.io/github/license/sgbone/quiz-app?style=for-the-badge)](./LICENSE)
+[![Discord](https://img.shields.io/discord/1431166259789041716?logo=discord&style=for-the-badge)](https://discord.gg/PXdAXnyUDR)
 
 </div>
 
@@ -64,8 +64,8 @@ Dự án này bao gồm một Frontend (React) và sử dụng Supabase làm Bac
 1.  **Clone Kho Chứa:**
 
     ```bash
-    git clone https://github.com/[Tên-GitHub-của-mày]/[Tên-repo-code].git
-    cd [Tên-repo-code]
+    git clone https://github.com/sgbone/quiz-app.git
+    cd quiz-app
     ```
 
 2.  **Cài Đặt Các Gói Phụ Thuộc:**
