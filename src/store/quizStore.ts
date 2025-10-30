@@ -33,8 +33,8 @@ interface AppState {
   goToPrevQuestion: () => void;
   goToQuestion: (questionIndex: number) => void;
   resetCurrentQuiz: () => void;
+  resetCurrentQuestion: () => void;
   goHome: () => void;
-  resetCurrentQuestion: (questionId: number) => void;
 }
 
 // Lấy theme từ localStorage nếu có, nếu không mặc định là 'light'
