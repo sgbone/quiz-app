@@ -62,7 +62,7 @@ const QuestionNavigation = () => {
             exit={{ opacity: 0, scale: 0.5 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={resetCurrentQuestion}
+            onClick={() => resetCurrentQuestion}
             className="bg-white dark:bg-gray-800 text-amber-600 dark:text-amber-400 border-2 border-amber-500/50 dark:border-amber-400/50
                        py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-amber-500/20 dark:hover:shadow-amber-400/10
                        transition-shadow duration-200 flex items-center justify-center gap-2"
