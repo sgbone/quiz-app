@@ -16,9 +16,9 @@
     <a href="https://github.com/sgbone/quiz-app/issues">Yêu Cầu Tính Năng</a>
   </p>
 
-[![Vercel Status](https://vercel-badge-next.vercel.app/api/app?name=chuade)](https://chuade.vercel.app/)
-[![GitHub License](https://img.shields.io/github/license/sgbone/quiz-app?style=for-the-badge)](./LICENSE)
-[![Discord](https://img.shields.io/discord/1431166259789041716?logo=discord&style=for-the-badge)](https://discord.gg/PXdAXnyUDR)
+[![Vercel Deployment](https://img.shields.io/vercel/deployment/sgbone/quiz-app/main?style=for-the-badge&logo=vercel)](https://chuade.vercel.app/)
+[![GitHub License](https://img.shields.io/github/license/sgbone/quiz-app?style=for-the-badge&color=blue)](./LICENSE)
+[![Discord](https://img.shields.io/discord/1431166259789041716?style=for-the-badge&logo=discord&logoColor=white&color=5865F2&label=Discord)](https://discord.gg/PXdAXnyUDR)
 
 </div>
 
