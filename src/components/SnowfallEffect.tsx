@@ -13,6 +13,16 @@ const SnowfallEffect = () => {
       <div className="f1-effect-flower"></div>
       <div className="f1-effect-flower"></div>
       <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
+      <div className="f1-effect-flower"></div>
     </div>
   );
 };

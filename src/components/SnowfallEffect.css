@@ -1,4 +1,4 @@
-/* Hiệu ứng hoa rơi, đã được chỉnh sửa để nằm ở background */
+/* Hiệu ứng tuyết rơi, đã được chỉnh sửa để nằm ở background */
 
 /* Lớp container chính: phủ toàn màn hình, z-index thấp, không bắt sự kiện chuột */
 .f1-effect {
@@ -14,7 +14,7 @@
 .f1-effect .f1-effect-flower {
   opacity: 1;
   border-radius: 100%;
-  background: url(https://file.hstatic.net/200000259653/file/pages_17a8568517e94dcd9c8aec5587_570924d1fa4b4da1aa011044c9d7cc1c.png);
+  background-color: white; /* Đổi từ ảnh hoa sang màu trắng */
   position: fixed;
   top: -10%;
   -webkit-user-select: none;
@@ -40,94 +40,164 @@
   }
 }
 
+/* Cập nhật kích thước hạt tuyết (giảm một nửa) */
 .f1-effect .f1-effect-flower:nth-of-type(1) {
   left: 10%;
   -webkit-animation-delay: 6s, 0.5s;
   animation-delay: 6s, 0.5s;
-  width: 13px;
-  height: 13px;
-  background-position: 0 -50px;
+  width: 7px; /* <- Giảm từ 13px */
+  height: 7px; /* <- Giảm từ 13px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(2) {
   left: 20%;
   -webkit-animation-delay: 4s, 2s;
   animation-delay: 4s, 2s;
-  width: 15px;
-  height: 15px;
-  background-position: -49px -35px;
+  width: 8px; /* <- Giảm từ 15px */
+  height: 8px; /* <- Giảm từ 15px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(3) {
   left: 30%;
   -webkit-animation-delay: 2s, 2s;
   animation-delay: 2s, 2s;
-  width: 14px;
-  height: 14px;
-  background-position: -31px 0;
+  width: 7px; /* <- Giảm từ 14px */
+  height: 7px; /* <- Giảm từ 14px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(4) {
   left: 40%;
   -webkit-animation-delay: 8s, 3s;
   animation-delay: 8s, 3s;
-  width: 16px;
-  height: 16px;
-  background-position: 0 -23px;
+  width: 8px; /* <- Giảm từ 16px */
+  height: 8px; /* <- Giảm từ 16px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(5) {
   left: 50%;
   -webkit-animation-delay: 6s, 2s;
   animation-delay: 6s, 2s;
-  width: 13px;
-  height: 13px;
-  background-position: 0 -50px;
+  width: 7px; /* <- Giảm từ 13px */
+  height: 7px; /* <- Giảm từ 13px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(6) {
   left: 60%;
   -webkit-animation-delay: 2.5s, 1s;
   animation-delay: 2.5s, 1s;
-  width: 15px;
-  height: 15px;
-  background-position: -49px -35px;
+  width: 8px; /* <- Giảm từ 15px */
+  height: 8px; /* <- Giảm từ 15px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(7) {
   left: 70%;
   -webkit-animation-delay: 1s, 0s;
   animation-delay: 1s, 0s;
-  width: 14px;
-  height: 14px;
-  background-position: -31px 0;
+  width: 7px; /* <- Giảm từ 14px */
+  height: 7px; /* <- Giảm từ 14px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(8) {
   left: 80%;
   -webkit-animation-delay: 2s, 2s;
   animation-delay: 2s, 2s;
-  width: 14px;
-  height: 14px;
-  background-position: -31px 0;
+  width: 7px; /* <- Giảm từ 14px */
+  height: 7px; /* <- Giảm từ 14px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(9) {
   left: 90%;
   -webkit-animation-delay: 8s, 3s;
   animation-delay: 8s, 3s;
-  width: 16px;
-  height: 16px;
-  background-position: 0 -23px;
+  width: 8px; /* <- Giảm từ 16px */
+  height: 8px; /* <- Giảm từ 16px */
 }
 
 .f1-effect .f1-effect-flower:nth-of-type(10) {
   left: 95%;
   -webkit-animation-delay: 6s, 2s;
   animation-delay: 6s, 2s;
-  width: 13px;
-  height: 13px;
-  background-position: 0 -50px;
+  width: 7px; /* <- Giảm từ 13px */
+  height: 7px; /* <- Giảm từ 13px */
+}
+.f1-effect .f1-effect-flower:nth-of-type(11) {
+  left: 5%;
+  -webkit-animation-delay: 1s, 1.5s;
+  animation-delay: 1s, 1.5s;
+  width: 8px;
+  height: 8px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(12) {
+  left: 15%;
+  -webkit-animation-delay: 7s, 2.5s;
+  animation-delay: 7s, 2.5s;
+  width: 6px;
+  height: 6px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(13) {
+  left: 25%;
+  -webkit-animation-delay: 3s, 1s;
+  animation-delay: 3s, 1s;
+  width: 7px;
+  height: 7px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(14) {
+  left: 35%;
+  -webkit-animation-delay: 9s, 0.5s;
+  animation-delay: 9s, 0.5s;
+  width: 8px;
+  height: 8px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(15) {
+  left: 45%;
+  -webkit-animation-delay: 5s, 3s;
+  animation-delay: 5s, 3s;
+  width: 6px;
+  height: 6px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(16) {
+  left: 55%;
+  -webkit-animation-delay: 3.5s, 2s;
+  animation-delay: 3.5s, 2s;
+  width: 7px;
+  height: 7px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(17) {
+  left: 65%;
+  -webkit-animation-delay: 2s, 0s;
+  animation-delay: 2s, 0s;
+  width: 8px;
+  height: 8px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(18) {
+  left: 75%;
+  -webkit-animation-delay: 4s, 1.5s;
+  animation-delay: 4s, 1.5s;
+  width: 6px;
+  height: 6px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(19) {
+  left: 85%;
+  -webkit-animation-delay: 6s, 2.5s;
+  animation-delay: 6s, 2.5s;
+  width: 7px;
+  height: 7px;
+}
+
+.f1-effect .f1-effect-flower:nth-of-type(20) {
+  left: 95%; /* Trùng với hạt số 10 nhưng khác delay */
+  -webkit-animation-delay: 1s, 0.5s;
+  animation-delay: 1s, 0.5s;
+  width: 8px;
+  height: 8px;
 }
 
 @-webkit-keyframes snowflakes-fall {
@@ -139,14 +209,15 @@
   }
 }
 
+/* Gợi ý: Giảm khoảng cách lắc lư cho tự nhiên hơn */
 @-webkit-keyframes snowflakes-shake {
   0% {
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
   }
   50% {
-    -webkit-transform: translateX(80px);
-    transform: translateX(80px);
+    -webkit-transform: translateX(40px); /* <- Giảm từ 80px */
+    transform: translateX(40px); /* <- Giảm từ 80px */
   }
   100% {
     -webkit-transform: translateX(0px);
@@ -163,12 +234,13 @@
   }
 }
 
+/* Gợi ý: Giảm khoảng cách lắc lư cho tự nhiên hơn */
 @keyframes snowflakes-shake {
   0% {
     transform: translateX(0px);
   }
   50% {
-    transform: translateX(80px);
+    transform: translateX(40px); /* <- Giảm từ 80px */
   }
   100% {
     transform: translateX(0px);
