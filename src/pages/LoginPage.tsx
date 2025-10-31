@@ -2,14 +2,11 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { motion } from "framer-motion";
-import { LogIn, User } from "lucide-react";
-import { useAuthStore } from "../store/authStore";
+import { LogIn } from "lucide-react";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { setSession, fetchProfile } = useAuthStore();
-
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -19,23 +16,17 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    try {
-      const { data, error: invokeError } = await supabase.functions.invoke(
-        "login-with-username",
-        {
-          body: { username, password },
-        }
-      );
-      if (invokeError) throw invokeError;
-      if (data.error) throw new Error(data.error);
-      setSession(data.session);
-      await fetchProfile();
-      navigate("/select-exam");
-    } catch (e: any) {
-      setError(e.message || "Đăng nhập thất bại. Vui lòng thử lại.");
-    } finally {
-      setLoading(false);
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      setError(error.message);
+    } else {
+      navigate("/select-exam"); // Chuyển đến trang chọn đề sau khi login thành công
     }
+    setLoading(false);
   };
 
   return (
@@ -58,17 +49,14 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
-            <div className="relative">
-              <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Tên đăng nhập (username)"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="w-full pl-12 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border-2 border-transparent focus:border-indigo-500 focus:ring-0 rounded-lg pr-4 py-3 transition"
-              />
-            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border-2 border-transparent focus:border-indigo-500 focus:ring-0 rounded-lg px-4 py-3 transition"
+            />
             <input
               type="password"
               placeholder="Mật khẩu"
