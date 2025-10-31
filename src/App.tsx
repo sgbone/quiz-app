@@ -64,16 +64,6 @@ function App() {
   );
   const showFooter = ["/select-exam"].includes(location.pathname);
 
-  // Logic background mới
-  let bgClass = "";
-  if (location.pathname === "/") {
-    // WelcomePage tự quản lý
-  } else if (location.pathname.startsWith("/select-exam")) {
-    bgClass = "bg-gray-900"; // Nền tối cho trang chọn đề
-  } else {
-    bgClass = "bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900"; // Nền gradient cho các trang khác
-  }
-
   return (
     <div
       className={`min-h-screen flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] ${

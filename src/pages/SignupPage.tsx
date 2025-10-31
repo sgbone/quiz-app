@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { motion } from "framer-motion";
 import { UserPlus } from "lucide-react";
 
 export default function SignupPage() {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");

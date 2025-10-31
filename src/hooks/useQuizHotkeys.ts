@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useAppStore } from "../store/quizStore";
+import { useQuizTimer } from "./useQuizTimer";
 
 export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
   const {
@@ -11,6 +12,7 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
     goToPrevQuestion,
     resetCurrentQuiz,
     showResults,
+    isQuizActive,
   } = useAppStore((state) => ({
     selectedQuiz: state.selectedQuiz,
     currentQuestionIndex: state.currentQuestionIndex,
@@ -20,7 +22,9 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
     goToPrevQuestion: state.goToPrevQuestion,
     resetCurrentQuiz: state.resetCurrentQuiz,
     showResults: state.showResults,
+    isQuizActive: state.isQuizActive,
   }));
+  const { timeElapsed } = useQuizTimer(isQuizActive);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -67,7 +71,7 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
         case "Enter":
           if (!hasAnswered) {
             e.preventDefault();
-            checkAnswer(currentQuestion.id);
+            checkAnswer(currentQuestion.id, timeElapsed);
           }
           break;
         case "r":
@@ -96,5 +100,6 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
     resetCurrentQuiz,
     onToggleHotkeysModal,
     showResults,
+    timeElapsed,
   ]);
 };
