@@ -10,33 +10,41 @@ import ConfettiCannon from "../components/ConfettiCannon";
 import { AnimatePresence } from "framer-motion";
 import SnowfallEffect from "../components/SnowfallEffect";
 
+import { useAuthStore } from "../store/authStore";
+import NotesPanel from "../components/NotesPanel";
+
 const QuizPage = () => {
   const { quizId } = useParams<{ quizId: string }>();
   const navigate = useNavigate();
   const [isHotkeysModalOpen, setIsHotkeysModalOpen] = useState(false);
 
-  const { selectedQuiz, currentQuestionIndex, fetchQuizById } = useAppStore(
-    (state) => ({
-      selectedQuiz: state.selectedQuiz,
-      currentQuestionIndex: state.currentQuestionIndex,
-      fetchQuizById: state.fetchQuizById,
-    })
-  );
+  const { session } = useAuthStore();
+
+  const {
+    selectedQuiz,
+    currentQuestionIndex,
+    fetchQuizById,
+    isNotesPanelOpen,
+  } = useAppStore((state) => ({
+    selectedQuiz: state.selectedQuiz,
+    currentQuestionIndex: state.currentQuestionIndex,
+    fetchQuizById: state.fetchQuizById,
+    isNotesPanelOpen: state.isNotesPanelOpen,
+  }));
 
   useQuizHotkeys(() => setIsHotkeysModalOpen((prev) => !prev));
 
   useEffect(() => {
-    if (!quizId) {
-      navigate("/");
-      return;
-    }
-
-    if (!selectedQuiz || selectedQuiz.id.toString() !== quizId) {
-      fetchQuizById(parseInt(quizId, 10)).then((success) => {
-        if (!success) {
-          navigate("/");
-        }
-      });
+    if (quizId) {
+      if (!selectedQuiz || selectedQuiz.id.toString() !== quizId) {
+        fetchQuizById(parseInt(quizId, 10)).then((success) => {
+          if (!success && !window.prompt("Đề này yêu cầu mật khẩu...")) {
+            navigate("/select-exam");
+          }
+        });
+      }
+    } else {
+      navigate("/select-exam");
     }
   }, [quizId, selectedQuiz, fetchQuizById, navigate]);
 
@@ -59,6 +67,11 @@ const QuizPage = () => {
         <div className="lg:col-span-2 flex flex-col">
           <AnimatePresence mode="wait">
             <QuestionCard key={currentQuestion.id} question={currentQuestion} />
+          </AnimatePresence>
+          <AnimatePresence>
+            {isNotesPanelOpen && session && (
+              <NotesPanel currentQuestion={currentQuestion} />
+            )}
           </AnimatePresence>
           <QuestionNavigation />
         </div>

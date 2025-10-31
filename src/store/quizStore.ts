@@ -15,10 +15,13 @@ interface AppState {
   lastCorrectAnswerId: number | null;
   isQuizCompleted: boolean;
 
+  isNotesPanelOpen: boolean;
+  notes: Record<number, string>;
+
   // Actions
   toggleTheme: () => void;
   fetchQuizList: () => Promise<void>;
-  fetchQuizById: (quizId: number) => Promise<boolean>;
+  fetchQuizById: (quizId: number, password?: string) => Promise<boolean>;
   importQuiz: (
     quizName: string,
     description: string,
@@ -43,6 +46,14 @@ interface AppState {
   submitSuccess: boolean;
   resetSubmitState: () => void;
   submitQuiz: (timeTaken: number) => Promise<boolean>;
+
+  toggleNotesPanel: () => void;
+  fetchNotes: (quizId: number) => Promise<void>;
+  upsertNote: (
+    questionId: number,
+    quizId: number,
+    content: string
+  ) => Promise<void>;
 }
 
 // Lấy theme từ localStorage nếu có, nếu không mặc định là 'light'
@@ -62,6 +73,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   isQuizCompleted: false,
   isSubmitting: false,
   submitSuccess: false,
+
+  isNotesPanelOpen: false,
+  notes: {},
 
   toggleTheme: () => {
     const newTheme = get().theme === "light" ? "dark" : "light";
@@ -83,7 +97,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     }
   },
 
-  fetchQuizById: async (quizId) => {
+  fetchQuizById: async (quizId, password) => {
     const { data, error } = await supabase
       .from("quizzes")
       .select("*")
@@ -92,8 +106,15 @@ export const useAppStore = create<AppState>((set, get) => ({
 
     if (error || !data) {
       console.error(error);
+      if (!password) alert("Không thể tải đề. Vui lòng thử lại.");
       return false;
     }
+
+    if (data.is_protected && data.password !== password) {
+      return false;
+    }
+
+    await get().fetchNotes(quizId);
 
     set({
       selectedQuiz: data as QuizInfo,
@@ -101,6 +122,10 @@ export const useAppStore = create<AppState>((set, get) => ({
       currentQuestionIndex: 0,
       answers: {},
       showResults: {},
+      results: {},
+      //isNotesPanelOpen: false,
+      isQuizCompleted: false,
+      lastCorrectAnswerId: null,
     });
     return true;
   },
@@ -303,12 +328,62 @@ export const useAppStore = create<AppState>((set, get) => ({
     set({
       isQuizActive: false,
       selectedQuiz: null,
-      // Thêm các reset khác cho chắc ăn
       currentQuestionIndex: 0,
       answers: {},
       showResults: {},
       results: {},
       isQuizCompleted: false,
       lastCorrectAnswerId: null,
+      isNotesPanelOpen: false,
+      notes: {},
     }),
+
+  toggleNotesPanel: () =>
+    set((state) => ({ isNotesPanelOpen: !state.isNotesPanelOpen })),
+
+  fetchNotes: async (quizId) => {
+    const user = useAuthStore.getState().session?.user;
+    if (!user) {
+      set({ notes: {} });
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("user_notes")
+      .select("question_id, content")
+      .eq("user_id", user.id)
+      .eq("quiz_id", quizId);
+
+    if (error) {
+      console.error("Error fetching notes:", error);
+    } else {
+      const notesMap = data.reduce((acc, note) => {
+        (acc as any)[note.question_id] = note.content;
+        return acc;
+      }, {});
+      set({ notes: notesMap });
+    }
+  },
+
+  upsertNote: async (questionId, quizId, content) => {
+    const user = useAuthStore.getState().session?.user;
+    if (!user) return;
+
+    const { error } = await supabase.from("user_notes").upsert(
+      {
+        user_id: user.id,
+        question_id: questionId,
+        quiz_id: quizId,
+        content: content,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id, quiz_id, question_id" }
+    ); // Sửa lại onConflict cho đúng 3 cột
+
+    if (error) {
+      console.error("Error upserting note:", error);
+    } else {
+      set((state) => ({ notes: { ...state.notes, [questionId]: content } }));
+    }
+  },
 }));

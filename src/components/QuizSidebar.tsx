@@ -10,10 +10,13 @@ import {
   Keyboard,
   RefreshCw,
   CheckCircle,
+  FileEdit,
 } from "lucide-react";
 import ConfirmModal from "./ConfirmModal";
 import StatusModal from "./StatusModal";
 import { motion, AnimatePresence } from "framer-motion";
+
+import { useAuthStore } from "../store/authStore";
 
 interface QuizSidebarProps {
   onShowHotkeys: () => void;
@@ -22,6 +25,9 @@ interface QuizSidebarProps {
 type Status = "loading" | "success" | "error";
 
 const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
+  const { isNotesPanelOpen, toggleNotesPanel } = useAppStore();
+  const { session } = useAuthStore();
+
   const navigate = useNavigate();
   const {
     selectedQuiz,
@@ -249,6 +255,21 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
               <Keyboard size={18} /> Phím tắt
             </button>
           </div>
+          {session && (
+            <motion.button
+              onClick={toggleNotesPanel}
+              className={`w-full font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 ${
+                isNotesPanelOpen
+                  ? "bg-indigo-600 text-white"
+                  : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300"
+              }`}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FileEdit size={18} />{" "}
+              {isNotesPanelOpen ? "Ẩn ghi chú" : "Thêm ghi chú"}
+            </motion.button>
+          )}
           <div className="relative h-12">
             <AnimatePresence initial={false} mode="wait">
               {allAnswered ? (
