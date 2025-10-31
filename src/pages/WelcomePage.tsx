@@ -8,6 +8,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import ThemeToggle from "../components/ThemeToggle";
+import SnowfallEffect from "../components/SnowfallEffect";
 
 export default function WelcomePage() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function WelcomePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeInOut" }}
       >
+        <SnowfallEffect />
         <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 relative">
           <div className="absolute top-6 right-6">
             <ThemeToggle />

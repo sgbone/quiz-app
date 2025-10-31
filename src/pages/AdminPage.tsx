@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { supabase } from "../supabaseClient";
 import {
   Upload,
   Key,
@@ -8,6 +9,7 @@ import {
   MessageSquare,
   Lock,
   Code,
+  BellPlus,
 } from "lucide-react";
 import { parseQuizFromExcel } from "../utils/excelParser";
 import { useAppStore } from "../store/quizStore";
@@ -42,6 +44,11 @@ const AdminPage = () => {
     message: string;
   }>({ type: "info", message: "Sẵn sàng..." });
   const [quizToDelete, setQuizToDelete] = useState<QuizInList | null>(null);
+
+  const [notifContent, setNotifContent] = useState("");
+  const [notifImageUrl, setNotifImageUrl] = useState("");
+  const [notifLinkUrl, setNotifLinkUrl] = useState("");
+  const [isSendingNotif, setIsSendingNotif] = useState(false);
 
   useEffect(() => {
     fetchQuizList();
@@ -103,6 +110,66 @@ const AdminPage = () => {
       message: result.message,
     });
     setQuizToDelete(null); // Đóng modal sau khi xóa
+  };
+
+  const handleSendNotification = async () => {
+    if (!notifContent.trim() || !adminKey.trim()) {
+      setStatus({
+        type: "error",
+        message: "Vui lòng nhập Admin Key và nội dung thông báo.",
+      });
+      return;
+    }
+
+    setIsSendingNotif(true);
+    setStatus({ type: "info", message: "Đang lấy danh sách người dùng..." });
+
+    try {
+      const { data: usersData, error: usersError } =
+        await supabase.functions.invoke("get-all-users", {
+          body: { adminKey },
+        });
+      if (usersError || !usersData.success)
+        throw new Error(
+          usersData.message ||
+            "Không thể lấy danh sách người dùng. Sai Admin Key?"
+        );
+
+      const userIds = usersData.userIds;
+      if (userIds.length === 0) {
+        setStatus({ type: "info", message: "Không có người dùng nào để gửi." });
+        setIsSendingNotif(false);
+        return;
+      }
+
+      setStatus({
+        type: "info",
+        message: `Đã tìm thấy ${userIds.length} người dùng. Đang gửi...`,
+      });
+      const notificationsToInsert = userIds.map((id: string) => ({
+        user_id: id,
+        content: notifContent,
+        image_url: notifImageUrl || null,
+        link_url: notifLinkUrl || null,
+      }));
+      const { error: insertError } = await supabase
+        .from("notifications")
+        .insert(notificationsToInsert);
+
+      if (insertError) throw insertError;
+
+      setStatus({
+        type: "success",
+        message: `Đã gửi thông báo thành công đến ${userIds.length} người dùng!`,
+      });
+      setNotifContent("");
+      setNotifImageUrl("");
+      setNotifLinkUrl("");
+    } catch (error: any) {
+      setStatus({ type: "error", message: `Lỗi: ${error.message}` });
+    } finally {
+      setIsSendingNotif(false);
+    }
   };
 
   // --- GIAO DIỆN ---
@@ -232,7 +299,6 @@ const AdminPage = () => {
                 />
               </div>
             </div>
-
             {/* Cột 2: Quản Lý Đề Thi */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
               <div className="flex items-center gap-4 mb-6">
@@ -272,6 +338,52 @@ const AdminPage = () => {
                     Chưa có đề nào trong database.
                   </p>
                 )}
+              </div>
+            </div>
+            {/* Cột 3: Gửi Thông Báo */}
+            <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 transition-colors duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center">
+                  <BellPlus className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                    Gửi Thông Báo
+                  </h2>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Gửi đến tất cả người dùng trong hệ thống.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <textarea
+                  placeholder="Nội dung thông báo (bắt buộc)..."
+                  value={notifContent}
+                  onChange={(e) => setNotifContent(e.target.value)}
+                  rows={4}
+                  className="w-full pl-4 pr-4 py-3 rounded-lg border-2 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-indigo-500 outline-none transition"
+                />
+                <input
+                  type="text"
+                  placeholder="URL hình ảnh (tùy chọn)..."
+                  value={notifImageUrl}
+                  onChange={(e) => setNotifImageUrl(e.target.value)}
+                  className="w-full pl-4 pr-4 py-3 rounded-lg border-2 bg-gray-50 dark:bg-gray-700 ..."
+                />
+                <input
+                  type="text"
+                  placeholder="URL liên kết (tùy chọn)..."
+                  value={notifLinkUrl}
+                  onChange={(e) => setNotifLinkUrl(e.target.value)}
+                  className="w-full pl-4 pr-4 py-3 rounded-lg border-2 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-indigo-500 outline-none transition"
+                />
+                <button
+                  onClick={handleSendNotification}
+                  disabled={isSendingNotif}
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg transition disabled:opacity-50"
+                >
+                  {isSendingNotif ? "Đang gửi..." : "Gửi Thông Báo"}
+                </button>
               </div>
             </div>
           </div>

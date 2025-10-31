@@ -1,6 +1,7 @@
 import create from "zustand";
 import { QuizQuestion, QuizInfo } from "../types";
 import { supabase } from "../supabaseClient";
+import { useAuthStore } from "./authStore";
 
 interface AppState {
   theme: "light" | "dark";
@@ -30,7 +31,7 @@ interface AppState {
     adminKey: string
   ) => Promise<{ success: boolean; message: string }>;
   selectAnswer: (questionId: number, optionLabel: string) => void;
-  checkAnswer: (questionId: number) => void;
+  checkAnswer: (questionId: number, timeTaken: number) => void;
   goToNextQuestion: () => void;
   goToPrevQuestion: () => void;
   goToQuestion: (questionIndex: number) => void;
@@ -38,6 +39,10 @@ interface AppState {
   resetCurrentQuestion: () => void;
   clearConfettiTriggers: () => void;
   goHome: () => void;
+  isSubmitting: boolean;
+  submitSuccess: boolean;
+  resetSubmitState: () => void;
+  submitQuiz: (timeTaken: number) => Promise<boolean>;
 }
 
 // Lấy theme từ localStorage nếu có, nếu không mặc định là 'light'
@@ -55,6 +60,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   isQuizActive: false,
   lastCorrectAnswerId: null,
   isQuizCompleted: false,
+  isSubmitting: false,
+  submitSuccess: false,
 
   toggleTheme: () => {
     const newTheme = get().theme === "light" ? "dark" : "light";
@@ -161,7 +168,8 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   checkAnswer: (questionId) => {
     const { selectedQuiz, answers } = get();
-    const question = selectedQuiz?.questions.find((q) => q.id === questionId);
+    if (!selectedQuiz) return;
+    const question = selectedQuiz.questions.find((q) => q.id === questionId);
     if (!question) return;
 
     const userAnswers = answers[questionId] || [];
@@ -170,20 +178,58 @@ export const useAppStore = create<AppState>((set, get) => ({
       userAnswers.every((a) => question.correct.includes(a)) &&
       userAnswers.length > 0;
 
-    set((state) => {
-      const newResults = { ...state.results, [questionId]: isCorrect };
-      const totalAnswered = Object.keys(newResults).length;
-      const totalQuestions = state.selectedQuiz?.questions.length || 0;
-
-      return {
-        showResults: { ...state.showResults, [questionId]: true },
-        results: newResults,
-        // Bật "công tắc" tương ứng
-        lastCorrectAnswerId: isCorrect ? questionId : null,
-        isQuizCompleted: totalAnswered === totalQuestions,
-      };
-    });
+    set((state) => ({
+      showResults: { ...state.showResults, [questionId]: true },
+      results: { ...state.results, [questionId]: isCorrect },
+      lastCorrectAnswerId: isCorrect ? questionId : null,
+    }));
   },
+
+  submitQuiz: async (timeTaken) => {
+    const { selectedQuiz, results } = get();
+    const userId = useAuthStore.getState().session?.user?.id;
+
+    if (!selectedQuiz || !userId) {
+      console.error("Không thể nộp bài: thiếu thông tin đề hoặc user.");
+      return false;
+    }
+
+    // Tính toán điểm số lần cuối
+    const totalPoints = selectedQuiz.questions.reduce(
+      (sum, q) => sum + q.points,
+      0
+    );
+    let earnedPoints = 0;
+    selectedQuiz.questions.forEach((q) => {
+      if (results[q.id] === true) {
+        earnedPoints += q.points;
+      }
+    });
+
+    // Tạo bản ghi lịch sử
+    const historyData = {
+      user_id: userId,
+      quiz_id: selectedQuiz.id,
+      quiz_name: selectedQuiz.name,
+      score: earnedPoints,
+      total_points: totalPoints,
+      time_taken: typeof timeTaken === "number" ? timeTaken : 0,
+    };
+
+    // Lưu vào Supabase
+    const { error } = await supabase.from("quiz_history").insert([historyData]);
+    if (error) {
+      console.error("Error saving quiz history:", error);
+      return false; // TRẢ VỀ FALSE
+    }
+    console.log("Quiz history saved successfully!");
+
+    set({ isQuizCompleted: true });
+    return true;
+  },
+
+  resetSubmitState: () => set({ isSubmitting: false, submitSuccess: false }),
+
   clearConfettiTriggers: () =>
     set({ lastCorrectAnswerId: null, isQuizCompleted: false }),
 
@@ -249,7 +295,20 @@ export const useAppStore = create<AppState>((set, get) => ({
       results: {},
       lastCorrectAnswerId: null,
       isQuizCompleted: false,
+      isSubmitting: false,
+      submitSuccess: false,
     })),
 
-  goHome: () => set({ isQuizActive: false, selectedQuiz: null }),
+  goHome: () =>
+    set({
+      isQuizActive: false,
+      selectedQuiz: null,
+      // Thêm các reset khác cho chắc ăn
+      currentQuestionIndex: 0,
+      answers: {},
+      showResults: {},
+      results: {},
+      isQuizCompleted: false,
+      lastCorrectAnswerId: null,
+    }),
 }));

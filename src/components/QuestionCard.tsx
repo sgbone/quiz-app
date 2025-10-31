@@ -3,17 +3,23 @@ import { useAppStore } from "../store/quizStore";
 import { CheckCircle, XCircle } from "lucide-react";
 import OptionItem from "./OptionItem";
 import { motion } from "framer-motion";
+import { useQuizTimer } from "../hooks/useQuizTimer";
 
 interface QuestionCardProps {
   question: QuizQuestion;
 }
 
 const QuestionCard = ({ question }: QuestionCardProps) => {
-  const { answers, showResults, checkAnswer } = useAppStore((state) => ({
-    answers: state.answers,
-    showResults: state.showResults,
-    checkAnswer: state.checkAnswer,
-  }));
+  const { isQuizActive, answers, showResults, checkAnswer } = useAppStore(
+    (state) => ({
+      isQuizActive: state.isQuizActive,
+      answers: state.answers,
+      showResults: state.showResults,
+      checkAnswer: state.checkAnswer,
+    })
+  );
+
+  const { timeElapsed } = useQuizTimer(isQuizActive);
 
   const userAnswers = answers[question.id] || [];
   const hasAnswered = showResults[question.id];
@@ -59,7 +65,7 @@ const QuestionCard = ({ question }: QuestionCardProps) => {
 
       {!hasAnswered && userAnswers.length > 0 && (
         <button
-          onClick={() => checkAnswer(question.id)}
+          onClick={() => checkAnswer(question.id, timeElapsed)}
           className="w-full mt-6 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all"
         >
           Kiểm tra đáp án

@@ -2,10 +2,13 @@ import { useState, useEffect, useRef } from "react";
 
 export const useQuizTimer = (isRunning: boolean) => {
   const [timeElapsed, setTimeElapsed] = useState(0);
-
-  // SỬA LẠI DÒNG NÀY
-  // Bảo cho TypeScript biết ref này có thể là number (trình duyệt) hoặc NodeJS.Timeout (Node.js)
   const intervalRef = useRef<number | NodeJS.Timeout | null>(null);
+
+  const stopTimer = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
 
   useEffect(() => {
     if (isRunning) {
@@ -14,15 +17,9 @@ export const useQuizTimer = (isRunning: boolean) => {
         setTimeElapsed((prev) => prev + 1);
       }, 1000);
     } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      stopTimer();
     }
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
+    return stopTimer;
   }, [isRunning]);
 
   const formatTime = (seconds: number) => {
@@ -34,5 +31,5 @@ export const useQuizTimer = (isRunning: boolean) => {
       .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
-  return { timeElapsed, formattedTime: formatTime(timeElapsed) };
+  return { timeElapsed, formattedTime: formatTime(timeElapsed), stopTimer };
 };

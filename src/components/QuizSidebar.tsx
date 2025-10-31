@@ -2,13 +2,24 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../store/quizStore";
 import { useQuizTimer } from "../hooks/useQuizTimer";
-import { Book, Clock, Trophy, Home, Keyboard, RefreshCw } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
+import {
+  Book,
+  Clock,
+  Trophy,
+  Home,
+  Keyboard,
+  RefreshCw,
+  CheckCircle,
+} from "lucide-react";
 import ConfirmModal from "./ConfirmModal";
+import StatusModal from "./StatusModal";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface QuizSidebarProps {
   onShowHotkeys: () => void;
 }
+
+type Status = "loading" | "success" | "error";
 
 const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
   const navigate = useNavigate();
@@ -16,25 +27,24 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
     selectedQuiz,
     currentQuestionIndex,
     results,
-    answers,
-    showResults,
     isQuizActive,
     resetCurrentQuiz,
     goHome,
     goToQuestion,
+    submitQuiz,
   } = useAppStore((state) => ({
     selectedQuiz: state.selectedQuiz,
     currentQuestionIndex: state.currentQuestionIndex,
     results: state.results,
-    answers: state.answers,
-    showResults: state.showResults,
     isQuizActive: state.isQuizActive,
     resetCurrentQuiz: state.resetCurrentQuiz,
     goHome: state.goHome,
     goToQuestion: state.goToQuestion,
+    submitQuiz: state.submitQuiz,
   }));
-  const { formattedTime } = useQuizTimer(isQuizActive);
 
+  const { timeElapsed, formattedTime, stopTimer } = useQuizTimer(isQuizActive);
+  const [statusModal, setStatusModal] = useState<Status | null>(null);
   const [confirmState, setConfirmState] = useState({
     isOpen: false,
     title: "",
@@ -71,25 +81,52 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
     });
   };
 
+  const handleSubmitClick = async () => {
+    stopTimer(); // 1. DỪNG ĐỒNG HỒ
+    setStatusModal("loading"); // 2. HIỆN MODAL "ĐANG NỘP"
+
+    const success = await submitQuiz(timeElapsed); // 3. GỌI ACTION NỘP BÀI
+
+    if (success) {
+      setStatusModal("success"); // 4. HIỆN THÀNH CÔNG
+      // 5. CHỜ 2 GIÂY RỒI VỀ TRANG CHỌN ĐỀ
+      setTimeout(() => {
+        goHome();
+        navigate("/select-exam");
+      }, 2000);
+    } else {
+      setStatusModal("error"); // 4B. HIỆN LỖI
+      setTimeout(() => setStatusModal(null), 2000); // Tự tắt modal lỗi sau 2s
+    }
+  };
+
   const score = useMemo(() => {
     if (!selectedQuiz) return { earnedPoints: 0, totalPoints: 0 };
-    let totalPoints = 0;
+
     let earnedPoints = 0;
-    selectedQuiz.questions.forEach((q) => {
-      totalPoints += q.points;
-      if (showResults[q.id]) {
-        const userAnswers = answers[q.id] || [];
-        const isCorrect =
-          userAnswers.length === q.correct.length &&
-          userAnswers.every((a) => q.correct.includes(a)) &&
-          userAnswers.length > 0;
-        if (isCorrect) earnedPoints += q.points;
+    const totalPoints = selectedQuiz.questions.reduce(
+      (sum, q) => sum + q.points,
+      0
+    );
+
+    // Tính điểm dựa trên `results` thay vì `showResults`
+    for (const questionId in results) {
+      if (results[questionId] === true) {
+        const question = selectedQuiz.questions.find(
+          (q) => q.id === parseInt(questionId)
+        );
+        if (question) {
+          earnedPoints += question.points;
+        }
       }
-    });
+    }
     return { earnedPoints, totalPoints };
-  }, [selectedQuiz, answers, showResults]);
+  }, [selectedQuiz, results]);
 
   if (!selectedQuiz) return null;
+
+  const allAnswered =
+    Object.keys(results).length === selectedQuiz.questions.length;
 
   return (
     <>
@@ -101,7 +138,6 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
               {selectedQuiz.name}
             </h1>
           </div>
-          <ThemeToggle />
         </div>
 
         {selectedQuiz.description ? (
@@ -213,12 +249,35 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
               <Keyboard size={18} /> Phím tắt
             </button>
           </div>
-          <button
-            onClick={handleResetClick}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-300"
-          >
-            <RefreshCw size={18} /> Làm lại đề
-          </button>
+          <div className="relative h-12">
+            <AnimatePresence initial={false} mode="wait">
+              {allAnswered ? (
+                <motion.button
+                  key="submit" // Key để AnimatePresence nhận diện
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleSubmitClick}
+                  className="absolute inset-0 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl"
+                >
+                  <CheckCircle size={18} /> Nộp bài
+                </motion.button>
+              ) : (
+                <motion.button
+                  key="reset" // Key để AnimatePresence nhận diện
+                  // Không cần `initial` và `exit` cho nút mặc định
+                  animate={{ opacity: 1, y: 0 }}
+                  onClick={handleResetClick}
+                  className="absolute inset-0 w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all"
+                >
+                  <RefreshCw size={18} /> Làm lại đề
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </aside>
 
@@ -228,6 +287,14 @@ const QuizSidebar = ({ onShowHotkeys }: QuizSidebarProps) => {
         onConfirm={confirmState.onConfirm}
         title={confirmState.title}
         message={confirmState.message}
+      />
+      <StatusModal
+        status={statusModal}
+        messages={{
+          loading: "Đang nộp bài...",
+          success: "Nộp bài thành công!",
+          error: "Nộp bài thất bại!",
+        }}
       />
     </>
   );

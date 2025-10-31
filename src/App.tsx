@@ -1,36 +1,106 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useAppStore } from "./store/quizStore";
+import { useAuthStore } from "./store/authStore"; // Import auth store
+import { supabase } from "./supabaseClient"; // Import supabase client
+
+// Import tất cả các trang
 import WelcomePage from "./pages/WelcomePage";
 import SelectExamPage from "./pages/SelectExamPage";
 import QuizPage from "./pages/QuizPage";
 import AdminPage from "./pages/AdminPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import ProfilePage from "./pages/ProfilePage";
+// Import trang Profile mới
+
+// Import các component layout chung
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 import { AnimatePresence } from "framer-motion";
 
 function App() {
   const location = useLocation();
   const theme = useAppStore((state) => state.theme);
+  const { setSession, fetchProfile } = useAuthStore();
 
+  // "Lắng nghe" sự thay đổi trạng thái đăng nhập của Supabase
+  useEffect(() => {
+    // Lấy session hiện tại khi tải trang lần đầu
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      if (session) fetchProfile();
+    });
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setSession(session);
+        if (session) {
+          fetchProfile();
+        } else {
+          // Đảm bảo profile bị xóa khi logout
+          useAuthStore.setState({ profile: null });
+        }
+      }
+    );
+
+    // Hủy lắng nghe khi component bị unmount
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, [setSession, fetchProfile]);
+
+  // Áp dụng theme (sáng/tối)
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove(theme === "light" ? "dark" : "light");
     root.classList.add(theme);
   }, [theme]);
 
+  // Xác định các trang không hiển thị Navbar/Footer
+  const hideLayout = ["/login", "/signup", "/", "/admin"].includes(
+    location.pathname
+  );
+  const showFooter = ["/select-exam"].includes(location.pathname);
+
+  // Logic background mới
+  let bgClass = "";
+  if (location.pathname === "/") {
+    // WelcomePage tự quản lý
+  } else if (location.pathname.startsWith("/select-exam")) {
+    bgClass = "bg-gray-900"; // Nền tối cho trang chọn đề
+  } else {
+    bgClass = "bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900"; // Nền gradient cho các trang khác
+  }
+
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
-      <main className="flex-grow">
+    <div
+      className={`min-h-screen flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] ${
+        hideLayout
+          ? "bg-gray-100 dark:bg-gray-900"
+          : "bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900"
+      }`}
+    >
+      {!hideLayout && <Navbar />}
+
+      {/* Thêm padding top để nội dung không bị Navbar che */}
+      <main className={`flex-grow ${!hideLayout ? "pt-16" : ""}`}>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
+            {/* GỠ BỎ `Route` BỌC NGOÀI */}
             <Route path="/" element={<WelcomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
             <Route path="/select-exam" element={<SelectExamPage />} />
             <Route path="/quiz/:quizId" element={<QuizPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </AnimatePresence>
       </main>
-      <Footer />
+
+      {!hideLayout && showFooter && <Footer />}
     </div>
   );
 }
