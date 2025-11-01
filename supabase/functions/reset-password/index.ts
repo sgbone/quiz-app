@@ -8,19 +8,27 @@ const corsHeaders = {
 };
 
 serve(async (req) => {
-  // Xử lý yêu cầu "thăm dò" (preflight) của trình duyệt
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
 
   try {
+    // 1. Kiểm tra "Chìa Khóa Bí Mật"
+    const authHeader = req.headers.get("Authorization");
+    if (authHeader !== `Bearer ${Deno.env.get("FUNCTION_SECRET")}`) {
+      return new Response("Unauthorized", { status: 401 });
+    }
+
+    const { password: newPassword } = await req.json();
+    if (!newPassword) throw new Error("Password not provided in body");
+
+    // Tạo client với quyền service_role
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    const newPassword = Math.floor(100000 + Math.random() * 900000).toString();
-
+    // 2. Cập nhật mật khẩu được gửi từ bot
     const { error: dbError } = await supabase
       .from("system_config")
       .update({ value: newPassword })
@@ -28,17 +36,9 @@ serve(async (req) => {
 
     if (dbError) throw dbError;
 
-    const discordWebhookUrl = Deno.env.get("DISCORD_WEBHOOK_URL")!;
-    const content = `🔑 Mật khẩu làm bài mới hôm nay là: **${newPassword}**`;
-
-    await fetch(discordWebhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: content }),
-    });
-
+    // 3. Không cần gửi webhook nữa, chỉ cần báo thành công
     return new Response(
-      JSON.stringify({ message: "Password reset successfully!" }),
+      JSON.stringify({ message: "Password updated successfully by bot!" }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 200,
