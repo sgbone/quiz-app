@@ -15,8 +15,7 @@ import { parseQuizFromExcel } from "../utils/excelParser";
 import { useAppStore } from "../store/quizStore";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import ConfirmModal from "../components/ConfirmModal"; // IMPORT MODAL MỚI
-
+import ConfirmModal from "../components/ConfirmModal";
 // Kiểu dữ liệu cho đề thi trong danh sách
 type QuizInList = {
   id: number;
@@ -125,11 +124,13 @@ const AdminPage = () => {
     setStatus({ type: "info", message: "Đang lấy danh sách người dùng..." });
 
     try {
+      // 1. Lấy danh sách user ID qua Edge Function
       const { data: usersData, error: usersError } =
         await supabase.functions.invoke("get-all-users", {
           body: { adminKey },
         });
-      if (usersError || !usersData.success)
+      if (usersError) throw new Error(`Lỗi lấy user: ${usersError.message}`);
+      if (!usersData.success)
         throw new Error(
           usersData.message ||
             "Không thể lấy danh sách người dùng. Sai Admin Key?"
@@ -144,19 +145,29 @@ const AdminPage = () => {
 
       setStatus({
         type: "info",
-        message: `Đã tìm thấy ${userIds.length} người dùng. Đang gửi...`,
+        message: `Đã tìm thấy ${userIds.length} người dùng. Chuẩn bị gửi...`,
       });
+
+      // 2. Chuẩn bị "thùng hàng" thông báo
       const notificationsToInsert = userIds.map((id: string) => ({
         user_id: id,
         content: notifContent,
         image_url: notifImageUrl || null,
         link_url: notifLinkUrl || null,
       }));
-      const { error: insertError } = await supabase
-        .from("notifications")
-        .insert(notificationsToInsert);
 
-      if (insertError) throw insertError;
+      // 3. Nhờ "Đại sứ quán" gửi hộ
+      const { error: sendError } = await supabase.functions.invoke(
+        "send-bulk-notification",
+        {
+          body: {
+            adminKey: adminKey,
+            notificationsToInsert: notificationsToInsert,
+          },
+        }
+      );
+
+      if (sendError) throw new Error(`Lỗi gửi thông báo: ${sendError.message}`);
 
       setStatus({
         type: "success",
@@ -166,7 +177,7 @@ const AdminPage = () => {
       setNotifImageUrl("");
       setNotifLinkUrl("");
     } catch (error: any) {
-      setStatus({ type: "error", message: `Lỗi: ${error.message}` });
+      setStatus({ type: "error", message: `Thất bại: ${error.message}` });
     } finally {
       setIsSendingNotif(false);
     }
@@ -357,7 +368,7 @@ const AdminPage = () => {
               </div>
               <div className="space-y-4">
                 <textarea
-                  placeholder="Nội dung thông báo (bắt buộc)..."
+                  placeholder="Nội dung thông báo"
                   value={notifContent}
                   onChange={(e) => setNotifContent(e.target.value)}
                   rows={4}
@@ -365,14 +376,14 @@ const AdminPage = () => {
                 />
                 <input
                   type="text"
-                  placeholder="URL hình ảnh (tùy chọn)..."
+                  placeholder="URL hình ảnh"
                   value={notifImageUrl}
                   onChange={(e) => setNotifImageUrl(e.target.value)}
                   className="w-full pl-4 pr-4 py-3 rounded-lg border-2 bg-gray-50 dark:bg-gray-700 ..."
                 />
                 <input
                   type="text"
-                  placeholder="URL liên kết (tùy chọn)..."
+                  placeholder="URL liên kết"
                   value={notifLinkUrl}
                   onChange={(e) => setNotifLinkUrl(e.target.value)}
                   className="w-full pl-4 pr-4 py-3 rounded-lg border-2 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600 focus:border-indigo-500 outline-none transition"
