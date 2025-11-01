@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useAppStore } from "./store/quizStore";
 import { useAuthStore } from "./store/authStore"; // Import auth store
-import { supabase } from "./supabaseClient"; // Import supabase client
+import { supabase } from "./supabaseClient";
+import { Session } from "@supabase/supabase-js"; // Import supabase client
 
 // Import tất cả các trang
 import WelcomePage from "./pages/WelcomePage";
@@ -34,7 +35,7 @@ function App() {
     });
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
+      (_event: string, session: Session | null) => {
         setSession(session);
         if (session) {
           fetchProfile();
