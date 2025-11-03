@@ -5,6 +5,7 @@ import { useAuthStore } from "./store/authStore"; // Import auth store
 import { supabase } from "./supabaseClient"; // Import supabase client
 
 // Import tất cả các trang
+import DiscordCallback from "./pages/DiscordCallback";
 import WelcomePage from "./pages/WelcomePage";
 import SelectExamPage from "./pages/SelectExamPage";
 import QuizPage from "./pages/QuizPage";
@@ -86,6 +87,7 @@ function App() {
             <Route path="/quiz/:quizId" element={<QuizPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/discord/callback" element={<DiscordCallback />} />
           </Routes>
         </AnimatePresence>
       </main>

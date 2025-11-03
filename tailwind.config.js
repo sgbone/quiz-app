@@ -6,5 +6,5 @@ export default {
     extend: {},
   },
   plugins: [],
-  safelist: [{ pattern: /w-\[(0|[1-9]?[0-9]|100)%\]/ }],
+  safelist: [...Array.from({ length: 101 }, (_, i) => `w-[${i}%]`)],
 };
