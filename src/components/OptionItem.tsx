@@ -1,6 +1,7 @@
 import { CheckCircle, XCircle } from "lucide-react";
 import { useAppStore } from "../store/quizStore";
 import { QuizOption, QuizQuestion } from "../types";
+import MathText from "./MathText";
 
 interface OptionItemProps {
   option: QuizOption;
@@ -69,9 +70,10 @@ const OptionItem = ({ option, question }: OptionItemProps) => {
         >
           {option.label}
         </div>
-        <span className="flex-1 text-gray-800 dark:text-gray-100 font-medium">
-          {option.text}
-        </span>
+        {/* Render đáp án bằng MathText để hỗ trợ LaTeX + <br> */}
+        <div className="flex-1 text-gray-800 dark:text-gray-100 font-medium">
+          <MathText html={option.text} />
+        </div>
         {icon}
       </div>
     </button>

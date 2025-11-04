@@ -4,6 +4,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 import OptionItem from "./OptionItem";
 import { motion } from "framer-motion";
 import { useQuizTimer } from "../hooks/useQuizTimer";
+import MathText from "./MathText";
 
 interface QuestionCardProps {
   question: QuizQuestion;
@@ -45,8 +46,9 @@ const QuestionCard = ({ question }: QuestionCardProps) => {
           {question.points} điểm
         </span>
       </div>
+
       <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-        {question.question}
+        <MathText html={question.question} />
       </h2>
 
       {question.image_url && (
@@ -98,14 +100,16 @@ const QuestionCard = ({ question }: QuestionCardProps) => {
             )}
           </div>
           {question.explanation && (
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              <strong>Giải thích:</strong> {question.explanation}
-            </p>
+            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong>Giải thích:</strong>{" "}
+              <MathText html={question.explanation} />
+            </div>
           )}
           {!isCorrect && (
-            <p className="text-gray-700 dark:text-gray-300 mt-2">
-              <strong>Đáp án đúng:</strong> {question.correct.join(", ")}
-            </p>
+            <div className="text-gray-700 dark:text-gray-300 mt-2">
+              <strong>Đáp án đúng:</strong>{" "}
+              <MathText html={question.correct.join(", ")} />
+            </div>
           )}
         </div>
       )}
