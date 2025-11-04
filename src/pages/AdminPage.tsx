@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import { supabase } from "../supabaseClient";
 import {
   Upload,
   Key,
@@ -125,8 +124,8 @@ const AdminPage = () => {
     setStatus({ type: "info", message: "Đang lấy danh sách người dùng..." });
 
     try {
-      // ✅ LẤY DANH SÁCH USER QUA VERCEL API
-      const users = await getAllUsers(adminKey); // <-- dùng hàm helper
+      // 1) Lấy users từ API server (Vercel)
+      const users = await getAllUsers(adminKey); // đã import ở đầu file
       const userIds = users.map((u: any) => u.id);
 
       if (userIds.length === 0) {
@@ -140,7 +139,7 @@ const AdminPage = () => {
         message: `Đã tìm thấy ${userIds.length} người dùng. Đang gửi...`,
       });
 
-      // ✅ TẠO DANH SÁCH THÔNG BÁO ĐỂ INSERT
+      // 2) Chuẩn bị payload
       const notificationsToInsert = userIds.map((id: string) => ({
         user_id: id,
         content: notifContent,
@@ -148,16 +147,25 @@ const AdminPage = () => {
         link_url: notifLinkUrl || null,
       }));
 
-      // ✅ GỌI SUPABASE ĐỂ GỬI THÔNG BÁO HÀNG LOẠT (BẢNG NOTIFICATIONS)
-      const { error: sendError } = await supabase
-        .from("notifications")
-        .insert(notificationsToInsert);
+      // 3) Gọi API server để insert (bypass RLS)
+      const apiRes = await fetch("/api/send-bulk-notification", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${adminKey}`,
+        },
+        body: JSON.stringify({ notifications: notificationsToInsert }),
+      });
 
-      if (sendError) throw new Error(`Lỗi gửi thông báo: ${sendError.message}`);
+      if (!apiRes.ok) {
+        const txt = await apiRes.text();
+        throw new Error(txt || "API send-bulk-notification failed");
+      }
 
+      const { inserted } = await apiRes.json();
       setStatus({
         type: "success",
-        message: `Đã gửi thông báo thành công đến ${userIds.length} người dùng!`,
+        message: `Đã gửi thông báo thành công đến ${inserted} người dùng!`,
       });
 
       setNotifContent("");
