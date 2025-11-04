@@ -16,6 +16,7 @@ import { useAppStore } from "../store/quizStore";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import ConfirmModal from "../components/ConfirmModal";
+import { getAllUsers } from "../api/users";
 // Kiểu dữ liệu cho đề thi trong danh sách
 type QuizInList = {
   id: number;
@@ -124,19 +125,10 @@ const AdminPage = () => {
     setStatus({ type: "info", message: "Đang lấy danh sách người dùng..." });
 
     try {
-      // 1. Lấy danh sách user ID qua Edge Function
-      const { data: usersData, error: usersError } =
-        await supabase.functions.invoke("get-all-users", {
-          body: { adminKey },
-        });
-      if (usersError) throw new Error(`Lỗi lấy user: ${usersError.message}`);
-      if (!usersData.success)
-        throw new Error(
-          usersData.message ||
-            "Không thể lấy danh sách người dùng. Sai Admin Key?"
-        );
+      // ✅ LẤY DANH SÁCH USER QUA VERCEL API
+      const users = await getAllUsers(adminKey); // <-- dùng hàm helper
+      const userIds = users.map((u: any) => u.id);
 
-      const userIds = usersData.userIds;
       if (userIds.length === 0) {
         setStatus({ type: "info", message: "Không có người dùng nào để gửi." });
         setIsSendingNotif(false);
@@ -145,10 +137,10 @@ const AdminPage = () => {
 
       setStatus({
         type: "info",
-        message: `Đã tìm thấy ${userIds.length} người dùng. Chuẩn bị gửi...`,
+        message: `Đã tìm thấy ${userIds.length} người dùng. Đang gửi...`,
       });
 
-      // 2. Chuẩn bị "thùng hàng" thông báo
+      // ✅ TẠO DANH SÁCH THÔNG BÁO ĐỂ INSERT
       const notificationsToInsert = userIds.map((id: string) => ({
         user_id: id,
         content: notifContent,
@@ -156,16 +148,10 @@ const AdminPage = () => {
         link_url: notifLinkUrl || null,
       }));
 
-      // 3. Nhờ "Đại sứ quán" gửi hộ
-      const { error: sendError } = await supabase.functions.invoke(
-        "send-bulk-notification",
-        {
-          body: {
-            adminKey: adminKey,
-            notificationsToInsert: notificationsToInsert,
-          },
-        }
-      );
+      // ✅ GỌI SUPABASE ĐỂ GỬI THÔNG BÁO HÀNG LOẠT (BẢNG NOTIFICATIONS)
+      const { error: sendError } = await supabase
+        .from("notifications")
+        .insert(notificationsToInsert);
 
       if (sendError) throw new Error(`Lỗi gửi thông báo: ${sendError.message}`);
 
@@ -173,6 +159,7 @@ const AdminPage = () => {
         type: "success",
         message: `Đã gửi thông báo thành công đến ${userIds.length} người dùng!`,
       });
+
       setNotifContent("");
       setNotifImageUrl("");
       setNotifLinkUrl("");
