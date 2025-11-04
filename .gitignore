@@ -33,3 +33,4 @@
 *.njsproj
 *.sln
 *.sw?
+.vercel
