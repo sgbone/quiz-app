@@ -1,57 +1,113 @@
+/* ===========================
+   SelectExamPage.css (final)
+   =========================== */
+
+/* --- Conic angle for LED animation --- */
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
 
+/* ========== CARD: LED BORDER (giống mẫu) ========== */
 .quiz-item-wrapper {
+  /* Tùy chỉnh nhanh */
+  --b: 2px; /* độ dày viền */
+  --r: 18px; /* bo góc card */
+  --speed: 6s; /* tốc độ quay */
+  --c1: #22d3ee; /* cyan   */
+  --c2: #a855f7; /* purple */
+  --c3: #ff3d81; /* pink   */
+  --c4: #f59e0b; /* amber  */
+
   position: relative;
-  padding: 3px;
-  border-radius: 1.2rem;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
+  border-radius: var(--r);
+  border: var(--b) solid transparent;
+  overflow: visible;
+
+  /* 2 lớp nền: fill trong + viền conic */
+  background: linear-gradient(transparent, transparent) padding-box,
+    conic-gradient(
+        from var(--angle),
+        var(--c1),
+        var(--c2),
+        var(--c3),
+        var(--c4),
+        var(--c1)
+      )
+      border-box;
+
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.05) inset,
+    0 6px 18px -8px rgb(0 0 0 / 0.45);
+
+  animation: led-rotate var(--speed) linear infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .quiz-item-wrapper:hover {
-  transform: scale(1.02);
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.07) inset,
+    0 20px 30px -12px rgb(0 0 0 / 0.45);
 }
 
-.quiz-item-wrapper::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  z-index: 1;
-  background: conic-gradient(
-    from var(--angle),
-    transparent 0%,
-    transparent 40%,
-    #00ffff,
-    #ff00ff,
-    #ffff00,
-    transparent 60%,
-    transparent 100%
-  );
-
-  animation: run-around 4s linear infinite;
+@keyframes led-rotate {
+  to {
+    --angle: 360deg;
+  }
 }
 
+/* Nội dung bên trong card */
 .quiz-item-content {
   position: relative;
   z-index: 2;
   border-radius: 1rem;
-  transition: background-color 0.3s ease-in-out;
-  background-color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
-
 .dark .quiz-item-content {
-  background-color: #111827;
+  background-color: #1f2937; /* gray-800 */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+}
+.quiz-item-wrapper:hover .quiz-item-content {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 10px 10px -5px rgb(0 0 0 / 0.04);
+}
+.dark .quiz-item-wrapper:hover .quiz-item-content {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5),
+    0 10px 10px -5px rgb(0 0 0 / 0.2);
 }
 
-@keyframes run-around {
-  to {
-    --angle: 360deg;
-  }
+/* ========== CUSTOM SCROLLBAR (đồng bộ theme) ========== */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
+
+/* ========== Line clamp utility (không warning) ========== */
+.line-clamp-2 {
+  overflow: hidden;
+  /* Chromium + Safari */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* Spec mới: trình duyệt hỗ trợ sẽ dùng thuộc tính chuẩn */
+  line-clamp: 2;
 }

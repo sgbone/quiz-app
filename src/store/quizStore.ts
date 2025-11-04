@@ -3,10 +3,12 @@ import { QuizQuestion, QuizInfo } from "../types";
 import { supabase } from "../supabaseClient";
 import { useAuthStore } from "./authStore";
 
+type QuizWithQuestions = QuizInfo & { questions: any[] }; // luôn có mảng
+
 interface AppState {
   theme: "light" | "dark";
   quizList: Omit<QuizInfo, "questions" | "password">[];
-  selectedQuiz: QuizInfo | null;
+  selectedQuiz: QuizWithQuestions | null;
   currentQuestionIndex: number;
   answers: Record<number, string[]>;
   showResults: Record<number, boolean>;
@@ -86,13 +88,14 @@ export const useAppStore = create<AppState>((set, get) => ({
   fetchQuizList: async () => {
     const { data, error } = await supabase
       .from("quizzes")
-      .select("id, name, description, is_protected")
-      .order("created_at", { ascending: false });
+      .select("id, name, description, is_protected, created_at") // ⬅ THÊM created_at
+      .order("created_at", { ascending: false }); // mặc định mới nhất (tuỳ bạn)
 
     if (error) {
       console.error("Error fetching quiz list:", error);
       set({ quizList: [] });
     } else {
+      // data trả về đúng shape Omit<QuizInfo, "questions" | "password">
       set({ quizList: data || [] });
     }
   },
@@ -116,14 +119,22 @@ export const useAppStore = create<AppState>((set, get) => ({
 
     await get().fetchNotes(quizId);
 
+    const normalized: QuizWithQuestions = {
+      id: data.id,
+      name: data.name,
+      description: data.description ?? "",
+      is_protected: !!data.is_protected,
+      created_at: data.created_at ?? undefined,
+      questions: Array.isArray(data.questions) ? data.questions : [], // ⬅ quan trọng
+    };
+
     set({
-      selectedQuiz: data as QuizInfo,
+      selectedQuiz: normalized,
       isQuizActive: true,
       currentQuestionIndex: 0,
       answers: {},
       showResults: {},
       results: {},
-      //isNotesPanelOpen: false,
       isQuizCompleted: false,
       lastCorrectAnswerId: null,
     });
