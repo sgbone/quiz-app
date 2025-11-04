@@ -2,6 +2,21 @@ import { useEffect } from "react";
 import { useAppStore } from "../store/quizStore";
 import { useQuizTimer } from "./useQuizTimer";
 
+/** Kiểu nhẹ cho hotkeys */
+type AnswerOptionLite = {
+  id: number | string;
+  label: string;
+};
+type QuestionLite = {
+  id: number | string;
+  options: AnswerOptionLite[];
+};
+
+/** Chuẩn hoá id về number (Supabase id thường là int) */
+const toNum = (v: string | number): number => {
+  return typeof v === "number" ? v : Number.parseInt(v, 10);
+};
+
 export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
   const {
     selectedQuiz,
@@ -24,36 +39,39 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
     showResults: state.showResults,
     isQuizActive: state.isQuizActive,
   }));
+
   const { timeElapsed } = useQuizTimer(isQuizActive);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Không chạy phím tắt khi đang gõ vào input
+      // Bỏ qua khi đang gõ trong input/textarea
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement
-      ) {
+      )
         return;
-      }
 
-      const currentQuestion = selectedQuiz?.questions[currentQuestionIndex];
+      // Lấy mảng câu hỏi với kiểu rõ ràng => tránh TS7015
+      const questions = (selectedQuiz?.questions ?? []) as QuestionLite[];
+      const currentQuestion = questions[currentQuestionIndex];
       if (!currentQuestion) return;
 
-      const hasAnswered = showResults[currentQuestion.id];
+      const qid = toNum(currentQuestion.id); // chuẩn hoá id
+      const hasAnswered = !!showResults[qid]; // map bằng number-key
 
-      // Chọn đáp án (A, B, C, D...)
+      // Phím A..Z để chọn đáp án (nếu chưa chấm)
       const key = e.key.toUpperCase();
-      const isOptionKey = /^[A-Z]$/.test(key);
-      if (isOptionKey && !hasAnswered) {
+      if (/^[A-Z]$/.test(key) && !hasAnswered) {
         e.preventDefault();
-        const optionExists = currentQuestion.options.some(
-          (opt) => opt.label === key
+        const optionExists = (currentQuestion.options ?? []).some(
+          (opt: AnswerOptionLite) => opt.label === key
         );
         if (optionExists) {
-          selectAnswer(currentQuestion.id, key);
+          selectAnswer(qid, key); // ⬅ expects number id
         }
       }
 
+      // Điều hướng & hành động
       switch (e.key) {
         case " ":
         case "n":
@@ -71,7 +89,7 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
         case "Enter":
           if (!hasAnswered) {
             e.preventDefault();
-            checkAnswer(currentQuestion.id, timeElapsed);
+            checkAnswer(qid, timeElapsed); // ⬅ expects number id
           }
           break;
         case "r":
@@ -87,9 +105,7 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [
     selectedQuiz,
     currentQuestionIndex,
@@ -101,5 +117,6 @@ export const useQuizHotkeys = (onToggleHotkeysModal: () => void) => {
     onToggleHotkeysModal,
     showResults,
     timeElapsed,
+    isQuizActive,
   ]);
 };
