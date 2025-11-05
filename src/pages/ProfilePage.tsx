@@ -1,10 +1,7 @@
 import "../styles/profile.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../store/authStore";
-import { supabase } from "../supabaseClient";
 import { motion } from "framer-motion";
-
 import {
   LogOut,
   Star,
@@ -19,7 +16,13 @@ import {
   ShieldAlert,
   RefreshCw,
   User as UserIcon,
+  Activity,
+  Crown,
+  Sparkles,
 } from "lucide-react";
+
+import { useAuthStore } from "../store/authStore";
+import { supabase } from "../supabaseClient";
 
 /* ---------------------------
    ENV cho Discord (FE)
@@ -56,26 +59,48 @@ type DiscordData = {
   last_checked?: string;
 };
 
-const StatCard = ({ icon, label, value, gradient }: any) => (
+/* ---------------------------
+   UI Helpers (Premium look)
+---------------------------- */
+type StatCardProps = {
+  icon: JSX.Element;
+  label: string;
+  value: string | number;
+  gradient: string; // Tailwind gradient classes after bg-gradient-to-br
+  delay?: number;
+};
+
+const StatCard = ({
+  icon,
+  label,
+  value,
+  gradient,
+  delay = 0,
+}: StatCardProps) => (
   <motion.div
-    whileHover={{ y: -5, scale: 1.02 }}
-    transition={{ type: "spring", stiffness: 300 }}
-    className="relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay, type: "spring", stiffness: 120 }}
+    whileHover={{ y: -6, scale: 1.02 }}
+    className="relative group"
   >
-    <div
-      className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
-    />
-    <div className="relative flex items-center gap-4">
-      <div className={`bg-gradient-to-br ${gradient} p-4 rounded-xl shadow-md`}>
-        {icon}
-      </div>
-      <div>
-        <p className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-          {label}
-        </p>
-        <p className="text-3xl font-bold text-gray-800 dark:text-white mt-1">
-          {value}
-        </p>
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="relative bg-white/90 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div className="flex items-center gap-4">
+        <div
+          className={`relative p-4 rounded-xl bg-gradient-to-br ${gradient} shadow-lg`}
+        >
+          <div className="absolute inset-0 bg-white/20 rounded-xl animate-pulse" />
+          {icon}
+        </div>
+        <div className="flex-1">
+          <p className="text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider mb-1">
+            {label}
+          </p>
+          <p className="text-3xl font-black bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            {value}
+          </p>
+        </div>
       </div>
     </div>
   </motion.div>
@@ -83,82 +108,104 @@ const StatCard = ({ icon, label, value, gradient }: any) => (
 
 const HistoryItem = ({ item, index }: { item: any; index: number }) => {
   const scorePercentage = (item.score / item.total_points) * 100;
+  const colors =
+    scorePercentage >= 80
+      ? {
+          bg: "from-emerald-500 to-teal-600",
+          text: "text-emerald-500",
+          badge: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+        }
+      : scorePercentage >= 60
+      ? {
+          bg: "from-amber-500 to-orange-600",
+          text: "text-amber-500",
+          badge: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
+        }
+      : {
+          bg: "from-rose-500 to-red-600",
+          text: "text-rose-500",
+          badge: "bg-rose-500/10 text-rose-700 dark:text-rose-300",
+        };
 
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.1 }}
-      whileHover={{ scale: 1.01 }}
-      className="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+      transition={{ delay: index * 0.08 }}
+      whileHover={{ scale: 1.01, x: 4 }}
+      className="group relative"
     >
-      <div
-        className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${
-          scorePercentage >= 80
-            ? "from-green-400 to-green-600"
-            : scorePercentage >= 60
-            ? "from-yellow-400 to-yellow-600"
-            : "from-red-400 to-red-600"
-        }`}
-      />
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-2">
-            <Trophy
-              className={`${
-                scorePercentage >= 80
-                  ? "text-green-500"
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-500" />
+      <div className="relative bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+        <div
+          className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${colors.bg} rounded-l-2xl`}
+        />
+
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 mb-3">
+              <div className={`p-2 rounded-lg bg-gradient-to-br ${colors.bg}`}>
+                <Trophy className="text-white" size={18} />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 dark:text-white truncate">
+                {item.quiz_name}
+              </h3>
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-bold ${colors.badge}`}
+              >
+                {scorePercentage >= 80
+                  ? "Xuất sắc"
                   : scorePercentage >= 60
-                  ? "text-yellow-500"
-                  : "text-red-500"
-              }`}
-              size={20}
-            />
-            <h3 className="font-bold text-lg text-gray-800 dark:text-white">
-              {item.quiz_name}
-            </h3>
-          </div>
-          <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-            <div className="flex items-center gap-1">
-              <Clock size={14} />
-              <span>{new Date(item.completed_at).toLocaleString("vi-VN")}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Zap size={14} />
-              <span>
-                {Math.floor(item.time_taken / 60)}:
-                {(item.time_taken % 60).toString().padStart(2, "0")}
+                  ? "Khá"
+                  : "Cần cải thiện"}
               </span>
             </div>
-          </div>
-        </div>
 
-        <div className="text-right ml-4">
-          <div
-            className={`text-3xl font-bold ${
-              scorePercentage >= 80
-                ? "text-green-500"
-                : scorePercentage >= 60
-                ? "text-yellow-500"
-                : "text-red-500"
-            }`}
-          >
-            {item.score}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-300">
+              <div className="flex items-center gap-1.5">
+                <Clock size={14} className="text-gray-400" />
+                <span>
+                  {new Date(item.completed_at).toLocaleString("vi-VN", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Zap size={14} className="text-yellow-500" />
+                <span className="font-semibold">
+                  {Math.floor(item.time_taken / 60)}:
+                  {(item.time_taken % 60).toString().padStart(2, "0")}
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            / {item.total_points} điểm
-          </div>
-          <div className="mt-2 bg-gray-200 dark:bg-gray-700 rounded-full h-2 w-24 overflow-hidden">
-            <div
-              className={`h-full rounded-full bg-gradient-to-r ${
-                scorePercentage >= 80
-                  ? "from-green-400 to-green-600"
-                  : scorePercentage >= 60
-                  ? "from-yellow-400 to-yellow-600"
-                  : "from-red-400 to-red-600"
-              }`}
-              style={{ width: `${scorePercentage}%` }}
-            />
+
+          <div className="flex flex-col items-end gap-2">
+            <div className="text-right">
+              <div className={`text-4xl font-black ${colors.text}`}>
+                {item.score}
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                / {item.total_points} điểm
+              </div>
+            </div>
+
+            <div className="w-28 bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden shadow-inner">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${scorePercentage}%` }}
+                transition={{
+                  delay: index * 0.08 + 0.3,
+                  duration: 0.8,
+                  ease: "easeOut",
+                }}
+                className={`h-full rounded-full bg-gradient-to-r ${colors.bg} shadow-sm`}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -167,8 +214,7 @@ const HistoryItem = ({ item, index }: { item: any; index: number }) => {
 };
 
 /* ---------------------------
-   Khối Discord Integration
-   (UI bám sát phong cách card hiện có)
+   Khối Discord Integration (giữ logic thực tế, nâng giao diện)
 ---------------------------- */
 function DiscordIntegrationCard() {
   const [loading, setLoading] = useState(false);
@@ -238,127 +284,174 @@ function DiscordIntegrationCard() {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg"
+      className="relative group"
     >
-      <div className="flex items-center gap-3 mb-4">
-        <div className="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-xl">
-          <LinkIcon
-            className="text-indigo-600 dark:text-indigo-300"
-            size={22}
-          />
-        </div>
-        <h3 className="text-xl font-extrabold text-gray-800 dark:text-white">
-          Discord
-        </h3>
-        <div className="ml-auto text-sm text-gray-500 dark:text-gray-400">
-          {loading ? "Đang kiểm tra…" : ""}
-        </div>
-      </div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500" />
 
-      {/* trạng thái liên kết */}
-      <div className="bg-gray-50 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-700 rounded-xl p-4 mb-4">
-        {discord?.discord_id ? (
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-3 min-w-0">
-              {discord?.avatar ? (
-                <img
-                  src={discord.avatar}
-                  className="w-9 h-9 rounded-full border border-white/20"
-                  alt=""
-                />
-              ) : (
-                <div className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 grid place-items-center">
-                  <UserIcon size={16} />
-                </div>
-              )}
-              <div className="min-w-0">
-                <div className="text-xs text-gray-500 dark:text-gray-400">
-                  Đã liên kết
-                </div>
-                <div className="font-semibold text-gray-800 dark:text-white truncate">
-                  @{discord.username}
-                  {discord.discriminator ? `#${discord.discriminator}` : ""}
-                </div>
+      <div className="relative bg-white dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl shadow-2xl overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-full blur-3xl" />
+
+        <div className="relative p-6 sm:p-8">
+          {/* Header */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="relative">
+              <div className="absolute inset-0 bg-indigo-500/20 rounded-2xl blur-lg animate-pulse" />
+              <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 p-3 rounded-2xl shadow-lg">
+                <LinkIcon className="text-white" size={22} />
               </div>
             </div>
-            <button
-              onClick={refreshNow}
-              disabled={loading}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50"
-            >
-              <RefreshCw size={16} /> Đồng bộ Discord
-            </button>
-          </div>
-        ) : (
-          <div className="flex items-center gap-3">
-            <div className="text-sm text-gray-600 dark:text-gray-300">
-              Chưa liên kết
+            <h3 className="text-xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Discord
+            </h3>
+            <div className="ml-auto text-sm text-gray-500 dark:text-gray-400">
+              {loading ? "Đang kiểm tra…" : ""}
             </div>
-            <a
-              href={toDiscordAuthUrl()}
-              className="ml-auto inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700"
-            >
-              <LinkIcon size={16} />
-              Liên kết Discord
-            </a>
           </div>
-        )}
-        {!!error && (
-          <div className="mt-2 text-xs text-red-500">Lỗi: {error}</div>
-        )}
-        {!!discord?.last_checked && (
-          <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-            Lần kiểm tra:{" "}
-            {new Date(discord.last_checked).toLocaleString("vi-VN")}
-          </div>
-        )}
-      </div>
 
-      {/* badge role */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div className="bg-gray-50 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-700 rounded-xl p-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {hasMember ? (
-              <ShieldCheck className="text-emerald-500" size={18} />
+          {/* trạng thái liên kết */}
+          <div className="bg-gray-50/70 dark:bg-white/5 border border-gray-200/60 dark:border-white/10 rounded-2xl p-4 mb-4">
+            {discord?.discord_id ? (
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  {discord?.avatar ? (
+                    <img
+                      src={discord.avatar}
+                      className="w-10 h-10 rounded-full border border-white/20"
+                      alt=""
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 grid place-items-center">
+                      <UserIcon size={16} />
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                      Đã liên kết
+                    </div>
+                    <div className="font-semibold text-gray-800 dark:text-white truncate">
+                      @{discord.username}
+                      {discord.discriminator ? `#${discord.discriminator}` : ""}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={refreshNow}
+                  disabled={loading}
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-50"
+                >
+                  <RefreshCw size={16} /> Đồng bộ Discord
+                </button>
+              </div>
             ) : (
-              <ShieldAlert className="text-gray-400" size={18} />
-            )}
-            <div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">
-                Hội viên
+              <div className="flex items-center gap-3">
+                <div className="text-sm text-gray-600 dark:text-gray-300">
+                  Chưa liên kết
+                </div>
+                <a
+                  href={toDiscordAuthUrl()}
+                  className="ml-auto inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700"
+                >
+                  <LinkIcon size={16} />
+                  Liên kết Discord
+                </a>
               </div>
-              <div
-                className={`text-sm font-semibold ${
-                  hasMember
-                    ? "text-emerald-600 dark:text-emerald-400"
-                    : "text-gray-600 dark:text-gray-300"
-                }`}
-              >
-                {hasMember ? "Đã xác minh ✓" : "Chưa đăng ký"}
+            )}
+            {!!error && (
+              <div className="mt-2 text-xs text-rose-500">Lỗi: {error}</div>
+            )}
+            {!!discord?.last_checked && (
+              <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                Lần kiểm tra:{" "}
+                {new Date(discord.last_checked).toLocaleString("vi-VN")}
+              </div>
+            )}
+          </div>
+
+          {/* badge role */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Member */}
+            <div
+              className={`relative overflow-hidden rounded-xl border-2 ${
+                hasMember
+                  ? "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-300"
+                  : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10"
+              } p-4 shadow-md`}
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-2xl" />
+              <div className="relative flex items-center gap-3">
+                <div
+                  className={`p-3 rounded-xl ${
+                    hasMember
+                      ? "bg-gradient-to-br from-emerald-500 to-teal-600"
+                      : "bg-gray-300 dark:bg-gray-600"
+                  } shadow-lg`}
+                >
+                  {hasMember ? (
+                    <ShieldCheck className="text-white" size={22} />
+                  ) : (
+                    <ShieldAlert className="text-white" size={22} />
+                  )}
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">
+                      Hội viên
+                    </span>
+                    {hasMember && (
+                      <Sparkles className="text-emerald-500" size={14} />
+                    )}
+                  </div>
+                  <div
+                    className={`font-bold ${
+                      hasMember
+                        ? "text-emerald-600"
+                        : "text-gray-600 dark:text-gray-300"
+                    }`}
+                  >
+                    {hasMember ? "Đã xác minh ✓" : "Chưa đăng ký"}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="bg-gray-50 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-700 rounded-xl p-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {hasVIP ? (
-              <ShieldCheck className="text-amber-500" size={18} />
-            ) : (
-              <ShieldAlert className="text-gray-400" size={18} />
-            )}
-            <div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">
-                VIP
-              </div>
-              <div
-                className={`text-sm font-semibold ${
-                  hasVIP
-                    ? "text-amber-600 dark:text-amber-400"
-                    : "text-gray-600 dark:text-gray-300"
-                }`}
-              >
-                {hasVIP ? "Đã xác minh ✓" : "Chưa đăng ký"}
+            {/* VIP */}
+            <div
+              className={`relative overflow-hidden rounded-xl border-2 ${
+                hasVIP
+                  ? "bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-300"
+                  : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10"
+              } p-4 shadow-md`}
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-amber-400/10 to-yellow-400/10 rounded-full blur-2xl" />
+              <div className="relative flex items-center gap-3">
+                <div
+                  className={`p-3 rounded-xl ${
+                    hasVIP
+                      ? "bg-gradient-to-br from-amber-500 to-yellow-600"
+                      : "bg-gray-300 dark:bg-gray-600"
+                  } shadow-lg`}
+                >
+                  <Crown className="text-white" size={22} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">
+                      VIP
+                    </span>
+                    {hasVIP && (
+                      <Sparkles className="text-amber-500" size={14} />
+                    )}
+                  </div>
+                  <div
+                    className={`font-bold ${
+                      hasVIP
+                        ? "text-amber-600"
+                        : "text-gray-600 dark:text-gray-300"
+                    }`}
+                  >
+                    {hasVIP ? "Đã xác minh ✓" : "Chưa đăng ký"}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -368,6 +461,9 @@ function DiscordIntegrationCard() {
   );
 }
 
+/* ---------------------------
+   Trang Profile
+---------------------------- */
 export default function ProfilePage() {
   const navigate = useNavigate();
   const { profile, logout } = useAuthStore();
@@ -375,11 +471,11 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const fetchHistory = async () => {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from("quiz_history")
         .select("*")
         .order("completed_at", { ascending: false });
-      if (data) setHistory(data);
+      if (!error && data) setHistory(data);
     };
     fetchHistory();
   }, []);
@@ -420,7 +516,6 @@ export default function ProfilePage() {
           100
         ).toFixed(0)
       : 0;
-
   const totalScore = history.reduce((sum, item) => sum + item.score, 0);
   const bestScore =
     history.length > 0
@@ -430,154 +525,173 @@ export default function ProfilePage() {
       : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto p-4 sm:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-900 dark:to-indigo-950 relative overflow-hidden transition-colors duration-300">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-300 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Profile Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative mb-8 overflow-hidden rounded-3xl shadow-2xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600" />
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9nPjwvc3ZnPg==')] opacity-10" />
+
+          <div className="relative p-8 sm:p-12">
+            <div className="flex flex-col sm:flex-row items-center gap-8">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 120, delay: 0.2 }}
+                whileHover={{ scale: 1.05, rotate: 4 }}
+                className="relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-2xl opacity-50 animate-pulse" />
+                <img
+                  src={
+                    profile.avatar_url ||
+                    `https://api.dicebear.com/7.x/pixel-art/svg?seed=${profile.username}`
+                  }
+                  alt="Avatar"
+                  className="relative h-32 w-32 sm:h-40 sm:w-40 rounded-full border-4 border-white shadow-2xl ring-4 ring-white/40"
+                />
+                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-400 to-teal-500 border-4 border-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
+                  <Activity className="text-white" size={20} />
+                </div>
+              </motion.div>
+
+              <div className="flex-1 text-center sm:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <h1 className="text-4xl sm:text-6xl font-black text-white mb-2 drop-shadow-lg">
+                    {profile.display_name || profile.username}
+                  </h1>
+                  <p className="text-white/90 text-lg sm:text-xl font-semibold mb-4 flex items-center justify-center sm:justify-start gap-2">
+                    <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                      @{profile.username}
+                    </span>
+                  </p>
+                </motion.div>
+              </div>
+
+              <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ scale: 1.05, rotate: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleLogout}
+                className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl flex items-center gap-3 transition-all shadow-xl border-2 border-white/30 hover:border-white/50"
+              >
+                <LogOut size={22} /> <span>Đăng xuất</span>
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Discord Integration */}
+        <div className="mb-8">
+          <DiscordIntegrationCard />
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <StatCard
+            icon={<TrendingUp className="text-white" size={28} />}
+            label="Số lượt làm bài"
+            value={totalQuizzes}
+            gradient="from-blue-500 to-cyan-500"
+            delay={0.4}
+          />
+          <StatCard
+            icon={<Star className="text-white" size={28} />}
+            label="Tỷ lệ đúng TB"
+            value={`${averageScore}%`}
+            gradient="from-amber-500 to-orange-500"
+            delay={0.5}
+          />
+          <StatCard
+            icon={<Trophy className="text-white" size={28} />}
+            label="Điểm cao nhất"
+            value={`${bestScore.toFixed(0)}%`}
+            gradient="from-purple-500 to-pink-500"
+            delay={0.6}
+          />
+          <StatCard
+            icon={<Target className="text-white" size={28} />}
+            label="Tổng điểm"
+            value={totalScore}
+            gradient="from-emerald-500 to-teal-500"
+            delay={0.7}
+          />
+        </div>
+
+        {/* History Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ delay: 0.8 }}
         >
-          {/* Hero Profile Section (giữ nguyên layout) */}
-          <div className="relative mb-8 overflow-hidden rounded-3xl shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-90"></div>
-            <div className="relative p-8 sm:p-12">
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <motion.div
-                  whileHover={{ scale: 1.05, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="relative"
-                >
-                  <div className="absolute inset-0 bg-white/30 rounded-full blur-xl"></div>
-                  <img
-                    src={
-                      profile.avatar_url ||
-                      `https://api.dicebear.com/7.x/pixel-art/svg?seed=${profile.username}`
-                    }
-                    alt="Avatar"
-                    className="relative h-32 w-32 rounded-full border-4 border-white shadow-2xl"
-                  />
-                  <div className="absolute -bottom-2 -right-2 bg-green-500 border-4 border-white rounded-full w-8 h-8"></div>
-                </motion.div>
-
-                <div className="flex-1 text-center sm:text-left">
-                  <motion.h1
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-4xl sm:text-5xl font-black text-white mb-2"
-                  >
-                    {profile.display_name || profile.username}
-                  </motion.h1>
-                  <motion.p
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-white/90 text-lg font-medium"
-                  >
-                    @{profile.username}
-                  </motion.p>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur-lg opacity-50" />
+                <div className="relative bg-gradient-to-r from-indigo-500 to-purple-500 p-4 rounded-2xl shadow-lg">
+                  <Clock className="text-white" size={32} />
                 </div>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                Lịch Sử Làm Bài
+              </h2>
+            </div>
+            <div className="bg-white/90 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 px-6 py-3 rounded-full shadow-lg">
+              <span className="text-sm font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                {history.length} bài quiz
+              </span>
+            </div>
+          </div>
 
+          <div className="space-y-4">
+            {history.length > 0 ? (
+              history.map((item, index) => (
+                <HistoryItem key={item.id} item={item} index={index} />
+              ))
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-20 bg-white/90 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl shadow-2xl"
+              >
+                <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <HelpCircle className="text-gray-400" size={48} />
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-3">
+                  Chưa có lịch sử
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
+                  Bạn chưa làm bài nào cả. Hãy bắt đầu ngay!
+                </p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={handleLogout}
-                  className="bg-white/20 backdrop-blur-md hover:bg-white/30 text-white font-bold py-3 px-6 rounded-xl flex items-center gap-2 transition shadow-lg border border-white/30"
+                  onClick={() => navigate("/")}
+                  className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
-                  <LogOut size={20} /> Đăng xuất
+                  Khám phá Quiz
                 </motion.button>
-              </div>
-            </div>
+              </motion.div>
+            )}
           </div>
-
-          {/* Discord Integration — thêm ngay dưới hero */}
-          <div className="mb-8">
-            <DiscordIntegrationCard />
-          </div>
-
-          {/* Stats Grid (giữ giao diện) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <StatCard
-              icon={<TrendingUp className="text-white" size={24} />}
-              label="Số lượt làm bài"
-              value={totalQuizzes}
-              gradient="from-blue-500 to-cyan-500"
-            />
-            <StatCard
-              icon={<Star className="text-white" size={24} />}
-              label="Tỷ lệ đúng TB"
-              value={`${averageScore}%`}
-              gradient="from-yellow-500 to-orange-500"
-            />
-            <StatCard
-              icon={<Trophy className="text-white" size={24} />}
-              label="Điểm cao nhất"
-              value={`${bestScore.toFixed(0)}%`}
-              gradient="from-purple-500 to-pink-500"
-            />
-            <StatCard
-              icon={<Target className="text-white" size={24} />}
-              label="Tổng điểm"
-              value={totalScore}
-              gradient="from-green-500 to-emerald-500"
-            />
-          </div>
-
-          {/* History Section (giữ giao diện) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-3xl font-black text-gray-800 dark:text-white flex items-center gap-3">
-                <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-3 rounded-xl">
-                  <Clock className="text-white" size={28} />
-                </div>
-                Lịch Sử Làm Bài
-              </h2>
-              <div className="bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md">
-                <span className="text-sm font-bold text-gray-600 dark:text-gray-400">
-                  {history.length} bài quiz
-                </span>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {history.length > 0 ? (
-                history.map((item, index) => (
-                  <HistoryItem key={item.id} item={item} index={index} />
-                ))
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg"
-                >
-                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <HelpCircle
-                      className="text-gray-400 dark:text-gray-500"
-                      size={40}
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-                    Chưa có lịch sử
-                  </h3>
-                  <p className="text-gray-500 dark:text-gray-400 mb-6">
-                    Bạn chưa làm bài nào cả. Hãy bắt đầu ngay!
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => navigate("/")}
-                    className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg"
-                  >
-                    Khám phá Quiz
-                  </motion.button>
-                </motion.div>
-              )}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </div>
