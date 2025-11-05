@@ -1,5 +1,16 @@
 import * as XLSX from "xlsx";
-import { QuizQuestion, QuizOption } from "../types"; // Import thêm QuizOption
+import { QuizQuestion, QuizOption } from "../types";
+
+const toStr = (v: any): string => {
+  if (v == null) return "";
+  if (typeof v === "string") return v;
+  if (Array.isArray(v)) return v.map(toStr).join(", ");
+  try {
+    return String(v);
+  } catch {
+    return "";
+  }
+};
 
 export const parseQuizFromExcel = (file: File): Promise<QuizQuestion[]> => {
   return new Promise((resolve, reject) => {
@@ -12,33 +23,29 @@ export const parseQuizFromExcel = (file: File): Promise<QuizQuestion[]> => {
         const worksheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json<any>(worksheet);
 
-        const processedData: QuizQuestion[] = jsonData.map((row) => {
-          // SỬA LẠI DÒNG NÀY
+        const processedData: QuizQuestion[] = jsonData.map((row, idx) => {
           const options: QuizOption[] = [];
-
           ["A", "B", "C", "D", "E", "F", "G", "H"].forEach((letter) => {
             const optionKey = `option${letter}`;
-            if (row[optionKey]) {
-              options.push({ label: letter, text: row[optionKey] });
+            if (row[optionKey] != null && row[optionKey] !== "") {
+              options.push({ label: letter, text: toStr(row[optionKey]) });
             }
           });
 
-          const correctAnswers = row.correct
-            ? row.correct
-                .toString()
-                .split(",")
-                .map((a: string) => a.trim())
-            : [];
+          const correctAnswers = toStr(row.correct)
+            .split(",")
+            .map((a) => a.trim())
+            .filter(Boolean);
 
           return {
-            id: row.id,
-            type: row.type || "single",
-            question: row.question,
+            id: row.id ?? `${Date.now()}-${idx}`,
+            type: row.type === "multiple" ? "multiple" : "single",
+            question: toStr(row.question),
             options,
             correct: correctAnswers,
-            points: row.points || 1,
-            explanation: row.explanation || "",
-            image_url: row.image_url || "",
+            points: Number(row.points) || 1,
+            explanation: toStr(row.explanation),
+            image_url: toStr(row.image_url),
           };
         });
         resolve(processedData);

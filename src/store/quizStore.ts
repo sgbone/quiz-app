@@ -3,7 +3,41 @@ import { QuizQuestion, QuizInfo } from "../types";
 import { supabase } from "../supabaseClient";
 import { useAuthStore } from "./authStore";
 
-type QuizWithQuestions = QuizInfo & { questions: any[] }; // luôn có mảng
+const toStr = (v: any): string => {
+  if (v == null) return "";
+  if (typeof v === "string") return v;
+  if (Array.isArray(v)) return v.map(toStr).join(", ");
+  try {
+    return String(v);
+  } catch {
+    return "";
+  }
+};
+
+const normalizeQuestion = (q: any) => {
+  const options = Array.isArray(q?.options) ? q.options : [];
+  return {
+    ...q,
+    id: q?.id ?? crypto.randomUUID?.() ?? `${Date.now()}-${Math.random()}`,
+    type: q?.type === "multiple" ? "multiple" : "single",
+    question: toStr(q?.question),
+    explanation: toStr(q?.explanation),
+    image_url: toStr(q?.image_url),
+    points: Number(q?.points) || 1,
+    options: options.map((op: any) => ({
+      label: toStr(op?.label),
+      text: toStr(op?.text),
+    })),
+    correct: Array.isArray(q?.correct)
+      ? q.correct.map(toStr)
+      : toStr(q?.correct)
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+  };
+};
+
+type QuizWithQuestions = QuizInfo & { questions: any[] };
 
 interface AppState {
   theme: "light" | "dark";
@@ -125,7 +159,9 @@ export const useAppStore = create<AppState>((set, get) => ({
       description: data.description ?? "",
       is_protected: !!data.is_protected,
       created_at: data.created_at ?? undefined,
-      questions: Array.isArray(data.questions) ? data.questions : [], // ⬅ quan trọng
+      questions: Array.isArray(data.questions)
+        ? data.questions.map(normalizeQuestion) // <-- THÊM DÒNG NÀY
+        : [],
     };
 
     set({

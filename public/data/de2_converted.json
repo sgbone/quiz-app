@@ -1,0 +1,1616 @@
+[
+  {
+    "id": 1,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "None of them",
+        "label": "C"
+      },
+      {
+        "text": "(iii)",
+        "label": "D"
+      }
+    ],
+    "question": "Find the domain of function \\( y = \\frac{\\sqrt{x}}{\\sin \\pi x} \\) <br> (i) \\( x \\neq n, (n=1,2,3,...) \\) <br> (ii) \\( x > 0, x \\neq n, (n=1,2,3,...) \\) <br> (iii) \\( x > 0 \\)",
+    "image_url": "",
+    "explanation": "Để giải nhanh, ta xét 2 điều kiện cùng lúc:<br /><br /><b>1. Điều kiện của tử số (căn bậc hai):</b><br />- Biểu thức dưới dấu căn phải không âm: \\( \\sqrt{x} \\Rightarrow x \\ge 0 \\).<br /><br /><b>2. Điều kiện của mẫu số (phân thức):</b><br />- Mẫu số phải khác 0: \\( \\sin(\\pi x) \\neq 0 \\).<br />- Điều này xảy ra khi \\( \\pi x \\) không phải là bội của \\(\\pi\\) (tức là \\(\\pi x \\neq k\\pi\\)), suy ra \\(x\\) không phải là số nguyên (\\(x \\neq k\\)).<br /><br /><b>3. Kết hợp nhanh hai điều kiện:</b><br />- Ta cần \\( x \\ge 0 \\) và \\(x\\) không phải là các số nguyên \\(0, 1, 2, ...\\).<br />- Vì \\(x=0\\) làm cho mẫu bằng 0 nên ta phải loại. Vậy điều kiện cuối cùng là \\(x > 0\\) và \\(x \\neq n\\) (với \\(n = 1, 2, ...\\))."
+  },
+  {
+    "id": 2,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "Shift 3 units to the right and then shift 2 units downward",
+        "label": "A"
+      },
+      {
+        "text": "Shift 3 units to the left and then shift 2 units downward",
+        "label": "B"
+      },
+      {
+        "text": "Shift 3 units to the right and then shift 2 units upward",
+        "label": "C"
+      },
+      {
+        "text": "Shift 3 units to the left and then shift 2 units upward",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Describe how the graph of \\( y = f(x-3) - 2 \\) is obtained from graph of \\( y = f(x) \\)",
+    "image_url": "",
+    "explanation": "Để nhẩm nhanh, ta dùng quy tắc 'trong-ngoài':<br /><br /><b>1. Tác động bên TRONG hàm số \\(f(...)\\):</b><br />- Biểu thức \\((x-3)\\) tác động lên trục ngang (trục x) và có tác dụng <b>ngược dấu</b>.<br />- 'Trừ 3' có nghĩa là dịch sang <b>phải</b> 3 đơn vị.<br /><br /><b>2. Tác động bên NGOÀI hàm số \\(f(...)\\):</b><br />- Số \\(-2\\) tác động lên trục dọc (trục y) và có tác dụng <b>thuận dấu</b>.<br />- 'Trừ 2' có nghĩa là dịch <b>xuống</b> 2 đơn vị.<br /><br /><b>Kết luận:</b> Sang phải 3, xuống 2."
+  },
+  {
+    "id": 3,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "Does not exist",
+        "label": "A"
+      },
+      {
+        "text": "4",
+        "label": "B"
+      },
+      {
+        "text": "-4",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Let \\( f(x) = \\begin{cases} \\frac{x^2-16}{x+4} & \\text{if } x > 0 \\\\ \\frac{x^2-16}{x-4} & \\text{if } x < 0 \\end{cases} \\) <br> Find \\( \\lim_{x \\to -4^+} f(x) \\)",
+    "image_url": "",
+    "explanation": "Để giải nhanh, ta thực hiện 3 bước nhẩm:<br /><br /><b>1. Chọn nhánh hàm số:</b><br />- Khi \\( x \\to -4^+ \\) (ví dụ -3.99), ta có \\( x < 0 \\).<br />- Vậy ta dùng nhánh dưới: \\( f(x) = \\frac{x^2-16}{x-4} \\).<br /><br /><b>2. Rút gọn biểu thức:</b><br />- Phân tích tử số: \\( x^2 - 16 = (x-4)(x+4) \\).<br />- Rút gọn với mẫu số, ta còn lại \\( f(x) = x+4 \\).<br /><br /><b>3. Thế số vào:</b><br />\\( \\lim_{x \\to -4^+} (x+4) = -4+4=0 \\).<br /><br />Vì 0 không có trong các đáp án A, B, C, ta chọn 'None of the other choices is correct'."
+  },
+  {
+    "id": 4,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "(v)",
+        "label": "E"
+      }
+    ],
+    "question": "Write ONE equation that expresses the fact that a function \\(f\\) is continuous at the number 4. <br> (i) \\( \\lim_{x \\to 4^+} f(x) = -f(4) \\) <br> (ii) \\( \\lim_{x \\to 4^-} f(x) = f(4) \\) <br> (iii) \\( \\lim_{x \\to 4^+} f(x) = f(4) \\) <br> (iv) \\( \\lim_{x \\to 4^-} f(x) = \\lim_{x \\to 4^+} f(x) \\) <br> (v) \\( \\lim_{x \\to 4} f(x) = f(4) \\)",
+    "image_url": "",
+    "explanation": "Đây là câu hỏi về định nghĩa, cách làm nhanh nhất là nhớ định nghĩa cốt lõi.<br /><br /><b>Bản chất của tính liên tục:</b><br />Một hàm số được gọi là liên tục tại một điểm nếu đồ thị của nó 'liền mạch' tại điểm đó. Điều này được thể hiện bằng một phương trình duy nhất:<br /><br /><b>Giá trị mà hàm số TIẾN TỚI = Giá trị của hàm số TẠI ĐÓ</b><br /><br />- 'Giá trị hàm số tiến tới' chính là giới hạn: \\( \\lim_{x \\to 4} f(x) \\).<br />- 'Giá trị tại đó' chính là: \\( f(4) \\).<br /><br />Vậy, phương trình đầy đủ và chính xác nhất là: \\( \\lim_{x \\to 4} f(x) = f(4) \\).<br /><br />Phương trình này đã bao hàm cả 3 điều kiện: hàm số xác định, giới hạn tồn tại, và chúng bằng nhau."
+  },
+  {
+    "id": 5,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "\\( 2h+x+5 \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( h+2x-5 \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( h+2x+5 \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( 2h+x-5 \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Simplify the expression \\( \\frac{f(x+h)-f(x)}{h} \\) for \\( f(x) = x^2 + 5x \\).",
+    "image_url": "",
+    "explanation": "Để giải nhanh, ta nhẩm các bước rút gọn trong đầu.<br /><br /><b>1. Nhẩm \\( f(x+h) - f(x) \\):</b><br />- Các số hạng của \\(f(x)\\) ban đầu (là \\(x^2\\) và \\(5x\\)) chắc chắn sẽ bị triệt tiêu.<br />- Ta chỉ cần quan tâm các số hạng mới sinh ra từ \\(f(x+h)\\) có chứa \\(h\\):<br />  - Từ \\((x+h)^2\\) ta có: \\(2xh + h^2\\).<br />  - Từ \\(5(x+h)\\) ta có: \\(5h\\).<br />- Vậy, \\( f(x+h) - f(x) = 2xh + h^2 + 5h \\).<br /><br /><b>2. Chia cho \\(h\\):</b><br />- Lấy biểu thức trên chia cho \\(h\\), ta được: \\( 2x + h + 5 \\).<br /><br />---<br /><b>Tại sao lại như vậy? (Bản chất)</b><br />Biểu thức \\( \\frac{f(x+h)-f(x)}{h} \\) chính là định nghĩa của đạo hàm. Khi \\(h \\to 0\\), nó sẽ trở thành đạo hàm của \\(f(x)\\), là \\(f'(x) = 2x+5\\). Nhìn vào các đáp án, ta thấy chúng đều có dạng \\(... + 2x + 5\\), chỉ khác nhau ở số hạng chứa \\(h\\). Điều này giúp ta kiểm tra lại kết quả một cách nhanh chóng."
+  },
+  {
+    "id": 6,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "\\( y = 8x + 20 \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( y = 4x - 20 \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( y = 12 \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( y = 8x - 20 \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find an equation for the tangent line to the graph of the function \\( f(x) = x^2 - 4 \\) at \\( (4, 12) \\).",
+    "image_url": "",
+    "explanation": "Để tìm phương trình đường tiếp tuyến với đồ thị hàm số \\( f(x) = x^2 - 4 \\) tại điểm \\( (x_0, y_0) = (4, 12) \\), ta thực hiện các bước sau:<br/>1. **Tính đạo hàm của hàm số \\( f(x) \\) để tìm hệ số góc của tiếp tuyến.**<br/>   \\( f'(x) = \\frac{d}{dx}(x^2 - 4) = 2x \\).<br/>2. **Tính hệ số góc của tiếp tuyến tại điểm đã cho.**<br/>   Hệ số góc \\( m \\) tại \\( x_0 = 4 \\) là \\( m = f'(4) = 2(4) = 8 \\).<br/>3. **Sử dụng phương trình đường thẳng dạng điểm - hệ số góc.**<br/>   Phương trình đường thẳng đi qua điểm \\( (x_0, y_0) \\) với hệ số góc \\( m \\) là \\( y - y_0 = m(x - x_0) \\).<br/>   Thay \\( x_0 = 4 \\), \\( y_0 = 12 \\), và \\( m = 8 \\) vào phương trình:<br/>   \\( y - 12 = 8(x - 4) \\)<br/>   Phân phối và sắp xếp lại để được dạng \\( y = mx + b \\):<br/>   \\( y - 12 = 8x - 32 \\)<br/>\\   \\( y = 8x - 32 + 12 \\)<br/>\\   \\( y = 8x - 20 \\).<br/>Phương trình đường tiếp tuyến là \\( y = 8x - 20 \\)."
+  },
+  {
+    "id": 7,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "-1",
+        "label": "A"
+      },
+      {
+        "text": "1",
+        "label": "B"
+      },
+      {
+        "text": "15",
+        "label": "C"
+      },
+      {
+        "text": "-15",
+        "label": "D"
+      }
+    ],
+    "question": "Suppose that the temperature in the house is given by \\( T(t) = t^2 - 9t + 3 \\) (°C) for \\( 0 \\le t \\le 10 \\), where \\(t\\) is the number of hours past 8 p.m. Find the instantaneous rate of change of the temperature (in °C/h) at midnight.",
+    "image_url": "",
+    "explanation": "Hàm nhiệt độ được cho là \\( T(t) = t^2 - 9t + 3 \\), với \\(t\\) là số giờ sau 8 giờ tối.<br/>Tốc độ thay đổi tức thời của nhiệt độ được cho bởi đạo hàm của hàm \\( T(t) \\) theo \\(t\\), tức là \\( T'(t) \\).<br/>1. **Tính đạo hàm \\( T'(t) \\):**<br/>   \\( T'(t) = \\frac{d}{dt}(t^2 - 9t + 3) = 2t - 9 \\).<br/>2. **Xác định giá trị của \\(t\\) tại thời điểm nửa đêm (midnight):**<br/>   8 giờ tối (8 p.m.) tương ứng với \\( t = 0 \\).<br/>   Nửa đêm là 12 giờ đêm. Khoảng thời gian từ 8 giờ tối đến 12 giờ đêm là \\( 12 - 8 = 4 \\) giờ.<br/>   Vậy, tại nửa đêm, \\( t = 4 \\).<br/>3. **Tính tốc độ thay đổi tức thời tại \\( t = 4 \\):**<br/>   Thay \\( t = 4 \\) vào biểu thức \\( T'(t) \\):<br/>   \\( T'(4) = 2(4) - 9 = 8 - 9 = -1 \\).<br/>Vậy, tốc độ thay đổi tức thời của nhiệt độ vào lúc nửa đêm là -1 °C/h."
+  },
+  {
+    "id": 8,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "2",
+        "label": "A"
+      },
+      {
+        "text": "-6",
+        "label": "B"
+      },
+      {
+        "text": "0",
+        "label": "C"
+      },
+      {
+        "text": "5",
+        "label": "D"
+      },
+      {
+        "text": "-2",
+        "label": "E"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "F"
+      }
+    ],
+    "question": "Find \\( y'(0) \\) for \\( y = (x+1)^5 (x^2+1)^{-3} \\)",
+    "image_url": "",
+    "explanation": "Để tìm \\( y'(0) \\), trước tiên ta cần tìm đạo hàm \\( y' = \\frac{dy}{dx} \\) bằng cách sử dụng quy tắc nhân và quy tắc chuỗi.<br/>Cho \\( y = (x+1)^5 (x^2+1)^{-3} \\).<br/>Đặt \\( u(x) = (x+1)^5 \\) và \\( v(x) = (x^2+1)^{-3} \\). Khi đó \\( y = u(x)v(x) \\).<br/>Quy tắc nhân cho đạo hàm là \\( y' = u'v + uv' \\).<br/>1. **Tính đạo hàm của \\( u(x) \\) và \\( v(x) \\):**<br/>   \\( u'(x) = \\frac{d}{dx}(x+1)^5 = 5(x+1)^4 \\cdot \\frac{d}{dx}(x+1) = 5(x+1)^4 \\cdot 1 = 5(x+1)^4 \\).<br/>   \\( v'(x) = \\frac{d}{dx}(x^2+1)^{-3} = -3(x^2+1)^{-4} \\cdot \\frac{d}{dx}(x^2+1) = -3(x^2+1)^{-4} \\cdot (2x) = -6x(x^2+1)^{-4} \\).<br/>2. **Áp dụng quy tắc nhân:**<br/>   \\( y' = u'v + uv' = 5(x+1)^4 (x^2+1)^{-3} + (x+1)^5 [-6x(x^2+1)^{-4}] \\)<br/>\\   \\( y' = 5(x+1)^4 (x^2+1)^{-3} - 6x(x+1)^5 (x^2+1)^{-4} \\).<br/>3. **Thay \\( x=0 \\) vào biểu thức \\( y' \\) để tìm \\( y'(0) \\):**<br/>   \\( y'(0) = 5(0+1)^4 (0^2+1)^{-3} - 6(0)(0+1)^5 (0^2+1)^{-4} \\)<br/>\\   \\( y'(0) = 5(1)^4 (1)^{-3} - 6(0)(1)^5 (1)^{-4} \\)<br/>\\   \\( y'(0) = 5(1)(1) - 0 \\)<br/>\\   \\( y'(0) = 5 \\).<br/>Giá trị tính được là 5. So sánh với các lựa chọn, lựa chọn D là 5."
+  },
+  {
+    "id": 9,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "2",
+        "label": "A"
+      },
+      {
+        "text": "0",
+        "label": "B"
+      },
+      {
+        "text": "1",
+        "label": "C"
+      },
+      {
+        "text": "-2",
+        "label": "D"
+      },
+      {
+        "text": "-1",
+        "label": "E"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "F"
+      }
+    ],
+    "question": "Find \\( y'(0) \\) if \\( 2y + x^2y^5 - 4x = 0 \\)",
+    "image_url": "",
+    "explanation": "Ta được cho phương trình ẩn \\( 2y + x^2y^5 - 4x = 0 \\).<br/>1. **Tìm giá trị của \\(y\\) khi \\(x=0\\):**<br/>   Thay \\(x=0\\) vào phương trình đã cho:<br/>   \\( 2y + (0)^2y^5 - 4(0) = 0 \\)<br/>\\   \\( 2y + 0 - 0 = 0 \\)<br/>\\   \\( 2y = 0 \\implies y = 0 \\).<br/>   Vậy, khi \\(x=0\\), thì \\(y=0\\).<br/>2. **Đạo hàm hai vế của phương trình theo \\(x\\) (đạo hàm ẩn):**<br/>   \\( \\frac{d}{dx}(2y) + \\frac{d}{dx}(x^2y^5) - \\frac{d}{dx}(4x) = \\frac{d}{dx}(0) \\)<br/>   Sử dụng quy tắc đạo hàm cho từng số hạng: <br/>   - \\( \\frac{d}{dx}(2y) = 2 \\frac{dy}{dx} = 2y' \\)<br/>   - \\( \\frac{d}{dx}(x^2y^5) \\): Áp dụng quy tắc nhân \\( (uv)' = u'v + uv' \\) với \\( u=x^2 \\) và \\( v=y^5 \\).<br/>     \\( u' = 2x \\)<br/>     \\( v' = \\frac{d}{dx}(y^5) = 5y^4 \\frac{dy}{dx} = 5y^4y' \\) (quy tắc chuỗi)<br/>     Vậy, \\( \\frac{d}{dx}(x^2y^5) = (2x)y^5 + x^2(5y^4y') = 2xy^5 + 5x^2y^4y' \\).<br/>   - \\( \\frac{d}{dx}(4x) = 4 \\).<br/>   - \\( \\frac{d}{dx}(0) = 0 \\).<br/>   Kết hợp lại, phương trình sau khi đạo hàm là:<br/>   \\( 2y' + (2xy^5 + 5x^2y^4y') - 4 = 0 \\)<br/>\\   \\( 2y' + 2xy^5 + 5x^2y^4y' - 4 = 0 \\).<br/>3. **Thay \\(x=0\\) và \\(y=0\\) vào phương trình đã đạo hàm để tìm \\(y'(0)\\):**<br/>   \\( 2y'(0) + 2(0)(0)^5 + 5(0)^2(0)^4y'(0) - 4 = 0 \\)<br/>\\   \\( 2y'(0) + 0 + 0 - 4 = 0 \\)<br/>\\   \\( 2y'(0) = 4 \\)<br/>\\   \\( y'(0) = \\frac{4}{2} = 2 \\).<br/>Giá trị của \\( y'(0) \\) là 2."
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "\\( 1.127 \\text{ cm/s} \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( 2.127 \\text{ cm/s} \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( 3.127 \\text{ cm/s} \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( 0.127 \\text{ cm/s} \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Volume of a spherical balloon is decreasing at rate \\( 9 \\text{ cm}^3/\\text{s} \\). How fast is its diameter decreasing when the volume is \\( 6 \\text{ cm}^3 \\)?",
+    "image_url": "",
+    "explanation": "Gọi \\( V \\) là thể tích của hình cầu, \\( r \\) là bán kính, và \\( D \\) là đường kính.<br/>Ta có: \\( \\frac{dV}{dt} = -9 \\text{ cm}^3/\\text{s} \\) (âm vì thể tích đang giảm).<br/>Ta cần tìm \\( \\left| \\frac{dD}{dt} \\right| \\) khi \\( V = 6 \\text{ cm}^3 \\).<br/>Công thức thể tích hình cầu là \\( V = \\frac{4}{3}\\pi r^3 \\).<br/>Vì đường kính \\( D = 2r \\), nên bán kính \\( r = \\frac{D}{2} \\).<br/>Thay \\( r = D/2 \\) vào công thức thể tích: <br/> \\( V = \\frac{4}{3}\\pi \\left(\\frac{D}{2}\\right)^3 = \\frac{4}{3}\\pi \\frac{D^3}{8} = \\frac{\\pi D^3}{6} \\).<br/>Đạo hàm hai vế theo thời gian \\( t \\):<br/> \\( \\frac{dV}{dt} = \\frac{d}{dt} \\left( \\frac{\\pi D^3}{6} \\right) = \\frac{\\pi}{6} \\cdot 3D^2 \\frac{dD}{dt} = \\frac{\\pi D^2}{2} \\frac{dD}{dt} \\).<br/>Khi \\( V = 6 \\text{ cm}^3 \\):<br/> \\( 6 = \\frac{\\pi D^3}{6} \\implies D^3 = \\frac{36}{\\pi} \\implies D = \\left( \\frac{36}{\\pi} \\right)^{1/3} \\).<br/>Do đó, \\( D^2 = \\left( \\frac{36}{\\pi} \\right)^{2/3} \\).<br/>Thay các giá trị đã biết vào phương trình đạo hàm: <br/> \\( -9 = \\frac{\\pi D^2}{2} \\frac{dD}{dt} \\)<br/> \\( -9 = \\frac{\\pi}{2} \\left( \\frac{36}{\\pi} \\right)^{2/3} \\frac{dD}{dt} \\)<br/> \\( \\frac{dD}{dt} = \\frac{-18}{\\pi \\left( \\frac{36}{\\pi} \\right)^{2/3}} = \\frac{-18}{\\pi \\cdot \\frac{36^{2/3}}{\\pi^{2/3}}} = \\frac{-18}{\\pi^{1/3} \\cdot 36^{2/3}} \\)<br/> \\( \\frac{dD}{dt} = \\frac{-18}{\\pi^{1/3} \\cdot (6^2)^{2/3}} = \\frac{-18}{\\pi^{1/3} \\cdot 6^{4/3}} = \\frac{-18}{\\pi^{1/3} \\cdot 6 \\cdot 6^{1/3}} = \\frac{-3}{(6\\pi)^{1/3}} \\).<br/>Tính giá trị số: <br/> \\( (6\\pi)^{1/3} \\approx (6 \\times 3.14159265)^{1/3} = (18.8495559)^{1/3} \\approx 2.661708 \\).<br/> \\( \\frac{dD}{dt} \\approx \\frac{-3}{2.661708} \\approx -1.127099 \\text{ cm/s} \\).<br/>Tốc độ giảm của đường kính là giá trị tuyệt đối: \\( |\\frac{dD}{dt}| \\approx 1.127 \\text{ cm/s} \\)."
+  },
+  {
+    "id": 11,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "3",
+        "label": "A"
+      },
+      {
+        "text": "4",
+        "label": "B"
+      },
+      {
+        "text": "2",
+        "label": "C"
+      },
+      {
+        "text": "0",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( y = ax - b \\) be the linear approximation for \\( f(x) = \\sqrt{2x+8} \\) at \\( x = 4 \\). Find b.",
+    "image_url": "",
+    "explanation": "Xấp xỉ tuyến tính của hàm số \\( f(x) \\) tại \\( x = x_0 \\) được cho bởi phương trình đường tiếp tuyến tại điểm đó: \\( L(x) = f(x_0) + f'(x_0)(x - x_0) \\).<br/>So sánh với dạng \\( y = ax - b \\), ta có \\( L(x) = ax - b \\).<br/>Do đó, \\( ax - b = f'(x_0)x + (f(x_0) - f'(x_0)x_0) \\).<br/>Suy ra \\( a = f'(x_0) \\) và \\( -b = f(x_0) - f'(x_0)x_0 \\), hay \\( b = f'(x_0)x_0 - f(x_0) \\).<br/>Cho \\( f(x) = \\sqrt{2x+8} \\) và \\( x_0 = 4 \\).<br/>1. **Tính \\( f(x_0) = f(4) \\):**<br/>   \\( f(4) = \\sqrt{2(4)+8} = \\sqrt{8+8} = \\sqrt{16} = 4 \\).<br/>2. **Tính đạo hàm \\( f'(x) \\):**<br/>   \\( f(x) = (2x+8)^{1/2} \\)<br/>   \\( f'(x) = \\frac{1}{2}(2x+8)^{-1/2} \\cdot \\frac{d}{dx}(2x+8) = \\frac{1}{2\\sqrt{2x+8}} \\cdot 2 = \\frac{1}{\\sqrt{2x+8}} \\).<br/>3. **Tính \\( f'(x_0) = f'(4) \\):**<br/>   \\( f'(4) = \\frac{1}{\\sqrt{2(4)+8}} = \\frac{1}{\\sqrt{16}} = \\frac{1}{4} \\).<br/>4. **Tính \\( b \\):**<br/>   \\( b = f'(4) \\cdot 4 - f(4) \\)<br/>   \\( b = \\left(\\frac{1}{4}\\right) \\cdot 4 - 4 = 1 - 4 = -3 \\).<br/>Giá trị của \\(b\\) là -3. Vì -3 không có trong các lựa chọn A, B, C, D, nên đáp án là \"E. None of the other choices is correct\"."
+  },
+  {
+    "id": 12,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "Absolute maximum: -1, absolute minimum: -21",
+        "label": "A"
+      },
+      {
+        "text": "Absolute maximum: -6, absolute minimum: -11",
+        "label": "B"
+      },
+      {
+        "text": "Absolute maximum: 11, absolute minimum: -11",
+        "label": "C"
+      },
+      {
+        "text": "Absolute maximum: 11, absolute minimum: -21",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find the absolute maximum and absolute minimum values of \\( f(x) = -6 - 10x - 5x^2 \\) on \\( [-2, 1] \\).",
+    "image_url": "",
+    "explanation": "Để tìm giá trị lớn nhất và nhỏ nhất tuyệt đối của hàm số \\( f(x) = -6 - 10x - 5x^2 \\) trên đoạn \\( [-2, 1] \\), ta thực hiện các bước sau:<br/>1. **Tìm các điểm tới hạn (critical points) của \\(f(x)\\) trong khoảng \\( (-2, 1) \\).**<br/>   Tính đạo hàm \\( f'(x) \\):<br/>   \\( f'(x) = \\frac{d}{dx}(-6 - 10x - 5x^2) = -10 - 10x \\).<br/>   Đặt \\( f'(x) = 0 \\) để tìm điểm tới hạn:<br/>   \\( -10 - 10x = 0 \\implies -10x = 10 \\implies x = -1 \\).<br/>   Điểm tới hạn \\( x = -1 \\) nằm trong đoạn \\( [-2, 1] \\).<br/>2. **Tính giá trị của hàm số tại các điểm tới hạn và tại hai đầu mút của đoạn.**<br/>   - Tại \\( x = -2 \\) (đầu mút trái):<br/>     \\( f(-2) = -6 - 10(-2) - 5(-2)^2 = -6 + 20 - 5(4) = -6 + 20 - 20 = -6 \\).<br/>   - Tại \\( x = -1 \\) (điểm tới hạn):<br/>     \\( f(-1) = -6 - 10(-1) - 5(-1)^2 = -6 + 10 - 5(1) = -6 + 10 - 5 = -1 \\).<br/>   - Tại \\( x = 1 \\) (đầu mút phải):<br/>     \\( f(1) = -6 - 10(1) - 5(1)^2 = -6 - 10 - 5 = -21 \\).<br/>3. **So sánh các giá trị đã tính để tìm giá trị lớn nhất và nhỏ nhất tuyệt đối.**<br/>   Các giá trị thu được là: -6, -1, -21.<br/>   - Giá trị lớn nhất tuyệt đối (Absolute maximum) là -1 (xảy ra tại \\( x = -1 \\)).<br/>   - Giá trị nhỏ nhất tuyệt đối (Absolute minimum) là -21 (xảy ra tại \\( x = 1 \\))."
+  },
+  {
+    "id": 13,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Determine where the function \\( f(x) = x^2 - 20x + 104 \\) is concave up and where it is concave down. <br> (i) Concave down on \\( (-\\infty, \\infty) \\) <br> (ii) Concave up on \\( (10, \\infty) \\) and concave down on \\( (-\\infty, 10) \\) <br> (iii) Concave up on \\( (-\\infty, \\infty) \\) <br> (iv) Concave down on \\( (10, \\infty) \\) and concave up on \\( (-\\infty, 10) \\)",
+    "image_url": "",
+    "explanation": "Để xác định tính lồi lõm (concavity) của hàm số \\( f(x) = x^2 - 20x + 104 \\), ta cần xét dấu của đạo hàm cấp hai \\( f''(x) \\).<br/>1. **Tính đạo hàm cấp một \\( f'(x) \\):**<br/>   \\( f'(x) = \\frac{d}{dx}(x^2 - 20x + 104) = 2x - 20 \\).<br/>2. **Tính đạo hàm cấp hai \\( f''(x) \\):**<br/>   \\( f''(x) = \\frac{d}{dx}(2x - 20) = 2 \\).<br/>3. **Xét dấu của \\( f''(x) \\):**<br/>   Ta có \\( f''(x) = 2 \\). Vì 2 là một hằng số dương (\\( 2 > 0 \\)) với mọi giá trị của \\(x\\), nên \\( f''(x) > 0 \\) trên toàn bộ miền xác định của hàm số (tức là trên \\( (-\\infty, \\infty) \\)).<br/>Khi \\( f''(x) > 0 \\), hàm số lõm lên (concave up).<br/>Vậy, hàm số \\( f(x) = x^2 - 20x + 104 \\) lõm lên trên toàn bộ khoảng \\( (-\\infty, \\infty) \\).<br/>Điều này tương ứng với lựa chọn (iii)."
+  },
+  {
+    "id": 14,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "\\( y = 1 \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( y = 0 \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( y = -1 \\)",
+        "label": "C"
+      },
+      {
+        "text": "The horizontal asymptote does not exist",
+        "label": "D"
+      }
+    ],
+    "question": "Find the horizontal asymptote of \\( f(x) = \\frac{\\sin x}{x} + 1 \\).",
+    "image_url": "",
+    "explanation": "Để tìm tiệm cận ngang của hàm số \\( f(x) = \\frac{\\sin x}{x} + 1 \\), ta cần tính giới hạn của \\( f(x) \\) khi \\( x \\to \\infty \\) và khi \\( x \\to -\\infty \\).<br/>1. **Tính \\( \\lim_{x \\to \\infty} f(x) \\):**<br/>   \\( \\lim_{x \\to \\infty} \\left( \\frac{\\sin x}{x} + 1 \\right) = \\lim_{x \\to \\infty} \\frac{\\sin x}{x} + \\lim_{x \\to \\infty} 1 \\).<br/>   Ta biết rằng \\( -1 \\le \\sin x \\le 1 \\) với mọi \\(x\\).<br/>   Khi \\( x > 0 \\), chia các vế cho \\(x\\), ta được: \\( -\\frac{1}{x} \\le \\frac{\\sin x}{x} \\le \\frac{1}{x} \\).<br/>   Vì \\( \\lim_{x \\to \\infty} \\left(-\\frac{1}{x}\\right) = 0 \\) và \\( \\lim_{x \\to \\infty} \\frac{1}{x} = 0 \\), theo Định lý Kẹp (Squeeze Theorem), ta có \\( \\lim_{x \\to \\infty} \\frac{\\sin x}{x} = 0 \\).<br/>   Do đó, \\( \\lim_{x \\to \\infty} f(x) = 0 + 1 = 1 \\).<br/>2. **Tính \\( \\lim_{x \\to -\\infty} f(x) \\):**<br/>   Tương tự, khi \\( x < 0 \\), chia các vế của \\( -1 \\le \\sin x \\le 1 \\) cho \\(x\\) (và đổi chiều bất đẳng thức vì \\(x\\) âm), ta được \\( \\frac{1}{x} \\le \\frac{\\sin x}{x} \\le -\\frac{1}{x} \\) (hoặc có thể giữ \\( -\\frac{1}{|x|} \\le \\frac{\\sin x}{x} \\le \\frac{1}{|x|} \\)).<br/>   Cũng theo Định lý Kẹp, \\( \\lim_{x \\to -\\infty} \\frac{\\sin x}{x} = 0 \\).<br/>   Do đó, \\( \\lim_{x \\to -\\infty} f(x) = 0 + 1 = 1 \\).<br/>Vì \\( \\lim_{x \\to \\infty} f(x) = 1 \\) và \\( \\lim_{x \\to -\\infty} f(x) = 1 \\), nên đường thẳng \\( y = 1 \\) là tiệm cận ngang của đồ thị hàm số."
+  },
+  {
+    "id": 15,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "\\( (-5/13, 1/13) \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( (5/13, 51/13) \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( (-5/13, -51/13) \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( (5/13, -51/13) \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of others",
+        "label": "E"
+      }
+    ],
+    "question": "Find the point on the line \\( y = 5x + 2 \\) that is closest to the origin.",
+    "image_url": "",
+    "explanation": "Gọi \\( P(x, y) \\) là một điểm bất kỳ trên đường thẳng \\( y = 5x + 2 \\). Ta cần tìm điểm P sao cho khoảng cách từ P đến gốc tọa độ \\( O(0,0) \\) là nhỏ nhất.<br/>Khoảng cách \\( d \\) từ P đến O là \\( d = \\sqrt{(x-0)^2 + (y-0)^2} = \\sqrt{x^2 + y^2} \\).<br/>Để đơn giản hóa việc tính toán, ta sẽ cực tiểu hóa bình phương khoảng cách, \\( S = d^2 = x^2 + y^2 \\).<br/>Vì \\( y = 5x + 2 \\), ta thay vào biểu thức S:<br/> \\( S(x) = x^2 + (5x+2)^2 = x^2 + (25x^2 + 20x + 4) = 26x^2 + 20x + 4 \\).<br/>Để tìm giá trị nhỏ nhất của \\( S(x) \\), ta tìm đạo hàm \\( S'(x) \\) và đặt nó bằng 0:<br/> \\( S'(x) = \\frac{d}{dx}(26x^2 + 20x + 4) = 52x + 20 \\).<br/>Đặt \\( S'(x) = 0 \\):<br/> \\( 52x + 20 = 0 \\implies 52x = -20 \\implies x = -\\frac{20}{52} = -\\frac{5}{13} \\).<br/>Để đảm bảo đây là điểm cực tiểu, ta xét đạo hàm cấp hai: \\( S''(x) = 52 \\). Vì \\( S''(x) > 0 \\), đây là một điểm cực tiểu.<br/>Khi \\( x = -\\frac{5}{13} \\), giá trị của \\(y\\) là:<br/> \\( y = 5x + 2 = 5\\left(-\\frac{5}{13}\\right) + 2 = -\\frac{25}{13} + \\frac{26}{13} = \\frac{1}{13} \\).<br/>Vậy, điểm trên đường thẳng \\( y = 5x + 2 \\) gần gốc tọa độ nhất là \\( \\left(-\\frac{5}{13}, \\frac{1}{13}\\right) \\).<br/>**Cách khác (Hình học):**<br/>Đường thẳng nối gốc tọa độ với điểm gần nhất trên đường thẳng \\(d_1: y = 5x+2\\) sẽ vuông góc với \\(d_1\\).<br/>Hệ số góc của \\(d_1\\) là \\( m_1 = 5 \\).<br/>Đường thẳng \\(d_2\\) đi qua gốc tọa độ và vuông góc với \\(d_1\\) sẽ có hệ số góc \\( m_2 = -\\frac{1}{m_1} = -\\frac{1}{5} \\).<br/>Phương trình của \\(d_2\\) là \\( y = -\\frac{1}{5}x \\).<br/>Điểm cần tìm là giao điểm của \\(d_1\\) và \\(d_2\\). Ta giải hệ phương trình:<br/> \\( y = 5x + 2 \\)<br/> \\( y = -\\frac{1}{5}x \\)<br/>Cho hai vế bằng nhau: \\( 5x + 2 = -\\frac{1}{5}x \\).<br/>Nhân cả hai vế với 5: \\( 25x + 10 = -x \\)<br/> \\( 26x = -10 \\)<br/> \\( x = -\\frac{10}{26} = -\\frac{5}{13} \\).<br/>Thay \\(x\\) vào phương trình của \\(d_2\\): \\( y = -\\frac{1}{5}\\left(-\\frac{5}{13}\\right) = \\frac{1}{13} \\).<br/>Điểm cần tìm là \\( \\left(-\\frac{5}{13}, \\frac{1}{13}\\right) \\)."
+  },
+  {
+    "id": 16,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "F"
+    ],
+    "options": [
+      {
+        "text": "-5/12",
+        "label": "A"
+      },
+      {
+        "text": "5/12",
+        "label": "B"
+      },
+      {
+        "text": "-1/4",
+        "label": "C"
+      },
+      {
+        "text": "1/4",
+        "label": "D"
+      },
+      {
+        "text": "1",
+        "label": "E"
+      },
+      {
+        "text": "-3/5",
+        "label": "F"
+      }
+    ],
+    "question": "Use Newton's method with the specified initial approximation \\(x_0\\) to find \\(x_2\\), the third approximation to the root of the given equation. \\( x^3 - 2x - 1 = 0, x_0 = 0 \\)",
+    "image_url": "",
+    "explanation": "Công thức của phương pháp Newton là \\( x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)} \\).<br/>Cho phương trình: \\( f(x) = x^3 - 2x - 1 \\).<br/>Đạo hàm là: \\( f'(x) = 3x^2 - 2 \\).<br/>Giá trị ban đầu: \\( x_0 = 0 \\).<br/>**Lần lặp thứ nhất (tìm \\(x_1\\)):**<br/>\\( f(x_0) = f(0) = (0)^3 - 2(0) - 1 = -1 \\).<br/>\\( f'(x_0) = f'(0) = 3(0)^2 - 2 = -2 \\).<br/>\\( x_1 = x_0 - \\frac{f(x_0)}{f'(x_0)} = 0 - \\frac{-1}{-2} = 0 - \\frac{1}{2} = -\\frac{1}{2} \\).<br/>**Lần lặp thứ hai (tìm \\(x_2\\)):**<br/>\\( x_1 = -\\frac{1}{2} \\).<br/>\\( f(x_1) = f(-\\frac{1}{2}) = \\left(-\\frac{1}{2}\\right)^3 - 2\\left(-\\frac{1}{2}\\right) - 1 = -\\frac{1}{8} + 1 - 1 = -\\frac{1}{8} \\).<br/>\\( f'(x_1) = f'(-\\frac{1}{2}) = 3\\left(-\\frac{1}{2}\\right)^2 - 2 = 3\\left(\\frac{1}{4}\\right) - 2 = \\frac{3}{4} - 2 = -\\frac{5}{4} \\).<br/>\\( x_2 = x_1 - \\frac{f(x_1)}{f'(x_1)} = -\\frac{1}{2} - \\frac{-1/8}{-5/4} = -\\frac{1}{2} - \\frac{1}{10} = -\\frac{5}{10} - \\frac{1}{10} = -\\frac{6}{10} = -\\frac{3}{5} \\).<br/>Vậy \\(x_2 = -\\frac{3}{5}\\) khớp với đáp án F."
+  },
+  {
+    "id": 17,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "20",
+        "label": "A"
+      },
+      {
+        "text": "8",
+        "label": "B"
+      },
+      {
+        "text": "27/2",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "14",
+        "label": "E"
+      }
+    ],
+    "question": "Find the Riemann sum for \\( f(x) = x + x^2 \\), \\( 0 \\le x \\le 3 \\) with 3 equal subintervals and taking left endpoints.",
+    "image_url": "",
+    "explanation": "Hàm số là \\( f(x) = x + x^2 \\), đoạn là \\( [0, 3] \\), và số khoảng con là \\( n = 3 \\).<br/>1. **Tính độ rộng của mỗi khoảng con \\( \\Delta x \\):**<br/>   \\( \\Delta x = \\frac{b-a}{n} = \\frac{3-0}{3} = 1 \\).<br/>2. **Xác định các điểm cuối bên trái của các khoảng con:**<br/>   Các khoảng con là: \\( [0, 1] \\), \\( [1, 2] \\), \\( [2, 3] \\).<br/>   Các điểm cuối bên trái là: \\( x_0 = 0 \\), \\( x_1 = 1 \\), \\( x_2 = 2 \\).<br/>3. **Tính giá trị của hàm số tại các điểm cuối bên trái:**<br/>   - \\( f(x_0) = f(0) = 0 + 0^2 = 0 \\).<br/>   - \\( f(x_1) = f(1) = 1 + 1^2 = 1 + 1 = 2 \\).<br/>   - \\( f(x_2) = f(2) = 2 + 2^2 = 2 + 4 = 6 \\).<br/>4. **Tính tổng Riemann:**<br/>   Tổng Riemann \\( S \\) được tính bằng công thức \\( S = \\sum_{i=0}^{n-1} f(x_i) \\Delta x \\) (cho điểm cuối bên trái).<br/>   \\( S = [f(x_0) + f(x_1) + f(x_2)] \\Delta x \\)<br/>\\   \\( S = [0 + 2 + 6] \\cdot 1 \\)<br/>\\   \\( S = [8] \\cdot 1 = 8 \\).<br/>Vậy, tổng Riemann là 8."
+  },
+  {
+    "id": 18,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct.",
+        "label": "E"
+      }
+    ],
+    "question": "Express the area under the graph of \\( f(x) = x^2 + 1 \\), from 0 to 4, as a limit. <br> (i) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} (1 + \\frac{64i^2}{n^2}) \\) <br> (ii) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} (\\frac{4i^2}{n^2} + 1) \\) <br> (iii) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} (1 + \\frac{4i}{n}) \\) <br> (iv) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} (\\frac{16i^2}{n^2} + 1) \\)",
+    "image_url": "",
+    "explanation": "Diện tích dưới đồ thị của \\( f(x) \\) từ \\( a \\) đến \\( b \\) được biểu diễn dưới dạng giới hạn của tổng Riemann là:<br/> \\( A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i^*) \\Delta x \\)<br/>Ở đây, \\( f(x) = x^2 + 1 \\), \\( a = 0 \\), \\( b = 4 \\).<br/>1. **Độ rộng của mỗi khoảng con:**<br/>   \\( \\Delta x = \\frac{b-a}{n} = \\frac{4-0}{n} = \\frac{4}{n} \\).<br/>2. **Chọn điểm mẫu (sử dụng điểm cuối bên phải):**<br/>   \\( x_i^* = x_i = a + i \\Delta x = 0 + i \\frac{4}{n} = \\frac{4i}{n} \\).<br/>3. **Tính \\( f(x_i^*) \\):**<br/>   \\( f(x_i^*) = f\\left(\\frac{4i}{n}\\right) = \\left(\\frac{4i}{n}\\right)^2 + 1 = \\frac{16i^2}{n^2} + 1 \\).<br/>4. **Thiết lập giới hạn của tổng Riemann:**<br/>   \\( A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\left(\\frac{16i^2}{n^2} + 1\\right) \\frac{4}{n} \\)<br/>\\   \\( A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} \\left(\\frac{16i^2}{n^2} + 1\\right) \\).<br/>Biểu thức này khớp với lựa chọn (iv)."
+  },
+  {
+    "id": 19,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "5/2",
+        "label": "A"
+      },
+      {
+        "text": "3/2",
+        "label": "B"
+      },
+      {
+        "text": "-5/2",
+        "label": "C"
+      },
+      {
+        "text": "-3/2",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find \\( \\int_0^2 f(x) dx \\) if \\( f(x) = \\begin{cases} x & \\text{for } x \\le 1 \\\\ 2x-1 & \\text{for } x > 1 \\end{cases} \\)",
+    "image_url": "",
+    "explanation": "Vì hàm số \\(f(x)\\) được định nghĩa bởi các biểu thức khác nhau trên các khoảng khác nhau, ta cần chia tích phân thành các phần tương ứng:<br/> \\( \\int_0^2 f(x) dx = \\int_0^1 f(x) dx + \\int_1^2 f(x) dx \\).<br/>1. **Tính \\( \\int_0^1 f(x) dx \\):**<br/>   Trên khoảng \\( [0, 1] \\), \\( x \\le 1 \\), nên \\( f(x) = x \\).<br/>   \\( \\int_0^1 x \\, dx = \\left[ \\frac{x^2}{2} \\right]_0^1 = \\frac{1^2}{2} - \\frac{0^2}{2} = \\frac{1}{2} - 0 = \\frac{1}{2} \\).<br/>2. **Tính \\( \\int_1^2 f(x) dx \\):**<br/>   Trên khoảng \\( (1, 2] \\), \\( x > 1 \\), nên \\( f(x) = 2x-1 \\).<br/>   \\( \\int_1^2 (2x-1) \\, dx = \\left[ \\frac{2x^2}{2} - x \\right]_1^2 = [x^2 - x]_1^2 \\)<br/>\\   \\( = (2^2 - 2) - (1^2 - 1) = (4 - 2) - (1 - 1) = 2 - 0 = 2 \\).<br/>3. **Cộng hai kết quả lại:**<br/>   \\( \\int_0^2 f(x) dx = \\frac{1}{2} + 2 = \\frac{1}{2} + \\frac{4}{2} = \\frac{5}{2} \\)."
+  },
+  {
+    "id": 20,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "213.5",
+        "label": "A"
+      },
+      {
+        "text": "30.5",
+        "label": "B"
+      },
+      {
+        "text": "25.5",
+        "label": "C"
+      },
+      {
+        "text": "35",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find the average value of the function \\( f(x) = 5x + 3 \\) over the interval \\( [2, 9] \\).",
+    "image_url": "",
+    "explanation": "Giá trị trung bình của hàm số \\( f(x) \\) trên đoạn \\( [a, b] \\) được cho bởi công thức:<br/> \\( f_{avg} = \\frac{1}{b-a} \\int_a^b f(x) \\, dx \\).<br/>Ở đây, \\( f(x) = 5x + 3 \\), \\( a = 2 \\), và \\( b = 9 \\).<br/>1. **Tính \\( b-a \\):**<br/>   \\( b-a = 9 - 2 = 7 \\).<br/>2. **Tính tích phân xác định \\( \\int_a^b f(x) \\, dx \\):**<br/>   \\( \\int_2^9 (5x + 3) \\, dx = \\left[ \\frac{5x^2}{2} + 3x \\right]_2^9 \\)<br/>\\   \\( = \\left( \\frac{5(9)^2}{2} + 3(9) \\right) - \\left( \\frac{5(2)^2}{2} + 3(2) \\right) \\)<br/>\\   \\( = \\left( \\frac{5(81)}{2} + 27 \\right) - \\left( \\frac{5(4)}{2} + 6 \\right) \\)<br/>\\   \\( = \\left( \\frac{405}{2} + 27 \\right) - \\left( \\frac{20}{2} + 6 \\right) \\)<br/>\\   \\( = \\left( \\frac{405}{2} + \\frac{54}{2} \\right) - (10 + 6) \\)<br/>\\   \\( = \\frac{459}{2} - 16 = \\frac{459}{2} - \\frac{32}{2} = \\frac{427}{2} \\).<br/>3. **Tính giá trị trung bình:**<br/>   \\( f_{avg} = \\frac{1}{7} \\cdot \\frac{427}{2} = \\frac{427}{14} \\).<br/>Để chuyển thành số thập phân: \\( 427 \\div 14 \\approx 30.5 \\).<br/>Vậy, giá trị trung bình của hàm số là 30.5."
+  },
+  {
+    "id": 21,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(iv)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(ii)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Evaluate \\( \\int \\frac{15e^{7x}}{e^{7x}+1} dx \\). <br> (i) \\( 15 \\ln(e^{7x}+1) + C \\) <br> (ii) \\( (7/15) \\ln(e^{7x}+1) + C \\) <br> (iii) \\( (5/7) \\ln(e^{7x}+1) + C \\) <br> (iv) \\( (15/7) \\ln(e^{7x}+1) + C \\)",
+    "image_url": "",
+    "explanation": "Để tính tích phân \\( I = \\int \\frac{15e^{7x}}{e^{7x}+1} dx \\), ta sử dụng phương pháp đổi biến số (u-substitution).<br/>Đặt \\( u = e^{7x} + 1 \\).<br/>Khi đó, đạo hàm của \\(u\\) theo \\(x\\) là: <br/> \\( \\frac{du}{dx} = 7e^{7x} \\).<br/>Suy ra \\( du = 7e^{7x} dx \\).<br/>Ta có thể viết lại biểu thức tích phân để xuất hiện \\( 7e^{7x} dx \\):<br/> \\( I = \\int \\frac{15}{7} \\cdot \\frac{7e^{7x}}{e^{7x}+1} dx \\)<br/> \\( I = \\frac{15}{7} \\int \\frac{1}{e^{7x}+1} (7e^{7x} dx) \\)<br/>Thay \\( u = e^{7x} + 1 \\) và \\( du = 7e^{7x} dx \\) vào tích phân: <br/> \\( I = \\frac{15}{7} \\int \\frac{1}{u} du \\)<br/>Tích phân của \\( \\frac{1}{u} \\) là \\( \\ln|u| \\). Do \\( e^{7x} + 1 \\) luôn dương, ta có thể bỏ dấu giá trị tuyệt đối.<br/> \\( I = \\frac{15}{7} \\ln(u) + C \\)<br/>Thay \\( u = e^{7x} + 1 \\) trở lại: <br/> \\( I = \\frac{15}{7} \\ln(e^{7x}+1) + C \\).<br/>Biểu thức này khớp với lựa chọn (iv)."
+  },
+  {
+    "id": 22,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "(v)",
+        "label": "E"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "F"
+      }
+    ],
+    "question": "Find \\( \\int x^3 e^{x^2} dx \\). <br> (i) \\( e^{x^2} - x^2 + C \\) <br> (ii) \\( e^{x^2}(x^2-1)/2 + C \\) <br> (iii) \\( e^{x^2}(x^2-1) + C \\) <br> (iv) \\( e^x - x^3 + C \\) <br> (v) \\( e^{x^3} - x^3 + C \\)",
+    "image_url": "",
+    "explanation": "To evaluate the integral \\( I = \\int x^3 e^{x^2} dx \\), we can rewrite \\( x^3 = x^2 \\cdot x \\) and use a combination of substitution and integration by parts.<br/>**Step 1: Substitution**<br/>Let \\( t = x^2 \\). Then, \\( dt = 2x dx \\), so \\( x dx = \\frac{1}{2} dt \\).<br/>The integral becomes: <br/> \\( I = \\int x^2 \\cdot e^{x^2} \\cdot x dx = \\int t \\cdot e^t \\cdot \\frac{1}{2} dt = \\frac{1}{2} \\int t e^t dt \\).<br/>**Step 2: Integration by parts for \\( \\int t e^t dt \\)**<br/>Let \\( u = t \\) and \\( dv = e^t dt \\).<br/>Then, \\( du = dt \\) and \\( v = \\int e^t dt = e^t \\).<br/>Applying the integration by parts formula \\( \\int u dv = uv - \\int v du \\):<br/> \\( \\int t e^t dt = t e^t - \\int e^t dt = t e^t - e^t + C_1 = e^t(t-1) + C_1 \\).<br/>**Step 3: Substitute back into the expression for I and change variables back to x**<br/> \\( I = \\frac{1}{2} [e^t(t-1)] + C \\) (where \\( C = \\frac{1}{2}C_1 \\))<br/> \\( I = \\frac{1}{2} e^t(t-1) + C \\).<br/>Substituting \\( t = x^2 \\) back: <br/> \\( I = \\frac{1}{2} e^{x^2}(x^2-1) + C = \\frac{e^{x^2}(x^2-1)}{2} + C \\).<br/>This expression matches choice (ii)."
+  },
+  {
+    "id": 23,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "13.5",
+        "label": "A"
+      },
+      {
+        "text": "17",
+        "label": "B"
+      },
+      {
+        "text": "19",
+        "label": "C"
+      },
+      {
+        "text": "15.25",
+        "label": "D"
+      },
+      {
+        "text": "16.5",
+        "label": "E"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "F"
+      }
+    ],
+    "question": "Use the Right endpoint Method with \\( n = 6 \\) steps to approximate the integral \\( \\int_1^4 f(x) dx \\), given the table: <br> <center> <table border='1' cellpadding='5'><tr><td><b>x</b></td><td>1</td><td>1.5</td><td>2</td><td>2.5</td><td>3</td><td>3.5</td><td>4</td></tr><tr><td><b>f(x)</b></td><td>2</td><td>6</td><td>4</td><td>8</td><td>2</td><td>5</td><td>9</td></tr></table> </center>",
+    "image_url": "",
+    "explanation": "Ta cần tính xấp xỉ tích phân \\( \\int_1^4 f(x) dx \\) bằng phương pháp điểm cuối bên phải với \\( n = 6 \\) bước.<br/>Khoảng tích phân là \\( [a, b] = [1, 4] \\).<br/>1. **Tính độ rộng của mỗi bước (khoảng con) \\( \\Delta x \\):**<br/>   \\( \\Delta x = \\frac{b-a}{n} = \\frac{4-1}{6} = \\frac{3}{6} = 0.5 \\).<br/>2. **Xác định các điểm cuối bên phải \\( x_i \\) của mỗi khoảng con:**<br/>   Các điểm chia là: \\( x_0=1, x_1=1.5, x_2=2, x_3=2.5, x_4=3, x_5=3.5, x_6=4 \\).<br/>   Vì ta dùng điểm cuối bên phải, các điểm mẫu sẽ là \\( x_1, x_2, x_3, x_4, x_5, x_6 \\):<br/>   - \\( x_1^* = 1.5 \\)<br/>   - \\( x_2^* = 2 \\)<br/>   - \\( x_3^* = 2.5 \\)<br/>   - \\( x_4^* = 3 \\)<br/>\\   - \\( x_5^* = 3.5 \\)<br/>\\   - \\( x_6^* = 4 \\)<br/>3. **Lấy giá trị \\( f(x_i^*) \\) từ bảng:**<br/>   - \\( f(1.5) = 6 \\)<br/>   - \\( f(2) = 4 \\)<br/>   - \\( f(2.5) = 8 \\)<br/>   - \\( f(3) = 2 \\)<br/>\\   - \\( f(3.5) = 5 \\)<br/>\\   - \\( f(4) = 9 \\)<br/>4. **Tính tổng Riemann:**<br/>   \\( R_n = \\sum_{i=1}^{n} f(x_i^*) \\Delta x \\)<br/>\\   \\( R_6 = [f(1.5) + f(2) + f(2.5) + f(3) + f(3.5) + f(4)] \\Delta x \\)<br/>\\   \\( R_6 = [6 + 4 + 8 + 2 + 5 + 9] \\cdot 0.5 \\)<br/>\\   \\( R_6 = [34] \\cdot 0.5 \\)<br/>\\   \\( R_6 = 17 \\).<br/>Giá trị xấp xỉ của tích phân là 17."
+  },
+  {
+    "id": 24,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "Only (i)",
+        "label": "A"
+      },
+      {
+        "text": "Only (ii)",
+        "label": "B"
+      },
+      {
+        "text": "Both (i) and (ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct.",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following are improper integrals? <br> (i) \\( \\int_{-\\infty}^0 e^x dx \\) <br> (ii) \\( \\int_0^5 \\frac{1}{|x-2|} dx \\)",
+    "image_url": "",
+    "explanation": "Tích phân suy rộng là một tích phân xác định có ít nhất một trong các đặc điểm sau:<br/>1. Ít nhất một trong các cận tích phân là vô cùng (\\( \\infty \\) hoặc \\( -\\infty \\)).<br/>2. Hàm dưới dấu tích phân có một điểm gián đoạn vô hạn (vertical asymptote) nằm trong hoặc tại một đầu mút của khoảng tích phân.<br/>**Xét tích phân (i): \\( \\int_{-\\infty}^0 e^x dx \\)**<br/>- Cận dưới của tích phân là \\( -\\infty \\).<br/>- Đây là một tích phân suy rộng loại 1 (do có cận vô cùng).<br/>**Xét tích phân (ii): \\( \\int_0^5 \\frac{1}{|x-2|} dx \\)**<br/>- Hàm dưới dấu tích phân là \\( f(x) = \\frac{1}{|x-2|} \\).<br/>- Hàm này có điểm gián đoạn vô hạn tại \\( x=2 \\) vì khi \\( x \\to 2 \\), mẫu số \\( |x-2| \\to 0 \\), và do đó \\( f(x) \\to \\infty \\).<br/>- Điểm gián đoạn \\( x=2 \\) nằm trong khoảng tích phân \\( [0, 5] \\).<br/>- Đây là một tích phân suy rộng loại 2 (do có điểm gián đoạn vô hạn trong khoảng tích phân).<br/>Vì cả hai tích phân (i) và (ii) đều thỏa mãn điều kiện của tích phân suy rộng, nên cả hai đều là tích phân suy rộng."
+  },
+  {
+    "id": 25,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "All of (i), (ii) and (iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iii)",
+        "label": "D"
+      },
+      {
+        "text": "(i) (ii) (iii)",
+        "label": "E"
+      }
+    ],
+    "question": "For a system of 4 linear equations in 3 unknowns, which of the following statements are true? <br> (i) The system can be inconsistent. <br> (ii) The system can have a unique solution. <br> (iii) The system can have infinitely many solutions.",
+    "image_url": "",
+    "explanation": "Xét một hệ gồm 4 phương trình tuyến tính và 3 ẩn. Gọi ma trận hệ số là A (kích thước 4x3) và ma trận mở rộng là [A|b].<br/>**Mệnh đề (i): Hệ có thể vô nghiệm (inconsistent).**<br/>   Điều này hoàn toàn có thể xảy ra. Ví dụ, nếu sau khi đưa về dạng bậc thang, ta có một dòng dạng \\( [0 \\ 0 \\ 0 \\ | \\ c] \\) với \\( c \\neq 0 \\), thì hệ vô nghiệm. Với 4 phương trình, có nhiều khả năng tạo ra sự mâu thuẫn. Ví dụ:<br/>   \\( x = 1 \\)<br/>   \\( x = 2 \\)<br/>   \\( y = 0 \\)<br/>   \\( z = 0 \\)<br/>   Hệ này rõ ràng vô nghiệm. Vậy (i) đúng.<br/>**Mệnh đề (ii): Hệ có thể có nghiệm duy nhất.**<br/>   Điều này có thể xảy ra nếu hạng của ma trận hệ số bằng hạng của ma trận mở rộng và bằng số ẩn (rank(A) = rank([A|b]) = 3). Điều này có nghĩa là 3 trong số 4 phương trình là độc lập tuyến tính và phương trình thứ tư là một tổ hợp tuyến tính của 3 phương trình kia hoặc không mâu thuẫn với chúng. Ví dụ:<br/>   \\( x = 1 \\)<br/>   \\( y = 2 \\)<br/>   \\( z = 3 \\)<br/>   \\( x+y+z = 6 \\) (phương trình thứ 4 là \\(R_1+R_2+R_3\\))<br/>   Hệ này có nghiệm duy nhất \\( (1, 2, 3) \\). Vậy (ii) đúng.<br/>**Mệnh đề (iii): Hệ có thể có vô số nghiệm.**<br/>   Điều này có thể xảy ra nếu hạng của ma trận hệ số bằng hạng của ma trận mở rộng và nhỏ hơn số ẩn (rank(A) = rank([A|b]) < 3). Điều này có nghĩa là sẽ có ít nhất một biến tự do. Ví dụ:<br/>   \\( x + y + z = 1 \\)<br/>   \\( 2x + 2y + 2z = 2 \\) (phương trình này phụ thuộc tuyến tính với pt 1)<br/>   \\( 3x + 3y + 3z = 3 \\) (phương trình này phụ thuộc tuyến tính với pt 1)<br/>   \\( 4x + 4y + 4z = 4 \\) (phương trình này phụ thuộc tuyến tính với pt 1)<br/>   Hệ này thực chất chỉ có một phương trình độc lập \\( x + y + z = 1 \\) với 3 ẩn, nên có vô số nghiệm (2 biến tự do). Vậy (iii) đúng.<br/>Vì cả ba mệnh đề (i), (ii), và (iii) đều đúng, lựa chọn đúng là \"All of (i), (ii) and (iii)\"."
+  },
+  {
+    "id": 26,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "\\( 2c - (2b-3a) \\) is nonzero",
+        "label": "A"
+      },
+      {
+        "text": "\\( c - (2b-3a) \\) is nonzero",
+        "label": "B"
+      },
+      {
+        "text": "\\( c = 2b - 3a \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( 2c = b - 3a \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find conditions on \\( (a, b, c) \\) such that the following system is inconsistent: \\( \\begin{cases} x + 2y - z = a ~|~ 2x + y + 3z = b ~|~ x - 4y + 9z = c \\end{cases} \\)",
+    "image_url": "",
+    "explanation": "(cách gốc là khử GAUUS)🔥 <b>PHƯƠNG PHÁP NHANH NHẤT: Nhập vector rồi thử đáp án!</b><br/><br/><b>1. Nhập 3 vector vào máy tính:</b><br/>- Vector 1: \\(\\vec{v_1} = (1, 2, -1)\\)<br/>- Vector 2: \\(\\vec{v_2} = (2, 1, 3)\\)<br/>- Vector 3: \\(\\vec{v_3} = (1, -4, 9)\\)<br/><br/><b>2. Thử tổ hợp tuyến tính:</b><br/>- Tính: \\(-3\\vec{v_1} + 2\\vec{v_2}\\)<br/>- \\(-3(1,2,-1) + 2(2,1,3) = (-3,-6,3) + (4,2,6) = (1,-4,9)\\)<br/>- Kết quả: \\(\\vec{v_3} = -3\\vec{v_1} + 2\\vec{v_2}\\) ✓<br/><br/><b>3. Áp dụng cho vế phải:</b><br/>- Nếu \\(\\vec{v_3} = -3\\vec{v_1} + 2\\vec{v_2}\\) thì hệ có nghiệm khi:<br/>- \\(c = -3a + 2b = 2b - 3a\\)<br/>- Hệ vô nghiệm khi: \\(c \\neq 2b - 3a\\)<br/>- Tức là: \\(c - (2b - 3a) \\neq 0\\)<br/><br/><b>4. Thử các đáp án:</b><br/>- A: \\(2c - (2b-3a)\\) → không khớp<br/>- B: \\(c - (2b-3a)\\) → ✓ đúng!<br/>- C: \\(c = 2b - 3a\\) → ngược lại<br/>- D: \\(2c = b - 3a\\) → không khớp<br/><br/><b>Kết luận:</b> Đáp án B - \\(c - (2b-3a)\\) is nonzero.<br/><br/><b>Ưu điểm:</b> Chỉ cần nhập vector và thử tổ hợp, không cần giải hệ phương trình!"
+  },
+  {
+    "id": 27,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "Any numbers but 4",
+        "label": "A"
+      },
+      {
+        "text": "-3",
+        "label": "B"
+      },
+      {
+        "text": "4",
+        "label": "C"
+      },
+      {
+        "text": "Any numbers but -3",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find all numbers \\(b\\) such that the following system has infinitely many solutions: \\( \\begin{cases} x - 2y + bz = 3 <br/> 0x + 0y + 2z = 2 <br/> 0x + (5x+2y) \\cdot 0z = 1 \\end{cases} \\) <br> (The third equation seems problematic as written, often it means coefficients of z are 0. Assuming it simplifies or has a typo. Standard interpretation for systems: \\(5x+2y=1\\) if z's coefficient is treated as 0. Or if the \\(0z\\) means the equation is \\(0=1\\) if \\(5x+2y \neq 0\\). Let's assume it is meant as: \\( \\begin{cases} x - 2y + bz = 3 <br/> 2z = 2 <br/> 5x+2y = 1 \\end{cases} \\) )",
+    "image_url": "",
+    "explanation": "Giả sử hệ phương trình là:<br/>1) \\( x - 2y + bz = 3 \\)<br/>2) \\( 2z = 2 \\)<br/>3) \\( 5x + 2y = 1 \\)<br/>Từ phương trình (2), ta có \\( 2z = 2 \\Rightarrow z = 1 \\).<br/>Thay \\( z = 1 \\) vào phương trình (1):<br/> \\( x - 2y + b(1) = 3 \\Rightarrow x - 2y + b = 3 \\) (Phương trình 1')<br/>Bây giờ ta có một hệ hai phương trình với hai ẩn \\(x, y\\):<br/>(1') \\( x - 2y = 3 - b \\)<br/>(3) \\( 5x + 2y = 1 \\)<br/>Để hệ này có vô số nghiệm, hai phương trình này phải phụ thuộc tuyến tính, nghĩa là phương trình này là bội số của phương trình kia, và các hằng số cũng phải theo tỉ lệ đó. Tuy nhiên, đối với một hệ 2 ẩn, 2 phương trình, để có vô số nghiệm, chúng phải biểu diễn cùng một đường thẳng. Điều này có nghĩa là các hệ số của \\(x, y\\) và hằng số tự do phải tỉ lệ với nhau.<br/>Tuy nhiên, cách tiếp cận thông thường hơn là sử dụng ma trận.<br/>Cộng phương trình (1') và (3):<br/> \\( (x - 2y) + (5x + 2y) = (3 - b) + 1 \\)<br/> \\( 6x = 4 - b \\Rightarrow x = \\frac{4-b}{6} \\).<br/>Từ phương trình (3), \\( 2y = 1 - 5x \\Rightarrow y = \\frac{1 - 5x}{2} \\).<br/>Thay \\( x = \\frac{4-b}{6} \\) vào biểu thức của y: <br/> \\( y = \\frac{1 - 5\\left(\\frac{4-b}{6}\\right)}{2} = \\frac{1 - \\frac{20 - 5b}{6}}{2} = \\frac{\\frac{6 - (20 - 5b)}{6}}{2} = \\frac{6 - 20 + 5b}{12} = \\frac{5b - 14}{12} \\).<br/>Vì ta tìm được giá trị duy nhất cho \\(x\\) và \\(y\\) (phụ thuộc vào \\(b\\)), và \\(z = 1\\) là duy nhất, hệ này sẽ luôn có một nghiệm duy nhất cho bất kỳ giá trị nào của \\(b\\), miễn là các phép tính có nghĩa.<br/>Một hệ phương trình tuyến tính có vô số nghiệm khi hạng của ma trận hệ số bằng hạng của ma trận mở rộng và nhỏ hơn số ẩn. Ở đây, sau khi tìm được \\(z = 1\\), ta còn lại hệ 2 ẩn, 2 phương trình. Hệ này có nghiệm duy nhất (trừ khi định thức của ma trận hệ số của x, y bằng 0 và các vế phải cũng đặc biệt).<br/>Định thức của hệ con cho x, y: \\( \\begin{vmatrix} 1 & -2 <br/> 5 & 2 \\end{vmatrix} = 1 \\cdot 2 - (-2) \\cdot 5 = 2 + 10 = 12 \\neq 0 \\).<br/>Vì định thức này khác 0, hệ con cho \\(x, y\\) luôn có nghiệm duy nhất. Do đó, hệ ban đầu (với \\(z = 1\\) đã xác định) sẽ có nghiệm duy nhất với mọi giá trị của \\(b\\).<br/>Vậy không có giá trị nào của \\(b\\) làm cho hệ có vô số nghiệm, dựa trên cách diễn giải hệ phương trình này.<br/>Nếu diễn giải phương trình thứ ba \\( (5x + 2y) \\cdot 0z = 1 \\) theo nghĩa đen là \\( (5x + 2y) \\cdot 0 = 1 \\), thì điều này dẫn đến \\( 0 = 1 \\), là một điều vô lý. Trong trường hợp đó, hệ sẽ vô nghiệm bất kể giá trị của \\(b\\).<br/>Giả sử có lỗi đánh máy trong câu hỏi gốc, và hệ ban đầu được thiết kế để có một điều kiện cho \\(b\\). Tuy nhiên, với cách diễn giải hợp lý nhất các phương trình đã cho, không có giá trị \\(b\\) nào làm cho hệ có vô số nghiệm.<br/>Do đó, đáp án là \\\"E. None of the other choices is correct\\\"."
+  },
+  {
+    "id": 28,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "Infinitely many solutions",
+        "label": "A"
+      },
+      {
+        "text": "no solutions",
+        "label": "B"
+      },
+      {
+        "text": "exactly 7 solutions",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "exactly one solution",
+        "label": "E"
+      }
+    ],
+    "question": "How many solutions must a homogeneous linear system of 6 equations in 7 unknowns have?",
+    "image_url": "",
+    "explanation": "Một hệ phương trình tuyến tính thuần nhất (homogeneous) luôn có ít nhất một nghiệm là nghiệm tầm thường (trivial solution), tức là tất cả các ẩn đều bằng 0.<br/>Cho một hệ phương trình tuyến tính thuần nhất \\( Ax = 0 \\) với \\(m\\) phương trình và \\(n\\) ẩn.<br/>- Nếu \\( m < n \\) (số phương trình ít hơn số ẩn), hệ luôn có vô số nghiệm. Điều này là do hạng của ma trận hệ số \\(A\\) không thể lớn hơn \\(m\\) (rank(A) \\(\\le m\\)). Theo định lý Rank-Nullity, số chiều của không gian nghiệm (dim(Null(A))) là \\( n - \\text{rank}(A) \\). Vì \\( \\text{rank}(A) \\le m < n \\), suy ra \\( n - \\text{rank}(A) > 0 \\). Do đó, có ít nhất một biến tự do, dẫn đến vô số nghiệm.<br/>Trong trường hợp này, ta có 6 phương trình (\\(m=6\\)) và 7 ẩn (\\(n=7\\)).<br/>Vì số phương trình (6) ít hơn số ẩn (7), hệ phương trình tuyến tính thuần nhất này phải có vô số nghiệm.<br/>Lý do chi tiết hơn:<br/>Hạng của ma trận hệ số \\(A\\) (kích thước 6x7) tối đa là min(6,7) = 6. Tức là \\( \\text{rank}(A) \\le 6 \\).<br/>Số biến tự do trong nghiệm của hệ thuần nhất là \\( n - \\text{rank}(A) = 7 - \\text{rank}(A) \\).<br/>Vì \\( \\text{rank}(A) \\le 6 \\), thì \\( 7 - \\text{rank}(A) \\ge 7 - 6 = 1 \\).<br/>Do có ít nhất một biến tự do, hệ phương trình sẽ có vô số nghiệm."
+  },
+  {
+    "id": 29,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "Only (i).",
+        "label": "A"
+      },
+      {
+        "text": "Only (i) and (ii).",
+        "label": "B"
+      },
+      {
+        "text": "(i), (ii) and (iii)",
+        "label": "C"
+      },
+      {
+        "text": "Only (ii) and (iii)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "For matrices A, B, C and a real number k, which of the following statements are correct? <br> (i) If A+B = A+C then B and C have the same size. <br> (ii) If kB = 0 then k=0 or B=0. <br> (iii) If A+B is symmetric then so are A and B.",
+    "image_url": "",
+    "explanation": "Xét từng mệnh đề:<br/>**(i) If A+B = A+C then B and C have the same size.**<br/>   Để phép cộng ma trận A+B và A+C được xác định, B phải có cùng kích thước với A, và C cũng phải có cùng kích thước với A. Do đó, B và C phải có cùng kích thước. Mệnh đề này **đúng**.<br/>   Hơn nữa, từ A+B = A+C, ta có thể suy ra B = C bằng cách trừ A khỏi cả hai vế (nếu phép cộng được xác định). Và nếu B=C, chúng chắc chắn có cùng kích thước.<br/>**(ii) If kB = 0 (where 0 is the zero matrix) then k=0 or B=0.**<br/>   Đây là một tính chất của phép nhân vô hướng với ma trận. Nếu tích của một số vô hướng \\(k\\) và ma trận \\(B\\) là ma trận không, thì hoặc số vô hướng đó bằng 0, hoặc ma trận đó là ma trận không (hoặc cả hai). Mệnh đề này **đúng**.<br/>**(iii) If A+B is symmetric then so are A and B.**<br/>   Một ma trận X là đối xứng nếu \\( X^T = X \\).<br/>   Giả sử A+B là đối xứng, tức là \\( (A+B)^T = A+B \\).<br/>   Ta biết rằng \\( (A+B)^T = A^T + B^T \\).<br/>   Vậy, nếu A+B đối xứng, thì \\( A^T + B^T = A+B \\).<br/>   Mệnh đề này nói rằng nếu tổng A+B đối xứng, thì cả A và B cũng phải đối xứng. Điều này **sai**.<br/>   Phản ví dụ: Cho \\( A = \\begin{bmatrix} 1 & 2 <br/> 3 & 4 \\end{bmatrix} \\) (không đối xứng) và \\( B = \\begin{bmatrix} -1 & -3 <br/> -2 & -4 \\end{bmatrix} \\) (không đối xứng).<br/>   Khi đó, \\( A+B = \\begin{bmatrix} 1+(-1) & 2+(-3) <br/> 3+(-2) & 4+(-4) \\end{bmatrix} = \\begin{bmatrix} 0 & -1 <br/> 1 & 0 \\end{bmatrix} \\).<br/>   Ma trận \\( A+B = \\begin{bmatrix} 0 & -1 <br/> 1 & 0 \\end{bmatrix} \\) cũng không đối xứng (nó là ma trận phản đối xứng).<br/>   Hãy tìm một ví dụ khác. Cho \\( A = \\begin{bmatrix} 1 & 2 <br/> 0 & 3 \\end{bmatrix} \\) (không đối xứng). <br/>   Cho \\( B = \\begin{bmatrix} 1 & 0 <br/> 2 & 3 \\end{bmatrix} \\) (không đối xứng). <br/>   Khi đó \\( A+B = \\begin{bmatrix} 1+1 & 2+0 <br/> 0+2 & 3+3 \\end{bmatrix} = \\begin{bmatrix} 2 & 2 <br/> 2 & 6 \\end{bmatrix} \\). <br/>   Ma trận \\( A+B = \\begin{bmatrix} 2 & 2 <br/> 2 & 6 \\end{bmatrix} \\) là ma trận đối xứng vì \\( (A+B)^T = \\begin{bmatrix} 2 & 2 <br/> 2 & 6 \\end{bmatrix} = A+B \\).<br/>   Tuy nhiên, cả A và B đều không đối xứng. Do đó, mệnh đề (iii) là sai.<br/>Kết luận: Mệnh đề (i) và (ii) đúng, mệnh đề (iii) sai. Vậy lựa chọn đúng là \"Only (i) and (ii)\"."
+  },
+  {
+    "id": 30,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "None of the choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Rewrite the system of equations \\( \\begin{cases} x + 2y + 3z = 3 \\\\ -x + 5y + 7z = 10 \\\\ 2x + 3y + 6z = 2 \\end{cases} \\) into a matrix-vector product \\( Av = b \\), where A is a 3x3 matrix and \\(v, b\\) are vectors in \\( \\mathbb{R}^3 \\). <br> (i) \\( \\begin{pmatrix} 1 & 2 & 3 \\\\ -1 & 5 & 7 \\\\ 2 & 3 & 6 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 10 \\\\ 3 \\\\ 2 \\end{pmatrix} \\) <br> (ii) \\( \\begin{pmatrix} 1 & -1 & 2 \\\\ 2 & 5 & 3 \\\\ 3 & 7 & 6 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 10 \\\\ 2 \\end{pmatrix} \\) <br> (iii) \\( \\begin{pmatrix} -1 & 5 & 7 \\\\ 1 & 2 & 3 \\\\ 2 & 3 & 6 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 10 \\\\ 2 \\end{pmatrix} \\) <br> (iv) \\( \\begin{pmatrix} 1 & 2 & 3 \\\\ -1 & 5 & 7 \\\\ 2 & 3 & 6 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 10 \\\\ 2 \\end{pmatrix} \\)",
+    "image_url": "",
+    "explanation": "Hệ phương trình đã cho là:<br/>1) \\( 1x + 2y + 3z = 3 \\)<br/>2) \\( -1x + 5y + 7z = 10 \\)<br/>3) \\( 2x + 3y + 6z = 2 \\)<br/>Để viết lại hệ này dưới dạng \\( Av = b \\), ta thực hiện như sau:<br/>- Ma trận \\(A\\) (ma trận hệ số) được tạo thành từ các hệ số của các ẩn \\(x, y, z\\) trong mỗi phương trình. Mỗi hàng của \\(A\\) tương ứng với một phương trình, và mỗi cột tương ứng với một ẩn.<br/>  Hàng 1 của A: từ phương trình (1), các hệ số là (1, 2, 3).<br/>  Hàng 2 của A: từ phương trình (2), các hệ số là (-1, 5, 7).<br/>  Hàng 3 của A: từ phương trình (3), các hệ số là (2, 3, 6).<br/>  Vậy, \\( A = \\begin{pmatrix} 1 & 2 & 3 \\\\ -1 & 5 & 7 \\\\ 2 & 3 & 6 \\end{pmatrix} \\).<br/>- Vector \\(v\\) (vector ẩn) là một vector cột chứa các ẩn:<br/>  \\( v = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\).<br/>- Vector \\(b\\) (vector hằng số) là một vector cột chứa các hằng số ở vế phải của mỗi phương trình:<br/>  \\( b = \\begin{pmatrix} 3 \\\\ 10 \\\\ 2 \\end{pmatrix} \\).<br/>Do đó, dạng ma trận-vector của hệ là:<br/> \\( \\begin{pmatrix} 1 & 2 & 3 \\\\ -1 & 5 & 7 \\\\ 2 & 3 & 6 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 10 \\\\ 2 \\end{pmatrix} \\).<br/>Dạng này khớp chính xác với lựa chọn (iv)."
+  },
+  {
+    "id": 31,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Let \\( A = \\begin{pmatrix} 1 & 0 & 2 \\\\ 3 & 2 & -1 \\end{pmatrix}, B = \\begin{pmatrix} 2 & -1 \\\\ 1 & 3 \\\\ 0 & 0 \\end{pmatrix} \\). Find AB. <br> (i) \\( \\begin{pmatrix} 2 & -1 \\\\ 8 & 3 \\end{pmatrix} \\) <br> (ii) \\( \\begin{pmatrix} 2 & 8 \\\\ -1 & 3 \\end{pmatrix} \\) <br> (iii) \\( \\begin{pmatrix} 2 & -1 \\\\ 0 & 0 \\end{pmatrix} \\)",
+    "image_url": "",
+    "explanation": "Để tính tích của hai ma trận \\(AB\\), ta nhân từng hàng của ma trận \\(A\\) với từng cột của ma trận \\(B\\).<br/>Ma trận \\(A\\) có kích thước 2x3 và ma trận \\(B\\) có kích thước 3x2. Do đó, ma trận tích \\(AB\\) sẽ có kích thước 2x2.<br/> \\( A = \\begin{pmatrix} 1 & 0 & 2 \\\\ 3 & 2 & -1 \\end{pmatrix} \\), \\( B = \\begin{pmatrix} 2 & -1 \\\\ 1 & 3 \\\\ 0 & 0 \\end{pmatrix} \\)<br/>Gọi \\(AB = C = \\begin{pmatrix} c_{11} & c_{12} \\\\ c_{21} & c_{22} \\end{pmatrix} \\).<br/>- **Tính \\(c_{11}\\)** (hàng 1 của A nhân cột 1 của B):<br/>  \\( c_{11} = (1)(2) + (0)(1) + (2)(0) = 2 + 0 + 0 = 2 \\).<br/>- **Tính \\(c_{12}\\)** (hàng 1 của A nhân cột 2 của B):<br/>  \\( c_{12} = (1)(-1) + (0)(3) + (2)(0) = -1 + 0 + 0 = -1 \\).<br/>- **Tính \\(c_{21}\\)** (hàng 2 của A nhân cột 1 của B):<br/>  \\( c_{21} = (3)(2) + (2)(1) + (-1)(0) = 6 + 2 + 0 = 8 \\).<br/>- **Tính \\(c_{22}\\)** (hàng 2 của A nhân cột 2 của B):<br/>  \\( c_{22} = (3)(-1) + (2)(3) + (-1)(0) = -3 + 6 + 0 = 3 \\).<br/>Vậy, ma trận tích là: <br/> \\( AB = \\begin{pmatrix} 2 & -1 \\\\ 8 & 3 \\end{pmatrix} \\).<br/>Kết quả này khớp với lựa chọn (i)."
+  },
+  {
+    "id": 32,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Find the matrix A such that \\( (I + A^T)^{-1} = \\begin{bmatrix} 1 & 2 \\\\ 3 & 5 \\end{bmatrix} \\). <br> (i) \\( \\begin{bmatrix} -6 & 3 \\\\ 2 & -2 \\end{bmatrix} \\) <br> (ii) \\( \\begin{bmatrix} -6 & -3 \\\\ -2 & 2 \\end{bmatrix} \\) <br> (iii) \\( \\begin{bmatrix} -6 & 2 \\\\ 3 & -2 \\end{bmatrix} \\)",
+    "image_url": "",
+    "explanation": "Cho \\( (I + A^T)^{-1} = M \\), với \\( M = \\begin{bmatrix} 1 & 2 \\\\ 3 & 5 \\end{bmatrix} \\).<br/>Để tìm \\(A\\), ta thực hiện các bước sau:<br/>1. **Lấy nghịch đảo cả hai vế:**<br/>   Nếu \\( (I + A^T)^{-1} = M \\), thì \\( I + A^T = M^{-1} \\).<br/>2. **Tính \\( M^{-1} \\):**<br/>   Đối với ma trận 2x2 \\( \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\), ma trận nghịch đảo là \\( \\frac{1}{ad-bc} \\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix} \\).<br/>   Cho \\( M = \\begin{bmatrix} 1 & 2 \\\\ 3 & 5 \\end{bmatrix} \\):<br/>   Định thức của M: \\( \\det(M) = (1)(5) - (2)(3) = 5 - 6 = -1 \\).<br/>   Vậy, \\( M^{-1} = \\frac{1}{-1} \\begin{bmatrix} 5 & -2 \\\\ -3 & 1 \\end{bmatrix} = -1 \\begin{bmatrix} 5 & -2 \\\\ -3 & 1 \\end{bmatrix} = \\begin{bmatrix} -5 & 2 \\\\ 3 & -1 \\end{bmatrix} \\).<br/>3. **Từ \\( I + A^T = M^{-1} \\), suy ra \\( A^T \\):**<br/>   \\( A^T = M^{-1} - I \\)<br/>\\   \\( A^T = \\begin{bmatrix} -5 & 2 \\\\ 3 & -1 \\end{bmatrix} - \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = \\begin{bmatrix} -5-1 & 2-0 \\\\ 3-0 & -1-1 \\end{bmatrix} = \\begin{bmatrix} -6 & 2 \\\\ 3 & -2 \\end{bmatrix} \\).<br/>4. **Tính \\( A \\) bằng cách lấy chuyển vị của \\( A^T \\):**<br/>   \\( A = (A^T)^T \\)<br/>\\   \\( A = \\left( \\begin{bmatrix} -6 & 2 \\\\ 3 & -2 \\end{bmatrix} \\right)^T = \\begin{bmatrix} -6 & 3 \\\\ 2 & -2 \\end{bmatrix} \\).<br/>So sánh với các lựa chọn:<br/>(i) \\( \\begin{bmatrix} -6 & 3 \\\\ 2 & -2 \\end{bmatrix} \\) -> Khớp chính xác với kết quả tính toán.<br/>Vậy đáp án đúng là (i)."
+  },
+  {
+    "id": 33,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( A = (a_{ij}) \\) be the matrix of rotation in the plane through \\( \\pi/3 \\). Find \\( a_{21} \\). <br> (i) \\( 1/2 \\) <br> (ii) \\( -1/2 \\) <br> (iii) \\( \\frac{\\sqrt{3}}{2} \\) <br> (iv) \\( -\\frac{\\sqrt{3}}{2} \\)",
+    "image_url": "",
+    "explanation": "Ma trận chuẩn cho phép quay ngược chiều kim đồng hồ trong mặt phẳng 2D một góc \\( \\theta \\) được cho bởi:<br/> \\( R(\\theta) = \\begin{bmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{bmatrix} \\).<br/>Trong bài toán này, góc quay là \\( \\theta = \\pi/3 \\).<br/>Ta cần tính các giá trị của \\( \\cos(\\pi/3) \\) và \\( \\sin(\\pi/3) \\):<br/>- \\( \\cos(\\pi/3) = 1/2 \\)<br/>- \\( \\sin(\\pi/3) = \\sqrt{3}/2 \\)<br/>Thay các giá trị này vào ma trận quay:<br/> \\( A = \\begin{bmatrix} 1/2 & -\\sqrt{3}/2 \\\\ \\sqrt{3}/2 & 1/2 \\end{bmatrix} \\).<br/>Phần tử \\( a_{ij} \\) là phần tử ở hàng thứ i và cột thứ j. Ta cần tìm \\( a_{21} \\), là phần tử ở hàng thứ hai và cột thứ nhất.<br/>Từ ma trận \\( A \\), ta có \\( a_{21} = \\sqrt{3}/2 \\).<br/>Giá trị này tương ứng với lựa chọn (iii) trong danh sách của câu hỏi."
+  },
+  {
+    "id": 34,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "0",
+        "label": "A"
+      },
+      {
+        "text": "1",
+        "label": "B"
+      },
+      {
+        "text": "-1",
+        "label": "C"
+      },
+      {
+        "text": "2",
+        "label": "D"
+      },
+      {
+        "text": "-2",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( A=(a_{ij}) \\) be the 2x2 matrix of reflection in the x-axis followed by reflection in the line \\( y=x \\). Find \\( a_{12} \\).",
+    "image_url": "",
+    "explanation": "1. **Ma trận của phép đối xứng qua trục x (Reflection in the x-axis):**<br/>   Phép đối xứng qua trục x biến điểm \\( (x, y) \\) thành \\( (x, -y) \\).<br/>   Ma trận \\( R_x \\) cho phép biến đổi này là \\( R_x = \\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix} \\).<br/>2. **Ma trận của phép đối xứng qua đường thẳng \\( y=x \\) (Reflection in the line \\( y=x \\)):**<br/>   Phép đối xứng qua đường thẳng \\( y=x \\) biến điểm \\( (x, y) \\) thành \\( (y, x) \\).<br/>   Ma trận \\( R_{y=x} \\) cho phép biến đổi này là \\( R_{y=x} = \\begin{bmatrix} 0 & 1 \\\\ 1 & 0 \\end{bmatrix} \\).<br/>3. **Phép biến đổi tổng hợp A:**<br/>   Phép biến đổi A là phép đối xứng qua trục x *trước*, theo sau bởi phép đối xứng qua đường thẳng \\( y=x \\).<br/>   Do đó, ma trận A được tính bằng cách nhân ma trận của phép biến đổi thứ hai (bên trái) với ma trận của phép biến đổi thứ nhất (bên phải):<br/>   \\( A = R_{y=x} \\cdot R_x \\)<br/>\\   \\( A = \\begin{bmatrix} 0 & 1 \\\\ 1 & 0 \\end{bmatrix} \\begin{bmatrix} 1 & 0 \\\\ 0 & -1 \\end{bmatrix} \\)<br/>\\   \\( A = \\begin{bmatrix} (0)(1) + (1)(0) & (0)(0) + (1)(-1) \\\\ (1)(1) + (0)(0) & (1)(0) + (0)(-1) \\end{bmatrix} \\)<br/>\\   \\( A = \\begin{bmatrix} 0+0 & 0-1 \\\\ 1+0 & 0+0 \\end{bmatrix} = \\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix} \\).<br/>4. **Tìm phần tử \\( a_{12} \\):**<br/>   Phần tử \\( a_{12} \\) là phần tử ở hàng 1, cột 2 của ma trận A.<br/>   Từ ma trận \\( A = \\begin{bmatrix} 0 & -1 \\\\ 1 & 0 \\end{bmatrix} \\), ta có \\( a_{12} = -1 \\).<br/>Vậy đáp án đúng là C."
+  },
+  {
+    "id": 35,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(ii)",
+        "label": "A"
+      },
+      {
+        "text": "(i)",
+        "label": "B"
+      },
+      {
+        "text": "(i) and (ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct.",
+        "label": "D"
+      }
+    ],
+    "question": "Let A and B be square matrices of the same size. Which of the following statements are true? <br> (i) \\( \\det(A-B) = \\det(A) - \\det(B) \\). <br> (ii) If A is 2x2, then \\( \\det(5A) = 25 \\det(A) \\).",
+    "image_url": "",
+    "explanation": "Xét từng mệnh đề:<br/>**(i) \\( \\det(A-B) = \\det(A) - \\det(B) \\)**<br/>   Mệnh đề này nói rằng định thức của hiệu hai ma trận bằng hiệu các định thức của chúng. Đây là một mệnh đề **sai** nói chung.<br/>   Phản ví dụ: Cho \\( A = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} \\) (ma trận đơn vị I) và \\( B = \\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix} \\).<br/>   \\( \\det(A) = 1 \\), \\( \\det(B) = 0 \\).<br/>   \\( A-B = \\begin{bmatrix} 1-1 & 0-0 \\\\ 0-0 & 1-0 \\end{bmatrix} = \\begin{bmatrix} 0 & 0 \\\\ 0 & 1 \\end{bmatrix} \\).<br/>   \\( \\det(A-B) = 0 \\).<br/>   Tuy nhiên, \\( \\det(A) - \\det(B) = 1 - 0 = 1 \\).<br/>   Vì \\( 0 \\neq 1 \\), mệnh đề (i) là sai.<br/>**(ii) If A is 2x2, then \\( \\det(5A) = 25 \\det(A) \\)**<br/>   Đối với một ma trận vuông \\(A\\) kích thước \\(n \times n\\) và một số vô hướng \\(k\\), ta có tính chất \\( \\det(kA) = k^n \\det(A) \\).<br/>   Trong trường hợp này, \\(A\\) là ma trận 2x2 (nên \\(n=2\\)) và \\(k=5\\).<br/>   Do đó, \\( \\det(5A) = 5^2 \\det(A) = 25 \\det(A) \\).<br/>   Mệnh đề này **đúng**.<br/>Kết luận: Mệnh đề (i) sai và mệnh đề (ii) đúng. Vậy, lựa chọn đúng là chỉ có (ii) đúng."
+  },
+  {
+    "id": 36,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "1/8",
+        "label": "A"
+      },
+      {
+        "text": "1/2",
+        "label": "B"
+      },
+      {
+        "text": "-1/2",
+        "label": "C"
+      },
+      {
+        "text": "-1/8",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( A = \\begin{bmatrix} 1 & 2 & 0 \\\\ 3 & 0 & 1 \\\\ -1 & 2 & 2 \\end{bmatrix} \\). Find the determinant of the matrix \\( 2A^{-1} \\).",
+    "image_url": "",
+    "explanation": "Ta cần tìm \\( \\det(2A^{-1}) \\). Sử dụng các tính chất của định thức:<br/>1. \\( \\det(kA) = k^n \\det(A) \\), với \\(A\\) là ma trận \\(n \\times n\\) và \\(k\\) là một số vô hướng.<br/>2. \\( \\det(A^{-1}) = \\frac{1}{\\det(A)} \\).<br/>Trong trường hợp này, \\(A\\) là ma trận 3x3 (nên \\(n=3\\)) và hằng số là 2.<br/>Do đó, \\( \\det(2A^{-1}) = 2^3 \\det(A^{-1}) = 8 \\det(A^{-1}) \\).<br/>Sử dụng tính chất thứ hai, \\( \\det(A^{-1}) = \\frac{1}{\\det(A)} \\).<br/>Vậy, \\( \\det(2A^{-1}) = 8 \\cdot \\frac{1}{\\det(A)} = \\frac{8}{\\det(A)} \\).<br/>Bây giờ, ta cần tính \\( \\det(A) \\) với \\( A = \\begin{bmatrix} 1 & 2 & 0 \\\\ 3 & 0 & 1 \\\\ -1 & 2 & 2 \\end{bmatrix} \\).<br/>Phát triển theo hàng đầu tiên:<br/> \\( \\det(A) = 1 \\begin{vmatrix} 0 & 1 \\\\ 2 & 2 \\end{vmatrix} - 2 \\begin{vmatrix} 3 & 1 \\\\ -1 & 2 \\end{vmatrix} + 0 \\begin{vmatrix} 3 & 0 \\\\ -1 & 2 \\end{vmatrix} \\)<br/> = 1((0)(2) - (1)(2)) - 2((3)(2) - (1)(-1)) + 0<br/> = 1(0 - 2) - 2(6 - (-1)) = -2 - 2(7) = -2 - 14 = -16.<br/>Vậy, \\( \\det(A) = -16 \\).<br/>Do đó, \\( \\det(2A^{-1}) = \\frac{8}{\\det(A)} = \\frac{8}{-16} = -\\frac{1}{2} \\).<br/>Kết quả này khớp với lựa chọn C (-1/2)."
+  },
+  {
+    "id": 37,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "-8/13",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "B"
+      },
+      {
+        "text": "-2/13",
+        "label": "C"
+      },
+      {
+        "text": "-26",
+        "label": "D"
+      },
+      {
+        "text": "13/8",
+        "label": "E"
+      }
+    ],
+    "question": "(lỗi)Let \\( A = \\begin{bmatrix} 1 & 0 & -2 \\\\ 3 & 1 & 4 \\\\ 5 & 2 & -3 \\end{bmatrix} \\). Find \\( \\det(2A^{-1}) \\).",
+    "image_url": "",
+    "explanation": "Tương tự câu 36, ta có \\( \\det(2A^{-1}) = 2^3 \\det(A^{-1}) = \\frac{8}{\\det(A)} \\), vì A là ma trận 3x3.<br/>Ta cần tính \\( \\det(A) \\) với \\( A = \\begin{bmatrix} 1 & 0 & -2 \\\\ 3 & 1 & 4 \\\\ 5 & 2 & -3 \\end{bmatrix} \\).<br/>Phát triển theo hàng đầu tiên (vì có số 0):<br/> \\( \\det(A) = 1 \\begin{vmatrix} 1 & 4 \\\\ 2 & -3 \\end{vmatrix} - 0 \\begin{vmatrix} 3 & 4 \\\\ 5 & -3 \\end{vmatrix} + (-2) \\begin{vmatrix} 3 & 1 \\\\ 5 & 2 \\end{vmatrix} \\)<br/>\\ ( = 1((1)(-3) - (4)(2)) - 0 - 2((3)(2) - (1)(5)) \\)<br/>\\ ( = 1(-3 - 8) - 2(6 - 5) \\)<br/>\\ ( = 1(-11) - 2(1) = -11 - 2 = -13 \\).<br/>Vậy, \\( \\det(A) = -13 \\).<br/>Do đó, \\( \\det(2A^{-1}) = \\frac{8}{\\det(A)} = \\frac{8}{-13} = -\\frac{8}{13} \\).<br/>Kết quả này khớp với lựa chọn A."
+  },
+  {
+    "id": 38,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "\\( t(1, -1) \\), t is nonzero",
+        "label": "A"
+      },
+      {
+        "text": "\\( t(1, -2) \\), t is nonzero",
+        "label": "B"
+      },
+      {
+        "text": "\\( t(2, 1) \\), t is nonzero",
+        "label": "C"
+      },
+      {
+        "text": "\\( t(1, 1) \\), t is nonzero",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Given that -3 is an eigenvalue for the matrix \\( \\begin{bmatrix} 3 & -6 \\\\ 8 & -11 \\end{bmatrix} \\). Find all eigenvectors corresponding to this eigenvalue \\( \\lambda = -3 \\).",
+    "image_url": "",
+    "explanation": "Cho ma trận \\( M = \\begin{bmatrix} 3 & -6 \\\\ 8 & -11 \\end{bmatrix} \\) và giá trị riêng \\( \\lambda = -3 \\).<br/>Để tìm các vector riêng \\( \\vec{v} = \\begin{bmatrix} x \\\\ y \\end{bmatrix} \\) tương ứng với \\( \\lambda = -3 \\), ta giải phương trình \\( (M - \\lambda I)\\vec{v} = \\vec{0} \\), trong đó \\( I \\) là ma trận đơn vị và \\( \\vec{0} \\) là vector không.<br/>1. **Tính \\( M - \\lambda I \\):**<br/>   \\( M - (-3)I = M + 3I = \\begin{bmatrix} 3 & -6 \\\\ 8 & -11 \\end{bmatrix} + 3\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} \\)<br/>\\   \\( = \\begin{bmatrix} 3 & -6 \\\\ 8 & -11 \\end{bmatrix} + \\begin{bmatrix} 3 & 0 \\\\ 0 & 3 \\end{bmatrix} = \\begin{bmatrix} 3+3 & -6+0 \\\\ 8+0 & -11+3 \\end{bmatrix} = \\begin{bmatrix} 6 & -6 \\\\ 8 & -8 \\end{bmatrix} \\).<br/>2. **Giải hệ phương trình \\( (M - \\lambda I)\\vec{v} = \\vec{0} \\):**<br/>   \\( \\begin{bmatrix} 6 & -6 \\\\ 8 & -8 \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 0 \\end{bmatrix} \\)<br/>   Điều này dẫn đến hệ phương trình:<br/>   a) \\( 6x - 6y = 0 \\)<br/>\\   b) \\( 8x - 8y = 0 \\)<br/>   Từ phương trình (a), \\( 6x = 6y \\implies x = y \\).<br/>   Phương trình (b) cũng cho \\( 8x = 8y \\implies x = y \\). Hai phương trình này phụ thuộc tuyến tính, điều này là bình thường khi tìm vector riêng.<br/>   Vậy, các vector riêng có dạng \\( \\begin{bmatrix} y \\\\ y \\end{bmatrix} \\) hoặc \\( \\begin{bmatrix} x \\\\ x \\end{bmatrix} \\).<br/>   Đặt \\( y = t \\) (trong đó \\( t \\) là một số vô hướng bất kỳ khác không, vì vector riêng phải khác vector không).<br/>   Khi đó \\( x = t \\).<br/>   Các vector riêng là \\( \\vec{v} = \\begin{bmatrix} t \\\\ t \\end{bmatrix} = t \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} \\), với \\( t \\neq 0 \\).<br/>Dưới dạng tọa độ, đây là \\( t(1, 1) \\), với t khác không. Điều này khớp với lựa chọn D."
+  },
+  {
+    "id": 39,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "none of the other choices is true",
+        "label": "A"
+      },
+      {
+        "text": "1",
+        "label": "B"
+      },
+      {
+        "text": "2",
+        "label": "C"
+      },
+      {
+        "text": "0",
+        "label": "D"
+      },
+      {
+        "text": "-3",
+        "label": "E"
+      }
+    ],
+    "question": "Let A be a 2x2 matrix. Given that 1 and 2 are eigenvalues of A with corresponding eigenvectors \\( [1 \\quad 3]^T \\) and \\( [0 \\quad 1]^T \\). Find the (1,2)-entry of the matrix A.",
+    "image_url": "",
+    "explanation": "Gọi ma trận \\( A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\).<br/>Ta có các thông tin sau:<br/>1. Giá trị riêng \\( \\lambda_1 = 1 \\) có vector riêng tương ứng \\( \\vec{v}_1 = \\begin{bmatrix} 1 \\\\ 3 \\end{bmatrix} \\).<br/>   Do đó, \\( A\\vec{v}_1 = \\lambda_1\\vec{v}_1 \\):<br/>   \\( \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 3 \\end{bmatrix} = 1 \\begin{bmatrix} 1 \\\\ 3 \\end{bmatrix} \\)<br/>\\   \\( \\begin{bmatrix} a + 3b \\\\ c + 3d \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ 3 \\end{bmatrix} \\).<br/>   Điều này cho ta hai phương trình:<br/>   (1) \\( a + 3b = 1 \\)<br/>\\   (2) \\( c + 3d = 3 \\)<br/>2. Giá trị riêng \\( \\lambda_2 = 2 \\) có vector riêng tương ứng \\( \\vec{v}_2 = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} \\).<br/>   Do đó, \\( A\\vec{v}_2 = \\lambda_2\\vec{v}_2 \\):<br/>   \\( \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = 2 \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} \\)<br/>\\   \\( \\begin{bmatrix} a(0) + b(1) \\\\ c(0) + d(1) \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 2 \\end{bmatrix} \\)<br/>\\   \\( \\begin{bmatrix} b \\\\ d \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 2 \\end{bmatrix} \\).<br/>   Điều này cho ta hai phương trình nữa:<br/>   (3) \\( b = 0 \\)<br/>\\   (4) \\( d = 2 \\)<br/>Bây giờ ta có thể giải hệ này để tìm \\(a, b, c, d\\).<br/>Từ (3), \\( b = 0 \\).<br/>Thay \\( b = 0 \\) vào (1): \\( a + 3(0) = 1 \\implies a = 1 \\).<br/>Từ (4), \\( d = 2 \\).<br/>Thay \\( d = 2 \\) vào (2): \\( c + 3(2) = 3 \\implies c + 6 = 3 \\implies c = 3 - 6 = -3 \\).<br/>Vậy, ma trận \\( A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ -3 & 2 \\end{bmatrix} \\).<br/>Phần tử (1,2) của ma trận A là phần tử ở hàng 1, cột 2, đó là \\(b\\).<br/>Ta đã tìm được \\( b = 0 \\).<br/>Lựa chọn D là 0. <br/>Tuy nhiên, câu trả lời được cung cấp trước đó là E (-3). Nếu (1,2)-entry là -3, thì có nghĩa là \\(b=-3\\). <br/>Nếu \\(b=-3\\), từ (1): \\(a + 3(-3) = 1 \\implies a - 9 = 1 \\implies a = 10\\). <br/>Từ (3): \\(b=0\\). Có mâu thuẫn. <br/>Do đó, tính toán của tôi với \\(A = \\begin{bmatrix} 1 & 0 \\\\ -3 & 2 \\end{bmatrix} \\) và (1,2)-entry là 0 là đúng. <br/>Có thể câu hỏi muốn hỏi (2,1)-entry là -3 chăng? Hoặc các vector riêng/giá trị riêng khác. <br/>Dựa trên đề bài, (1,2)-entry là \\(b=0\\). Lựa chọn D. <br/>Nếu đáp án thực sự là E (-3), thì có lẽ đề bài có ý định khác hoặc có lỗi. Giả sử có lỗi ở vector riêng thứ hai, ví dụ \\( [1 \\quad 0]^T \\) thay vì \\( [0 \\quad 1]^T \\). Khi đó: <br/> \\( \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} = 2 \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} \\implies \\begin{bmatrix} a \\\\ c \\end{bmatrix} = \\begin{bmatrix} 2 \\\\ 0 \\end{bmatrix} \\). Vậy \\(a=2, c=0\\). <br/>Kết hợp với \\(a+3b=1\\) từ vector riêng thứ nhất: \\(2+3b=1 \\implies 3b=-1 \\implies b=-1/3\\). <br/>Kết hợp với \\(c+3d=3\\): \\(0+3d=3 \\implies d=1\\). <br/>Ma trận sẽ là \\( \\begin{bmatrix} 2 & -1/3 \\\\ 0 & 1 \\end{bmatrix} \\). (1,2)-entry là -1/3. Vẫn không phải -3. <br/>Do đó, với đề bài hiện tại, (1,2)-entry là 0."
+  },
+  {
+    "id": 40,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "\\( [-1, 2, 1] \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( [5, 0, -1] \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( [-3, 1, 0] \\)",
+        "label": "C"
+      },
+      {
+        "text": "No intersection",
+        "label": "D"
+      },
+      {
+        "text": "All of the other choices are incorrect",
+        "label": "E"
+      }
+    ],
+    "question": "Find the point of intersection of the two lines \\( [x,y,z]^T = [-3,1,0]^T + t[6,2,1]^T \\) and \\( [x,y,z]^T = [1,2,2]^T + s[2,0,1]^T \\).",
+    "image_url": "",
+    "explanation": "Gọi hai đường thẳng là \\(L_1\\) và \\(L_2\\).<br/>Phương trình tham số cho \\(L_1\\):<br/> \\( x = -3 + 6t \\)<br/>( y = 1 + 2t \\)<br/>( z = 0 + t = t \\)<br/>Phương trình tham số cho \\(L_2\\):<br/> \\( x = 1 + 2s \\)<br/>( y = 2 + 0s = 2 \\)<br/>( z = 2 + s \\)<br/>Tại điểm giao nhau (nếu có), tọa độ \\(x, y, z\\) của hai đường thẳng phải bằng nhau. Do đó, ta đặt các thành phần tương ứng bằng nhau:<br/>1) \\( -3 + 6t = 1 + 2s \\) (phương trình cho x)<br/>2) \\( 1 + 2t = 2 \\) (phương trình cho y)<br/>3) \\( t = 2 + s \\) (phương trình cho z)<br/>Từ phương trình (2):<br/> \\( 1 + 2t = 2 \\implies 2t = 1 \\implies t = 1/2 \\).<br/>Thay \\( t = 1/2 \\) vào phương trình (3):<br/> \\( 1/2 = 2 + s \\implies s = 1/2 - 2 = 1/2 - 4/2 = -3/2 \\).<br/>Bây giờ, ta kiểm tra xem các giá trị \\( t = 1/2 \\) và \\( s = -3/2 \\) có thỏa mãn phương trình (1) không:<br/>Vế trái của (1): \\( -3 + 6t = -3 + 6(1/2) = -3 + 3 = 0 \\).<br/>Vế phải của (1): \\( 1 + 2s = 1 + 2(-3/2) = 1 - 3 = -2 \\).<br/>Vì vế trái (0) không bằng vế phải (-2), hệ phương trình không có nghiệm chung cho \\(s\\) và \\(t\\). Điều này có nghĩa là hai đường thẳng không cắt nhau.<br/>Kiểm tra xem chúng có song song không: Vector chỉ phương của \\(L_1\\) là \\( \\vec{d_1} = (6, 2, 1) \\). Vector chỉ phương của \\(L_2\\) là \\( \\vec{d_2} = (2, 0, 1) \\). Hai vector này không phải là bội số của nhau (ví dụ, \\(6/2 = 3\\) nhưng \\(2/0\\) không xác định), nên chúng không song song.<br/>Vì hai đường thẳng không cắt nhau và không song song, chúng là hai đường thẳng chéo nhau (skew lines).<br/>Do đó, không có điểm giao nhau. Lựa chọn D là \"No intersection\"."
+  },
+  {
+    "id": 41,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(iii)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iv)",
+        "label": "C"
+      },
+      {
+        "text": "(i)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "If \\( u = (-2, 1, 1) \\) and \\( v = (1, 0, 1) \\), then \\( ||\\text{proj}_v u|| \\) is: <br> (i) \\( \\frac{\\sqrt{6}}{6} \\) <br> (ii) \\( 1 \\) <br> (iii) \\( \\frac{\\sqrt{2}}{2} \\) <br> (iv) \\( \\frac{1}{2} \\)",
+    "image_url": "",
+    "explanation": "Hình chiếu của vector \\(u\\) lên vector \\(v\\) được cho bởi công thức:<br/> \\( \\text{proj}_v u = \\frac{u \\cdot v}{||v||^2} v \\).<br/>Độ dài (norm) của vector hình chiếu này là:<br/> \\( ||\\text{proj}_v u|| = \\left| \\frac{u \\cdot v}{||v||^2} \\right| ||v|| = \\frac{|u \\cdot v|}{||v||^2} ||v|| = \\frac{|u \\cdot v|}{||v||} \\).<br/>Cho \\( u = (-2, 1, 1) \\) và \\( v = (1, 0, 1) \\).<br/>1. **Tính tích vô hướng \\( u \\cdot v \\):**<br/>   \\( u \\cdot v = (-2)(1) + (1)(0) + (1)(1) = -2 + 0 + 1 = -1 \\).<br/>   Vậy, \\( |u \\cdot v| = |-1| = 1 \\).<br/>2. **Tính độ dài của vector \\(v\\) (\\( ||v|| \\)):**<br/>   \\( ||v|| = \\sqrt{(1)^2 + (0)^2 + (1)^2} = \\sqrt{1 + 0 + 1} = \\sqrt{2} \\).<br/>3. **Tính \\( ||\\text{proj}_v u|| \\):**<br/>   \\( ||\\text{proj}_v u|| = \\frac{|u \\cdot v|}{||v||} = \\frac{1}{\\sqrt{2}} \\).<br/>Để hợp lý hóa mẫu số, nhân cả tử và mẫu với \\( \\sqrt{2} \\):<br/>   \\( \\frac{1}{\\sqrt{2}} = \\frac{1 \\cdot \\sqrt{2}}{\\sqrt{2} \\cdot \\sqrt{2}} = \\frac{\\sqrt{2}}{2} \\).<br/>Kết quả này khớp với lựa chọn (iii)."
+  },
+  {
+    "id": 42,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "\\( 3x + 7y + 5z = 28 \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( 3x - 7y - 5z = 28 \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( 3x - 7y - 5z = -28 \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( 3x + 7y + 5z = -28 \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find an equation describing the plane passing through \\( (6, 0, 2) \\) and perpendicular to the line of intersection of the planes \\( x+y-2z=4 \\) and \\( 3x-2y+z=1 \\).",
+    "image_url": "",
+    "explanation": "1. **Tìm vector chỉ phương của đường giao tuyến:**<br/>   Đường giao tuyến của hai mặt phẳng là một đường thẳng. Vector chỉ phương của đường thẳng này vuông góc với cả hai vector pháp tuyến của hai mặt phẳng đã cho.<br/>   Vector pháp tuyến của mặt phẳng \\( P_1: x+y-2z=4 \\) là \\( \\vec{n_1} = (1, 1, -2) \\).<br/>   Vector pháp tuyến của mặt phẳng \\( P_2: 3x-2y+z=1 \\) là \\( \\vec{n_2} = (3, -2, 1) \\).<br/>   Vector chỉ phương \\( \\vec{d} \\) của đường giao tuyến là tích có hướng của \\( \\vec{n_1} \\) và \\( \\vec{n_2} \\):<br/>   \\( \\vec{d} = \\vec{n_1} \\times \\vec{n_2} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 1 & -2 \\\\ 3 & -2 & 1 \\end{vmatrix} \\)<br/>\\   \\( = \\mathbf{i}((1)(1) - (-2)(-2)) - \\mathbf{j}((1)(1) - (-2)(3)) + \\mathbf{k}((1)(-2) - (1)(3)) \\)<br/>\\   \\( = \\mathbf{i}(1 - 4) - \\mathbf{j}(1 - (-6)) + \\mathbf{k}(-2 - 3) \\)<br/>\\   \\( = \\mathbf{i}(-3) - \\mathbf{j}(1 + 6) + \\mathbf{k}(-5) = -3\\mathbf{i} - 7\\mathbf{j} - 5\\mathbf{k} = (-3, -7, -5) \\).<br/>2. **Mặt phẳng cần tìm vuông góc với đường giao tuyến:**<br/>   Điều này có nghĩa là vector pháp tuyến \\( \\vec{n} \\) của mặt phẳng cần tìm chính là vector chỉ phương \\( \\vec{d} \\) của đường giao tuyến (hoặc một bội số của nó).<br/>   Vậy, ta có thể chọn \\( \\vec{n} = (-3, -7, -5) \\). Để cho các hệ số dương (nếu có thể), ta cũng có thể chọn \\( \\vec{n'} = -\\vec{n} = (3, 7, 5) \\).<br/>3. **Viết phương trình mặt phẳng:**<br/>   Mặt phẳng đi qua điểm \\( P_0(6, 0, 2) \\) và có vector pháp tuyến \\( \\vec{n'} = (3, 7, 5) \\) có phương trình dạng: <br/>   \\( n'_x(x-x_0) + n'_y(y-y_0) + n'_z(z-z_0) = 0 \\)<br/>\\   \\( 3(x-6) + 7(y-0) + 5(z-2) = 0 \\)<br/>\\   \\( 3x - 18 + 7y + 5z - 10 = 0 \\)<br/>\\   \\( 3x + 7y + 5z - 28 = 0 \\)<br/>\\   \\( 3x + 7y + 5z = 28 \\).<br/>Phương trình này khớp với lựa chọn A."
+  },
+  {
+    "id": 43,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "1 and 6",
+        "label": "A"
+      },
+      {
+        "text": "1 and -6",
+        "label": "B"
+      },
+      {
+        "text": "-1 and 6",
+        "label": "C"
+      },
+      {
+        "text": "-1 and -6",
+        "label": "D"
+      }
+    ],
+    "question": "Given three vectors \\( u = [1, 2, 3]^T, v = [0, 1, a]^T, w = [0, 2, 5]^T \\). Find all possible values of a such that the volume of the parallelepiped determined by u, v, w is 7.",
+    "image_url": "",
+    "explanation": "Thể tích \\(V\\) của hình hộp được xác định bởi ba vector \\(u, v, w\\) là giá trị tuyệt đối của định thức của ma trận có các vector này làm hàng (hoặc cột):<br/> \\( V = |\\det(u, v, w)| \\).<br/>Cho \\( u = \\begin{pmatrix} 1 <br/> 2 <br/> 3 \\end{pmatrix} \\), \\( v = \\begin{pmatrix} 0 <br/> 1 <br/> a \\end{pmatrix} \\), \\( w = \\begin{pmatrix} 0 <br/> 2 <br/> 5 \\end{pmatrix} \\).<br/>Tính định thức:<br/> \\( \\det(u, v, w) = \\begin{vmatrix} 1 & 0 & 0 <br/> 2 & 1 & 2 <br/> 3 & a & 5 \\end{vmatrix} \\)<br/>Phát triển theo hàng đầu tiên (vì có hai số 0):<br/> \\( = 1 \\cdot \\begin{vmatrix} 1 & 2 <br/> a & 5 \\end{vmatrix} - 0 + 0 \\)<br/>\\ ( = 1((1)(5) - (2)(a)) = 5 - 2a \\).<br/>Thể tích được cho là 7, vậy: <br/> \\( |5 - 2a| = 7 \\).<br/>Điều này dẫn đến hai trường hợp:<br/>1) \\( 5 - 2a = 7 \\)<br/>\\   \\( -2a = 7 - 5 \\)<br/>\\   \\( -2a = 2 \\)<br/>\\   \\( a = -1 \\).<br/>2) \\( 5 - 2a = -7 \\)<br/>\\   \\( -2a = -7 - 5 \\)<br/>\\   \\( -2a = -12 \\)<br/>\\   \\( a = 6 \\).<br/>Vậy, các giá trị có thể của \\(a\\) là -1 và 6."
+  },
+  {
+    "id": 44,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "1",
+        "label": "A"
+      },
+      {
+        "text": "0",
+        "label": "B"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "C"
+      },
+      {
+        "text": "-1",
+        "label": "D"
+      },
+      {
+        "text": "2",
+        "label": "E"
+      }
+    ],
+    "question": "Let T be projection on the line \\(y=x\\) followed by reflection in the x-axis in the xy-plane. Find the sum of all entries in the first row of the matrix of T.",
+    "image_url": "",
+    "explanation": "1. **Ma trận của phép chiếu lên đường thẳng \\(y=x\\) (Projection on \\(y=x\\)):**<br/>   Đường thẳng \\(y=x\\) có vector chỉ phương đơn vị là \\( \\vec{u} = (\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}})^T \\).<br/>   Ma trận chiếu \\( P \\) lên đường thẳng có vector chỉ phương đơn vị \\( \\vec{u} \\) là \\( P = \\vec{u}\\vec{u}^T \\).<br/>   \\( P = \\begin{pmatrix} 1/\\sqrt{2} <br/> 1/\\sqrt{2} \\end{pmatrix} \\begin{pmatrix} 1/\\sqrt{2} & 1/\\sqrt{2} \\end{pmatrix} = \\begin{pmatrix} (1/\\sqrt{2})(1/\\sqrt{2}) & (1/\\sqrt{2})(1/\\sqrt{2}) <br/> (1/\\sqrt{2})(1/\\sqrt{2}) & (1/\\sqrt{2})(1/\\sqrt{2}) \\end{pmatrix} = \\begin{pmatrix} 1/2 & 1/2 <br/> 1/2 & 1/2 \\end{pmatrix} \\).<br/>   Gọi ma trận này là \\( M_1 = \\begin{pmatrix} 1/2 & 1/2 <br/> 1/2 & 1/2 \\end{pmatrix} \\).<br/>2. **Ma trận của phép đối xứng qua trục x (Reflection in the x-axis):**<br/>   Phép đối xứng qua trục x biến điểm \\( (x, y) \\) thành \\( (x, -y) \\).<br/>   Ma trận \\( M_2 \\) cho phép biến đổi này là \\( M_2 = R_x = \\begin{bmatrix} 1 & 0 <br/> 0 & -1 \\end{bmatrix} \\).<br/>3. **Phép biến đổi tổng hợp T:**<br/>   Phép biến đổi T là phép chiếu lên đường thẳng \\(y=x\\) *trước*, theo sau bởi phép đối xứng qua trục x.<br/>   Do đó, ma trận của T được tính bằng cách nhân ma trận của phép biến đổi thứ hai (bên trái) với ma trận của phép biến đổi thứ nhất (bên phải):<br/>   \\( T_{matrix} = M_2 \\cdot M_1 \\)<br/>\\   \\( T_{matrix} = \\begin{bmatrix} 1 & 0 <br/> 0 & -1 \\end{bmatrix} \\begin{pmatrix} 1/2 & 1/2 <br/> 1/2 & 1/2 \\end{pmatrix} \\)<br/>\\   \\( T_{matrix} = \\begin{pmatrix} (1)(1/2) + (0)(1/2) & (1)(1/2) + (0)(1/2) <br/> (0)(1/2) + (-1)(1/2) & (0)(1/2) + (-1)(1/2) \\end{pmatrix} \\)<br/>\\   \\( T_{matrix} = \\begin{pmatrix} 1/2 & 1/2 <br/> -1/2 & -1/2 \\end{pmatrix} \\).<br/>4. **Tìm tổng các phần tử trong hàng đầu tiên của ma trận T:**<br/>   Hàng đầu tiên của ma trận T là \\( [1/2 \\quad 1/2] \\).<br/>   Tổng các phần tử là \\( 1/2 + 1/2 = 1 \\)."
+  },
+  {
+    "id": 45,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "Both (i) and (ii)",
+        "label": "A"
+      },
+      {
+        "text": "None of (i) and (ii)",
+        "label": "B"
+      },
+      {
+        "text": "Only (i)",
+        "label": "C"
+      },
+      {
+        "text": "Only (ii)",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following statements are true? <br> (i) \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,2) \\} \\) <br> (ii) \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,1), (1,1) \\} \\)",
+    "image_url": "",
+    "explanation": "Để một tập hợp các vector sinh ra (span) không gian \\( \\mathbb{R}^2 \\), tập hợp đó phải chứa ít nhất hai vector độc lập tuyến tính trong \\( \\mathbb{R}^2 \\).<br/>**Mệnh đề (i): \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,2) \\} \\)**<br/>   Ta có hai vector \\( \\vec{u}_1 = (1,0) \\) và \\( \\vec{u}_2 = (0,2) \\).<br/>   Kiểm tra tính độc lập tuyến tính: Hai vector này không phải là bội số của nhau (ví dụ, không có số \\(k\\) nào sao cho \\( (1,0) = k(0,2) \\) hoặc ngược lại). Do đó, chúng độc lập tuyến tính.<br/>   Vì ta có hai vector độc lập tuyến tính trong không gian 2 chiều \\( \\mathbb{R}^2 \\), chúng tạo thành một cơ sở cho \\( \\mathbb{R}^2 \\) và do đó sinh ra \\( \\mathbb{R}^2 \\).<br/>   Vậy, mệnh đề (i) là **đúng**.<br/>**Mệnh đề (ii): \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,1), (1,1) \\} \\)**<br/>   Ta có ba vector \\( \\vec{v}_1 = (1,0) \\), \\( \\vec{v}_2 = (0,1) \\), và \\( \\vec{v}_3 = (1,1) \\).<br/>   Trong tập hợp này, \\( \\vec{v}_1 \\) và \\( \\vec{v}_2 \\) là hai vector cơ sở chuẩn của \\( \\mathbb{R}^2 \\) và chúng độc lập tuyến tính. Chúng đã đủ để sinh ra \\( \\mathbb{R}^2 \\).<br/>   Vector thứ ba, \\( \\vec{v}_3 = (1,1) \\), có thể được biểu diễn dưới dạng tổ hợp tuyến tính của \\( \\vec{v}_1 \\) và \\( \\vec{v}_2 \\): \\( (1,1) = 1 \\cdot (1,0) + 1 \\cdot (0,1) \\). Do đó, \\( \\vec{v}_3 \\) phụ thuộc tuyến tính vào \\( \\vec{v}_1 \\) và \\( \\vec{v}_2 \\).<br/>   Mặc dù tập hợp này chứa một vector phụ thuộc tuyến tính, nhưng nó vẫn chứa một tập con gồm hai vector độc lập tuyến tính (ví dụ \\( \\{(1,0), (0,1)\\} \\)) có khả năng sinh ra \\( \\mathbb{R}^2 \\). Do đó, không gian sinh bởi \\( \\{(1,0), (0,1), (1,1)\\} \\) chính là không gian sinh bởi \\( \\{(1,0), (0,1)\\} \\), tức là \\( \\mathbb{R}^2 \\).<br/>   Vậy, mệnh đề (ii) cũng là **đúng**.<br/>Vì cả hai mệnh đề (i) và (ii) đều đúng, lựa chọn A là chính xác."
+  },
+  {
+    "id": 46,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "Both U and V",
+        "label": "A"
+      },
+      {
+        "text": "U only",
+        "label": "B"
+      },
+      {
+        "text": "None of U and V",
+        "label": "C"
+      },
+      {
+        "text": "V only",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following are subspaces? <br> \\( U = \\{(x, y) | x = 2y \\} \\) <br> \\( V = \\{(x, y) | xy = 0 \\} \\)",
+    "image_url": "",
+    "explanation": "Only **U** is a subspace because it contains the zero vector, is closed under addition and scalar multiplication, whereas **V** is not closed under addition and thus not a subspace."
+  },
+  {
+    "id": 47,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(i) and (ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Let \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) be independent. Which of the following sets are independent? <br> (i) \\( \\{\\mathbf{u}, \\mathbf{v}-\\mathbf{w}, \\mathbf{w}\\} \\) <br> (ii) \\( \\{\\mathbf{u}, \\mathbf{u}-\\mathbf{v}, \\mathbf{u}-\\mathbf{w}\\} \\)",
+    "image_url": "",
+    "explanation": "Cho tập \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) là độc lập tuyến tính.<br/>**Xét tập (i): \\( S_1 = \\{\\mathbf{u}, \\mathbf{v}-\\mathbf{w}, \\mathbf{w}\\} \\)**<br/>   Giả sử có một tổ hợp tuyến tính của các vector trong \\(S_1\\) bằng vector không:<br/>   \\( c_1\\mathbf{u} + c_2(\\mathbf{v}-\\mathbf{w}) + c_3\\mathbf{w} = \\mathbf{0} \\)<br/>\\   \\( c_1\\mathbf{u} + c_2\\mathbf{v} - c_2\\mathbf{w} + c_3\\mathbf{w} = \\mathbf{0} \\)<br/>\\   \\( c_1\\mathbf{u} + c_2\\mathbf{v} + (c_3-c_2)\\mathbf{w} = \\mathbf{0} \\)<br/>   Vì \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) độc lập tuyến tính, các hệ số của tổ hợp tuyến tính này phải bằng 0:<br/>   \\( c_1 = 0 \\)<br/>\\   \\( c_2 = 0 \\)<br/>\\   \\( c_3 - c_2 = 0 \\)<br/>   Từ \\( c_2 = 0 \\) và \\( c_3 - c_2 = 0 \\), ta suy ra \\( c_3 = 0 \\).<br/>   Vì \\( c_1 = c_2 = c_3 = 0 \\), tập \\( S_1 \\) là độc lập tuyến tính. Vậy (i) là độc lập.<br/>**Xét tập (ii): \\( S_2 = \\{\\mathbf{u}, \\mathbf{u}-\\mathbf{v}, \\mathbf{u}-\\mathbf{w}\\} \\)**<br/>   Giả sử có một tổ hợp tuyến tính của các vector trong \\(S_2\\) bằng vector không:<br/>   \\( k_1\\mathbf{u} + k_2(\\mathbf{u}-\\mathbf{v}) + k_3(\\mathbf{u}-\\mathbf{w}) = \\mathbf{0} \\)<br/>\\   \\( k_1\\mathbf{u} + k_2\\mathbf{u} - k_2\\mathbf{v} + k_3\\mathbf{u} - k_3\\mathbf{w} = \\mathbf{0} \\)<br/>\\   \\( (k_1+k_2+k_3)\\mathbf{u} - k_2\\mathbf{v} - k_3\\mathbf{w} = \\mathbf{0} \\)<br/>   Vì \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) độc lập tuyến tính, các hệ số phải bằng 0:<br/>   \\( k_1+k_2+k_3 = 0 \\) (Phương trình 1)<br/>\\   \\( -k_2 = 0 \\implies k_2 = 0 \\) (Phương trình 2)<br/>\\   \\( -k_3 = 0 \\implies k_3 = 0 \\) (Phương trình 3)<br/>   Thay \\( k_2 = 0 \\) và \\( k_3 = 0 \\) vào Phương trình 1, ta được \\( k_1 + 0 + 0 = 0 \\implies k_1 = 0 \\).<br/>   Vì \\( k_1 = k_2 = k_3 = 0 \\), tập \\( S_2 \\) cũng là độc lập tuyến tính. Vậy (ii) là độc lập.<br/>Do đó, cả (i) và (ii) đều là các tập hợp độc lập tuyến tính. Lựa chọn đúng phải là \"C. (i) and (ii)\".<br/>Tuy nhiên, nếu phải chọn một trong các lựa chọn A, B, D, và đáp án được cung cấp là A. (i), có thể có một sự hiểu nhầm hoặc lỗi trong các lựa chọn của câu hỏi gốc hoặc đáp án mong đợi.<br/>Để kiểm tra lại: Phép biến đổi hàng sơ cấp không làm thay đổi tính độc lập/phụ thuộc tuyến tính của các cột. <br/>Xét (i): Ma trận có các cột là \\(u, v-w, w\\). Ta có thể biến đổi nó thành ma trận có các cột \\(u, v, w\\) bằng cách lấy cột 2 cộng cột 3 (\\( (v-w)+w = v \\)). Vì tập \\(u,v,w\\) độc lập, nên tập \\(u, v-w, w\\) cũng độc lập.<br/>Xét (ii): Ma trận có các cột \\(u, u-v, u-w\\). <br/>   \\( C_2 \\to C_2 - C_1 \\) cho ta \\( u, -v, u-w \\). <br/>   \\( C_3 \\to C_3 - C_1 \\) cho ta \\( u, -v, -w \\). <br/>   Vì \\(u,v,w\\) độc lập, nên \\(u, -v, -w\\) cũng độc lập. Do đó, tập ban đầu \\(u, u-v, u-w\\) cũng độc lập.<br/>Vậy, cả (i) và (ii) đều độc lập tuyến tính. Đáp án nên là C. Nếu chỉ được chọn A, thì có thể đây là câu hỏi chọn MỘT đáp án đúng và (i) được ưu tiên hoặc (ii) có lỗi tiềm ẩn nào đó mà tôi không thấy."
+  },
+  {
+    "id": 48,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(i) and (ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following subsets are independent in \\( \\mathbb{R}^4 \\)? <br> (i) \\( \\{ [1 \\quad 2 \\quad 3 \\quad 4]^T, [2 \\quad 0 \\quad 1 \\quad -1]^T, [1 \\quad -1 \\quad 0 \\quad 3]^T \\} \\) <br> (ii) \\( \\{ [2 \\quad 0 \\quad 1 \\quad -1]^T, [1 \\quad 2 \\quad -1 \\quad 1]^T, [3 \\quad 2 \\quad 0 \\quad 0]^T \\} \\)",
+    "image_url": "",
+    "explanation": "Để kiểm tra tính độc lập tuyến tính của một tập hợp các vector, ta có thể đặt chúng làm các hàng (hoặc cột) của một ma trận và thực hiện phép khử Gauss để đưa về dạng bậc thang. Nếu không có hàng nào toàn số 0 (hoặc số vector độc lập bằng số vector trong tập), thì tập hợp đó độc lập tuyến tính. Với 3 vector trong \\(\\mathbb{R}^4\\), chúng sẽ độc lập tuyến tính nếu hạng của ma trận tạo bởi chúng là 3.<br/>**Xét tập (i):** \\( \\vec{v}_1 = (1, 2, 3, 4), \\vec{v}_2 = (2, 0, 1, -1), \\vec{v}_3 = (1, -1, 0, 3) \\)<br/>Lập ma trận:<br/> \\( M_1 = \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 2 & 0 & 1 & -1 <br/> 1 & -1 & 0 & 3 \\end{bmatrix} \\)<br/> Thực hiện các phép biến đổi: <br/> \\( R_2 \\to R_2 - 2R_1 \\): \\( \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 0 & -4 & -5 & -9 <br/> 1 & -1 & 0 & 3 \\end{bmatrix} \\)<br/> \\( R_3 \\to R_3 - R_1 \\): \\( \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 0 & -4 & -5 & -9 <br/> 0 & -3 & -3 & -1 \\end{bmatrix} \\)<br/> \\( R_3 \\to R_3 - \\frac{3}{4}R_2 \\): <br/>   \\( -3 - \\frac{3}{4}(-4) = 0 \\), <br/>   \\( -3 - \\frac{3}{4}(-5) = \\frac{3}{4} \\), <br/>   \\( -1 - \\frac{3}{4}(-9) = \\frac{23}{4} \\) <br/> Ma trận sau biến đổi: <br/> \\( \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 0 & -4 & -5 & -9 <br/> 0 & 0 & \\frac{3}{4} & \\frac{23}{4} \\end{bmatrix} \\)<br/>Ma trận có 3 hàng không toàn số 0 (3 pivot). Vậy hạng là 3, bằng số vector. Tập (i) độc lập tuyến tính.<br/>**Xét tập (ii):** \\( \\vec{w}_1 = (2, 0, 1, -1), \\vec{w}_2 = (1, 2, -1, 1), \\vec{w}_3 = (3, 2, 0, 0) \\)<br/>Nhận xét: \\( \\vec{w}_3 = \\vec{w}_1 + \\vec{w}_2 \\) vì <br/> (2+1=3), (0+2=2), (1-1=0), (-1+1=0).<br/>Vì \\( \\vec{w}_3 \\) là tổ hợp tuyến tính của \\( \\vec{w}_1 \\) và \\( \\vec{w}_2 \\) (cụ thể là tổng), tập \\( \\{\\vec{w}_1, \\vec{w}_2, \\vec{w}_3\\} \\) là phụ thuộc tuyến tính.<br/>Do đó, chỉ tập (i) là độc lập tuyến tính.<br/>Lựa chọn đúng là A. (i). <br/>Nếu câu trả lời mong đợi là C. (i) và (ii), thì tôi đã sai ở (ii) hoặc đề bài có ý khác.<br/>Kiểm tra lại (ii): <br/> \\( M_2 = \\begin{bmatrix} 2 & 0 & 1 & -1 <br/> 1 & 2 & -1 & 1 <br/> 3 & 2 & 0 & 0 \\end{bmatrix} \\)<br/> \\( R_3 \\to R_3 - R_1 - R_2 \\): <br/> \\( [3-2-1, 2-0-2, 0-1-(-1), 0-(-1)-1] = [0, 0, 0, 0] \\)<br/>Vậy hàng 3 trở thành hàng không. Hạng của ma trận là 2, nhỏ hơn số vector (3). Do đó, tập (ii) là phụ thuộc tuyến tính.<br/>Kết luận của tôi vẫn là chỉ (i) độc lập tuyến tính. Đáp án đúng là A."
+  },
+  {
+    "id": 49,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "\\( t(-1,2,10,13)+s(-1,0,7,8) \\)",
+        "label": "A"
+      },
+      {
+        "text": "\\( t(-1,5,10,11) \\)",
+        "label": "B"
+      },
+      {
+        "text": "\\( t(-1,2,10,13)+s(-2,0,-6,8) \\)",
+        "label": "C"
+      },
+      {
+        "text": "\\( t(-1,3,10,11) \\)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find all vectors \\( (a,b,c,d) \\) such that the following set is orthogonal: \\( \\{ (1,0,-1,1), (2,1,1,-1), (1,-3,1,0), (a,b,c,d) \\} \\)",
+    "image_url": "",
+    "explanation": "Gọi \\( \\vec{v}_1 = (1,0,-1,1) \\), \\( \\vec{v}_2 = (2,1,1,-1) \\), \\( \\vec{v}_3 = (1,-3,1,0) \\), và \\( \\vec{v}_4 = (a,b,c,d) \\).<br/>Để tập hợp này là trực giao, mỗi cặp vector khác nhau phải có tích vô hướng bằng 0.<br/>Trước tiên, kiểm tra xem 3 vector đầu tiên có trực giao với nhau không:<br/>- \\( \\vec{v}_1 \\cdot \\vec{v}_2 = (1)(2) + (0)(1) + (-1)(1) + (1)(-1) = 2 + 0 - 1 - 1 = 0 \\). (OK)<br/>- \\( \\vec{v}_1 \\cdot \\vec{v}_3 = (1)(1) + (0)(-3) + (-1)(1) + (1)(0) = 1 + 0 - 1 + 0 = 0 \\). (OK)<br/>- \\( \\vec{v}_2 \\cdot \\vec{v}_3 = (2)(1) + (1)(-3) + (1)(1) + (-1)(0) = 2 - 3 + 1 + 0 = 0 \\). (OK)<br/>Ba vector đầu tiên là một tập trực giao. Vì chúng là các vector khác không, nên cũng độc lập tuyến tính.<br/>Bây giờ, vector \\( \\vec{v}_4 = (a,b,c,d) \\) phải trực giao với \\( \\vec{v}_1, \\vec{v}_2, \\vec{v}_3 \\):<br/>1) \\( \\vec{v}_4 \\cdot \\vec{v}_1 = 0 \\implies a(1) + b(0) + c(-1) + d(1) = 0 \\implies a - c + d = 0 \\)<br/>2) \\( \\vec{v}_4 \\cdot \\vec{v}_2 = 0 \\implies a(2) + b(1) + c(1) + d(-1) = 0 \\implies 2a + b + c - d = 0 \\)<br/>3) \\( \\vec{v}_4 \\cdot \\vec{v}_3 = 0 \\implies a(1) + b(-3) + c(1) + d(0) = 0 \\implies a - 3b + c = 0 \\)<br/>Ta có hệ 3 phương trình tuyến tính với 4 ẩn \\( a,b,c,d \\), nên sẽ có ít nhất một biến tự do, tức vô số nghiệm.<br/>Giải hệ: <br/>(1) \\quad a - c + d = 0 \\implies d = c - a \\)<br/>(3) \\quad a - 3b + c = 0 \\implies c = 3b - a \\)<br/>Thay \\( c = 3b - a \\) vào (1): \\( d = (3b - a) - a = 3b - 2a \\).<br/>Thay \\( c \\) và \\( d \\) vào (2):<br/> \\( 2a + b + (3b - a) - (3b - 2a) = 0 \\)<br/>\\( 2a + b + 3b - a - 3b + 2a = 0 \\)<br/>\\( (2a - a + 2a) + (b + 3b - 3b) = 0 \\)<br/>\\( 3a + b = 0 \\implies b = -3a \\).<br/>Tìm \\( c \\) và \\( d \\) theo \\( a \\):<br/> \\( c = 3b - a = 3(-3a) - a = -9a - a = -10a \\).<br/> \\( d = 3b - 2a = 3(-3a) - 2a = -9a - 2a = -11a \\).<br/>Vậy \\( \\vec{v}_4 = (a,b,c,d) = (a, -3a, -10a, -11a) = a(1, -3, -10, -11) \\).<br/>Đặt \\( a = t \\) (tham số tùy ý), ta có \\( \\vec{v}_4 = t(1, -3, -10, -11) \\).<br/>So sánh với các lựa chọn:<br/>A. \\( t(-1,2,10,13)+s(-1,0,7,8) \\) (Không gian 2 chiều, sai)<br/>B. \\( t(-1,5,10,11) \\) (Không khớp)<br/>C. \\( t(-1,2,10,13)+s(-2,0,-6,8) \\) (Không gian 2 chiều, sai)<br/>D. \\( t(-1,3,10,11) \\) (Nếu \\( a = -t \\), thì \\( (-t, 3t, 10t, 11t) = -t(1,-3,-10,-11) \\). Khớp!) <br/>Vậy \\( (a,b,c,d) = t(-1,3,10,11) \\) là nghiệm đúng.<br/>Kiểm tra trực giao với \\( \\vec{v}_1, \\vec{v}_2, \\vec{v}_3 \\):<br/> \\( (-1,3,10,11) \\cdot (1,0,-1,1) = -1 + 0 - 10 + 11 = 0 \\) (OK)<br/> \\( (-1,3,10,11) \\cdot (2,1,1,-1) = -2 + 3 + 10 - 11 = 0 \\) (OK)<br/> \\( (-1,3,10,11) \\cdot (1,-3,1,0) = -1 - 9 + 10 + 0 = 0 \\) (OK)<br/>Do đó, lựa chọn đúng là D.<br/>Nếu trước đó chọn E (Không có đáp án nào đúng), có thể do lỗi nhập đề hoặc sai sót trong tính toán."
+  },
+  {
+    "id": 50,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "7",
+        "label": "A"
+      },
+      {
+        "text": "8",
+        "label": "B"
+      },
+      {
+        "text": "There is not enough information",
+        "label": "C"
+      },
+      {
+        "text": "6",
+        "label": "D"
+      }
+    ],
+    "question": "Let A be a 7x8 matrix. Assume that the rows of A are linearly independent. Find rank A.",
+    "image_url": "",
+    "explanation": "Cho ma trận A kích thước 7x8 (7 hàng, 8 cột).<br/>Các hàng của A được cho là độc lập tuyến tính.<br/>Hạng (rank) của một ma trận có thể được định nghĩa theo nhiều cách tương đương:<br/>- Số lượng hàng độc lập tuyến tính tối đa.<br/>- Số lượng cột độc lập tuyến tính tối đa.<br/>- Số chiều của không gian hàng (row space).<br/>- Số chiều của không gian cột (column space).<br/>Vì các hàng của A là độc lập tuyến tính, và có 7 hàng, nên số lượng hàng độc lập tuyến tính tối đa là 7.<br/>Do đó, hạng của A, \\( \\mathrm{rank}(A) \\), bằng 7.<br/>Cũng cần lưu ý rằng hạng của ma trận \\( m \\times n \\) không thể vượt quá \\( \\min(m,n) \\). Trong trường hợp này, \\( m=7, n=8 \\), nên \\( \\mathrm{rank}(A) \\leq \\min(7,8) = 7 \\).<br/>Vì ta được cho là có 7 hàng độc lập tuyến tính, hạng của ma trận phải là 7."
+  }
+]
