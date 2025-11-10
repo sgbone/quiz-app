@@ -14,7 +14,11 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
 // Import trang Profile mới
-
+import DocsPage from "./pages/DocsPage";
+import ProjectPage from "./pages/ProjectPage";
+import UploadProjectPage from "./pages/UploadProjectPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
+import EditProjectPage from "./pages/EditProjectPage";
 // Import các component layout chung
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -83,7 +87,12 @@ function App() {
             <Route path="/" element={<WelcomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/select-exam" element={<SelectExamPage />} />
+            <Route path="/select-exam" element={<SelectExamPage />} />\
+            <Route path="/docs" element={<DocsPage />} />
+            <Route path="/project" element={<ProjectPage />} />
+            <Route path="/project/upload" element={<UploadProjectPage />} />
+            <Route path="/project/:id" element={<ProjectDetailPage />} />
+            <Route path="/project/edit/:id" element={<EditProjectPage />} />
             <Route path="/quiz/:quizId" element={<QuizPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/profile" element={<ProfilePage />} />

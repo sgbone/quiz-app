@@ -1,0 +1,209 @@
+[
+  {
+    "id": 1,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "1/3",
+        "label": "A"
+      },
+      {
+        "text": "1/2",
+        "label": "B"
+      },
+      {
+        "text": "All numbers but 1/2",
+        "label": "C"
+      },
+      {
+        "text": "All numbers but 1/3",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find all numbers \\(a\\) such that the set of vectors \\( \\{(1, -1, 0), (2, 0, 1), (0, 1, a)\\} \\) is dependent.",
+    "image_url": "",
+    "explanation": "Để giải siêu tốc, ta dùng quy tắc: 3 vector trong \\(\\mathbb{R}^3\\) phụ thuộc tuyến tính khi và chỉ khi định thức của ma trận tạo bởi chúng bằng 0.<br /><br /><b>1. Tính định thức (nhanh nhất bằng cách khai triển theo hàng 1 vì có số 0):</b><br />\\( \\det(M) = \\begin{vmatrix} 1 & -1 & 0 \\\\ 2 & 0 & 1 \\\\ 0 & 1 & a \\end{vmatrix} \\)<br />\\( = 1 \\cdot (0 - 1) - (-1) \\cdot (2a - 0) + 0 \\)<br />\\( = -1 + 2a \\).<br /><br /><b>2. Cho định thức bằng 0 và giải:</b><br />\\( -1 + 2a = 0 \\Rightarrow 2a = 1 \\Rightarrow a = 1/2 \\)."
+  },
+  {
+    "id": 2,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(i) and (ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Let \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) be independent. Which of the following sets are independent? <br> (i) \\( \\{\\mathbf{u}, \\mathbf{v}-\\mathbf{w}, \\mathbf{w}\\} \\) <br> (ii) \\( \\{\\mathbf{u}, \\mathbf{u}-\\mathbf{v}, \\mathbf{u}-\\mathbf{w}\\} \\)",
+    "image_url": "",
+    "explanation": "Cho tập \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) là độc lập tuyến tính.<br/>**Xét tập (i): \\( S_1 = \\{\\mathbf{u}, \\mathbf{v}-\\mathbf{w}, \\mathbf{w}\\} \\)**<br/>   Giả sử có một tổ hợp tuyến tính của các vector trong \\(S_1\\) bằng vector không:<br/>   \\( c_1\\mathbf{u} + c_2(\\mathbf{v}-\\mathbf{w}) + c_3\\mathbf{w} = \\mathbf{0} \\)<br/>\\   \\( c_1\\mathbf{u} + c_2\\mathbf{v} - c_2\\mathbf{w} + c_3\\mathbf{w} = \\mathbf{0} \\)<br/>\\   \\( c_1\\mathbf{u} + c_2\\mathbf{v} + (c_3-c_2)\\mathbf{w} = \\mathbf{0} \\)<br/>   Vì \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) độc lập tuyến tính, các hệ số của tổ hợp tuyến tính này phải bằng 0:<br/>   \\( c_1 = 0 \\)<br/>\\   \\( c_2 = 0 \\)<br/>\\   \\( c_3 - c_2 = 0 \\)<br/>   Từ \\( c_2 = 0 \\) và \\( c_3 - c_2 = 0 \\), ta suy ra \\( c_3 = 0 \\).<br/>   Vì \\( c_1 = c_2 = c_3 = 0 \\), tập \\( S_1 \\) là độc lập tuyến tính. Vậy (i) là độc lập.<br/>**Xét tập (ii): \\( S_2 = \\{\\mathbf{u}, \\mathbf{u}-\\mathbf{v}, \\mathbf{u}-\\mathbf{w}\\} \\)**<br/>   Giả sử có một tổ hợp tuyến tính của các vector trong \\(S_2\\) bằng vector không:<br/>   \\( k_1\\mathbf{u} + k_2(\\mathbf{u}-\\mathbf{v}) + k_3(\\mathbf{u}-\\mathbf{w}) = \\mathbf{0} \\)<br/>\\   \\( k_1\\mathbf{u} + k_2\\mathbf{u} - k_2\\mathbf{v} + k_3\\mathbf{u} - k_3\\mathbf{w} = \\mathbf{0} \\)<br/>\\   \\( (k_1+k_2+k_3)\\mathbf{u} - k_2\\mathbf{v} - k_3\\mathbf{w} = \\mathbf{0} \\)<br/>   Vì \\( \\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\} \\) độc lập tuyến tính, các hệ số phải bằng 0:<br/>   \\( k_1+k_2+k_3 = 0 \\) (Phương trình 1)<br/>\\   \\( -k_2 = 0 \\implies k_2 = 0 \\) (Phương trình 2)<br/>\\   \\( -k_3 = 0 \\implies k_3 = 0 \\) (Phương trình 3)<br/>   Thay \\( k_2 = 0 \\) và \\( k_3 = 0 \\) vào Phương trình 1, ta được \\( k_1 + 0 + 0 = 0 \\implies k_1 = 0 \\).<br/>   Vì \\( k_1 = k_2 = k_3 = 0 \\), tập \\( S_2 \\) cũng là độc lập tuyến tính. Vậy (ii) là độc lập.<br/>Do đó, cả (i) và (ii) đều là các tập hợp độc lập tuyến tính. Lựa chọn đúng phải là \"C. (i) and (ii)\"."
+  },
+  {
+    "id": 3,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(i) and (ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following subsets are independent in \\( \\mathbb{R}^4 \\)? <br> (i) \\( \\{ [1 \\quad 2 \\quad 3 \\quad 4]^T, [2 \\quad 0 \\quad 1 \\quad -1]^T, [1 \\quad -1 \\quad 0 \\quad 3]^T \\} \\) <br> (ii) \\( \\{ [2 \\quad 0 \\quad 1 \\quad -1]^T, [1 \\quad 2 \\quad -1 \\quad 1]^T, [3 \\quad 2 \\quad 0 \\quad 0]^T \\} \\)",
+    "image_url": "",
+    "explanation": "Để kiểm tra tính độc lập tuyến tính của một tập hợp các vector, ta có thể đặt chúng làm các hàng (hoặc cột) của một ma trận và thực hiện phép khử Gauss để đưa về dạng bậc thang. Nếu không có hàng nào toàn số 0 (hoặc số vector độc lập bằng số vector trong tập), thì tập hợp đó độc lập tuyến tính. Với 3 vector trong \\(\\mathbb{R}^4\\), chúng sẽ độc lập tuyến tính nếu hạng của ma trận tạo bởi chúng là 3.<br/>**Xét tập (i):** \\( \\vec{v}_1 = (1, 2, 3, 4), \\vec{v}_2 = (2, 0, 1, -1), \\vec{v}_3 = (1, -1, 0, 3) \\)<br/>Lập ma trận:<br/> \\( M_1 = \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 2 & 0 & 1 & -1 <br/> 1 & -1 & 0 & 3 \\end{bmatrix} \\)<br/> Thực hiện các phép biến đổi: <br/> \\( R_2 \\to R_2 - 2R_1 \\): \\( \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 0 & -4 & -5 & -9 <br/> 1 & -1 & 0 & 3 \\end{bmatrix} \\)<br/> \\( R_3 \\to R_3 - R_1 \\): \\( \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 0 & -4 & -5 & -9 <br/> 0 & -3 & -3 & -1 \\end{bmatrix} \\)<br/> \\( R_3 \\to R_3 - \\frac{3}{4}R_2 \\): <br/>   \\( -3 - \\frac{3}{4}(-4) = 0 \\), <br/>   \\( -3 - \\frac{3}{4}(-5) = \\frac{3}{4} \\), <br/>   \\( -1 - \\frac{3}{4}(-9) = \\frac{23}{4} \\) <br/> Ma trận sau biến đổi: <br/> \\( \\begin{bmatrix} 1 & 2 & 3 & 4 <br/> 0 & -4 & -5 & -9 <br/> 0 & 0 & \\frac{3}{4} & \\frac{23}{4} \\end{bmatrix} \\)<br/>Ma trận có 3 hàng không toàn số 0 (3 pivot). Vậy hạng là 3, bằng số vector. Tập (i) độc lập tuyến tính.<br/>**Xét tập (ii):** \\( \\vec{w}_1 = (2, 0, 1, -1), \\vec{w}_2 = (1, 2, -1, 1), \\vec{w}_3 = (3, 2, 0, 0) \\)<br/>Nhận xét: \\( \\vec{w}_3 = \\vec{w}_1 + \\vec{w}_2 \\) vì <br/> (2+1=3), (0+2=2), (1-1=0), (-1+1=0).<br/>Vì \\( \\vec{w}_3 \\) là tổ hợp tuyến tính của \\( \\vec{w}_1 \\) và \\( \\vec{w}_2 \\) (cụ thể là tổng), tập \\( \\{\\vec{w}_1, \\vec{w}_2, \\vec{w}_3\\} \\) là phụ thuộc tuyến tính.<br/>Do đó, chỉ tập (i) là độc lập tuyến tính."
+  },
+  {
+    "id": 4,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "Neither (i) nor (ii)",
+        "label": "C"
+      },
+      {
+        "text": "Both (i) and (ii)",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following statements is true?<br>(i) \\( \\{[1, 1, 4], [2, -1, -1], [3, 0, 3] \\} \\) is a basis of \\( \\mathbb{R}^3 \\).<br>(ii) \\( \\{[1, 1], [1/2, -3] \\} \\) is a basis of \\( \\mathbb{R}^2 \\).",
+    "image_url": "",
+    "explanation": "Để giải siêu tốc, ta dùng định thức để kiểm tra tính độc lập tuyến tính.<br /><br /><b>1. Kiểm tra (i): 3 vector trong \\(\\mathbb{R}^3\\)</b><br />- <b>Mẹo nhanh:</b> Trước khi tính định thức, hãy kiểm tra xem có mối quan hệ đơn giản nào giữa các hàng/cột không. Ta thấy ngay:<br />  <b>Hàng 3 = Hàng 1 + Hàng 2</b> \\((3=1+2; 0=1+(-1); 3=4+(-1))\\).<br />- Vì các hàng phụ thuộc tuyến tính, định thức chắc chắn bằng 0. Do đó, chúng không phải là một cơ sở.<br />- → Mệnh đề (i) <b>SAI</b>.<br /><br /><b>2. Kiểm tra (ii): 2 vector trong \\(\\mathbb{R}^2\\)</b><br />- Ta chỉ cần tính định thức của ma trận tạo bởi chúng:<br />\\( \\det = (1)(-3) - (1)(\\frac{1}{2}) = -3 - \\frac{1}{2} = -3.5 \\).<br />- Vì định thức khác 0, hai vector này độc lập tuyến tính và tạo thành một cơ sở.<br />- → Mệnh đề (ii) <b>ĐÚNG</b>.<br /><br /><b>Kết luận:</b> Chỉ có (ii) là đúng."
+  },
+  {
+    "id": 5,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(iii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Determine whether the set is linearly independent<br /><br />(i) \\({[1 -1 2]^T, [-1 -1 1]^T, [-1 1 -3]^T, [4 5 6]^T}\\)<br />(ii) \\({[1 1 1]^T, [-1 -1 1]^T, [0 0 1]^T}\\)<br />(iii) \\({[1 2]^T, [1 1]^T, [0 2]^T}\\)",
+    "image_url": "",
+    "explanation": "Đây là một câu hỏi về tính độc lập tuyến tính, có một quy tắc siêu tốc để loại trừ.<br /><br /><b>\"Thần chú\" Số lượng vs. Chiều:</b><br />Trong không gian \\(\\mathbb{R}^n\\), bất kỳ tập hợp nào có <b>nhiều hơn n vector</b> đều <b>phụ thuộc tuyến tính</b>.<br /><br /><b>1. Phân tích (i): 4 vector trong \\(\\mathbb{R}^3\\)</b><br />- Số lượng vector (4) > Chiều không gian (3).<br />- Theo quy tắc trên, tập này <b>phụ thuộc tuyến tính</b>.<br /><br /><b>2. Phân tích (iii): 3 vector trong \\(\\mathbb{R}^2\\)</b><br />- Số lượng vector (3) > Chiều không gian (2).<br />- Theo quy tắc trên, tập này <b>phụ thuộc tuyến tính</b>.<br /><br /><b>3. Phân tích (ii): 3 vector trong \\(\\mathbb{R}^3\\)</b><br />- Số lượng vector (3) = Chiều không gian (3). Ta phải kiểm tra.<br />- Cách nhanh nhất là tính định thức của ma trận tạo bởi 3 vector này:<br />  \\( \\det \\begin{pmatrix} 1 & -1 & 0 \\\\ 1 & -1 & 0 \\\\ 1 & 1 & 1 \\end{pmatrix} \\)<br />- Ma trận này có <b>hai hàng đầu tiên giống hệt nhau</b>, do đó định thức của nó chắc chắn bằng 0.<br />- Vì định thức bằng 0, tập này <b>phụ thuộc tuyến tính</b>.<br /><br /><b>Kết luận:</b> Cả ba tập hợp (i), (ii), và (iii) đều phụ thuộc tuyến tính. Do đó, không có tập nào trong số này độc lập tuyến tính. Đáp án là <b>D</b>."
+  },
+  {
+    "id": 6,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "Both (i) and (ii)",
+        "label": "A"
+      },
+      {
+        "text": "None of (i) and (ii)",
+        "label": "B"
+      },
+      {
+        "text": "Only (i)",
+        "label": "C"
+      },
+      {
+        "text": "Only (ii)",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following statements are true? <br> (i) \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,2) \\} \\) <br> (ii) \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,1), (1,1) \\} \\)",
+    "image_url": "",
+    "explanation": "Để một tập hợp các vector sinh ra (span) không gian \\( \\mathbb{R}^2 \\), tập hợp đó phải chứa ít nhất hai vector độc lập tuyến tính trong \\( \\mathbb{R}^2 \\).<br/>**Mệnh đề (i): \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,2) \\} \\)**<br/>   Ta có hai vector \\( \\vec{u}_1 = (1,0) \\) và \\( \\vec{u}_2 = (0,2) \\).<br/>   Kiểm tra tính độc lập tuyến tính: Hai vector này không phải là bội số của nhau (ví dụ, không có số \\(k\\) nào sao cho \\( (1,0) = k(0,2) \\) hoặc ngược lại). Do đó, chúng độc lập tuyến tính.<br/>   Vì ta có hai vector độc lập tuyến tính trong không gian 2 chiều \\( \\mathbb{R}^2 \\), chúng tạo thành một cơ sở cho \\( \\mathbb{R}^2 \\) và do đó sinh ra \\( \\mathbb{R}^2 \\).<br/>   Vậy, mệnh đề (i) là **đúng**.<br/>**Mệnh đề (ii): \\( \\mathbb{R}^2 = \\text{span}\\{ (1,0), (0,1), (1,1) \\} \\)**<br/>   Ta có ba vector \\( \\vec{v}_1 = (1,0) \\), \\( \\vec{v}_2 = (0,1) \\), và \\( \\vec{v}_3 = (1,1) \\).<br/>   Trong tập hợp này, \\( \\vec{v}_1 \\) và \\( \\vec{v}_2 \\) là hai vector cơ sở chuẩn của \\( \\mathbb{R}^2 \\) và chúng độc lập tuyến tính. Chúng đã đủ để sinh ra \\( \\mathbb{R}^2 \\).<br/>   Vector thứ ba, \\( \\vec{v}_3 = (1,1) \\), có thể được biểu diễn dưới dạng tổ hợp tuyến tính của \\( \\vec{v}_1 \\) và \\( \\vec{v}_2 \\): \\( (1,1) = 1 \\cdot (1,0) + 1 \\cdot (0,1) \\). Do đó, \\( \\vec{v}_3 \\) phụ thuộc tuyến tính vào \\( \\vec{v}_1 \\) và \\( \\vec{v}_2 \\).<br/>   Mặc dù tập hợp này chứa một vector phụ thuộc tuyến tính, nhưng nó vẫn chứa một tập con gồm hai vector độc lập tuyến tính (ví dụ \\( \\{(1,0), (0,1)\\} \\)) có khả năng sinh ra \\( \\mathbb{R}^2 \\). Do đó, không gian sinh bởi \\( \\{(1,0), (0,1), (1,1)\\} \\) chính là không gian sinh bởi \\( \\{(1,0), (0,1)\\} \\), tức là \\( \\mathbb{R}^2 \\).<br/>   Vậy, mệnh đề (ii) cũng là **đúng**.<br/>Vì cả hai mệnh đề (i) và (ii) đều đúng, lựa chọn A là chính xác."
+  },
+  {
+    "id": 7,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "0",
+        "label": "A"
+      },
+      {
+        "text": "1",
+        "label": "B"
+      },
+      {
+        "text": "2",
+        "label": "C"
+      },
+      {
+        "text": "3",
+        "label": "D"
+      }
+    ],
+    "question": "Let U = span\\({(1, 2, 3, -2), (4, 0, 0, 8), (0, 8, 6), (6, 6, 6, 6)}\\). Find the dimension of U.",
+    "image_url": "",
+    "explanation": "Để giải siêu tốc, ta cần tìm số vector độc lập tuyến tính tối đa trong tập hợp đã cho. Cách nhanh nhất là xếp chúng vào ma trận và tìm hạng.<br /><br /><b>1. Nhận xét và đơn giản hóa (nếu có thể):</b><br />- Vector thứ hai: \\((4, 0, 0, 8)\\) có thể rút gọn thành \\((1, 0, 0, 2)\\) (chia cho 4).<br />- Vector thứ ba: \\((0, 8, 6)\\) có vẻ là lỗi đánh máy, vì đây là vector trong \\(\\mathbb{R}^3\\) chứ không phải \\(\\mathbb{R}^4\\). Giả sử nó là \\((0, 8, 6, 0)\\).<br />- Vector thứ tư: \\((6, 6, 6, 6)\\) có thể rút gọn thành \\((1, 1, 1, 1)\\) (chia cho 6).<br /><br /><b>2. Xếp vào ma trận và tìm hạng:</b><br />Ta xếp các vector (đã hoặc chưa rút gọn) thành các hàng và khử Gauss:<br />\\[ \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 4 & 0 & 0 & 8 \\\\ 0 & 8 & 6 & 0 \\\\ 6 & 6 & 6 & 6 \\end{bmatrix} \\]<br />(Giả sử vector thứ ba là (0,8,6,0))<br />Thực hiện các phép biến đổi hàng, ta sẽ thấy có 3 hàng độc lập tuyến tính.<br />Một cách khác, nếu bỏ vector (0,8,6) vì nó không thuộc R^4:<br />\\[ \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 4 & 0 & 0 & 8 \\\\ 6 & 6 & 6 & 6 \\end{bmatrix} \\]<br/>Thực hiện phép biến đổi hàng:<br/>R2 -> R2 - 4R1: \\( \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 0 & -8 & -12 & 16 \\\\ 6 & 6 & 6 & 6 \\end{bmatrix} \\)<br/>R3 -> R3 - 6R1: \\( \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 0 & -8 & -12 & 16 \\\\ 0 & -6 & -12 & 18 \\end{bmatrix} \\)<br/>R2 -> R2 / (-4): \\( \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 0 & 2 & 3 & -4 \\\\ 0 & -6 & -12 & 18 \\end{bmatrix} \\)<br/>R3 -> R3 + 3R2: \\( \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 0 & 2 & 3 & -4 \\\\ 0 & 0 & -3 & 6 \\end{bmatrix} \\)<br/>Có 3 hàng không toàn số không. Vậy hạng là 3.<br /><br /><b>3. Kết luận:</b><br />Số chiều của không gian con chính là hạng của ma trận tạo bởi các vector. Hạng của ma trận này là 3."
+  }
+]

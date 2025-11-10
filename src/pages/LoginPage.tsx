@@ -1,15 +1,39 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import { LogIn, Mail, Lock, Sparkles } from "lucide-react";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const getReturnTo = () => {
+    const qs = new URLSearchParams(location.search);
+    const next = qs.get("next");
+    const fromState = (location.state as any)?.from as string | undefined;
+    return fromState || next || "/project";
+  };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [focusedField, setFocusedField] = useState<string>("");
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        // Nếu có history để quay lại trang vừa rồi thì ưu tiên navigate(-1)
+        // còn không thì đi theo getReturnTo()
+        if (window.history.length > 1) {
+          navigate(-1);
+        } else {
+          navigate(getReturnTo(), { replace: true });
+        }
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,8 +51,17 @@ export default function LoginPage() {
       return;
     }
 
-    // Success
-    navigate("/select-exam");
+    const returnTo = getReturnTo();
+    if (
+      window.history.length > 1 &&
+      !location.state?.from &&
+      !new URLSearchParams(location.search).get("next")
+    ) {
+      navigate(-1);
+    } else {
+      navigate(returnTo, { replace: true });
+    }
+
     setLoading(false);
   };
 

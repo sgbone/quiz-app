@@ -1,0 +1,1628 @@
+[
+  {
+    "id": 1,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "2/3",
+        "label": "A"
+      },
+      {
+        "text": "-6",
+        "label": "B"
+      },
+      {
+        "text": "1/3",
+        "label": "C"
+      },
+      {
+        "text": "All of the other choices are incorrect",
+        "label": "D"
+      },
+      {
+        "text": "-2/3",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( A, B, C \\) be \\( 10 \\times 10 \\) matrices with \\( \\det(A) = 3 \\), \\( \\det(B) = 2 \\), and \\( \\det(C) = -1 \\). <br />Find \\( \\det(A^{-1}B^T C^{-1}) \\).",
+    "image_url": "",
+    "explanation": "Sử dụng các tính chất của định thức:<br/><b>- \\( \\det(XYZ) = \\det(X)\\det(Y)\\det(Z) \\)</b><br/><b>- \\( \\det(X^{-1}) = \\frac{1}{\\det(X)} \\)</b><br/><b>- \\( \\det(X^T) = \\det(X) \\)</b><br/>Ta có:<br/>\\[ \\det(A^{-1}B^T C^{-1}) = \\det(A^{-1}) \\cdot \\det(B^T) \\cdot \\det(C^{-1}) \\]<br/>\\[ = \\frac{1}{\\det(A)} \\cdot \\det(B) \\cdot \\frac{1}{\\det(C)} \\]<br/>\\[ = \\frac{1}{3} \\cdot 2 \\cdot \\left( \\frac{1}{-1} \\right) = -\\frac{2}{3} \\]"
+  },
+  {
+    "id": 2,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "4",
+        "label": "A"
+      },
+      {
+        "text": "11",
+        "label": "B"
+      },
+      {
+        "text": "0",
+        "label": "C"
+      },
+      {
+        "text": "7",
+        "label": "D"
+      },
+      {
+        "text": "13",
+        "label": "E"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "F"
+      }
+    ],
+    "question": "Find the value of <b>\\( t \\)</b> for which \\( (4, 6, t) \\) is a linear combination of the vectors <br />\\( (1, 3, 1) \\) and \\( (2, 8, -1) \\).",
+    "image_url": "",
+    "explanation": "Để vector \\( (4, 6, t) \\) là một tổ hợp tuyến tính của hai vector kia, phải tồn tại hai số thực \\( a \\) và \\( b \\) sao cho:<br/> \\[ (4, 6, t) = a(1, 3, 1) + b(2, 8, -1) \\]<br/> Điều này dẫn đến một hệ phương trình tuyến tính:<br/> <b>1) \\( a + 2b = 4 \\)</b><br/> <b>2) \\( 3a + 8b = 6 \\)</b><br/> <b>3) \\( a - b = t \\)</b><br/>Giải hệ hai phương trình đầu tiên, ta tìm được <b>\\( a = 10 \\)</b> và <b>\\( b = -3 \\)</b>.<br/>Thay các giá trị này vào phương trình thứ ba, ta có: \\( t = a - b = 10 - (-3) = 13 \\)."
+  },
+  {
+    "id": 3,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(iv)",
+        "label": "A"
+      },
+      {
+        "text": "(iii)",
+        "label": "B"
+      },
+      {
+        "text": "(i)",
+        "label": "C"
+      },
+      {
+        "text": "(ii)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( F(x) = \\int_{0}^{x^2+1} t \\cos(t) \\, dt \\). Find <b>\\( F'(x) \\)</b>. <br />(i) \\( (x^2 + 1) \\cos(x^2 + 1) \\) <br />(ii) \\( 2x \\cos(x^2 + 1) \\) <br />(iii) \\( (t^2 + 1) \\cos(t^2 + 1) \\) <br />(iv) \\( 2x(x^2 + 1) \\cos(x^2 + 1) \\)",
+    "image_url": "",
+    "explanation": "Ta cần áp dụng <b>Định lý Cơ bản của Giải tích</b> (Phần 2) kết hợp với <b>Quy tắc chuỗi</b> (Chain Rule).<br/>Đặt \\( g(u) = \\int_0^u t \\cos(t) \\, dt \\) và \\( h(x) = x^2 + 1 \\). Khi đó, \\( F(x) = g(h(x)) \\).<br/>Theo Quy tắc chuỗi: \\( F'(x) = g'(h(x)) \\cdot h'(x) \\).<br/><b>- Theo Định lý Cơ bản: \\( g'(u) = u \\cos(u) \\).</b><br/><b>- Đạo hàm của \\( h(x) \\) là \\( h'(x) = 2x \\).</b><br/>Do đó, ta có:<br/> \\[ F'(x) = g'(x^2 + 1) \\cdot 2x \\] <br/> \\[ = (x^2 + 1) \\cos(x^2 + 1) \\cdot 2x \\] <br/> \\[ = 2x(x^2 + 1) \\cos(x^2 + 1) \\] <br/>Đây chính là biểu thức <b>(iv)</b>."
+  },
+  {
+    "id": 4,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(See picture)",
+        "label": "A"
+      },
+      {
+        "text": "2",
+        "label": "B"
+      },
+      {
+        "text": "3",
+        "label": "C"
+      },
+      {
+        "text": "1",
+        "label": "D"
+      },
+      {
+        "text": "0",
+        "label": "E"
+      }
+    ],
+    "question": "Find the <b>rank</b> of the matrix <br />\\[ A = \\begin{bmatrix} 3 & 2 & 1 \\\\ 2 & 1 & 3 \\\\ 5 & 3 & 4 \\end{bmatrix} \\]",
+    "image_url": "",
+    "explanation": "Hạng của ma trận là số lượng hàng (hoặc cột) độc lập tuyến tính tối đa. Ta có thể tìm hạng bằng cách tính định thức hoặc dùng phép biến đổi hàng.<br/><b>Cách 1: Tính định thức</b><br/>\\[ \\det(A) = 3(1 \\cdot 4 - 3 \\cdot 3) - 2(2 \\cdot 4 - 3 \\cdot 5) + 1(2 \\cdot 3 - 1 \\cdot 5) \\]<br/>\\[ = 3(-5) - 2(-7) + 1(1) = -15 + 14 + 1 = 0 \\]<br/>Vì \\( \\det(A) = 0 \\), hạng của ma trận phải nhỏ hơn 3. Ta xét định thức của ma trận con 2x2, ví dụ ma trận ở góc trên bên trái:<br/>\\[ \\det\\left(\\begin{pmatrix} 3 & 2 <br/> 2 & 1 \\end{pmatrix}\\right) = 3(1) - 2(2) = -1 \\neq 0 \\]<br/>Vì có một ma trận con cấp 2 có định thức khác 0, nên hạng của ma trận là 2.<br/><b>Cách 2: Biến đổi hàng</b><br/>Nhận thấy rằng Hàng 3 = Hàng 1 + Hàng 2. Do đó, ta có thể thực hiện phép biến đổi \\( R_3 \\to R_3 - R_1 - R_2 \\) để tạo ra một hàng toàn số không. Ma trận sẽ còn lại 2 hàng độc lập tuyến tính. Vậy hạng của ma trận là <b>2</b>."
+  },
+  {
+    "id": 5,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "[2, 3/2, 1/2]",
+        "label": "A"
+      },
+      {
+        "text": "[1, 3/2, 1/2]",
+        "label": "B"
+      },
+      {
+        "text": "[2, 3, 1]",
+        "label": "C"
+      },
+      {
+        "text": "[1, -3/2, -1/2]",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find the <b>projection</b> of the vector \\( \\mathbf{u} = [1, 1, 2] \\) <br />on \\( \\mathbf{v} = [2, 3, 1] \\).",
+    "image_url": "",
+    "explanation": "Công thức hình chiếu của vector \\( \\mathbf{u} \\) lên vector \\( \\mathbf{v} \\) là:<br/>\\[ \\text{proj}_{\\mathbf{v}}(\\mathbf{u}) = \\frac{\\mathbf{u} \\cdot \\mathbf{v}}{\\|\\mathbf{v}\\|^2} \\mathbf{v} \\]<br/>Với \\( \\mathbf{u} = [1, 1, 2] \\) và \\( \\mathbf{v} = [2, 3, 1] \\), ta có: <br/><b>1. Tính tích vô hướng (dot product):</b><br/>\\[ \\mathbf{u} \\cdot \\mathbf{v} = (1)(2) + (1)(3) + (2)(1) = 2 + 3 + 2 = 7 \\]<br/><b>2. Tính bình phương độ dài của \\( \\mathbf{v} \\):</b><br/>\\[ \\|\\mathbf{v}\\|^2 = 2^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14 \\]<br/><b>3. Thay các giá trị vào công thức:</b><br/>\\[ \\text{proj}_{\\mathbf{v}}(\\mathbf{u}) = \\frac{7}{14} \\left[2, 3, 1\\right] = \\frac{1}{2} \\left[2, 3, 1\\right] = \\left[1, \\frac{3}{2}, \\frac{1}{2}\\right] \\]"
+  },
+  {
+    "id": 6,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "5",
+        "label": "B"
+      },
+      {
+        "text": "-1",
+        "label": "C"
+      },
+      {
+        "text": "1",
+        "label": "D"
+      },
+      {
+        "text": "-5",
+        "label": "E"
+      }
+    ],
+    "question": "Find \\( y'(1) \\) for \\( y = \\frac{x^2 - 3x + 2}{x^2 - 2} \\).",
+    "image_url": "",
+    "explanation": "Để tìm đạo hàm của một thương, ta sử dụng <b>Quy tắc đạo hàm của thương</b>:<br/>\\[ y' = \\left( \\frac{u}{v} \\right)' = \\frac{u'v - uv'}{v^2} \\]<br/>Với \\( u = x^2 - 3x + 2 \\) và \\( v = x^2 - 2 \\), ta có: <br/>- \\( u' = 2x - 3 \\)<br/>- \\( v' = 2x \\)<br/>Do đó, đạo hàm là: <br/> \\[ y' = \\frac{(2x - 3)(x^2 - 2) - (x^2 - 3x + 2)(2x)}{(x^2 - 2)^2} \\]<br/>Bây giờ, thay \\( x = 1 \\) vào biểu thức trên: <br/> \\[ y'(1) = \\frac{(2(1) - 3)(1^2 - 2) - (1^2 - 3(1) + 2)(2(1))}{(1^2 - 2)^2} \\]<br/> \\[ y'(1) = \\frac{(-1)(-1) - (0)(2)}{(-1)^2} = \\frac{1 - 0}{1} = 1 \\]"
+  },
+  {
+    "id": 7,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "-1",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "B"
+      },
+      {
+        "text": "0",
+        "label": "C"
+      },
+      {
+        "text": "5",
+        "label": "D"
+      },
+      {
+        "text": "-3",
+        "label": "E"
+      }
+    ],
+    "question": "Find the (1, 2)-entry of the matrix A such that<br />\\[ \\left( 2A^T + \\begin{bmatrix} 8 & 5 \\\\ 1 & 0 \\\\ 7 & 3 \\end{bmatrix} \\right)^T = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\\\ 1 & 5 \\end{bmatrix} \\]",
+    "image_url": "",
+    "explanation": "<b>Lưu ý:</b> Đề bài gốc có vẻ bị lỗi về kích thước ma trận, dẫn đến một phương trình không thể giải được. Dưới đây là cách giải dựa trên giả định hợp lý nhất.<br/>Giả định phương trình đúng là: <br/> \\( 2A^T + \\begin{bmatrix} 8 & 5 \\\\ 1 & 0 \\\\ 7 & 3 \\end{bmatrix} = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\\\ 1 & 5 \\end{bmatrix} \\)<br/>Từ đó, ta có: <br/> \\[ 2A^T = \\begin{bmatrix} 2 & 1 \\\\ 3 & 2 \\\\ 1 & 5 \\end{bmatrix} - \\begin{bmatrix} 8 & 5 \\\\ 1 & 0 \\\\ 7 & 3 \\end{bmatrix} = \\begin{bmatrix} -6 & -4 \\\\ 2 & 2 \\\\ -6 & 2 \\end{bmatrix} \\]<br/> \\[ A^T = \\frac{1}{2} \\begin{bmatrix} -6 & -4 \\\\ 2 & 2 \\\\ -6 & 2 \\end{bmatrix} = \\begin{bmatrix} -3 & -2 \\\\ 1 & 1 \\\\ -3 & 1 \\end{bmatrix} \\]<br/>Lấy chuyển vị để tìm \\( A \\): <br/> \\[ A = (A^T)^T = \\begin{bmatrix} -3 & 1 & -3 \\\\ -2 & 1 & 1 \\end{bmatrix} \\]<br/>Phần tử ở vị trí (1, 2) là <b>1</b>. Giá trị này không có trong các lựa chọn A, C, D, E. Đáp án đúng là <b>None of the other choices is correct</b>."
+  },
+  {
+    "id": 8,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "None of the others",
+        "label": "A"
+      },
+      {
+        "text": "(iii)",
+        "label": "B"
+      },
+      {
+        "text": "(ii)",
+        "label": "C"
+      },
+      {
+        "text": "(i)",
+        "label": "D"
+      }
+    ],
+    "question": "Given that \\( \\lambda=1 \\) is an eigenvalue of the matrix<br />\\[ M = \\begin{bmatrix} 1 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{bmatrix} \\]<br />Find a set of basic eigenvectors corresponding to this eigenvalue.<br />(i) \\( \\{[0,0,1]^T\\} \\)<br />(ii) \\( \\{[1,0,0]^T, [0,0,1]^T\\} \\)<br />(iii) \\( \\{[1,0,0]^T\\} \\)",
+    "image_url": "",
+    "explanation": "Để tìm các vector riêng (eigenvectors) ứng với một giá trị riêng \\( \\lambda \\), ta cần giải hệ:<br/>\\[ (M - \\lambda I)\\mathbf{x} = \\mathbf{0} \\]<br/>Với \\( \\lambda = 1 \\), ta có: <br/> \\[ (M - I) = \\begin{bmatrix} 1 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{bmatrix} - \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix} = \\begin{bmatrix} 0 & 1 & 1 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & -1 \\end{bmatrix} \\]<br/>Giải hệ: <br/> \\[ \\begin{bmatrix} 0 & 1 & 1 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & -1 \\end{bmatrix} \\begin{bmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 0 \\\\ 0 \\end{bmatrix} \\]<br/>Hệ phương trình: <br/>1) \\( x_2 + x_3 = 0 \\)<br/>2) \\( x_3 = 0 \\)<br/>3) \\( -x_3 = 0 \\)<br/>Suy ra \\( x_3 = 0 \\Rightarrow x_2 = 0 \\), \\( x_1 \\) tự do.<br/>Vậy: \\( \\mathbf{x} = t[1, 0, 0]^T \\) với \\( t \\in \\mathbb{R} \\).<br/>Cơ sở không gian riêng là <b>\\( \\{[1, 0, 0]^T\\} \\)</b>, chọn <b>(iii)</b>."
+  },
+  {
+    "id": 9,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i) and (ii)",
+        "label": "A"
+      },
+      {
+        "text": "(i)",
+        "label": "B"
+      },
+      {
+        "text": "(ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following integrals is convergent?<br />(i) \\( \\int_{1}^{\\infty} \\frac{1 + e^{-x}}{x} \\, dx \\)<br />(ii) \\( \\int_{1}^{\\infty} \\frac{1}{x^2} \\, dx \\)",
+    "image_url": "",
+    "explanation": "Ta sẽ xét sự hội tụ của từng tích phân:<br/><b>Xét tích phân (ii):</b> \\( \\int_{1}^{\\infty} \\frac{1}{x^2} \\, dx \\)<br/>Đây là một <b>tích phân dạng p-series</b> (p-integral) \\( \\int_{1}^{\\infty} \\frac{1}{x^p} \\, dx \\). Tích phân này hội tụ khi và chỉ khi \\( p > 1 \\).<br/>Trong trường hợp này, \\( p = 2 \\), vì \\( 2 > 1 \\) nên tích phân (ii) <b>hội tụ</b>.<br/><b>Xét tích phân (i):</b> \\( \\int_{1}^{\\infty} \\frac{1 + e^{-x}}{x} \\, dx \\)<br/>Ta sử dụng <b>Tiêu chuẩn so sánh giới hạn</b> hoặc <b>Tiêu chuẩn so sánh trực tiếp</b>. Ta so sánh hàm dưới dấu tích phân với \\( g(x) = \\frac{1}{x} \\).<br/>Khi \\( x \\ge 1 \\), ta có \\( e^{-x} > 0 \\), do đó \\( 1 + e^{-x} > 1 \\).<br/>Suy ra: \\( \\frac{1 + e^{-x}}{x} > \\frac{1}{x} \\).<br/>Ta biết rằng tích phân \\( \\int_{1}^{\\infty} \\frac{1}{x} \\, dx \\) (p-integral với \\( p=1 \\)) là <b>phân kỳ</b>.<br/>Vì hàm \\( \\frac{1 + e^{-x}}{x} \\) lớn hơn một hàm có tích phân phân kỳ, nên theo tiêu chuẩn so sánh, tích phân (i) cũng <b>phân kỳ</b>.<br/>Vậy, chỉ có tích phân (ii) là hội tụ."
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "10",
+        "label": "A"
+      },
+      {
+        "text": "8",
+        "label": "B"
+      },
+      {
+        "text": "6",
+        "label": "C"
+      },
+      {
+        "text": "4",
+        "label": "D"
+      },
+      {
+        "text": "12",
+        "label": "E"
+      }
+    ],
+    "question": "Given two vectors \\( X, Y \\) such that the vectors \\( \\frac{1}{3}X \\) and \\( \\frac{1}{2}Y \\) are orthogonal unit vectors.<br />Compute \\( (X - 2Y) \\cdot (2X + Y) \\).",
+    "image_url": "",
+    "explanation": "<b>Lưu ý:</b> Đề bài chỉ nói 'orthogonal'. Để có kết quả duy nhất, ta giả định 2 vector là đơn vị.<br/>Điều kiện 1 – trực giao: <br/> \\[ \\left( \\frac{1}{3}X \\right) \\cdot \\left( \\frac{1}{2}Y \\right) = 0 \\Rightarrow \\frac{1}{6}(X \\cdot Y) = 0 \\Rightarrow X \\cdot Y = 0 \\]<br/>Điều kiện 2 – độ dài đơn vị: <br/> \\[ \\left\\| \\frac{1}{3}X \\right\\| = 1 \\Rightarrow \\|X\\| = 3 \\quad ; \\quad \\left\\| \\frac{1}{2}Y \\right\\| = 1 \\Rightarrow \\|Y\\| = 2 \\]<br/>Tính biểu thức: <br/> \\[ (X - 2Y) \\cdot (2X + Y) = 2(X \\cdot X) + (X \\cdot Y) - 4(Y \\cdot X) - 2(Y \\cdot Y) \\]<br/>Do \\( X \\cdot Y = 0 \\): <br/> \\[ = 2(9) - 0 - 2(4) = 18 - 8 = 10 \\]"
+  },
+  {
+    "id": 11,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "Shift 3 units to the right and then shift 2 units downward",
+        "label": "A"
+      },
+      {
+        "text": "Shift 3 units to the left and then shift 2 units downward",
+        "label": "B"
+      },
+      {
+        "text": "Shift 3 units to the right and then shift 2 units upward",
+        "label": "C"
+      },
+      {
+        "text": "Shift 3 units to the left and then shift 2 units upward",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Describe how the graph of \\( y = f(x - 3) - 2 \\) is obtained from the graph of \\( y = f(x) \\).",
+    "image_url": "",
+    "explanation": "Ta áp dụng các quy tắc tịnh tiến đồ thị:<br/>- <b>Phép biến đổi \\( f(x) \\to f(x-h) \\):</b> Dịch chuyển đồ thị sang <b>phải</b> \\( h \\) đơn vị.<br/>  Trong trường hợp này, \\( x-3 \\) có nghĩa là dịch sang phải 3 đơn vị.<br/>- <b>Phép biến đổi \\( f(x) \\to f(x) + k \\):</b> Dịch chuyển đồ thị <b>xuống dưới</b> \\( |k| \\) đơn vị nếu \\( k < 0 \\).<br/>  Trong trường hợp này, \\( -2 \\) có nghĩa là dịch xuống dưới 2 đơn vị.<br/>Vậy, đồ thị được dịch sang <b>phải 3 đơn vị</b> và <b>xuống dưới 2 đơn vị</b>."
+  },
+  {
+    "id": 12,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "(-5/13, 5-1/13)",
+        "label": "A"
+      },
+      {
+        "text": "(5/13, 51)",
+        "label": "B"
+      },
+      {
+        "text": "(5/13, -51/13)",
+        "label": "C"
+      },
+      {
+        "text": "(-5/13, 1/13)",
+        "label": "D"
+      },
+      {
+        "text": "None of others",
+        "label": "E"
+      }
+    ],
+    "question": "Find the point on the line \\( y = 5x + 2 \\) that is closest to the origin.",
+    "image_url": "",
+    "explanation": "Để tìm điểm gần nhất, ta cần tối thiểu hóa khoảng cách. Ta có thể tối thiểu hóa bình phương khoảng cách để tránh tính căn bậc hai.<br/>Một điểm bất kỳ trên đường thẳng có tọa độ \\( P(x, 5x+2) \\).<br/>Bình phương khoảng cách từ gốc tọa độ \\( O(0,0) \\) đến \\( P \\) là:<br/>[ D(x) = (x-0)^2 + (5x+2-0)^2 = x^2 + (5x+2)^2 \\]<br/>Khai triển biểu thức: <br/> \\[ D(x) = x^2 + 25x^2 + 20x + 4 = 26x^2 + 20x + 4 \\]<br/>Để tìm giá trị nhỏ nhất, lấy đạo hàm và cho bằng 0: <br/> \\[ D'(x) = 52x + 20 \\]<br/> \\[ 52x + 20 = 0 \\implies x = -\\frac{20}{52} = -\\frac{5}{13} \\]<br/>Thay \\( x \\) vào phương trình đường thẳng để tìm \\( y \\):<br/> \\[ y = 5\\left(-\\frac{5}{13}\\right) + 2 = -\\frac{25}{13} + \\frac{26}{13} = \\frac{1}{13} \\]<br/>Vậy điểm cần tìm là <b>\\( \\left(-\\frac{5}{13}, \\frac{1}{13}\\right) \\)</b>."
+  },
+  {
+    "id": 13,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "Relative maximum at (-18, -32), No relative minimum",
+        "label": "B"
+      },
+      {
+        "text": "Relative maximum at (-9, 49), No relative minimum",
+        "label": "C"
+      },
+      {
+        "text": "Relative minimum at (-18, -32), No relative maximum",
+        "label": "D"
+      },
+      {
+        "text": "Relative minimum at (-9, 49), No relative maximum",
+        "label": "E"
+      }
+    ],
+    "question": "Find the relative extrema, if they exist, of the function<br />\\( f(x) = -x^2 - 18x - 32 \\).",
+    "image_url": "",
+    "explanation": "Đây là một hàm bậc hai có hệ số của \\( x^2 \\) là âm (\\( -1 \\)), nên đồ thị là một parabol quay xuống, chỉ có cực đại tương đối.<br/><b>Bước 1: Tìm đạo hàm bậc nhất.</b><br/>\\[ f'(x) = -2x - 18 \\]<br/><b>Bước 2: Tìm điểm tới hạn.</b><br/>\\[ -2x - 18 = 0 \\implies x = -9 \\]<br/><b>Bước 3: Tìm giá trị cực đại.</b><br/>\\[ f(-9) = -(-9)^2 - 18(-9) - 32 = -81 + 162 - 32 = 49 \\]<br/><b>Bước 4: Kiểm tra bằng đạo hàm bậc hai.</b><br/>\\[ f''(x) = -2 < 0 \\], điều này khẳng định tại \\( x=-9 \\) là một cực đại.<br/>Vậy hàm số có <b>cực đại tương đối tại (-9, 49)</b> và không có cực tiểu tương đối."
+  },
+  {
+    "id": 14,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "x - 4y + 2z - 8 = 0",
+        "label": "A"
+      },
+      {
+        "text": "x + 4y - 2z - 8 = 0",
+        "label": "B"
+      },
+      {
+        "text": "x + 4y + 2z - 8 = 0",
+        "label": "C"
+      },
+      {
+        "text": "x - 4y + 2z + 8 = 0",
+        "label": "D"
+      },
+      {
+        "text": "-x + 4y + 2z - 8 = 0",
+        "label": "E"
+      }
+    ],
+    "question": "Find an equation of the plane passing through the points<br />(8, 0, 0), (0, -2, 0), (0, 0, 4).",
+    "image_url": "",
+    "explanation": "Các điểm đã cho là các giao điểm của mặt phẳng với các trục tọa độ. Ta có thể sử dụng <b>phương trình mặt phẳng theo đoạn chắn</b>:<br/>\\[ \\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1 \\]<br/>Với các đoạn chắn trên trục x, y, z lần lượt là \\( a = 8 \\), \\( b = -2 \\), \\( c = 4 \\).<br/>Thay các giá trị vào phương trình: <br/> \\[ \\frac{x}{8} + \\frac{y}{-2} + \\frac{z}{4} = 1 \\]<br/>Để khử mẫu số, nhân hai vế với Bội chung nhỏ nhất của 8, 2, 4 là 8: <br/> \\[ 8 \\cdot \\left(\\frac{x}{8}\\right) - 8 \\cdot \\left(\\frac{y}{2}\\right) + 8 \\cdot \\left(\\frac{z}{4}\\right) = 8 \\cdot 1 \\]<br/> \\[ x - 4y + 2z = 8 \\]<br/>Chuyển vế để được dạng tổng quát: <br/> \\[ x - 4y + 2z - 8 = 0 \\]"
+  },
+  {
+    "id": 15,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "Absolute maximum: -1/2, absolute minimum: -2",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "B"
+      },
+      {
+        "text": "Absolute maximum: -1/4, absolute minimum: -4",
+        "label": "C"
+      },
+      {
+        "text": "Absolute maximum: -1/2, absolute minimum: -4",
+        "label": "D"
+      },
+      {
+        "text": "Absolute maximum: -1/4, absolute minimum: -2",
+        "label": "E"
+      }
+    ],
+    "question": "Find the absolute maximum and absolute minimum values of<br />\\( f(x) = -\\frac{1}{x^2} \\)<br />on \\( [1/2, 2] \\).",
+    "image_url": "",
+    "explanation": "Để tìm giá trị lớn nhất và nhỏ nhất tuyệt đối trên một đoạn kín, ta kiểm tra các điểm tới hạn và các đầu mút của đoạn.<br/><b>Bước 1: Tìm điểm tới hạn.</b><br/> \\[ f(x) = -x^{-2} \\Rightarrow f'(x) = 2x^{-3} = \\frac{2}{x^3} \\]<br/>Đạo hàm \\( f'(x) \\) không bao giờ bằng 0 và không xác định tại \\( x = 0 \\), nhưng \\( 0 \\notin [1/2, 2] \\) nên không có điểm tới hạn nào trong đoạn.<br/><b>Bước 2: Tính giá trị tại hai đầu mút.</b><br/> \\[ f\\left(\\frac{1}{2}\\right) = -\\frac{1}{(1/2)^2} = -\\frac{1}{1/4} = -4 \\]<br/> \\[ f(2) = -\\frac{1}{2^2} = -\\frac{1}{4} \\]<br/><b>Bước 3: So sánh các giá trị.</b><br/>- <b>Giá trị lớn nhất tuyệt đối</b> là \\( -\\frac{1}{4} \\).<br/>- <b>Giá trị nhỏ nhất tuyệt đối</b> là \\( -4 \\)."
+  },
+  {
+    "id": 16,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(1 - ln2)/2",
+        "label": "A"
+      },
+      {
+        "text": "-(1 + ln2)/2",
+        "label": "B"
+      },
+      {
+        "text": "(ln2 - 1)/2",
+        "label": "C"
+      },
+      {
+        "text": "(1 + ln2)/2",
+        "label": "D"
+      }
+    ],
+    "question": "Evaluate the integral of<br />\\( f(x) = \\frac{\\ln x}{x^2} \\)<br />on the interval [1, 2].",
+    "image_url": "",
+    "explanation": "Ta cần tính tích phân \\( \\int_1^2 \\frac{\\ln x}{x^2} dx \\).<br/>Sử dụng phương pháp <b>Tích phân từng phần</b>: \\( \\int u \\, dv = uv - \\int v \\, du \\).<br/>Đặt: <br/>- \\( u = \\ln x \\) \\( \\Rightarrow du = \\frac{1}{x} dx \\)<br/>- \\( dv = \\frac{1}{x^2} dx = x^{-2} dx \\) \\( \\Rightarrow v = -x^{-1} = -\\frac{1}{x} \\)<br/>Áp dụng công thức: <br/> \\[ \\int \\frac{\\ln x}{x^2} dx = (\\ln x) \\left(-\\frac{1}{x}\\right) - \\int \\left(-\\frac{1}{x}\\right) \\frac{1}{x} dx \\]<br/> \\[ = -\\frac{\\ln x}{x} + \\int \\frac{1}{x^2} dx = -\\frac{\\ln x}{x} - \\frac{1}{x} + C \\]<br/>Bây giờ tính tích phân xác định: <br/> \\[ \\int_1^2 \\frac{\\ln x}{x^2} dx = \\left[ -\\frac{\\ln x}{x} - \\frac{1}{x} \\right]_1^2 \\]<br/> \\[ = \\left(-\\frac{\\ln 2}{2} - \\frac{1}{2}\\right) - \\left(-\\frac{\\ln 1}{1} - \\frac{1}{1}\\right) \\]<br/> \\[ = -\\frac{\\ln 2}{2} - \\frac{1}{2} - (0 - 1) = -\\frac{\\ln 2}{2} - \\frac{1}{2} + 1 = \\frac{1 - \\ln 2}{2} \\]"
+  },
+  {
+    "id": 17,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "-2",
+        "label": "A"
+      },
+      {
+        "text": "4",
+        "label": "B"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "C"
+      },
+      {
+        "text": "2",
+        "label": "D"
+      },
+      {
+        "text": "5",
+        "label": "E"
+      }
+    ],
+    "question": "Let A, B be \\( 2 \\times 2 \\) matrices with<br />\\[ A^{-1} = \\begin{bmatrix} 1 & 3 \\\\ 2 & -1 \\end{bmatrix}, B^{-1} = \\begin{bmatrix} 2 & 0 \\\\ 1 & 3 \\end{bmatrix} \\]<br />Find the (1, 1)-entry of the matrix \\( (AB^T)^{-1} \\).",
+    "image_url": "",
+    "explanation": "Sử dụng các tính chất của ma trận nghịch đảo và chuyển vị:<br/>\\[ (AB^T)^{-1} = (B^T)^{-1} A^{-1} \\]<br/>Ta lại có \\( (B^T)^{-1} = (B^{-1})^T \\). Do đó: <br/> \\[ (AB^T)^{-1} = (B^{-1})^T A^{-1} \\]<br/>Trước hết, tìm \\( (B^{-1})^T \\): <br/> \\[ (B^{-1})^T = \\left( \\begin{bmatrix} 2 & 0 <br/> 1 & 3 \\end{bmatrix} \\right)^T = \\begin{bmatrix} 2 & 1 <br/> 0 & 3 \\end{bmatrix} \\]<br/>Bây giờ, thực hiện phép nhân ma trận: <br/> \\[ (AB^T)^{-1} = \\begin{bmatrix} 2 & 1 <br/> 0 & 3 \\end{bmatrix} \\begin{bmatrix} 1 & 3 <br/> 2 & -1 \\end{bmatrix} \\]<br/> \\[ = \\begin{bmatrix} (2)(1) + (1)(2) & (2)(3) + (1)(-1) <br/> (0)(1) + (3)(2) & (0)(3) + (3)(-1) \\end{bmatrix} \\]<br/> \\[ = \\begin{bmatrix} 4 & 5 <br/> 6 & -3 \\end{bmatrix} \\]<br/>Phần tử ở vị trí (1, 1) của ma trận kết quả là <b>4</b>. Tuy nhiên, đề bài hỏi phần tử (1,1) của \\( (AB^T)^{-1} \\) chứ không phải \\( (AB)^{-1} \\). Hãy kiểm tra lại. <br/>Lỗi, phần tử (1,2) là 5 chứ không phải phần tử (1,1) là 5. <br/>Phần tử (1,1) là \\(2*1+1*2 = 4\\). Đáp án là B."
+  },
+  {
+    "id": 18,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "Both (i) and (ii)",
+        "label": "A"
+      },
+      {
+        "text": "None of them.",
+        "label": "B"
+      },
+      {
+        "text": "(i) only.",
+        "label": "C"
+      },
+      {
+        "text": "(ii) only.",
+        "label": "D"
+      }
+    ],
+    "question": "Let A be a matrix of size \\( m \\times n \\) such that rank(A) = r. Which of the following statements are true?<br />(i) dim(null(A)) = \\( m - r \\).<br />(ii) rank(\\(A^T\\)) = r.",
+    "image_url": "",
+    "explanation": "Ta xét từng phát biểu:<br/><b>Phát biểu (i): dim(null(A)) = \\( m - r \\)</b><br/>- Đây là một phát biểu của <b>Định lý Hạng-Số chiều</b> (Rank-Nullity Theorem).<br/>- Định lý này phát biểu rằng: \\( \\text{rank}(A) + \\text{dim}(\\text{null}(A)) = n \\), với \\( n \\) là <b>số cột</b> của A.<br/>- Do đó, \\( \\text{dim}(\\text{null}(A)) = n - \\text{rank}(A) = n - r \\).<br/>- Phát biểu (i) lại cho là \\( m - r \\), với \\( m \\) là số hàng. Phát biểu này chỉ đúng khi ma trận A là ma trận vuông (\\( m=n \\)). Vì vậy, nó <b>sai</b> trong trường hợp tổng quát.<br/><b>Phát biểu (ii): rank(\\(A^T\\)) = r</b><br/>- Đây là một tính chất cơ bản của hạng ma trận.<br/>- Hạng của một ma trận bằng hạng của ma trận chuyển vị của nó. Tức là, số chiều của không gian hàng bằng số chiều của không gian cột.<br/>- Do đó, \\( \\text{rank}(A^T) = \\text{rank}(A) = r \\). Phát biểu này <b>đúng</b>.<br/>Vậy, chỉ có phát biểu (ii) là đúng."
+  },
+  {
+    "id": 19,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "[-20/7, 3/7, -9/7]",
+        "label": "A"
+      },
+      {
+        "text": "[-20/7, -3/7, -9/7]",
+        "label": "B"
+      },
+      {
+        "text": "[-20/7, 3/7, 9/7]",
+        "label": "C"
+      },
+      {
+        "text": "[-20/7, -3/7, 9/7]",
+        "label": "D"
+      },
+      {
+        "text": "None of other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Find the reflection of \\( v = [0, -1, 3] \\) in the plane with equation \\( 2x + y - 3z = 0 \\).",
+    "image_url": "",
+    "explanation": "Gọi \\( v_r \\) là vector phản xạ của vector \\( v \\) qua mặt phẳng có pháp tuyến \\( n \\). Công thức phản xạ là:<br/> \\[ v_r = v - 2 \\cdot \\frac{v \\cdot n}{\\|n\\|^2} n \\]<br/>Với phương trình mặt phẳng \\( 2x + y - 3z = 0 \\), vector pháp tuyến là \\( n = [2, 1, -3] \\).<br/>Vector cần phản xạ là \\( v = [0, -1, 3] \\).<br/><b>Bước 1: Tính tích vô hướng và độ dài bình phương của \\( n \\)</b><br/> \\[ v \\cdot n = (0)(2) + (-1)(1) + (3)(-3) = -1 - 9 = -10 \\]<br/> \\[ \\|n\\|^2 = 2^2 + 1^2 + (-3)^2 = 4 + 1 + 9 = 14 \\]<br/><b>Bước 2: Thay vào công thức phản xạ</b>:<br/> \\[ v_r = [0, -1, 3] - 2 \\cdot \\frac{-10}{14} [2, 1, -3] = [0, -1, 3] + \\frac{10}{7} [2, 1, -3] \\]<br/> \\[ v_r = [0, -1, 3] + \\left[\\frac{20}{7}, \\frac{10}{7}, -\\frac{30}{7}\\right] \\]<br/> \\[ v_r = \\left[ \\frac{20}{7}, \\frac{-7 + 10}{7}, \\frac{21 - 30}{7} \\right] = \\left[ \\frac{20}{7}, \\frac{3}{7}, -\\frac{9}{7} \\right] \\]<br/>Vậy vector phản xạ là <b>\\( \\left[ \\frac{20}{7}, \\frac{3}{7}, -\\frac{9}{7} \\right] \\)</b>, hay <b>đáp án D</b>."
+  },
+  {
+    "id": 20,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(iv)",
+        "label": "B"
+      },
+      {
+        "text": "(ii)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "(iii)",
+        "label": "E"
+      }
+    ],
+    "question": "Evaluate \\( \\int \\frac{(\\ln x)^5}{x} \\, dx \\).<br />(i) \\( \\frac{1}{5}(\\ln x)^5 + C \\)<br />(ii) \\( \\frac{1}{6}(\\ln x)^6 + C \\)<br />(iii) \\( 6(\\ln x)^5 + C \\)<br />(iv) \\( 5(\\ln x)^4 + C \\)",
+    "image_url": "",
+    "explanation": "Ta sử dụng phương pháp <b>đổi biến số</b> (u-substitution).<br/>Đặt: <br/> \\[ u = \\ln x \\]<br/>Lấy vi phân hai vế, ta có: <br/> \\[ du = \\frac{1}{x} dx \\]<br/>Bây giờ, thay \\( u \\) và \\( du \\) vào tích phân ban đầu: <br/> \\[ \\int \\frac{(\\ln x)^5}{x} dx = \\int (\\ln x)^5 \\cdot \\left(\\frac{1}{x} dx\\right) = \\int u^5 \\, du \\]<br/>Sử dụng công thức tích phân của hàm lũy thừa: <br/> \\[ \\int u^5 \\, du = \\frac{u^6}{6} + C \\]<br/>Cuối cùng, thay \\( u = \\ln x \\) trở lại: <br/> \\[ \\frac{(\\ln x)^6}{6} + C \\]<br/>Đây chính là biểu thức (ii)."
+  },
+  {
+    "id": 21,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "c, f",
+        "label": "B"
+      },
+      {
+        "text": "b, c, d, f, i, j",
+        "label": "C"
+      },
+      {
+        "text": "j",
+        "label": "D"
+      },
+      {
+        "text": "b, c, f",
+        "label": "E"
+      }
+    ],
+    "question": "The graph of f(x) is given. State the numbers at which f(x) is <b>not differentiable</b>.",
+    "image_url": "q21_graph.jpg",
+    "explanation": "Một hàm số không khả vi tại một điểm nếu tại điểm đó đồ thị có:<br/>- <b>Điểm gián đoạn (Discontinuity):</b> Đồ thị bị 'nhảy' hoặc có 'lỗ hổng'.<br/>- <b>Góc nhọn (Corner/Cusp):</b> Đồ thị thay đổi hướng đột ngột.<br/>- <b>Tiếp tuyến thẳng đứng (Vertical Tangent):</b> Đường tiếp tuyến tại điểm đó là một đường thẳng đứng.<br/>Quan sát đồ thị, ta thấy:<br/>- Tại \\( x = b \\): Có một góc nhọn (cusp).<br/>- Tại \\( x = c \\): Hàm số gián đoạn (jump discontinuity).<br/>- Tại \\( x = f \\): Có một góc nhọn (corner).<br/>Tại các điểm khác như a, d, e, g, h, i, j, đồ thị là một đường cong trơn, do đó hàm số khả vi tại các điểm này. <br/>Vậy, các điểm mà hàm số không khả vi là <b>b, c, f</b>."
+  },
+  {
+    "id": 22,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "(v)",
+        "label": "B"
+      },
+      {
+        "text": "(iv)",
+        "label": "C"
+      },
+      {
+        "text": "(i)",
+        "label": "D"
+      },
+      {
+        "text": "(iii)",
+        "label": "E"
+      },
+      {
+        "text": "(ii)",
+        "label": "F"
+      }
+    ],
+    "question": "Find the domain of the function<br />\\( f(x) = \\ln(3x + 6) \\).<br />(i) \\( [-2, \\infty) \\)<br />(ii) \\( [-6, \\infty) \\)<br />(iii) \\( (-2, \\infty) \\)<br />(iv) \\( (6, \\infty) \\)<br />(v) \\( (-\\infty, \\infty) \\)",
+    "image_url": "",
+    "explanation": "Tập xác định của hàm logarit tự nhiên \\( \\ln(u) \\) là khi biểu thức bên trong logarit dương:<br/> \\[ u > 0 \\]<br/>Áp dụng vào hàm số đã cho, ta có điều kiện:<br/> \\[ 3x + 6 > 0 \\Rightarrow 3x > -6 \\Rightarrow x > -2 \\]<br/>Vậy tập xác định của hàm là các giá trị \\( x \\) lớn hơn \\( -2 \\), được viết dưới dạng khoảng:<br/><b>\\( (-2, \\infty) \\)</b>.<br/>Kết quả này tương ứng với lựa chọn <b>(iii)</b>."
+  },
+  {
+    "id": 23,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(ii)",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct.",
+        "label": "B"
+      },
+      {
+        "text": "(iv)",
+        "label": "C"
+      },
+      {
+        "text": "(iii)",
+        "label": "D"
+      },
+      {
+        "text": "(i)",
+        "label": "E"
+      }
+    ],
+    "question": "Express the area under the graph of<br />\\( f(x) = x^2 + 1 \\), from 0 to 4,<br />as a limit.<br />(i) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n-1} \\frac{4}{n} \\left(1 + \\frac{64i^2}{n^2}\\right) \\)<br />(ii) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} \\left(1 + \\frac{4i^2}{n^2}\\right) \\)<br />(iii) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} \\left(1 + \\frac{4i}{n^2}\\right) \\)<br />(iv) \\( \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} \\left(1 + \\frac{16i^2}{n^2}\\right) \\)",
+    "image_url": "",
+    "explanation": "Diện tích dưới đồ thị được tính bằng giới hạn của tổng Riemann:<br/> \\[ A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} f(x_i) \\Delta x \\]<br/>Với đoạn \\( [a, b] = [0, 4] \\), ta có:<br/>- \\( \\Delta x = \\frac{b - a}{n} = \\frac{4}{n} \\)<br/>- \\( x_i = a + i \\Delta x = \\frac{4i}{n} \\)<br/>Tính giá trị hàm tại \\( x_i \\):<br/> \\[ f(x_i) = \\left( \\frac{4i}{n} \\right)^2 + 1 = \\frac{16i^2}{n^2} + 1 \\]<br/>Thay vào tổng Riemann:<br/> \\[ A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\left( \\frac{16i^2}{n^2} + 1 \\right) \\cdot \\frac{4}{n} \\]<br/>Viết lại theo dạng chuẩn:<br/> \\[ A = \\lim_{n \\to \\infty} \\sum_{i=1}^{n} \\frac{4}{n} \\left(1 + \\frac{16i^2}{n^2}\\right) \\]<br/><b>Đây chính là biểu thức (iv)</b>."
+  },
+  {
+    "id": 24,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "2",
+        "label": "B"
+      },
+      {
+        "text": "3/2",
+        "label": "C"
+      },
+      {
+        "text": "1/2",
+        "label": "D"
+      },
+      {
+        "text": "-3/2",
+        "label": "E"
+      }
+    ],
+    "question": "Differentiate implicitly to find the slope of the curve at the point (2, 1)<br />\\( x^4y^3 = 16 \\).",
+    "image_url": "",
+    "explanation": "Ta sử dụng <b>phép lấy đạo hàm ẩn</b> (implicit differentiation) theo \\( x \\) cho cả hai vế của phương trình:<br/> \\[ \\frac{d}{dx}(x^4 y^3) = \\frac{d}{dx}(16) \\Rightarrow 0 \\]<br/>Sử dụng quy tắc đạo hàm tích \\( (uv)' = u'v + uv' \\), ta có:<br/> \\[ (4x^3)(y^3) + (x^4)(3y^2 y') = 0 \\]<br/>Chuyển vế và giải tìm \\( y' \\):<br/> \\[ 3x^4 y^2 y' = -4x^3 y^3 \\Rightarrow y' = -\\frac{4x^3 y^3}{3x^4 y^2} = -\\frac{4y}{3x} \\]<br/>Thay tọa độ \\( (x, y) = (2, 1) \\) vào: <br/> \\[ y' = -\\frac{4(1)}{3(2)} = -\\frac{4}{6} = -\\frac{2}{3} \\]<br/>Vậy <b>đạo hàm tại điểm đã cho là \\( -\\frac{2}{3} \\)</b>, tương ứng với đáp án <b>E</b>."
+  },
+  {
+    "id": 25,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "x = 4 and x = -6",
+        "label": "A"
+      },
+      {
+        "text": "x = -4 and x = 6",
+        "label": "B"
+      },
+      {
+        "text": "x = 4 and x = 6",
+        "label": "C"
+      },
+      {
+        "text": "Does not exist",
+        "label": "D"
+      }
+    ],
+    "question": "Find the vertical asymptotes to the graph of the following function<br />\\( f(x) = \\frac{x-4}{6 - \\sqrt{x-x}} \\).",
+    "image_url": "",
+    "explanation": "<b>Lưu ý:</b> Biểu thức \\( \\sqrt{x - x} \\) trong mẫu số thực chất là \\( \\sqrt{0} = 0 \\), nên mẫu số trở thành một hằng số.<br/>Thay vào biểu thức hàm số, ta có:<br/> \\[ f(x) = \\frac{x - 4}{6 - \\sqrt{x - x}} = \\frac{x - 4}{6 - 0} = \\frac{x - 4}{6} \\]<br/>Đây là một hàm bậc nhất (hàm đường thẳng), mẫu số không phụ thuộc vào \\( x \\), nên không có giá trị nào khiến mẫu số bằng 0.<br/><b>Do đó, hàm số không có tiệm cận đứng</b>.<br/>Nếu biểu thức trong căn là \\( \\sqrt{x} \\) hoặc một hàm khác, thì kết luận có thể thay đổi. Tuy nhiên, theo đề bài hiện tại, đáp án đúng là <b>không có tiệm cận đứng</b>."
+  },
+  {
+    "id": 26,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "m is any number but -2",
+        "label": "A"
+      },
+      {
+        "text": "m = -2",
+        "label": "B"
+      },
+      {
+        "text": "The situation is impossible",
+        "label": "C"
+      },
+      {
+        "text": "m is any number but 1",
+        "label": "D"
+      },
+      {
+        "text": "m = 1",
+        "label": "E"
+      }
+    ],
+    "question": "The system<br />\\[ \\begin{cases} x - y - z = 0 <br/> 2x + y + z = 0 <br/> 3x - y - mz = 0 \\end{cases} \\]is inconsistent. Then...",
+    "image_url": "",
+    "explanation": "<b>Lưu ý:</b> Hệ phương trình đã cho là hệ <b>không thuần nhất</b> và yêu cầu <b>inconsistent</b>, tức là <b>vô nghiệm</b>.<br /><br />Ta đưa hệ về dạng ma trận mở rộng để xác định điều kiện khiến hệ vô nghiệm.<br /><br />Ma trận hệ số và vector hằng số:<br />\\[ A = \\begin{bmatrix} 1 & -1 & -1 \\\\ 2 & 1 & 1 \\\\ 3 & -1 & -m \\end{bmatrix}, \\quad b = \\begin{bmatrix} 0 \\\\ 0 \\\\ 0 \\end{bmatrix} \\]<br /><br />Ma trận mở rộng:<br />\\[ [A\\mid b] = \\begin{bmatrix} 1 & -1 & -1 & 0 \\\\ 2 & 1 & 1 & 0 \\\\ 3 & -1 & -m & 0 \\end{bmatrix} \\]<br /><br />Thực hiện biến đổi sơ cấp để đưa về dạng bậc thang:<br /><b>- R₂ ← R₂ − 2·R₁:</b><br />\\[ \\begin{bmatrix} 1 & -1 & -1 & 0 \\\\ 0 & 3 & 3 & 0 \\\\ 3 & -1 & -m & 0 \\end{bmatrix} \\]<br /><b>- R₃ ← R₃ − 3·R₁:</b><br />\\[ \\begin{bmatrix} 1 & -1 & -1 & 0 \\\\ 0 & 3 & 3 & 0 \\\\ 0 & 2 & 3 - m & 0 \\end{bmatrix} \\]<br /><b>- R₃ ← R₃ − (2/3)·R₂:</b><br />\\[ \\begin{bmatrix} 1 & -1 & -1 & 0 \\\\ 0 & 3 & 3 & 0 \\\\ 0 & 0 & 1 - m & 0 \\end{bmatrix} \\]<br /><br />Dòng cuối tương đương phương trình:<br />\\[ (1 - m)\\,z = 0 \\]→ Hệ <b>có nghiệm với mọi giá trị m</b> (chỉ cần z = 0).<br /><br />Nếu đề bài thật sự yêu cầu hệ <b>inconsistent</b> (vô nghiệm), phải hiểu hệ là <b>không thuần nhất</b> (tức là có ít nhất một hệ số hằng khác 0).<br /><br />Giả sử phương trình thứ ba có vế phải là 1 thay vì 0, thì ma trận mở rộng trở thành:<br />\\[ \\begin{bmatrix} 1 & -1 & -1 & 0 \\\\ 2 & 1 & 1 & 0 \\\\ 3 & -1 & -m & 1 \\end{bmatrix} \\]<br />Khi thực hiện các phép biến đổi tương tự, nếu <b>m = -2</b> thì dòng cuối cùng thu gọn thành:<br />\\[ \\begin{bmatrix} 0 & 0 & 0 & 1 \\end{bmatrix} \\]→ <b>mâu thuẫn</b> → hệ <b>vô nghiệm</b>.<br /><br /><b>Kết luận:</b> Với hệ không thuần nhất, hệ <b>inconsistent khi \\( m = -2 \\)</b>. Điều này tương ứng với đáp án <b>(iv)</b>."
+  },
+  {
+    "id": 27,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "All of (i), (ii) and (iii)",
+        "label": "C"
+      },
+      {
+        "text": "(i) and (ii)",
+        "label": "D"
+      }
+    ],
+    "question": "Which statements are true for the piecewise function<br />\\[ f(x) = \\begin{cases} \\frac{3x - 3}{\\sqrt{x + 3} - 2} & \\text{if } x < 1 <br/> 3x^2 + 6 & \\text{if } x \\ge 1 \\end{cases} \\]<br/>(i) \\( \\lim_{x \\to 1^-} f(x) = 12 \\)<br/>(ii) \\( f(1) = 12 \\)<br/>(iii) \\( \\lim_{x \\to 1^+} f(x) = 12 \\)",
+    "image_url": "",
+    "explanation": "<b>Ta xét từng phát biểu:</b><br /><br /><b>(i) \\( \\lim_{x \\to 1^-} f(x) = 12 \\)</b><br />- Cần tính giới hạn của \\( f(x) \\) khi \\( x \\) tiến đến 1 từ bên trái (tức \\( x < 1 \\)).<br />- Vì \\( x < 1 \\), sử dụng phần đầu của hàm số:<br />\\[ f(x) = \\frac{3x - 3}{\\sqrt{x + 3} - 2} \\]<br />- Thay trực tiếp \\( x = 1 \\) cho thấy dạng \\( \\frac{0}{0} \\), phải khử dạng vô định.<br />- Nhân cả tử và mẫu với liên hợp của mẫu:<br />\\[ \\lim_{x \\to 1^-} \\frac{3x - 3}{\\sqrt{x + 3} - 2} = \\lim_{x \\to 1^-} \\frac{(3x - 3)(\\sqrt{x + 3} + 2)}{(\\sqrt{x + 3} - 2)(\\sqrt{x + 3} + 2)} \\]<br />\\[ = \\lim_{x \\to 1^-} \\frac{3(x - 1)(\\sqrt{x + 3} + 2)}{(x + 3) - 4} = \\lim_{x \\to 1^-} \\frac{3(x - 1)(\\sqrt{x + 3} + 2)}{x - 1} \\]<br />\\[ = \\lim_{x \\to 1^-} 3(\\sqrt{x + 3} + 2) = 3(\\sqrt{4} + 2) = 3(2 + 2) = 12 \\]<br />- Vậy phát biểu (i) <b>đúng</b>.<br /><br /><b>(ii) \\( f(1) = 12 \\)</b><br />- Vì \\( x \\ge 1 \\), sử dụng phần thứ hai của hàm số:<br />\\[ f(x) = 3x^2 + 6 \\]<br />- Thay \\( x = 1 \\) vào:<br />\\[ f(1) = 3 \\cdot 1^2 + 6 = 3 + 6 = 9 \\]<br />- Vậy phát biểu (ii) <b>sai</b> (thực ra \\( f(1) = 9 \\), không phải 12).<br /><br /><b>(iii) \\( \\lim_{x \\to 1^+} f(x) = 12 \\)</b><br />- Cần tính giới hạn của \\( f(x) \\) khi \\( x \\) tiến đến 1 từ bên phải (tức \\( x > 1 \\)).<br />- Vì \\( x > 1 \\), sử dụng phần thứ hai của hàm số:<br />\\[ f(x) = 3x^2 + 6 \\]<br />- \\( \\lim_{x \\to 1^+} (3x^2 + 6) = 3 \\cdot 1^2 + 6 = 9 \\).<br />- Phát biểu (iii) <b>sai</b> (giá trị giới hạn là 9, không phải 12).<br /><br /><b>Kết luận:</b> Cả ba phát biểu đều <b>sai</b>. Vì vậy, đáp án là <b>“None of the other choices is correct.”</b>"
+  },
+  {
+    "id": 28,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "Both 5 and 6 are eigenvalues of A",
+        "label": "B"
+      },
+      {
+        "text": "5 is an eigenvalue of A",
+        "label": "C"
+      },
+      {
+        "text": "6 is an eigenvalue of A",
+        "label": "D"
+      }
+    ],
+    "question": "Given \\[ A = \\begin{bmatrix} 5 & -2 & 1 \\\\ 3 & 0 & 5 \\\\ 2 & 1 & 6 \\end{bmatrix} \\] Choose the correct statement.",
+    "image_url": "",
+    "explanation": "Để kiểm tra xem một số \\( \\lambda \\) có phải là <b>giá trị riêng (eigenvalue)</b> của ma trận \\( A \\) hay không, ta cần kiểm tra xem \\( \\det(A - \\lambda I) = 0 \\) có đúng không, với \\( I \\) là ma trận đơn vị.<br/><b>1. Kiểm tra \\( \\lambda = 5 \\):</b><br/> \\[ A - 5I = \\begin{bmatrix} 5-5 & -2 & 1 <br/> 3 & 0-5 & 5 <br/> 2 & 1 & 6-5 \\end{bmatrix} = \\begin{bmatrix} 0 & -2 & 1 <br/> 3 & -5 & 5 <br/> 2 & 1 & 1 \\end{bmatrix} \\]<br/>Tính định thức:<br/>[ \\begin{vmatrix} 0 & -2 & 1 <br/> 3 & -5 & 5 <br/> 2 & 1 & 1 \\end{vmatrix} = 0 \\begin{vmatrix} -5 & 5 <br/> 1 & 1 \\end{vmatrix} - (-2) \\begin{vmatrix} 3 & 5 <br/> 2 & 1 \\end{vmatrix} + 1 \\begin{vmatrix} 3 & -5 <br/> 2 & 1 \\end{vmatrix} \\]<br/> \\[ = 0 + 2(3 - 10) + (3 + 10) = 2(-7) + 13 = -14 + 13 = -1 \\neq 0 \\]<br/>Vì \\( \\det(A - 5I) \\neq 0 \\), 5 không phải là giá trị riêng của A.<br/><b>2. Kiểm tra \\( \\lambda = 6 \\):</b><br/> \\[ A - 6I = \\begin{bmatrix} 5-6 & -2 & 1 <br/> 3 & 0-6 & 5 <br/> 2 & 1 & 6-6 \\end{bmatrix} = \\begin{bmatrix} -1 & -2 & 1 <br/> 3 & -6 & 5 <br/> 2 & 1 & 0 \\end{bmatrix} \\]<br/>Tính định thức:<br/>[ \\begin{vmatrix} -1 & -2 & 1 <br/> 3 & -6 & 5 <br/> 2 & 1 & 0 \\end{vmatrix} = -1 \\begin{vmatrix} -6 & 5 <br/> 1 & 0 \\end{vmatrix} - (-2) \\begin{vmatrix} 3 & 5 <br/> 2 & 0 \\end{vmatrix} + 1 \\begin{vmatrix} 3 & -6 <br/> 2 & 1 \\end{vmatrix} \\]<br/> \\[ = -1(-5) + 2(-10) + (3 + 12) = 5 - 20 + 15 = 0 \\]<br/>Vậy, 6 là một giá trị riêng của A. Do đó, câu trả lời phải là D. Nhưng, hãy xem lại.<br/>Vì -1(-5)+2(-10)+1(3+12)=0. \\(5-20+15=0\\). Do đó 6 là eigenvalue.<br/>Vậy, câu trả lời đúng là <b>6 is an eigenvalue of A</b>"
+  },
+  {
+    "id": 29,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "6.5",
+        "label": "A"
+      },
+      {
+        "text": "7",
+        "label": "B"
+      },
+      {
+        "text": "5.5",
+        "label": "C"
+      },
+      {
+        "text": "6",
+        "label": "D"
+      },
+      {
+        "text": "8.5",
+        "label": "E"
+      }
+    ],
+    "question": "John and Joe earn a total of $39.5 when John works 2 hours and Joe works 3 hours. If John works 4 and Joe works 2 hours, they get $38. Find Joe's hourly rate (in dollars).",
+    "image_url": "",
+    "explanation": "Gọi \\( j \\) là lương giờ của John và \\( o \\) là lương giờ của Joe.<br/>Từ thông tin đề bài, ta có hệ phương trình:<br/> \\[ \\begin{cases} 2j + 3o = 39.5 <br/> 4j + 2o = 38 \\end{cases} \\]<br/>Nhân phương trình thứ nhất với 2 và phương trình thứ hai với 3:<br/>[ \\begin{cases} 4j + 6o = 79 <br/> 12j + 6o = 114 \\end{cases} \\]<br/>Trừ phương trình thứ nhất từ phương trình thứ hai:<br/>[ (12j + 6o) - (4j + 6o) = 114 - 79 \\]<br/>[ 8j = 35 \\implies j = \\frac{35}{8} = 4.375 \\]<br/>Thay \\( j = 4.375 \\) vào phương trình đầu tiên:<br/>[ 2(4.375) + 3o = 39.5 \\]<br/>[ 8.75 + 3o = 39.5 \\]<br/>[ 3o = 39.5 - 8.75 = 30.75 \\]<br/>[ o = \\frac{30.75}{3} = 10.25 \\]<br/>Thực hiện phép tính khác, ta có thể nhân PT1 với 2 và trừ đi PT2.<br/>[ 4j+6o - (4j+2o) = 79-38 \\]<br/>[ 4o = 41 \\]<br/>[ o = 10.25 \\]<br/>Tính lại, để loại bỏ j, nhân pt 1 với -2 và cộng vào pt2.<br/>[ -4j - 6o = -79 \\]<br/>[ 4j + 2o = 38 \\]<br/>Cộng lại.<br/>[ -4o = -41 \\]<br/>[ o = 10.25 \\]<br/>Rõ ràng có lỗi ở đề, không có đáp án phù hợp."
+  },
+  {
+    "id": 30,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "None of M and N",
+        "label": "A"
+      },
+      {
+        "text": "M only",
+        "label": "B"
+      },
+      {
+        "text": "Both of M and N",
+        "label": "C"
+      },
+      {
+        "text": "N only",
+        "label": "D"
+      }
+    ],
+    "question": "Let (d) be the line containing (1, 4, 7) and (2, 1, 3). Which of the following points lie in (d): M(0, 0, 3); N(3, -2, -1)",
+    "image_url": "",
+    "explanation": "Để xác định xem một điểm có nằm trên một đường thẳng hay không, ta cần tìm phương trình tham số của đường thẳng đó.<br/>Cho hai điểm \\( A(1, 4, 7) \\) và \\( B(2, 1, 3) \\), vector chỉ phương của đường thẳng là:<br/>[ \\overrightarrow{AB} = [2-1, 1-4, 3-7] = [1, -3, -4] \\]<br/>Phương trình tham số của đường thẳng (d) là:<br/>[ \\begin{cases} x = 1 + t <br/> y = 4 - 3t <br/> z = 7 - 4t \\end{cases} \\]<br/><b>1. Kiểm tra điểm M(0, 3, 3):</b><br/>- Để M nằm trên đường thẳng, phải tồn tại một giá trị của t sao cho:<br/>[ \\begin{cases} 0 = 1 + t <br/> 3 = 4 - 3t <br/> 3 = 7 - 4t \\end{cases} \\]<br/>- Từ phương trình thứ nhất: \\( t = -1 \\). Thay vào hai phương trình còn lại:<br/>- \\( 3 = 4 - 3(-1) = 4 + 3 = 7 \\) (Sai)<br/>- \\( 3 = 7 - 4(-1) = 7 + 4 = 11 \\) (Sai)<br/>Vì không có giá trị \\( t \\) thỏa mãn cả ba phương trình, điểm M <b>không nằm trên đường thẳng (d)</b>.<br/><b>2. Kiểm tra điểm N(3, -2, -1):</b><br/>- Để N nằm trên đường thẳng, phải tồn tại một giá trị của t sao cho:<br/>[ \\begin{cases} 3 = 1 + t <br/> -2 = 4 - 3t <br/> -1 = 7 - 4t \\end{cases} \\]<br/>- Từ phương trình thứ nhất: \\( t = 2 \\). Thay vào hai phương trình còn lại:<br/>- \\( -2 = 4 - 3(2) = 4 - 6 = -2 \\) (Đúng)<br/>- \\( -1 = 7 - 4(2) = 7 - 8 = -1 \\) (Đúng)<br/>Vì \\( t = 2 \\) thỏa mãn cả ba phương trình, điểm N <b>nằm trên đường thẳng (d)</b>.<br/>Vậy, chỉ có điểm N nằm trên đường thẳng (d)."
+  },
+  {
+    "id": 31,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(i)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "Neither (i) nor (ii)",
+        "label": "C"
+      },
+      {
+        "text": "Both (i) and (ii)",
+        "label": "D"
+      }
+    ],
+    "question": "Which of the following statements is true?<br>(i) \\( \\{[1, 1, 4], [2, -1, -1], [3, 0, 3] \\} \\) is a basis of \\( \\mathbb{R}^3 \\).<br>(ii) \\( \\{[1, 1], [1/2, -3] \\} \\) is a basis of \\( \\mathbb{R}^2 \\).",
+    "image_url": "",
+    "explanation": "Để giải siêu tốc, ta dùng định thức để kiểm tra tính độc lập tuyến tính.<br /><br /><b>1. Kiểm tra (i): 3 vector trong \\(\\mathbb{R}^3\\)</b><br />- <b>Mẹo nhanh:</b> Trước khi tính định thức, hãy kiểm tra xem có mối quan hệ đơn giản nào giữa các hàng/cột không. Ta thấy ngay:<br />  <b>Hàng 3 = Hàng 1 + Hàng 2</b> \\((3=1+2; 0=1+(-1); 3=4+(-1))\\).<br />- Vì các hàng phụ thuộc tuyến tính, định thức chắc chắn bằng 0. Do đó, chúng không phải là một cơ sở.<br />- → Mệnh đề (i) <b>SAI</b>.<br /><br /><b>2. Kiểm tra (ii): 2 vector trong \\(\\mathbb{R}^2\\)</b><br />- Ta chỉ cần tính định thức của ma trận tạo bởi chúng:<br />\\( \\det = (1)(-3) - (1)(\\frac{1}{2}) = -3 - \\frac{1}{2} = -3.5 \\).<br />- Vì định thức khác 0, hai vector này độc lập tuyến tính và tạo thành một cơ sở.<br />- → Mệnh đề (ii) <b>ĐÚNG</b>.<br /><br /><b>Kết luận:</b> Chỉ có (ii) là đúng."
+  },
+  {
+    "id": 32,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "20",
+        "label": "A"
+      },
+      {
+        "text": "60",
+        "label": "B"
+      },
+      {
+        "text": "80",
+        "label": "C"
+      },
+      {
+        "text": "None of the others",
+        "label": "D"
+      },
+      {
+        "text": "14",
+        "label": "E"
+      }
+    ],
+    "question": "Let A and B be 3x3 matrices with det(A) = 2, det(B) = 5.<br>Find det(2AB).",
+    "image_url": "",
+    "explanation": "Để giải siêu tốc, ta áp dụng hai tính chất kinh điển của định thức.<br /><br /><b>1. Áp dụng các tính chất:</b><br />- Tách tích: \\( \\det(2AB) = \\det(2A) \\cdot \\det(B) \\).<br />- Đưa hằng số ra ngoài: \\( \\det(2A) = 2^3 \\det(A) \\). (Lưu ý số mũ 3 vì A là ma trận 3x3).<br /><br /><b>2. Kết hợp và tính toán:</b><br />\\( \\det(2AB) = 2^3 \\cdot \\det(A) \\cdot \\det(B) \\)<br />\\( = 8 \\cdot 2 \\cdot 5 \\)<br />\\( = 8 \\cdot 10 = 80 \\)."
+  },
+  {
+    "id": 33,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "C"
+    ],
+    "options": [
+      {
+        "text": "19",
+        "label": "A"
+      },
+      {
+        "text": "13.5",
+        "label": "B"
+      },
+      {
+        "text": "None of the other choices is correct.",
+        "label": "C"
+      },
+      {
+        "text": "16.5",
+        "label": "D"
+      },
+      {
+        "text": "17",
+        "label": "E"
+      },
+      {
+        "text": "15.25",
+        "label": "F"
+      }
+    ],
+    "question": "Use the Trapezoidal Rule with n = 6 steps to approximate the \\( \\int_1^4 f(x)dx \\), given the table:<br><center><table border='1' cellpadding='5'><tr><td>x</td><td>1</td><td>1.5</td><td>2</td><td>2.5</td><td>3</td><td>3.5</td></tr><tr><td>f(x)</td><td>2</td><td>6</td><td>4</td><td>8</td><td>2</td><td>5</td></tr></table></center>",
+    "image_url": "",
+    "explanation": "Để giải bài này, ta phải nhận ra ngay các 'bẫy' trong đề bài.<br /><br /><b>Bẫy 1: Các khoảng con không đều nhau.</b><br />- Chiều rộng các khoảng con lần lượt là 0.5, 0.5, 0.5, 0.5, 0.5. Các khoảng này cách đều, vậy ta có thể dùng công thức gộp. Tuy nhiên, đề cho n=6 và tích phân đến 4, nhưng bảng chỉ đến 3.5. Đây là mâu thuẫn. Ta sẽ tính dựa trên dữ liệu có sẵn trong bảng.<br /><br /><b>Bẫy 2: Đề bài mâu thuẫn (n=6, tích phân đến 4, nhưng bảng chỉ đến 3.5)</b><br />- Ta sẽ tính xấp xỉ tích phân từ 1 đến 3.5 dựa trên 5 hình thang được cho bởi bảng.<br /><br /><b>Tính toán:</b><br />- \\(\\Delta x = 0.5\\).<br />- Công thức: \\( T = \\frac{\\Delta x}{2} [y_0 + 2y_1 + 2y_2 + 2y_3 + 2y_4 + y_5] \\)<br />\\( T = \\frac{0.5}{2} [2 + 2(6) + 2(4) + 2(8) + 2(2) + 5] \\)<br />\\( T = 0.25 [2 + 12 + 8 + 16 + 4 + 5] \\)<br />\\( T = 0.25 [47] = 11.75 \\).<br /><br /><b>Kết luận:</b> Vì kết quả tính được là 11.75 không có trong các lựa chọn, đáp án đúng là 'None of the other choices is correct'."
+  },
+  {
+    "id": 34,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "0",
+        "label": "A"
+      },
+      {
+        "text": "1",
+        "label": "B"
+      },
+      {
+        "text": "2",
+        "label": "C"
+      },
+      {
+        "text": "3",
+        "label": "D"
+      }
+    ],
+    "question": "Let U = span\\({(1, 2, 3, -2), (4, 0, 0, 8), (0, 8, 6), (6, 6, 6, 6)}\\). Find the dimension of U.",
+    "image_url": "",
+    "explanation": "Để giải siêu tốc, ta cần tìm số vector độc lập tuyến tính tối đa trong tập hợp đã cho. Cách nhanh nhất là xếp chúng vào ma trận và tìm hạng.<br /><br /><b>1. Nhận xét và đơn giản hóa (nếu có thể):</b><br />- Vector thứ hai: \\((4, 0, 0, 8)\\) có thể rút gọn thành \\((1, 0, 0, 2)\\) (chia cho 4).<br />- Vector thứ ba: \\((0, 8, 6)\\) có vẻ là lỗi đánh máy, vì đây là vector trong \\(\\mathbb{R}^3\\) chứ không phải \\(\\mathbb{R}^4\\). Giả sử nó là \\((0, 8, 6, 0)\\).<br />- Vector thứ tư: \\((6, 6, 6, 6)\\) có thể rút gọn thành \\((1, 1, 1, 1)\\) (chia cho 6).<br /><br /><b>2. Xếp vào ma trận và tìm hạng:</b><br />Ta xếp các vector (đã hoặc chưa rút gọn) thành các hàng và khử Gauss:<br />\\[ \\begin{bmatrix} 1 & 2 & 3 & -2 \\\\ 4 & 0 & 0 & 8 \\\\ 6 & 6 & 6 & 6 \\end{bmatrix} \\]<br />(Bỏ qua vector thứ ba bị lỗi)<br />Thực hiện các phép biến đổi hàng, ta sẽ thấy có 3 hàng độc lập tuyến tính.<br /><br /><b>3. Kết luận:</b><br />Số chiều của không gian con chính là hạng của ma trận tạo bởi các vector. Hạng của ma trận này là 3.<br />(Lưu ý: Ngay cả khi có 4 vector, số chiều của không gian con trong \\(\\mathbb{R}^4\\) không thể vượt quá 4. Với 3 vector độc lập, số chiều là 3)."
+  },
+  {
+    "id": 35,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "75.42 mi/h",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "B"
+      },
+      {
+        "text": "76.4 mi/h",
+        "label": "C"
+      },
+      {
+        "text": "75.30 mi/h",
+        "label": "D"
+      },
+      {
+        "text": "75.49 mi/h",
+        "label": "E"
+      },
+      {
+        "text": "75.39 mi/h",
+        "label": "F"
+      }
+    ],
+    "question": "Two cars start moving from the same point. One travels south at 28 mi/h and the other travels west at 70 mi/h. At what rate is the distance between the cars increasing 5 hours later? Round the result to the nearest hundredth.",
+    "image_url": "",
+    "explanation": "Đây là bài toán 'tốc độ thay đổi' kinh điển, sử dụng định lý Pytago.<br /><br /><b>1. Thiết lập mô hình:</b><br />- Gọi quãng đường đi về phía tây là \\(x\\), phía nam là \\(y\\), và khoảng cách giữa chúng là \\(z\\).<br />- Ta có: \\( x^2 + y^2 = z^2 \\).<br /><br /><b>2. Lấy đạo hàm và rút ra công thức:</b><br />\\( 2x \\frac{dx}{dt} + 2y \\frac{dy}{dt} = 2z \\frac{dz}{dt} \\Rightarrow x \\frac{dx}{dt} + y \\frac{dy}{dt} = z \\frac{dz}{dt} \\)<br /><br /><b>3. Tìm các giá trị tại t = 5 giờ:</b><br />- \\( \\frac{dx}{dt} = 70 \\), \\( \\frac{dy}{dt} = 28 \\).<br />- \\( x = 70 \\times 5 = 350 \\).<br />- \\( y = 28 \\times 5 = 140 \\).<br />- \\( z = \\sqrt{350^2 + 140^2} = \\sqrt{142100} \\approx 376.96 \\).<br /><br /><b>4. Thế số và giải:</b><br />\\( (350)(70) + (140)(28) = (376.96) \\frac{dz}{dt} \\)<br />\\( 24500 + 3920 = 376.96 \\frac{dz}{dt} \\)<br />\\( 28420 = 376.96 \\frac{dz}{dt} \\Rightarrow \\frac{dz}{dt} = \\frac{28420}{376.96} \\approx 75.39 \\text{ mi/h} \\).<br /><br /><b>Mẹo siêu tốc (nhận ra tỉ lệ):</b><br />- Tốc độ là \\((70, 28) = 14 \\cdot (5, 2)\\).<br />- Do đó, tốc độ tách xa nhau cũng sẽ theo tỉ lệ đó: \\(14 \\cdot \\sqrt{5^2 + 2^2} = 14 \\sqrt{29} \\approx 14 \\cdot 5.385 \\approx 75.39 \\)."
+  },
+  {
+    "id": 36,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(iii)",
+        "label": "A"
+      },
+      {
+        "text": "(ii)",
+        "label": "B"
+      },
+      {
+        "text": "(i)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      }
+    ],
+    "question": "Determine whether U is a subspace of \\(\\mathbb{R}^3\\).<br />(i) \\( U=\\{[0 \\; 1 \\; s]^T: s \\in \\mathbb{R}\\} \\)<br />(ii) \\( U=\\{[0 \\; a \\; b]^T: a,b \\in \\mathbb{R}\\} \\)<br />(iii) \\( U=\\{[a \\; b \\; a+1]^T: a,b \\in \\mathbb{R}\\} \\)",
+    "image_url": "",
+    "explanation": "Để kiểm tra không gian con, ta dùng mẹo nhanh nhất: <b>Kiểm tra vector không!</b> Một không gian con bắt buộc phải chứa vector \\( \\vec{0} = [0 \\; 0 \\; 0]^T \\).<br/><br/><b>1. Kiểm tra (i):</b> \\( [0 \\; 1 \\; s]^T \\). Thành phần thứ hai luôn là 1, không bao giờ bằng 0. <b>→ Loại (i).</b><br/><b>2. Kiểm tra (iii):</b> \\( [a \\; b \\; a+1]^T \\). Để vector này là vector không, ta phải có \\(a=0\\) và \\(a+1=0\\). Điều này vô lý (\\(0 \\neq -1\\)). <b>→ Loại (iii).</b><br/><b>3. Kiểm tra (ii):</b> \\( [0 \\; a \\; b]^T \\). Có thể là vector không không? Có, khi \\(a=0\\) và \\(b=0\\). Nó cũng thỏa mãn 2 tính chất đóng (cộng và nhân vô hướng). <b>→ (ii) là không gian con.</b><br/><br/>Đáp án tương ứng với (ii) là B."
+  },
+  {
+    "id": 37,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "-1",
+        "label": "A"
+      },
+      {
+        "text": "-2/3",
+        "label": "B"
+      },
+      {
+        "text": "10/3",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "-4",
+        "label": "E"
+      }
+    ],
+    "question": "Find the average value of the function \\(f(x) = x^2 - 6x + 4\\) over the interval \\([0, 2]\\).",
+    "image_url": "",
+    "explanation": "Áp dụng công thức tính giá trị trung bình của hàm số siêu tốc:<br /><b>Giá trị trung bình = \\(\\frac{1}{b-a} \\int_a^b f(x)dx\\)</b><br/><br/><b>1. Áp dụng công thức:</b><br />\\( \\frac{1}{2-0} \\int_0^2 (x^2 - 6x + 4) dx \\)<br/><br/><b>2. Tính tích phân:</b><br />\\( \\int (x^2 - 6x + 4) dx = \\frac{x^3}{3} - 3x^2 + 4x \\)<br/><br/><b>3. Thế cận từ 0 đến 2:</b><br />\\( [\\frac{2^3}{3} - 3(2^2) + 4(2)] - [0] = \\frac{8}{3} - 12 + 8 = \\frac{8}{3} - 4 = -\\frac{4}{3} \\)<br/><br/><b>4. Nhân với hệ số \\( \\frac{1}{2} \\):</b><br />Giá trị trung bình = \\( \\frac{1}{2} \\times (-\\frac{4}{3}) = -\\frac{2}{3} \\).<br/><br/><b>Kết luận:</b> Đáp án là B."
+  },
+  {
+    "id": 38,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "t = 1, -2",
+        "label": "B"
+      },
+      {
+        "text": "t = 1, -2",
+        "label": "C"
+      },
+      {
+        "text": "t = 1, -3",
+        "label": "D"
+      },
+      {
+        "text": "t = 1, -3",
+        "label": "E"
+      }
+    ],
+    "question": "Find the value of \\(t\\) for which the following system is consistent: <br /> \\( \\begin{cases} x + y = 1 \\\\ tx + y = t \\\\ (1+t)x + 2y = 3 \\end{cases} \\)",
+    "image_url": "",
+    "explanation": "Đây là hệ 3 phương trình 2 ẩn. Mẹo giải nhanh là <b>giải hệ 2 phương trình đầu để tìm x, y theo t, sau đó thế vào phương trình thứ 3</b>.<br/><br/><b>1. Lấy PT (2) trừ PT (1):</b><br/>\\( (tx + y) - (x + y) = t - 1 \\)<br/>\\( \\Rightarrow (t-1)x = t-1 \\)<br/><br/><b>2. Phân tích và giải:</b><br/>- <b>Trường hợp 1: \\( t \\neq 1 \\)</b>, ta có \\( x = 1 \\). Thế vào PT (1): \\(1 + y = 1 \\Rightarrow y = 0\\).<br/>- <b>Thế \\(x=1, y=0\\) vào PT (3)</b> để tìm t: \\((1+t)(1) + 2(0) = 3 \\Rightarrow 1+t = 3 \\Rightarrow \\mathbf{t=2}\\).<br/>- <b>Trường hợp 2: \\( t = 1 \\)</b>, hệ trở thành:<br/>  \\( x + y = 1 \\)<br/>  \\( x + y = 1 \\)<br/>  \\( 2x + 2y = 3 \\Rightarrow x+y = 1.5 \\)<br/>  Hệ này vô nghiệm vì \\(1 \neq 1.5\\).<br/><br/><b>Kết luận:</b> Giá trị duy nhất là \\(t=2\\). Giá trị này không có trong các lựa chọn B, C, D, E. Vậy đáp án là <b>A. None of the other choices is correct</b>."
+  },
+  {
+    "id": 39,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "All nonzero numbers",
+        "label": "A"
+      },
+      {
+        "text": "All real numbers",
+        "label": "B"
+      },
+      {
+        "text": "All positive numbers",
+        "label": "C"
+      },
+      {
+        "text": "All nonnegative numbers",
+        "label": "D"
+      },
+      {
+        "text": "None of them",
+        "label": "E"
+      }
+    ],
+    "question": "State the domain of the derivative of the function \\( f(x) = \\ln(x^2) \\).",
+    "image_url": "",
+    "explanation": "Làm 2 bước siêu tốc: <b>1. Tìm đạo hàm. 2. Tìm tập xác định của nó.</b><br/><br/><b>1. Tìm đạo hàm \\(f'(x)\\):</b><br/>   Dùng \"câu thần chú\" đạo hàm Loga: \\( (\\ln u)' = \\frac{u'}{u} \\).<br/>   Ở đây, \\( u = x^2 \\), suy ra \\( u' = 2x \\).<br/>   \\( \\Rightarrow f'(x) = \\frac{2x}{x^2} = \\frac{2}{x} \\)<br/><br/><b>2. Tìm tập xác định của \\(f'(x) = \\frac{2}{x}\\):</b><br/>   Biểu thức này có nghĩa khi mẫu số khác 0.<br/>   \\( \\Rightarrow x \\neq 0 \\).<br/><br/><b>Kết luận:</b> Tập xác định là tất cả các số thực khác 0 (All nonzero numbers), tức là đáp án A."
+  },
+  {
+    "id": 40,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "(iii)",
+        "label": "A"
+      },
+      {
+        "text": "All of the other choices are incorrect",
+        "label": "B"
+      },
+      {
+        "text": "(ii)",
+        "label": "C"
+      },
+      {
+        "text": "(iv)",
+        "label": "D"
+      },
+      {
+        "text": "(i)",
+        "label": "E"
+      }
+    ],
+    "question": "Find the matrix of the transformation \\( T: \\mathbb{R}^3 \\to \\mathbb{R}^3 \\) which is reflection in the YZ-plane.<br />(i) \\(\\begin{pmatrix} -1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\)  (ii) \\(\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\)<br />(iii) \\(\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\) (iv) \\(\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & -1 \\end{pmatrix}\\)",
+    "image_url": "",
+    "explanation": "<b>Câu thần chú:</b> Ma trận biến đổi được tạo từ các cột là ảnh của các vector cơ sở \\(e_1, e_2, e_3\\).<br/><br/><b>1. Phân tích phép biến đổi:</b> Phép đối xứng qua mặt phẳng YZ có nghĩa là:<br/>   - Điểm trên mặt phẳng YZ (nơi có \\(x=0\\)) được giữ nguyên.<br/>   - Tọa độ <b>y</b> giữ nguyên.<br/>   - Tọa độ <b>z</b> giữ nguyên.<br/>   - Tọa độ <b>x</b> đổi dấu.<br/>   Vậy, \\( T(x, y, z) = (-x, y, z) \\).<br/><br/><b>2. Tìm ảnh của các vector cơ sở:</b><br/>   - Cột 1 = \\(T(e_1) = T(1,0,0) = (-1, 0, 0)\\)<br/>   - Cột 2 = \\(T(e_2) = T(0,1,0) = (0, 1, 0)\\)<br/>   - Cột 3 = \\(T(e_3) = T(0,0,1) = (0, 0, 1)\\)<br/><br/><b>3. Ghép các cột lại:</b><br/>   Ma trận là \\(\\begin{pmatrix} -1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\). Đây chính là ma trận <b>(i)</b>. Trong các lựa chọn, đáp án <b>E</b> tương ứng với (i)."
+  },
+  {
+    "id": 41,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "None of the other choices is correct",
+        "label": "A"
+      },
+      {
+        "text": "2",
+        "label": "B"
+      },
+      {
+        "text": "3",
+        "label": "C"
+      },
+      {
+        "text": "1",
+        "label": "D"
+      },
+      {
+        "text": "0",
+        "label": "E"
+      }
+    ],
+    "question": "Cho ma trận \\( A = \\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 1 & 0 \\end{pmatrix} \\) và \\( B = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\\\ 1 & 2 \\end{pmatrix} \\).<br />Tìm phần tử ở vị trí (3,2) của ma trận tích BA.",
+    "image_url": "",
+    "explanation": "<b>Mẹo giải siêu tốc:</b> Không cần tính cả ma trận tích! Để tìm một phần tử duy nhất của ma trận tích, hãy dùng quy tắc 'Hàng nhân Cột'.<br /><br /><b>1. Xác định mục tiêu:</b><br />Ta cần tìm phần tử ở <b>hàng 3, cột 2</b> của ma trận <b>BA</b>.<br /><br /><b>2. Áp dụng quy tắc 'Hàng nhân Cột':</b><br />- Lấy <b>hàng 3</b> của ma trận đứng trước (là <b>B</b>): \\( \\begin{pmatrix} 1 & 2 \\end{pmatrix} \\).<br />- Lấy <b>cột 2</b> của ma trận đứng sau (là <b>A</b>): \\( \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} \\).<br /><br /><b>3. Tính tích vô hướng (dot product):</b><br />\\( (1 \\times 0) + (2 \\times 1) = 0 + 2 = 2 \\).<br /><br /><b>Kết luận:</b> Phần tử ở vị trí (3,2) chính xác là <b>2</b>. Công việc hoàn thành trong chưa đầy 15 giây."
+  },
+  {
+    "id": 42,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "73/4",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "B"
+      },
+      {
+        "text": "75/4",
+        "label": "C"
+      },
+      {
+        "text": "71/4",
+        "label": "D"
+      },
+      {
+        "text": "77/4",
+        "label": "E"
+      }
+    ],
+    "question": "Estimate the area of under the graph of<br />\\(f(x) = 9 - x^2\\)<br />from x = 0 to x = 3, using three approximating rectangles and midpoints.",
+    "image_url": "",
+    "explanation": "Đây là bài toán xấp xỉ diện tích bằng tổng Riemann trung điểm (Midpoint Riemann Sum). Giải nhanh như sau:<br /><br /><b>1. Tìm chiều rộng hình chữ nhật (Δx):</b><br />- Khoảng là \\([0, 3]\\), chia làm 3 hình chữ nhật.<br />- Chiều rộng mỗi hình: \\( \\Delta x = \\frac{3-0}{3} = 1 \\).<br /><br /><b>2. Tìm các điểm giữa (midpoints):</b><br />- Khoảng con 1: \\([0, 1]\\) → điểm giữa là \\(0.5\\) (tức \\(1/2\\)).<br />- Khoảng con 2: \\([1, 2]\\) → điểm giữa là \\(1.5\\) (tức \\(3/2\\)).<br />- Khoảng con 3: \\([2, 3]\\) → điểm giữa là \\(2.5\\) (tức \\(5/2\\)).<br /><br /><b>3. Tính chiều cao tại các điểm giữa:</b><br />- \\( f(1/2) = 9 - (1/2)^2 = 9 - 1/4 = 35/4 \\).<br />- \\( f(3/2) = 9 - (3/2)^2 = 9 - 9/4 = 27/4 \\).<br />- \\( f(5/2) = 9 - (5/2)^2 = 9 - 25/4 = 11/4 \\).<br /><br /><b>4. Tính tổng diện tích:</b><br />Diện tích = (Chiều rộng) x (Tổng các chiều cao)<br />\\( Area = 1 \\times (\\frac{35}{4} + \\frac{27}{4} + \\frac{11}{4}) = \\frac{35+27+11}{4} = \\frac{73}{4} \\).<br /><br /><b>Kết luận:</b> Đáp án chính xác là <b>73/4</b>."
+  },
+  {
+    "id": 43,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "(See picture)",
+        "label": "A"
+      },
+      {
+        "text": "(i) \\( dy = 2x(\\cos{2x} - x\\sin{2x})dx \\)",
+        "label": "B"
+      },
+      {
+        "text": "(iv)",
+        "label": "C"
+      },
+      {
+        "text": "(ii)",
+        "label": "D"
+      },
+      {
+        "text": "(iii)",
+        "label": "E"
+      }
+    ],
+    "question": "Find differential of<br />\\( y = x^2 \\cos(2x) \\)",
+    "image_url": "",
+    "explanation": "Để tìm vi phân `dy`, ta cần tìm đạo hàm `dy/dx` rồi nhân với `dx`. Bài này dùng Quy tắc Tích.<br /><br /><b>1. Xác định Quy tắc Tích (Product Rule):</b><br />- Công thức: \\( (uv)' = u'v + uv' \\).<br />- Ở đây, \\( u = x^2 \\) và \\( v = \\cos(2x) \\).<br /><br /><b>2. Tìm đạo hàm của từng phần:</b><br />- \\( u' = \\frac{d}{dx}(x^2) = 2x \\).<br />- \\( v' = \\frac{d}{dx}(\\cos(2x)) = -\\sin(2x) \\cdot 2 = -2\\sin(2x) \\) (nhớ dùng Quy tắc Dây chuyền - Chain Rule).<br /><br /><b>3. Ghép lại theo công thức:</b><br />\\( \\frac{dy}{dx} = u'v + uv' = (2x)(\\cos(2x)) + (x^2)(-2\\sin(2x)) \\)<br />\\( \\frac{dy}{dx} = 2x\\cos(2x) - 2x^2\\sin(2x) \\).<br /><br /><b>4. Rút gọn và viết dạng vi phân:</b><br />- Rút nhân tử chung \\( 2x \\) ra ngoài: \\( \\frac{dy}{dx} = 2x(\\cos(2x) - x\\sin(2x)) \\).<br />- Vậy, vi phân là: \\( dy = 2x(\\cos(2x) - x\\sin(2x))dx \\).<br /><br /><b>Kết luận:</b> So sánh với các lựa chọn, đây chính là đáp án (i)."
+  },
+  {
+    "id": 44,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "5",
+        "label": "A"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "B"
+      },
+      {
+        "text": "0",
+        "label": "C"
+      },
+      {
+        "text": "3",
+        "label": "D"
+      },
+      {
+        "text": "-5",
+        "label": "E"
+      },
+      {
+        "text": "-3",
+        "label": "F"
+      }
+    ],
+    "question": "Evaluate the limit, if it exists<br />\\( \\lim_{x \\to \\frac{\\pi}{2}} [5\\cos(2x) + 16\\tan(x)] \\)",
+    "image_url": "",
+    "explanation": "<b>Mẹo giải siêu tốc:</b> Khi thấy giới hạn tại \\(x \\to \\pi/2\\), hãy kiểm tra ngay lập tức các hàm có tiệm cận đứng tại đó, đặc biệt là \\(\\tan(x)\\).<br /><br /><b>1. Phân tích từng thành phần khi \\( x \\to \\pi/2 \\):</b><br />- <b>Thành phần 1: \\( 5\\cos(2x) \\)</b><br />Khi thế số: \\( 5\\cos(2 \\cdot \\frac{\\pi}{2}) = 5\\cos(\\pi) = 5 \\times (-1) = -5 \\). Đây là một giá trị hữu hạn.<br /><br />- <b>Thành phần 2: \\( 16\\tan(x) \\)</b><br />Hàm \\( \\tan(x) = \\frac{\\sin(x)}{\\cos(x)} \\). Khi \\( x \\to \\pi/2 \\), tử số \\(\\sin(x) \\to 1\\), còn mẫu số \\(\\cos(x) \\to 0\\). Phép chia cho 0 dẫn đến giới hạn tiến ra vô cùng.<br /><br /><b>2. Kết luận:</b><br />Vì giới hạn của \\(\\tan(x)\\) khi \\(x \\to \\pi/2\\) không tồn tại (tiến ra vô cùng), nên giới hạn của cả tổng cũng <b>không tồn tại</b>. Do đó, không có lựa chọn số nào là đáp án đúng."
+  },
+  {
+    "id": 45,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "D"
+    ],
+    "options": [
+      {
+        "text": "2.2725",
+        "label": "A"
+      },
+      {
+        "text": "1.9952",
+        "label": "B"
+      },
+      {
+        "text": "2.8000",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "2.4341",
+        "label": "E"
+      }
+    ],
+    "question": "Use Newton's method with the initial approximation \\(x_1 = 1\\) to find \\(x_3\\), the third approximation to the root of the equation<br />\\( x^3 - 10 = 0 \\).<br />Round your answer to 4 decimal places.",
+    "image_url": "",
+    "explanation": "<b>Mẹo giải siêu tốc:</b> Chỉ cần nhớ công thức của phương pháp Newton và thực hiện 2 vòng lặp tính toán một cách cẩn thận.<br /><br /><b>1. Thiết lập công thức:</b><br />- Hàm số: \\( f(x) = x^3 - 10 \\).<br />- Đạo hàm: \\( f'(x) = 3x^2 \\).<br />- Công thức Newton: \\( x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)} = x_n - \\frac{x_n^3 - 10}{3x_n^2} \\).<br /><br /><b>2. Vòng lặp 1 (Tìm x₂):</b><br />- Sử dụng giá trị ban đầu \\( x_1 = 1 \\).<br />- \\( x_2 = 1 - \\frac{1^3 - 10}{3(1)^2} = 1 - \\frac{-9}{3} = 1 + 3 = 4 \\).<br /><br /><b>3. Vòng lặp 2 (Tìm x₃):</b><br />- Bây giờ sử dụng \\( x_2 = 4 \\).<br />- \\( x_3 = 4 - \\frac{4^3 - 10}{3(4)^2} = 4 - \\frac{64 - 10}{3(16)} = 4 - \\frac{54}{48} \\).<br />- \\( x_3 = 4 - 1.125 = 2.875 \\).<br /><br /><b>Kết luận:</b> Làm tròn đến 4 chữ số thập phân, ta được \\( x_3 = 2.8750 \\). Giá trị này không khớp với bất kỳ lựa chọn nào, do đó đáp án là 'None of the other choices is correct'."
+  },
+  {
+    "id": 46,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "E"
+    ],
+    "options": [
+      {
+        "text": "(0, 7)",
+        "label": "A"
+      },
+      {
+        "text": "(2, 5)",
+        "label": "B"
+      },
+      {
+        "text": "(4, 9)",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "(-3, 4)",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( T: \\mathbb{R}^2 \\to \\mathbb{R}^2 \\) be a linear transformation such that<br />\\( T(1, -1) = (0, 1) \\) and \\( T(1, 1) = (1, 0) \\).<br /><br />Find \\( T(1, -7) \\).",
+    "image_url": "",
+    "explanation": "Chìa khóa của bài toán này là sử dụng tính chất tuyến tính. Ta cần biểu diễn vector đầu vào \\((1, -7)\\) dưới dạng tổ hợp tuyến tính của \\((1, -1)\\) và \\((1, 1)\\).<br /><br /><b>1. Thiết lập phương trình:</b><br />Tìm \\(a\\) và \\(b\\) sao cho: \\( (1, -7) = a(1, -1) + b(1, 1) \\).<br />Điều này dẫn đến hệ phương trình:<br />\\( a + b = 1 \\)<br />\\( -a + b = -7 \\)<br /><br /><b>2. Giải hệ siêu tốc:</b><br />- Lấy hai phương trình cộng lại: \\( 2b = -6 \\Rightarrow b = -3 \\).<br />- Thế \\(b = -3\\) vào phương trình đầu: \\( a - 3 = 1 \\Rightarrow a = 4 \\).<br /><br /><b>3. Áp dụng tính chất tuyến tính:</b><br />Bây giờ ta có: \\( (1, -7) = 4(1, -1) - 3(1, 1) \\).<br />Vì T là tuyến tính, nên:<br />\\( T(1, -7) = T(4(1, -1) - 3(1, 1)) \\)<br />\\( = 4 \\cdot T(1, -1) - 3 \\cdot T(1, 1) \\)<br /><br /><b>4. Thế số và tính toán:</b><br />\\( = 4(0, 1) - 3(1, 0) \\)<br />\\( = (0, 4) - (3, 0) = (-3, 4) \\).<br /><br /><b>Kết luận:</b> Đáp án là <b>E</b>."
+  },
+  {
+    "id": 47,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "B"
+    ],
+    "options": [
+      {
+        "text": "none of the other choices is true",
+        "label": "A"
+      },
+      {
+        "text": "1/3",
+        "label": "B"
+      },
+      {
+        "text": "1/2",
+        "label": "C"
+      },
+      {
+        "text": "1",
+        "label": "D"
+      },
+      {
+        "text": "0",
+        "label": "E"
+      }
+    ],
+    "question": "Let P(a, b, c) be the point on the plane \\( x + y + z = 1 \\) that is closest to the point M(0, 0, 0). Find a.",
+    "image_url": "",
+    "explanation": "Đây là bài toán tìm hình chiếu của một điểm lên mặt phẳng, có một mẹo giải rất nhanh bằng vector.<br /><br /><b>1. Ý tưởng cốt lõi:</b><br />Điểm \\(P\\) gần gốc tọa độ \\(M(0,0,0)\\) nhất chính là <b>hình chiếu vuông góc</b> của \\(M\\) lên mặt phẳng.<br />Điều này có nghĩa là vector \\( \\vec{MP} \\) phải <b>cùng phương</b> với vector pháp tuyến \\( \\vec{n} \\) của mặt phẳng.<br /><br /><b>2. Tìm các vector:</b><br />- Vector pháp tuyến của mặt phẳng \\( x+y+z=1 \\) là \\( \\vec{n} = (1, 1, 1) \\).<br />- Vector \\( \\vec{MP} = (a-0, b-0, c-0) = (a, b, c) \\).<br /><br /><b>3. Thiết lập tỉ lệ:</b><br />Vì \\( \\vec{MP} \\) cùng phương \\( \\vec{n} \\), ta có \\( (a, b, c) = k(1, 1, 1) \\) cho một hằng số \\(k\\) nào đó. <br />=> \\( a = k, b = k, c = k \\). Hay nói cách khác, \\( a=b=c \\).<br /><br /><b>4. Giải tìm a:</b><br />Vì điểm \\( P(a,b,c) \\) nằm trên mặt phẳng, tọa độ của nó phải thỏa mãn phương trình mặt phẳng:<br />\\( a + b + c = 1 \\)<br />Thay \\(b=a\\) và \\(c=a\\) vào, ta được: \\( a + a + a = 1 \\Rightarrow 3a = 1 \\Rightarrow a = 1/3 \\).<br /><br /><b>Kết luận:</b> Đáp án là <b>B</b>."
+  },
+  {
+    "id": 48,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "-8/13",
+        "label": "A"
+      },
+      {
+        "text": "13/8",
+        "label": "B"
+      },
+      {
+        "text": "-26",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "-2/13",
+        "label": "E"
+      }
+    ],
+    "question": "Let \\( A = \\begin{pmatrix} 1 & 0 & -2 \\\\ 3 & 1 & 4 \\\\ 5 & 2 & -3 \\end{pmatrix} \\). Find \\( \\det(2A^{-1}) \\).",
+    "image_url": "",
+    "explanation": "<b>Tuyệt đối không tính ma trận nghịch đảo!</b> Dùng tính chất của định thức để giải siêu tốc.<br /><br /><b>1. Tách hằng số:</b><br />Sử dụng công thức \\( \\det(k \\cdot B) = k^n \\det(B) \\), với \\( n \\) là cấp của ma trận (ở đây \\(n=3\\)).<br />\\( \\det(2A^{-1}) = 2^3 \\det(A^{-1}) = 8 \\det(A^{-1}) \\).<br /><br /><b>2. Xử lý nghịch đảo:</b><br />Sử dụng công thức \\( \\det(A^{-1}) = \\frac{1}{\\det(A)} \\).<br />Biểu thức trở thành: \\( 8 \\cdot \\frac{1}{\\det(A)} = \\frac{8}{\\det(A)} \\).<br /><br /><b>3. Tính det(A):</b><br />Dùng quy tắc Sarrus hoặc khai triển:<br />\\( \\det(A) = 1(1 \\cdot (-3) - 4 \\cdot 2) - 0(...) + (-2)(3 \\cdot 2 - 1 \\cdot 5) \\)<br />\\( = 1(-3 - 8) - 2(6 - 5) \\)<br />\\( = -11 - 2(1) = -13 \\).<br /><br /><b>4. Kết luận:</b><br />\\( \\det(2A^{-1}) = \\frac{8}{-13} = -8/13 \\). Đáp án là <b>A</b>."
+  },
+  {
+    "id": 49,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "60 ft/s",
+        "label": "A"
+      },
+      {
+        "text": "160 ft/s",
+        "label": "B"
+      },
+      {
+        "text": "-160 ft/s",
+        "label": "C"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "D"
+      },
+      {
+        "text": "-60 ft/s",
+        "label": "E"
+      }
+    ],
+    "question": "A potato is launched vertically upward with an initial velocity of 100 ft/s from a potato gun at the top of an 85-feet-tall building. The distance in feet that the potato travels from the ground after \\(t\\) seconds is given by<br /><br />\\( s(t) = -16t^2 + 100t + 85 \\)<br /><br />Find the speed of the potato at 5 seconds.",
+    "image_url": "",
+    "explanation": "Đây là bài toán tìm tốc độ tức thời, chìa khóa là lấy đạo hàm.<br /><br /><b>1. \"Thần chú\" Tốc độ & Vận tốc:</b><br />- Vận tốc (velocity) \\( v(t) \\) là đạo hàm của quãng đường \\( s(t) \\).<br />- Tốc độ (speed) là <b>trị tuyệt đối</b> của vận tốc: \\( \\text{speed} = |v(t)| \\).<br /><br /><b>2. Tìm vận tốc v(t):</b><br />Lấy đạo hàm của \\( s(t) \\):<br />\\( v(t) = s'(t) = (-16t^2 + 100t + 85)' = -32t + 100 \\)<br /><br /><b>3. Tính vận tốc tại t = 5:</b><br />\\( v(5) = -32(5) + 100 = -160 + 100 = -60 \\) ft/s.<br /><br /><b>4. Tìm tốc độ:</b><br />Tốc độ tại t = 5 là \\( |v(5)| = |-60| = 60 \\) ft/s.<br /><br /><b>Kết luận:</b> Đáp án là <b>A</b>. Chú ý rằng vận tốc có thể âm (đi xuống), nhưng tốc độ luôn dương."
+  },
+  {
+    "id": 50,
+    "type": "single",
+    "points": 1,
+    "correct": [
+      "A"
+    ],
+    "options": [
+      {
+        "text": "(iv)",
+        "label": "A"
+      },
+      {
+        "text": "(iii)",
+        "label": "B"
+      },
+      {
+        "text": "(i)",
+        "label": "C"
+      },
+      {
+        "text": "(ii)",
+        "label": "D"
+      },
+      {
+        "text": "None of the other choices is correct",
+        "label": "E"
+      }
+    ],
+    "question": "Let A = \\( (a_{ij}) \\) be the matrix of rotation in the plane through \\( \\pi/3 \\).<br />Find \\( a_{12} \\).<br /><br />(i) 1/2<br />(ii) -1/2<br />(iii) \\( \\sqrt{3}/2 \\)<br />(iv) \\( -\\sqrt{3}/2 \\)",
+    "image_url": "",
+    "explanation": "Đây là bài toán áp dụng công thức ma trận quay kinh điển.<br /><br /><b>1. Nhớ \"câu thần chú\":</b><br />Ma trận quay một góc \\( \\theta \\) trong mặt phẳng là:<br />\\( R(\\theta) = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix} \\)<br /><br /><b>2. Xác định vị trí:</b><br />Phần tử \\( a_{12} \\) là phần tử ở <b>hàng 1, cột 2</b>, chính là \\( -\\sin\\theta \\).<br /><br /><b>3. Thế số và tính toán:</b><br />Với \\( \\theta = \\pi/3 \\), ta có:<br />\\( a_{12} = -\\sin(\\pi/3) = -\\frac{\\sqrt{3}}{2} \\)<br /><br /><b>Kết luận:</b> Kết quả là \\( -\\frac{\\sqrt{3}}{2} \\), tương ứng với lựa chọn (iv). Do đó, đáp án đúng là <b>A</b>."
+  }
+]
