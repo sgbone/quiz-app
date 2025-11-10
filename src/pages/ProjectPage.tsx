@@ -17,6 +17,8 @@ import {
   Clock,
   ListOrdered,
   X,
+  Share2,
+  Check,
 } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 
@@ -74,6 +76,7 @@ export default function ProjectPage() {
   const [toDelete, setToDelete] = useState<ProjectRow | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [delError, setDelError] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<number | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -188,6 +191,36 @@ export default function ProjectPage() {
     }
   };
 
+  const handleShare = async (projectId: number) => {
+    const url = `${window.location.origin}/project/${projectId}`;
+    try {
+      // 1) Mobile/web hỗ trợ Web Share
+      if (navigator.share) {
+        await navigator.share({ title: "Project", url });
+        return;
+      }
+      // 2) HTTPS + Clipboard API
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        // 3) Fallback: chọn-copy tạm bằng textarea (kể cả http)
+        const ta = document.createElement("textarea");
+        ta.value = url;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      setCopiedId(projectId);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (e) {
+      console.error(e);
+      alert("Copy thất bại. Bạn có thể sao chép thủ công:\n" + url);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen grid place-items-center bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-950">
@@ -236,6 +269,8 @@ export default function ProjectPage() {
         .animate-float{animation:float 3s ease-in-out infinite}
         .animate-glow{animation:glow 2s ease-in-out infinite}
         .group:hover .shimmer{animation:shimmer 0.8s ease-in-out}
+        .card-hover{transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+        .card-hover:hover{transform:translateY(-8px) scale(1.02)}
       `}</style>
 
       {/* Animated background */}
@@ -390,7 +425,7 @@ export default function ProjectPage() {
                       }}
                     >
                       <option value="default" className="bg-slate-900">
-                        Mặc định
+                        Mặc định (ID)
                       </option>
                       <option value="newest" className="bg-slate-900">
                         Mới nhất
@@ -414,7 +449,7 @@ export default function ProjectPage() {
                       Không tìm thấy dự án nào
                     </p>
                     <p className="text-white/50 text-sm">
-                      Thử tìm với từ khóa khác
+                      Thử tìm kiếm với từ khóa khác
                     </p>
                   </div>
                 </div>
@@ -425,7 +460,7 @@ export default function ProjectPage() {
                     p.profiles?.username ||
                     "Ẩn danh";
                   return (
-                    <div key={p.id} className="group relative">
+                    <div key={p.id} className="group relative card-hover">
                       {/* Glow */}
                       <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 via-fuchsia-600 to-pink-600 rounded-3xl opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500" />
 
@@ -527,6 +562,21 @@ export default function ProjectPage() {
                                 <Download className="w-4 h-4 transition-transform group-hover/btn:translate-y-0.5" />
                                 Tải
                               </span>
+                            </button>
+
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleShare(p.id);
+                              }}
+                              className="group/share relative px-4 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                              title="Chia sẻ"
+                            >
+                              {copiedId === p.id ? (
+                                <Check className="w-4 h-4 text-emerald-400" />
+                              ) : (
+                                <Share2 className="w-4 h-4 transition-transform group-hover/share:rotate-12" />
+                              )}
                             </button>
 
                             <button
