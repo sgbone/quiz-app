@@ -42,7 +42,7 @@ export default function EditProjectPage() {
   const { id } = useParams<{ id: string }>();
   const nav = useNavigate();
 
-  const [me, setMe] = useState<string | null>(null);
+  //const [me, setMe] = useState<string | null>(null);
   const [p, setP] = useState<ProjectRow | null>(null);
 
   const [title, setTitle] = useState("");
@@ -62,7 +62,7 @@ export default function EditProjectPage() {
     (async () => {
       const { data: auth } = await supabase.auth.getUser();
       const uid = auth?.user?.id ?? null;
-      setMe(uid);
+      //setMe(uid);
 
       const { data, error } = await supabase
         .from("projects")
