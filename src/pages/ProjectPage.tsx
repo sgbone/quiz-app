@@ -128,12 +128,13 @@ export default function ProjectPage() {
   const handleLogin = () => nav("/login", { state: { from: "/project" } });
   const openUpload = () => nav("/project/upload");
 
-  const downloadZip = async (zip_path: string | null) => {
-    if (!zip_path) return;
-    const { data, error } = await supabase.storage
-      .from("project-zips")
-      .getPublicUrl(zip_path);
-    if (!error && data?.publicUrl) window.open(data.publicUrl, "_blank");
+  const downloadZip = (zip_path: string | null) => {
+  if (!zip_path) return;
+  const { data } = supabase
+    .storage
+    .from('project-zips')
+    .getPublicUrl(zip_path);
+  if (data.publicUrl) window.open(data.publicUrl, '_blank');
   };
 
   const openConfirm = (p: ProjectRow) => {
