@@ -132,7 +132,7 @@ export default function ProjectPage() {
     if (!zip_path) return;
     const { data, error } = await supabase.storage
       .from("project-zips")
-      .createSignedUrl(zip_path, 60);
+      .getPublicUrl(zip_path);
     if (!error && data?.signedUrl) window.open(data.signedUrl, "_blank");
   };
 
