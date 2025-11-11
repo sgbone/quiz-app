@@ -133,7 +133,7 @@ export default function ProjectPage() {
     const { data, error } = await supabase.storage
       .from("project-zips")
       .getPublicUrl(zip_path);
-    if (!error && data?.signedUrl) window.open(data.signedUrl, "_blank");
+    if (!error && data?.publicUrl) window.open(data.publicUrl, "_blank");
   };
 
   const openConfirm = (p: ProjectRow) => {
